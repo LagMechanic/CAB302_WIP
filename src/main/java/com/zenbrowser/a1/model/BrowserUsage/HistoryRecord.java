@@ -10,16 +10,16 @@ import javafx.beans.property.StringProperty;
 public class HistoryRecord {
     private final IntegerProperty activityID;
     private final StringProperty username;
-    private final StringProperty activity;
-    private final StringProperty activityDateTime;
-    private final StringProperty activityEndDateTime;
+    private final StringProperty site;
+    private final StringProperty historyRecordDateTime;
+    private final StringProperty historyRecordEndDateTime;
 
-    public HistoryRecord(int activityID, String username, String activity, String activityDateTime, String activityEndDateTime) {
+    public HistoryRecord(int activityID, String username, String site, String historyRecordDateTime, String historyRecordEndDateTime) {
         this.activityID = new SimpleIntegerProperty(activityID);
         this.username = new SimpleStringProperty(username);
-        this.activity = new SimpleStringProperty(activity);
-        this.activityDateTime = new SimpleStringProperty(activityDateTime);
-        this.activityEndDateTime = new SimpleStringProperty(activityEndDateTime);
+        this.site = new SimpleStringProperty(site);
+        this.historyRecordDateTime = new SimpleStringProperty(historyRecordDateTime);
+        this.historyRecordEndDateTime = new SimpleStringProperty(historyRecordEndDateTime);
     }
 
     // Getters
@@ -39,27 +39,27 @@ public class HistoryRecord {
         return username;
     }
 
-    public String getActivity() {
-        return activity.get();
+    public String getSite() {
+        return site.get();
     }
 
-    public StringProperty activityProperty() {
-        return activity;
+    public StringProperty siteProperty() {
+        return site;
     }
 
-    public String getActivityDateTime() {
-        return activityDateTime.get();
+    public String getHistoryRecordDateTime() {
+        return historyRecordDateTime.get();
     }
 
-    public StringProperty activityDateTimeProperty() {
-        return activityDateTime;
+    public StringProperty historyRecordDateTimeProperty() {
+        return historyRecordDateTime;
     }
 
-    public String getActivityEndDateTime() {
-        return activityEndDateTime.get();
+    public String getHistoryRecordEndDateTime() {
+        return historyRecordEndDateTime.get();
     }
 
-    public StringProperty activityEndDateTimeProperty() {
-        return activityEndDateTime;
+    public StringProperty historyRecordEndDateTimeProperty() {
+        return historyRecordEndDateTime;
     }
 }
