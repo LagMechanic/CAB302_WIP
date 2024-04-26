@@ -6,11 +6,18 @@ package com.zenbrowser.a1.model.Authentication;
 public class Authentication implements IAuthentication {
 
     private String username;
-    private Boolean userLoggedIn;
+    public String getUsername() {
+        return username;
+    }
 
-    public Authentication() {
+
+    private Boolean userLoggedIn;
+    private final IUsersDAO usersDAO;
+
+    public Authentication(IUsersDAO usersDAO) {
         username = null;
         userLoggedIn = false;
+        this.usersDAO = usersDAO;
     }
 
     /**
@@ -19,8 +26,10 @@ public class Authentication implements IAuthentication {
      * @param password user's password
      */
     @Override
-    public void login(String username, String password)  {
-        //throw new InvalidCredentials();
+    public void login(String username, String password) throws InvalidCredentials {
+        if (!usersDAO.CheckUsername(username)) throw new InvalidCredentials();
+        if (!usersDAO.CheckPassword(username, password)) throw new InvalidCredentials();
+
         this.username = username;
         userLoggedIn = true;
     }
@@ -31,8 +40,11 @@ public class Authentication implements IAuthentication {
      * @param password user's password
      */
     @Override
-    public void signup(String username, String password) {
-        //throw new UserAlreadyExists();
+    public void signup(String username, String password) throws UserAlreadyExists {
+        if (usersDAO.CheckUsername(username)) throw new UserAlreadyExists();
+
+        usersDAO.AddUser(username, password);
+
         this.username = username;
         userLoggedIn = true;
     }

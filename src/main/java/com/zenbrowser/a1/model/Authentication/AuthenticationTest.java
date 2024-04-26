@@ -5,33 +5,46 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class AuthenticationTest {
-    Authentication auth;
-
+    private Authentication auth;
 
     /**
      * Create a new user (username1, password1)
      */
     @BeforeEach
-    void setup() {
-        auth = new Authentication();
-        auth.signup("username1", "password1");
+    public void setup() {
+        try {
+            IUsersDAO usersDAO = new MockUsersDAO();
+            auth = new Authentication(usersDAO);
+            auth.signup("username1", "password1");
+        } catch (UserAlreadyExists e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
-    void validNewUser() {
-        auth.signup("username2", "password2");
-        auth.login("username2", "password2");
-        assertEquals(true, auth.userLoggedIn());
+    public void validNewUser() {
+
+        try {
+            auth.signup("username2", "password2");
+            auth.login("username2", "password2");
+            assertEquals(true, auth.userLoggedIn());
+        } catch (InvalidCredentials | UserAlreadyExists e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
-    void validUsernamePassword() {
-        auth.login("username1", "password1");
-        assertEquals(true, auth.userLoggedIn());
+    public void validUsernamePassword() {
+        try {
+            auth.login("username1", "password1");
+            assertEquals(true, auth.userLoggedIn());
+        } catch (InvalidCredentials e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
-    void invalidUsernamePassword() {
+    public void invalidUsernamePassword() {
         assertThrows(
                 InvalidCredentials.class,
                 () -> auth.login("not a username", "not a password")
@@ -39,7 +52,7 @@ public class AuthenticationTest {
     }
 
     @Test
-    void userAlreadyExists() {
+    public void userAlreadyExists() {
         assertThrows(
                 UserAlreadyExists.class,
                 () -> auth.signup("username1", "password1")
@@ -48,10 +61,14 @@ public class AuthenticationTest {
 
 
     @Test
-    void logout() {
-        auth.login("username1", "password1");
-        assertEquals(true, auth.userLoggedIn());
-        auth.logout();
-        assertEquals(false, auth.userLoggedIn());
+    public void logout() {
+        try {
+            auth.login("username1", "password1");
+            assertEquals(true, auth.userLoggedIn());
+            auth.logout();
+            assertEquals(false, auth.userLoggedIn());
+        } catch (InvalidCredentials e) {
+            throw new RuntimeException(e);
+        }
     }
 }
