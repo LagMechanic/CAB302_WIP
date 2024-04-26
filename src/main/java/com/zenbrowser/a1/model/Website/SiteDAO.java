@@ -45,7 +45,14 @@ public class SiteDAO implements ISiteDAO {
 
     @Override
     public void deleteSite(int id) {
-
+        String sql = "DELETE FROM sites WHERE id=?";
+        try(PreparedStatement statement = connection.prepareStatement(sql)){
+            statement.setInt(1,id);
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
