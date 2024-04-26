@@ -10,9 +10,17 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
 
     private int historyRecordId;
 
+    private Connection connection;
+
+    public HistoryRecordDAO(){
+        this.connection = DatabaseConnection.getInstance();
+    }
+    public HistoryRecordDAO(Connection connection) {
+        this.connection = connection;
+    }
+
     // method to insert browsing data to database, should call this when user opens website
     // takes id, username, the activity , and the moment the user started using it.
-
     /**
      * Inserts site into database.
      * @param username username
@@ -20,10 +28,11 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
      * @param historyRecordDateTime date and time user opens site
      */
     public void insertHistoryRecord(String username, String site, String historyRecordDateTime) {
-        String sql = "INSERT INTO user_records (    username, site, historyRecordDateTime ) VALUES (?, ?, ?,)";
+        String sql = "INSERT INTO user_records (    username, site, historyRecordDateTime ) VALUES (?, ?, ?)";
 
-        try(Connection connection = DatabaseConnection.getInstance();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
+        try(
+            PreparedStatement preparedStatement = this.connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
+        {
 
             preparedStatement.setString(1,username);
             preparedStatement.setString(2,site);
@@ -47,11 +56,11 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
     }
 
     // method to update the row with time the activity ended
-    // pass activityID which has the generated Pkey from earlier, takes end time as a parameter
+    // pass recordId which has the generated Pkey from earlier, takes end time as a parameter
     // should be called when user done with current site
 
     /**
-     *  updates row with HistoryRecordEndDateTime where activityID matches this activityID
+     *  updates row with HistoryRecordEndDateTime where recordId matches this recordId
      * @param HistoryRecordEndDateTime Date/time user finished activity
      */
     public void updateActivityEndDateTime(String HistoryRecordEndDateTime){
