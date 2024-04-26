@@ -1,7 +1,11 @@
 package com.zenbrowser.a1.model.FocusProfile;
 
+import com.zenbrowser.a1.model.Website.Site;
+import com.zenbrowser.a1.model.Website.SiteDAO;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProfileDAO {
@@ -44,7 +48,23 @@ public class ProfileDAO {
         }
     }
 
-    public Profile getProfileById(int id){
+    public Profile getProfileById(int id) {
         String sql = "SELECT * FROM profiles WHERE id=?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            return extractProfileFromResultSet(resultSet);
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+    private Profile extractProfileFromResultSet(ResultSet resultSet) throws SQLException {
+        SiteDAO siteDAO = new SiteDAO(connection);
+        Site website = siteDAO.getSiteById(resultSet.getInt("websiteId"));
+
+        Profile profile = new Profile(resultSet.getString("profileName"), website);
+        profile.setId(resultSet.getInt("id"));
+        return profile;
     }
 }

@@ -57,7 +57,7 @@ public class SiteDAO implements ISiteDAO {
     }
 
     @Override
-    public Site getSiteByID(int id) {
+    public Site getSiteById(int id) {
         String sql = "SELECT * FROM sites WHERE id=?";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setInt(1,id);
