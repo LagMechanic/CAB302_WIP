@@ -8,5 +8,5 @@ public interface ISiteDAO {
     void insertSite(Site site);
     void updateSite(Site site);
     void deleteSite(int id);
-    void getAllSites();
+    Site getSiteByID(int id);
 }
