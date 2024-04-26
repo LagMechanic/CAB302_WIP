@@ -28,4 +28,9 @@ public class Profile {
         this.profileName = profileName;
     }
 
+    public Site getWebsite() { return website; }
+    public void setWebsite(Site website) {
+        this.website = website;
+    }
+
 }
