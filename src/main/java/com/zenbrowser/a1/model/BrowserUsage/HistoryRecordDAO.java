@@ -8,7 +8,7 @@ import java.sql.*;
 
 public class HistoryRecordDAO implements IHistoryRecordDAO {
 
-    private int historyRecordID;
+    private int historyRecordId;
 
     // method to insert browsing data to database, should call this when user opens website
     // takes id, username, the activity , and the moment the user started using it.
@@ -34,8 +34,8 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
                 System.out.println("inserted record successfully");
                     try(var generatedKeys = preparedStatement.getGeneratedKeys()){
                         if (generatedKeys.next()){
-                            historyRecordID = generatedKeys.getInt(1);
-                            System.out.println("generated key RecordID: " + historyRecordID);
+                            historyRecordId = generatedKeys.getInt(1);
+                            System.out.println("generated key historyRecordId: " + historyRecordId);
                         }
                     }
             }
@@ -60,7 +60,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
         try(Connection connection = DatabaseConnection.getInstance();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
-            preparedStatement.setInt(1, historyRecordID);
+            preparedStatement.setInt(1, historyRecordId);
             preparedStatement.setString(2,HistoryRecordEndDateTime);
 
         } catch (SQLException e) {
