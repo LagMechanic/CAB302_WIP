@@ -31,5 +31,5 @@ public class Site {
 
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
-    public boolean isBlockedStatus() { return isBlockedStatus(); }
+    public boolean getIsBlockedStatus() { return blockedStatus; }
 }
