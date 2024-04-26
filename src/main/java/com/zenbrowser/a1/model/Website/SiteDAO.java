@@ -21,7 +21,7 @@ public class SiteDAO implements ISiteDAO {
             statement.setString(2, site.getProfileName());
             statement.setString(3, site.getSiteName());
             statement.setString(4, site.getCategory());
-            statement.setBoolean(5, site.isBlockedStatus());
+            statement.setBoolean(5, site.getIsBlockedStatus());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -35,7 +35,7 @@ public class SiteDAO implements ISiteDAO {
             statement.setString(1, site.getProfileName());
             statement.setString(2, site.getSiteName());
             statement.setString(3, site.getCategory());
-            statement.setBoolean(4, site.isBlockedStatus());
+            statement.setBoolean(4, site.getIsBlockedStatus());
             statement.setInt(5, site.getId());
             statement.executeUpdate();
         }
