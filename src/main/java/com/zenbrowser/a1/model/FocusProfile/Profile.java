@@ -4,12 +4,12 @@ import com.zenbrowser.a1.model.Website.Site;
 
 public class Profile {
     private int id;
-    private String ProfileName;
-    private Site Website;
+    private String profileName;
+    private Site website;
 
-    public Profile(String ProfileName, Site Website) {
-        this.ProfileName = ProfileName;
-        this.Website = Website;
+    public Profile(String profileName, Site website) {
+        this.profileName = profileName;
+        this.website = website;
     }
 
     public int getId() {
@@ -21,11 +21,11 @@ public class Profile {
     }
 
     public String getProfileName() {
-        return ProfileName;
+        return profileName;
     }
 
     public void setProfileName(String profileName) {
-        this.ProfileName = profileName;
+        this.profileName = profileName;
     }
 
 }
