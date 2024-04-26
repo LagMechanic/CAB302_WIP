@@ -7,8 +7,8 @@ public class Site {
     private String category;
     private boolean blockedStatus;
 
-    public Site(String ProfileName, String siteName, boolean blockedStatus) {
-        this.URL = ProfileName;
+    public Site(String profileName, String siteName, boolean blockedStatus) {
+        this.URL = profileName;
         this.siteName = siteName;
         this.blockedStatus = blockedStatus;
     }
@@ -18,13 +18,18 @@ public class Site {
     public void setId(int id) {
         this.id = id;
     }
+
+    public String getSiteName() { return siteName;}
+    public void setSiteName(String siteName) {this.siteName = siteName;}
+
     public String getProfileName() {
         return URL;
     }
-    public String getSiteName() { return siteName;}
     public void setProfileName(String profileName) {
         this.URL = profileName;
     }
+
     public String getCategory() { return category; }
+    public void setCategory(String category) { this.category = category; }
     public boolean isBlockedStatus() { return isBlockedStatus(); }
 }
