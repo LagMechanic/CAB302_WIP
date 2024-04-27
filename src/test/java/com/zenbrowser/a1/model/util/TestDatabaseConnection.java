@@ -1,4 +1,4 @@
-package com.zenbrowser.a1.model.BrowserUsage;
+package com.zenbrowser.a1.model.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

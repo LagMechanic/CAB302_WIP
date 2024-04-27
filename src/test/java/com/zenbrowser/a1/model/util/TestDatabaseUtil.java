@@ -1,6 +1,7 @@
-package com.zenbrowser.a1.model.BrowserUsage;
+package com.zenbrowser.a1.model.util;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -34,14 +35,44 @@ public class TestDatabaseUtil {
             System.err.println("Error: " + e.getMessage());
         }
     }
-    public static void dropUserRecordsTable(){
+    public static void dropTable(String tableName){
         try (Connection connection = TestDatabaseConnection.getInstance();
              Statement statement = connection.createStatement()) {
-            statement.executeUpdate("DROP TABLE IF EXISTS user_records;");
+            statement.executeUpdate("DROP TABLE IF EXISTS " + tableName + ";");
             // Repeat the above line for each table you want to drop
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+    public static void  createSitesTableWithData() {
+        try (Connection connection = TestDatabaseConnection.getInstance()) {
+            if (connection != null) {
+                Statement statement = connection.createStatement();
+
+                // Create user_records table
+                String sql = "CREATE TABLE IF NOT EXISTS sites (" +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "URL TEXT," +
+                        "siteName TEXT," +
+                        "category TEXT," +
+                        "blockedStatus BOOLEAN)";
+                statement.execute(sql);
+
+                // Insert sample data
+                String insertDataSQL = "INSERT INTO sites (URL, siteName, category, blockedStatus) " +
+                        "VALUES " +
+                        "('https://www.example.com', 'Example', 'Search Engine', false), " +
+                        "('https://www.google.com', 'Google', 'Search Engine', false), " +
+                        "('https://www.yahoo.com', 'Yahoo', 'News', false)";
+                statement.execute(insertDataSQL);
+
+                System.out.println("Test database setup completed.");
+            } else {
+                System.out.println("Failed to establish connection to the database.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
         }
     }
 }

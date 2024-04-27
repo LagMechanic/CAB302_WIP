@@ -1,5 +1,7 @@
 package com.zenbrowser.a1.model.BrowserUsage;
 
+import com.zenbrowser.a1.model.util.TestDatabaseConnection;
+import com.zenbrowser.a1.model.util.TestDatabaseUtil;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
@@ -17,7 +19,7 @@ public class HistoryRecordDAOTestDB {
 
     @AfterAll
     static void tearDown() throws SQLException {
-        TestDatabaseUtil.dropUserRecordsTable();
+        TestDatabaseUtil.dropTable("user_records");
     }
 
     public static void setupTestDatabase() {
@@ -53,7 +55,5 @@ public class HistoryRecordDAOTestDB {
         Assertions.assertNotNull(historyRecord.getHistoryRecordEndDateTime());
         Assertions.assertEquals(endTime,historyRecord.getHistoryRecordEndDateTime());
     }
-
-
 }
 

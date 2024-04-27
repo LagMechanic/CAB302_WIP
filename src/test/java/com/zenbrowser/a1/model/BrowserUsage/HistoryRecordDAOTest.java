@@ -29,10 +29,6 @@ class HistoryRecordDAOTest {
         mockResultSet = mock(ResultSet.class);
 
     }
-
-
-
-
     @Test
     void insertHistoryRecord_noAffectedRows() throws SQLException {
         when(mockConnection.prepareStatement(anyString(), eq(Statement.RETURN_GENERATED_KEYS))).thenReturn(mockStatement);
