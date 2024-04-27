@@ -60,17 +60,19 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
     // should be called when user done with current site
 
     /**
-     *  updates row with HistoryRecordEndDateTime where recordId matches this recordId
-     * @param HistoryRecordEndDateTime Date/time user finished activity
+     *  updates row with historyRecordEndDateTime where recordId matches this recordId
+     * @param historyRecordEndDateTime Date/time user finished activity
      */
-    public void updateActivityEndDateTime(String HistoryRecordEndDateTime){
-        String sql = "UPDATE user_records SET HistoryRecordEndDateTime = ? WHERE HistoryRecordID = ?";
+    public void updateActivityEndDateTime(String historyRecordEndDateTime){
+        String sql = "UPDATE user_records SET historyRecordEndDateTime = ? WHERE historyRecordID = ?";
 
         try(
             PreparedStatement preparedStatement = this.connection.prepareStatement(sql)) {
 
-            preparedStatement.setInt(1, historyRecordId);
-            preparedStatement.setString(2,HistoryRecordEndDateTime);
+            preparedStatement.setString(1, historyRecordEndDateTime);
+            preparedStatement.setInt(2, historyRecordId);
+
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
