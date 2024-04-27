@@ -77,11 +77,23 @@ class HistoryRecordDAOTest {
      }
 
     @Test
-    void updateActivityEndDateTime() {
+    void updateActivityEndDateTime() throws SQLException{
+        when(mockConnection.prepareStatement(anyString())).thenReturn(mockStatement);
+        when(mockStatement.executeUpdate()).thenReturn(1);
+
+        HistoryRecordDAO dao = new HistoryRecordDAO(mockConnection);
+        String endTime = "2024-04-25 11:45:00";
+
+        dao.updateActivityEndDateTime(endTime);
+
 
     }
 
     @Test
-    void getAllUserHistoryRecords() {
+    void getAllUserHistoryRecords() throws SQLException{
+        when(mockConnection.prepareStatement(anyString())).thenReturn(mockStatement);
+
+        HistoryRecordDAO dao = new HistoryRecordDAO(mockConnection);
+
     }
 }

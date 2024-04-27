@@ -66,8 +66,8 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
     public void updateActivityEndDateTime(String HistoryRecordEndDateTime){
         String sql = "UPDATE user_activity SET HistoryRecordEndDateTime = ? WHERE activityID = ?";
 
-        try(Connection connection = DatabaseConnection.getInstance();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+        try(
+            PreparedStatement preparedStatement = this.connection.prepareStatement(sql)) {
 
             preparedStatement.setInt(1, historyRecordId);
             preparedStatement.setString(2,HistoryRecordEndDateTime);
@@ -80,8 +80,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
         ObservableList<HistoryRecord> historyRecordObservableList = FXCollections.observableArrayList();
         String sql = "SELECT * FROM user_activity WHERE username = ?";
 
-        try (Connection connection = DatabaseConnection.getInstance();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+        try (PreparedStatement preparedStatement = this.connection.prepareStatement(sql)) {
 
             preparedStatement.setString(1, username);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
