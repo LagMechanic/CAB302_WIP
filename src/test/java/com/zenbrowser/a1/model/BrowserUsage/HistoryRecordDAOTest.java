@@ -78,6 +78,7 @@ class HistoryRecordDAOTest {
 
     @Test
     void updateActivityEndDateTime() {
+
     }
 
     @Test
