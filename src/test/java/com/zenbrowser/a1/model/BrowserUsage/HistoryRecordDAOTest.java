@@ -13,7 +13,6 @@ import static org.mockito.Mockito.*;
 
 class HistoryRecordDAOTest {
 
-    private static final String TEST_DB_URL = "jdbc:sqlite:test_database.db";
 
     private Connection mockConnection;
     private PreparedStatement mockStatement;
@@ -63,7 +62,7 @@ class HistoryRecordDAOTest {
         when(mockResultSet.getInt(anyInt())).thenReturn(1);
 
         HistoryRecordDAO dao = new HistoryRecordDAO(mockConnection);
-        String username = "testUser";
+        String username = "abcUser";
         String site = "example.com";
         String dateTime = "2024-04-25 10:30:00";
 

@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="added getter and setter for website field">
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="tested HistoryRecordDAO update method">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAOTestDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/BrowserUsage/TestDatabaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/BrowserUsage/TestDatabaseUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/ProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/ProfileDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/User/SqliteUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/User/SqliteUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/User/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/test_database.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/test_database.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -45,22 +52,135 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.HistoryRecordDAOTest.executor": "Run",
+    "JUnit.HistoryRecordDAOTest.getAllUserHistoryRecords.executor": "Run",
+    "JUnit.HistoryRecordDAOTest.insertHistoryRecord.executor": "Debug",
+    "JUnit.HistoryRecordDAOTest.insertHistoryRecord_noAffectedRows.executor": "Run",
+    "JUnit.HistoryRecordDAOTest.insertHistoryRecord_withAffectedRows.executor": "Run",
+    "JUnit.HistoryRecordDAOTest.updateActivityEndDateTime.executor": "Run",
+    "JUnit.HistoryRecordDAOTestDB.executor": "Debug",
+    "JUnit.HistoryRecordDAOTestDB.testInsertHistoryRecord.executor": "Debug",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "Luis__Torres",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Luis\IdeaProjects\CAB302_WIP\src" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.zenbrowser.a1.model.BrowserUsage" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.zenbrowser.a1.model.BrowserUsage" />
       <recent name="com.zenbrowser.a1.model" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.HistoryRecordDAOTestDB.testInsertHistoryRecord">
+    <configuration name="HistoryRecordDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.model.BrowserUsage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.BrowserUsage" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HistoryRecordDAOTestDB" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.model.BrowserUsage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.BrowserUsage" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAOTestDB" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HistoryRecordDAOTestDB.testInsertHistoryRecord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.model.BrowserUsage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.BrowserUsage" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAOTestDB" />
+      <option name="METHOD_NAME" value="testInsertHistoryRecord" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HistoryRecordDAOTest.getAllUserHistoryRecords" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.model.BrowserUsage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.BrowserUsage" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAOTest" />
+      <option name="METHOD_NAME" value="getAllUserHistoryRecords" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HistoryRecordDAOTest.updateActivityEndDateTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.model.BrowserUsage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.BrowserUsage" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAOTest" />
+      <option name="METHOD_NAME" value="updateActivityEndDateTime" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HistoryRecordDAOTestDB.testInsertHistoryRecord" />
+        <item itemvalue="JUnit.HistoryRecordDAOTestDB" />
+        <item itemvalue="JUnit.HistoryRecordDAOTest.getAllUserHistoryRecords" />
+        <item itemvalue="JUnit.HistoryRecordDAOTest.updateActivityEndDateTime" />
+        <item itemvalue="JUnit.HistoryRecordDAOTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -158,7 +278,79 @@
       <option name="project" value="LOCAL" />
       <updated>1714127072749</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="adjusted fields">
+      <option name="closed" value="true" />
+      <created>1714129379774</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714129379774</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added insertProfile(), updateProfile(), deleteProfile()">
+      <option name="closed" value="true" />
+      <created>1714129426715</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1714129426715</updated>
+    </task>
+    <task id="LOCAL-00013" summary="made getProfileByID method and extraction helper method.">
+      <option name="closed" value="true" />
+      <created>1714130249386</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1714130249386</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fixed blocked status getter,">
+      <option name="closed" value="true" />
+      <created>1714130419129</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1714130419129</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fixed blocked status getter,">
+      <option name="closed" value="true" />
+      <created>1714130455315</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1714130455315</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Created HistoryRecordDAOTest and test database">
+      <option name="closed" value="true" />
+      <created>1714135277675</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1714135277676</updated>
+    </task>
+    <task id="LOCAL-00017" summary="tested HistoryRecordDAO insert method">
+      <option name="closed" value="true" />
+      <created>1714142286528</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1714142286528</updated>
+    </task>
+    <task id="LOCAL-00018" summary="tested HistoryRecordDAO insert method">
+      <option name="closed" value="true" />
+      <created>1714210338831</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1714210338831</updated>
+    </task>
+    <task id="LOCAL-00019" summary="tested HistoryRecordDAO update method">
+      <option name="closed" value="true" />
+      <created>1714217120403</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1714217120403</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +374,20 @@
     <MESSAGE value="adjusted names to follow convention in Profile.java" />
     <MESSAGE value="adjusted names to follow convention in Profile.java removed unused imports" />
     <MESSAGE value="added getter and setter for website field" />
-    <option name="LAST_COMMIT_MESSAGE" value="added getter and setter for website field" />
+    <MESSAGE value="adjusted fields" />
+    <MESSAGE value="added insertProfile(), updateProfile(), deleteProfile()" />
+    <MESSAGE value="made getProfileByID method and extraction helper method." />
+    <MESSAGE value="fixed blocked status getter," />
+    <MESSAGE value="Created HistoryRecordDAOTest and test database" />
+    <MESSAGE value="tested HistoryRecordDAO insert method" />
+    <MESSAGE value="tested HistoryRecordDAO update method" />
+    <option name="LAST_COMMIT_MESSAGE" value="tested HistoryRecordDAO update method" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.sqlite.jdbc4.JDBC4ResultSet" memberName="limitRows" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

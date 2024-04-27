@@ -12,7 +12,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
 
     private Connection connection;
 
-    public HistoryRecordDAO(){
+    public HistoryRecordDAO() throws SQLException {
         this.connection = DatabaseConnection.getInstance();
     }
     public HistoryRecordDAO(Connection connection) {
@@ -64,7 +64,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
      * @param HistoryRecordEndDateTime Date/time user finished activity
      */
     public void updateActivityEndDateTime(String HistoryRecordEndDateTime){
-        String sql = "UPDATE user_activity SET HistoryRecordEndDateTime = ? WHERE activityID = ?";
+        String sql = "UPDATE user_records SET HistoryRecordEndDateTime = ? WHERE HistoryRecordID = ?";
 
         try(
             PreparedStatement preparedStatement = this.connection.prepareStatement(sql)) {
@@ -78,7 +78,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
     }
     public ObservableList<HistoryRecord> getAllUserHistoryRecords(String username) {
         ObservableList<HistoryRecord> historyRecordObservableList = FXCollections.observableArrayList();
-        String sql = "SELECT * FROM user_activity WHERE username = ?";
+        String sql = "SELECT * FROM user_records WHERE username = ?";
 
         try (PreparedStatement preparedStatement = this.connection.prepareStatement(sql)) {
 
@@ -88,7 +88,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
                     HistoryRecord historyRecord = new HistoryRecord(
                             resultSet.getInt("historyRecordID"),
                             resultSet.getString("username"),
-                            resultSet.getString("historyRecord"),
+                            resultSet.getString("site"),
                             resultSet.getString("historyRecordDateTime"),
                             resultSet.getString("historyRecordEndDateTime")
                     );
