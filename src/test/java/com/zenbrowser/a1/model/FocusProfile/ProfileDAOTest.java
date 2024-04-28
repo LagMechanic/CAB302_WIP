@@ -78,8 +78,25 @@ class ProfileDAOTest {
     }
 
     @Test
-    void deleteProfile() {
+    void deleteProfile() throws SQLException {
+        ProfileDAO profileDAO = new ProfileDAO(TestDatabaseConnection.getInstance());
+        SiteDAO siteDAO = new SiteDAO(TestDatabaseConnection.getInstance());
 
+        String URL = "https://test.com";
+        String siteName = "abc";
+        Boolean blockedStatus = Boolean.FALSE;
+
+        Site site =new Site(URL,siteName,blockedStatus);
+        site = siteDAO.insertSite(site);
+
+        String profileName = "testProfile";
+        Profile profile = new Profile(profileName,site);
+        // call insertProfile so profile we have here has generated id.
+        profile = profileDAO.insertProfile(profile);
+        // delete the row where id is this id
+        profileDAO.deleteProfile(profile.getId());
+        // try retrieve that row, should return null if successfully deleted
+        Assertions.assertNull(profileDAO.getProfileById(profile.getId()));
     }
 
     @Test
