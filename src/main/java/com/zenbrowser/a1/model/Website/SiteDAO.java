@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 public class SiteDAO implements ISiteDAO {
 
+    private int siteId;
+
     private final Connection connection;
 
     public SiteDAO(Connection connection) {
@@ -14,18 +16,30 @@ public class SiteDAO implements ISiteDAO {
     }
 
     @Override
-    public void insertSite(Site site) {
-        String sql = "INSERT INTO sites (id, URL, siteName, category, blockedStatus) VALUES (?, ?, ?, ?, ?)";
+    public Site insertSite(Site site) {
+        String sql = "INSERT INTO sites ( URL, siteName, category, blockedStatus) VALUES ( ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1,site.getId());
-            statement.setString(2, site.getProfileName());
-            statement.setString(3, site.getSiteName());
-            statement.setString(4, site.getCategory());
-            statement.setBoolean(5, site.getIsBlockedStatus());
+            statement.setString(1, site.getProfileName());
+            statement.setString(2, site.getSiteName());
+            statement.setString(3, site.getCategory());
+            statement.setBoolean(4, site.getIsBlockedStatus());
             statement.executeUpdate();
+            int affectedRows = statement.executeUpdate();
+            if (affectedRows > 0){
+                System.out.println("inserted record successfully");
+                try(var generatedKeys = statement.getGeneratedKeys()){
+                    if (generatedKeys.next()){
+                        siteId = generatedKeys.getInt(1);
+                        System.out.println("generated key siteId: " + siteId);
+                        site.setId(siteId);
+                        return site;
+                    }
+                }
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return site;
     }
 
     @Override
@@ -61,8 +75,14 @@ public class SiteDAO implements ISiteDAO {
         String sql = "SELECT * FROM sites WHERE id=?";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setInt(1,id);
-            ResultSet resultSet = statement.executeQuery();
-            return extractSiteFromResultSet(resultSet);
+            try (ResultSet resultSet = statement.executeQuery()){
+                if (resultSet.next()) {
+                    return extractSiteFromResultSet(resultSet);
+                    }
+                else {
+                    return null;
+                }
+            }
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
