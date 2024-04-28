@@ -1,6 +1,8 @@
 package com.zenbrowser.a1.model.FocusProfile;
 
 public interface IProfileDAO {
-    void insertProfile(Profile profile);
-
+    Profile insertProfile(Profile profile);
+    void updateProfile(Profile profile);
+    void deleteProfile(int id);
+    void getProfile(int id);
 }

@@ -10,22 +10,38 @@ import java.sql.SQLException;
 
 public class ProfileDAO {
     private Connection connection;
+    private int profileId;
 
     public ProfileDAO(Connection connection) {
         this.connection = connection;
     }
 
-    public void insertProfile(Profile profile) {
-        String sql = "INSERT INTO profiles (profileName, websiteId, profileId) VALUES (?, ? ,?)";
+    public Profile insertProfile(Profile profile) {
+        String sql = "INSERT INTO profiles (profileName, websiteId) VALUES (?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setString(1, profile.getProfileName());
             statement.setInt(2, profile.getWebsite().getId());
-            statement.setInt(3, profile.getId());
+            int affectedRows = statement.executeUpdate();
+            if (affectedRows > 0){
+                System.out.println("inserted record successfully");
+                try(var generatedKeys = statement.getGeneratedKeys()){
+                    if (generatedKeys.next()){
+                        profileId = generatedKeys.getInt(1);
+                        System.out.println("generated key siteId: " + profileId);
+                        profile.setId(profileId);
+                        return profile;
+                    }
+                }
+            }
+
         }
+
+
         catch (SQLException e){
             throw new RuntimeException(e);
         }
+        return profile;
     }
 
     public void updateProfile(Profile profile) {

@@ -23,7 +23,7 @@ public class SiteDAO implements ISiteDAO {
             statement.setString(2, site.getSiteName());
             statement.setString(3, site.getCategory());
             statement.setBoolean(4, site.getIsBlockedStatus());
-            statement.executeUpdate();
+
             int affectedRows = statement.executeUpdate();
             if (affectedRows > 0){
                 System.out.println("inserted record successfully");

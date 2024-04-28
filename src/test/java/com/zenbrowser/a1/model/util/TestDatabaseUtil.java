@@ -1,7 +1,6 @@
 package com.zenbrowser.a1.model.util;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -45,12 +44,12 @@ public class TestDatabaseUtil {
             e.printStackTrace();
         }
     }
-    public static void  createSitesTableWithData() {
+    public static void createSitesTableWithData() {
         try (Connection connection = TestDatabaseConnection.getInstance()) {
             if (connection != null) {
                 Statement statement = connection.createStatement();
 
-                // Create user_records table
+                // Create sites table
                 String sql = "CREATE TABLE IF NOT EXISTS sites (" +
                         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                         "URL TEXT," +
@@ -68,6 +67,35 @@ public class TestDatabaseUtil {
                 statement.execute(insertDataSQL);
 
                 System.out.println("Test database setup completed.");
+            } else {
+                System.out.println("Failed to establish connection to the database.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+    public static void createProfilesTableWithData() {
+        try (Connection connection = TestDatabaseConnection.getInstance()) {
+            if (connection != null) {
+                Statement statement = connection.createStatement();
+
+                // Create profiles table
+                String sql = "CREATE TABLE IF NOT EXISTS profiles (" +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "profileName TEXT," +
+                        "websiteId INTEGER, " +
+                        "FOREIGN KEY (websiteId) REFERENCES sites(id))";
+                statement.execute(sql);
+
+                // Insert sample data
+                String insertDataSQL = "INSERT INTO profiles (profileName, websiteId) " +
+                        "VALUES " +
+                        "('abc', 1 ), " +
+                        "('def', 2 ), " +
+                        "('gab', 3 ) ";
+                statement.execute(insertDataSQL);
+
+                System.out.println("Test profiles database setup completed.");
             } else {
                 System.out.println("Failed to establish connection to the database.");
             }
