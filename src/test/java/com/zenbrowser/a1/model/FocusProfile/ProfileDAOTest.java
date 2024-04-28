@@ -24,7 +24,7 @@ class ProfileDAOTest {
         TestDatabaseUtil.dropTable("profiles");
     }
 
-    public static void setupTestDatabase() throws SQLException {
+    public static void setupTestDatabase() {
         TestDatabaseUtil.createSitesTableWithData();
         TestDatabaseUtil.createProfilesTableWithData();
     }
