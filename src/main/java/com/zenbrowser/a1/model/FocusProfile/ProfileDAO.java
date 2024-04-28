@@ -68,8 +68,12 @@ public class ProfileDAO {
         String sql = "SELECT * FROM profiles WHERE id=?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
-            ResultSet resultSet = statement.executeQuery();
-            return extractProfileFromResultSet(resultSet);
+            try(ResultSet resultSet = statement.executeQuery()) {
+                if(resultSet.next()) {
+                   return extractProfileFromResultSet(resultSet);
+                }
+                else return null;
+            }
         }
         catch (SQLException e){
             throw new RuntimeException(e);
