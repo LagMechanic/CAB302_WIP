@@ -9,8 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProfileDAO {
-    private Connection connection;
-    private int profileId;
+    private final Connection connection;
 
     public ProfileDAO(Connection connection) {
         this.connection = connection;
@@ -27,7 +26,7 @@ public class ProfileDAO {
                 System.out.println("inserted record successfully");
                 try(var generatedKeys = statement.getGeneratedKeys()){
                     if (generatedKeys.next()){
-                        profileId = generatedKeys.getInt(1);
+                        int profileId = generatedKeys.getInt(1);
                         System.out.println("generated key siteId: " + profileId);
                         profile.setId(profileId);
                         return profile;

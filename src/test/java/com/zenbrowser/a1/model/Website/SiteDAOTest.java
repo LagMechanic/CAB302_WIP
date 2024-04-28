@@ -19,7 +19,7 @@ class SiteDAOTest {
     }
 
     @AfterAll
-    static void tearDown() throws SQLException {
+    static void tearDown(){
         TestDatabaseUtil.dropTable("sites");
     }
 
@@ -72,7 +72,7 @@ class SiteDAOTest {
         //delete site we just made from database
         dao.deleteSite(site.getId());
         //test if row can be retrieved
-        Assertions.assertEquals(null, dao.getSiteById(site.getId()));
+        Assertions.assertNull(dao.getSiteById(site.getId()));
 
     }
 

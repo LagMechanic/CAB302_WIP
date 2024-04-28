@@ -1,6 +1,5 @@
 package com.zenbrowser.a1.model.FocusProfile;
 
-import com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAO;
 import com.zenbrowser.a1.model.Website.Site;
 import com.zenbrowser.a1.model.Website.SiteDAO;
 import com.zenbrowser.a1.model.util.TestDatabaseConnection;
@@ -12,21 +11,20 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class ProfileDAOTest {
 
     @BeforeAll
-    static void setupTests(){
+    static void setupTests() throws SQLException {
         setupTestDatabase();
     }
     @AfterAll
-    static void tearDown() throws SQLException {
+    static void tearDown() {
         TestDatabaseUtil.dropTable("sites");
         TestDatabaseUtil.dropTable("profiles");
     }
 
-    public static void setupTestDatabase() {
+    public static void setupTestDatabase() throws SQLException {
         TestDatabaseUtil.createSitesTableWithData();
         TestDatabaseUtil.createProfilesTableWithData();
     }

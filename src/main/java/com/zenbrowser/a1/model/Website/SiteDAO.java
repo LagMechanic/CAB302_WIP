@@ -7,8 +7,6 @@ import java.sql.SQLException;
 
 public class SiteDAO implements ISiteDAO {
 
-    private int siteId;
-
     private final Connection connection;
 
     public SiteDAO(Connection connection) {
@@ -29,7 +27,7 @@ public class SiteDAO implements ISiteDAO {
                 System.out.println("inserted record successfully");
                 try(var generatedKeys = statement.getGeneratedKeys()){
                     if (generatedKeys.next()){
-                        siteId = generatedKeys.getInt(1);
+                        int siteId = generatedKeys.getInt(1);
                         System.out.println("generated key siteId: " + siteId);
                         site.setId(siteId);
                         return site;

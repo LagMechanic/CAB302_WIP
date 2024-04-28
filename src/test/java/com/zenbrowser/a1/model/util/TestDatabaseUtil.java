@@ -39,9 +39,9 @@ public class TestDatabaseUtil {
              Statement statement = connection.createStatement()) {
             statement.executeUpdate("DROP TABLE IF EXISTS " + tableName + ";");
             // Repeat the above line for each table you want to drop
-            connection.commit();
+            // connection.commit();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
     public static void createSitesTableWithData() {
@@ -74,28 +74,37 @@ public class TestDatabaseUtil {
             System.err.println("Error: " + e.getMessage());
         }
     }
-    public static void createProfilesTableWithData() {
+    public static void createProfilesTableWithData(){
         try (Connection connection = TestDatabaseConnection.getInstance()) {
             if (connection != null) {
-                Statement statement = connection.createStatement();
 
-                // Create profiles table
-                String sql = "CREATE TABLE IF NOT EXISTS profiles (" +
-                        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                        "profileName TEXT," +
-                        "websiteId INTEGER, " +
-                        "FOREIGN KEY (websiteId) REFERENCES sites(id))";
-                statement.execute(sql);
+                connection.setAutoCommit(false);
 
-                // Insert sample data
-                String insertDataSQL = "INSERT INTO profiles (profileName, websiteId) " +
-                        "VALUES " +
-                        "('abc', 1 ), " +
-                        "('def', 2 ), " +
-                        "('gab', 3 ) ";
-                statement.execute(insertDataSQL);
+                try (Statement statement = connection.createStatement()) {
 
-                System.out.println("Test profiles database setup completed.");
+                    // Create profiles table
+                    String sql = "CREATE TABLE IF NOT EXISTS profiles (" +
+                            "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                            "profileName TEXT," +
+                            "websiteId INTEGER, " +
+                            "FOREIGN KEY (websiteId) REFERENCES sites(id))";
+                    statement.execute(sql);
+
+                    // Insert sample data
+                    String insertDataSQL = "INSERT INTO profiles (profileName, websiteId) " +
+                            "VALUES " +
+                            "('abc', 1 ), " +
+                            "('def', 2 ), " +
+                            "('gab', 3 ) ";
+                    statement.execute(insertDataSQL);
+
+                    System.out.println("Test profiles database setup completed.");
+                } catch (SQLException e) {
+                    connection.rollback();
+                    throw new RuntimeException(e);
+                } finally {
+                    connection.setAutoCommit(true);
+                }
             } else {
                 System.out.println("Failed to establish connection to the database.");
             }
