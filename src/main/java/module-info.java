@@ -9,6 +9,6 @@ module com.zenbrowser.a1 {
     exports com.zenbrowser.a1;
     exports com.zenbrowser.a1.Controller;
     opens com.zenbrowser.a1.Controller to javafx.fxml;
-    exports com.zenbrowser.a1.OliverBrowsingLimitsGUI;
-    opens com.zenbrowser.a1.OliverBrowsingLimitsGUI to javafx.fxml;
+    exports com.zenbrowser.a1.ProfileLimitsGUI;
+    opens com.zenbrowser.a1.ProfileLimitsGUI to javafx.fxml;
 }

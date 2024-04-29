@@ -1,8 +1,6 @@
 package com.zenbrowser.a1.Controller;
 
 import com.zenbrowser.a1.HelloApplication;
-import com.zenbrowser.a1.OliverBrowsingLimitsGUI.MainProfileLimits;
-import com.zenbrowser.a1.model.Authentication.Authentication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
