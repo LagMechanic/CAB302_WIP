@@ -8,27 +8,35 @@
 <?import javafx.geometry.Insets?>
 
 <?import javafx.scene.text.Text?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.zenbrowser.a1.Controller.LoginController"
-            prefHeight="400.0" prefWidth="600.0">
 
-    <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
-        <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-        </padding>
-        <Text>
-            Login
-        </Text>
-        <Label>Username</Label>
-        <TextField fx:id="username"></TextField>
-        <Label>Password</Label>
-        <TextField fx:id="password"></TextField>
-
-
-        <Button text="Login" onAction="#onLoginButtonClick"/>
-        <Label>New? Create your account </Label>
-        <Button text="Register" onAction="#onRegisterButtonClick"/>
-    </VBox>
-
-</AnchorPane>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.zenbrowser.a1.Controller.LoginController"
+>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    <HBox VBox.vgrow="ALWAYS" spacing="20.0">
+        <VBox spacing="30.0" prefWidth="400" fx:id="contactContainer">
+            <Label text ="Zenbrowser" style="-fx-font-size:60px; -fx-font-weight: bold"/>
+            <Label text ="Login" style="-fx-font-size:40px; -fx-font-weight: bold"/>
+            <Label text="Enter the contact's details below." />
+            <GridPane hgap="10.0" vgap="10.0" >
+                <columnConstraints>
+                    <ColumnConstraints minWidth="70" />
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="usernameTXT" GridPane.columnIndex="1" GridPane.rowIndex="0" maxWidth="Infinity"/>
+                <TextField fx:id="PasswordTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            </GridPane>
+            <VBox spacing="10.0" alignment="CENTER">
+                <Button text="Login" onAction="#onLoginButtonClick"/>
+                <Label>New? Create your account </Label>
+                <Button text="Register" onAction="#onRegisterButtonClick"/>
+            </VBox>
+        </VBox>
+    </HBox>
+</VBox>
