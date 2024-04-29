@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" afterDir="false" />
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="Testing ProfileLimits fxml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/com/zenbrowser/a1/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/com/zenbrowser/a1/login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/OliverBrowsingLimitsGUI/MainProfileLimits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/OliverBrowsingLimitsGUI/MainProfileLimits.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/OliverBrowsingLimitsGUI/ProfileLimits.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/Authentication/AuthenticationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Authentication/AuthenticationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/ProfileLimitsGUI/MainProfileLimits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/ProfileLimitsGUI/MainProfileLimits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -46,6 +39,9 @@
         <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -68,7 +64,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "TestProfileLimits",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "C:/Users/olive/Documents/Git/CAB302_WIP/src/test/java",
@@ -95,10 +91,46 @@
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
     </task>
+    <task id="LOCAL-00001" summary="tested HistoryRecordDAO update method">
+      <option name="closed" value="true" />
+      <created>1714376445303</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714376445303</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Testing ProfileLimits fxml">
+      <option name="closed" value="true" />
+      <created>1714376598547</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714376598547</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Testing ProfileLimits fxml">
+      <option name="closed" value="true" />
+      <created>1714376652177</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714376652177</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Testing ProfileLimits fxml">
+      <option name="closed" value="true" />
+      <created>1714376725000</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714376725000</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="tested HistoryRecordDAO update method" />
+    <MESSAGE value="Testing ProfileLimits fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing ProfileLimits fxml" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
