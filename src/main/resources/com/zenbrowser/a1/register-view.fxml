@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Text?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.zenbrowser.a1.RegisterController"
+            fx:controller="com.zenbrowser.a1.Controller.RegisterController"
             prefHeight="400.0" prefWidth="600.0">
 
     <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">

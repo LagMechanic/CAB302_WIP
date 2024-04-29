@@ -7,4 +7,6 @@ module com.zenbrowser.a1 {
 
     opens com.zenbrowser.a1 to javafx.fxml;
     exports com.zenbrowser.a1;
+    exports com.zenbrowser.a1.Controller;
+    opens com.zenbrowser.a1.Controller to javafx.fxml;
 }
