@@ -1,13 +1,12 @@
 package com.zenbrowser.a1.model.User;
 
-import com.zenbrowser.a1.model.ISqliteDAO;
 import com.zenbrowser.a1.model.SqliteConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SqliteUserDAO implements IUserDAO, ISqliteDAO {
+public class SqliteUserDAO implements IUserDAO {
     private Connection connection;
 
     public SqliteUserDAO() {
@@ -43,8 +42,8 @@ public class SqliteUserDAO implements IUserDAO, ISqliteDAO {
                     + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + "firstName VARCHAR NOT NULL,"
                     + "lastName VARCHAR NOT NULL,"
-                    + "phone VARCHAR NOT NULL,"
-                    + "email VARCHAR NOT NULL,"
+                    + "phone VARCHAR NULL,"
+                    + "email VARCHAR NULL,"
                     + "password VARCHAR NOT NULL"
                     + ")";
             statement.execute(query);
@@ -55,9 +54,13 @@ public class SqliteUserDAO implements IUserDAO, ISqliteDAO {
     @Override
     public void addContact(User user) {
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO users (firstName, lastName, phone, email, password) VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO users (username, password, firstName, lastName, phone, email) VALUES (?, ?, ?, ?, ?, ?)");
             statement.setString(1, user.getUsername());
-            statement.setString(2, user.getLastName());
+            statement.setString(2,user.getPassword());
+            statement.setString(3, user.getFirstName());
+            statement.setString(4, user.getLastName());
+            statement.setInt(5,user.getPhone());
+            statement.setString(6, user.getEmail());
             statement.executeUpdate();
             // Set the id of the new contact
             ResultSet generatedKeys = statement.getGeneratedKeys();
@@ -101,11 +104,13 @@ public class SqliteUserDAO implements IUserDAO, ISqliteDAO {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
+                String username = resultSet.getString("userName");
+                String password = resultSet.getString("password");
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");
-                String phone = resultSet.getString("phone");
+                Integer phone = resultSet.getInt("phone");
                 String email = resultSet.getString("email");
-                User user = new User(firstName, lastName, phone, email);
+                User user = new User(username, password, firstName, lastName, phone, email);
                 user.setId(id);
                 return user;
             }
@@ -123,11 +128,13 @@ public class SqliteUserDAO implements IUserDAO, ISqliteDAO {
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
+                String username = resultSet.getString("username");
+                String password = resultSet.getString("password");
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");
-                String phone = resultSet.getString("phone");
+                Integer phone = resultSet.getInt("phone");
                 String email = resultSet.getString("email");
-                User user = new User(firstName, lastName, phone, email);
+                User user = new User(username, password, firstName, lastName, phone, email);
                 user.setId(id);
                 users.add(user);
             }
@@ -136,4 +143,50 @@ public class SqliteUserDAO implements IUserDAO, ISqliteDAO {
         }
         return users;
     }
+
+    /**
+     * Checks if there is a user with the given username
+     * @param username username to check
+     * @return true if username is in database
+     */
+    @Override
+    public boolean checkUsername(String username) {
+        try {
+            // Select 1 if username is in table
+            String sql = "SELECT 1 FROM users WHERE username=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, username);
+
+            ResultSet resultSet = statement.executeQuery();
+            // Return true iff any rows exist
+            return resultSet.first();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Checks if there is a user with the given username and password
+     * @param username username to check
+     * @param password password to check
+     * @return true if a user has the given username and password
+     */
+    @Override
+    public boolean checkPassword(String username, String password) {
+        try {
+            // Select 1 if username is in table
+            String sql = "SELECT 1 FROM users WHERE username=?, password=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, username);
+            statement.setString(2, password);
+
+            ResultSet resultSet = statement.executeQuery();
+            // Return true iff any rows exist
+            return resultSet.first();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    
 }

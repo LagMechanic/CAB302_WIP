@@ -7,6 +7,7 @@ public class Profile {
     private String profileName;
     private Site website;
 
+
     public Profile(String profileName, Site website) {
         this.profileName = profileName;
         this.website = website;

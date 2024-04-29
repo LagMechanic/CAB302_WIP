@@ -1,16 +1,34 @@
 package com.zenbrowser.a1.model.Website;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import com.zenbrowser.a1.model.SqliteConnection;
+
+import java.sql.*;
 
 public class SiteDAO implements ISiteDAO {
 
     private final Connection connection;
 
-    public SiteDAO(Connection connection) {
-        this.connection = connection;
+    public SiteDAO() {
+        connection = SqliteConnection.getInstance();
+        createTable();
+    }
+
+
+    private void createTable() {
+        // Create table if not exists
+        try {
+            Statement statement = connection.createStatement();
+            String query = "CREATE TABLE IF NOT EXISTS sites ("
+                    + "siteID INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + "URL VARCHAR NOT NULL,"
+                    + "siteName VARCHAR NOT NULL,"
+                    + "category VARCHAR NOT NULL,"
+                    + "blockedStatus INTEGER NOT NULL,"
+                    + ")";
+            statement.execute(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

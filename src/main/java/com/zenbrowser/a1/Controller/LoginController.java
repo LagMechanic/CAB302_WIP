@@ -1,4 +1,4 @@
-package com.zenbrowser.a1;
+package com.zenbrowser.a1.Controller;
 
 import com.zenbrowser.a1.model.Authentication.Authentication;
 import javafx.fxml.FXML;

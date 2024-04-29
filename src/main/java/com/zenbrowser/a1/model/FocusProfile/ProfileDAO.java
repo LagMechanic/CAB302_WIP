@@ -1,18 +1,35 @@
 package com.zenbrowser.a1.model.FocusProfile;
 
+import com.zenbrowser.a1.model.SqliteConnection;
 import com.zenbrowser.a1.model.Website.Site;
 import com.zenbrowser.a1.model.Website.SiteDAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ProfileDAO {
     private final Connection connection;
 
-    public ProfileDAO(Connection connection) {
-        this.connection = connection;
+    public ProfileDAO() {
+        connection = SqliteConnection.getInstance();
+        createTable();
+    }
+
+    private void createTable(){
+        // Create table if not exists
+        try {
+            Statement statement = connection.createStatement();
+            String query = "CREATE TABLE IF NOT EXISTS profiles ("
+                    + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + "firstName VARCHAR NOT NULL,"
+                    + "lastName VARCHAR NOT NULL,"
+                    + "phone VARCHAR NULL,"
+                    + "email VARCHAR NULL,"
+                    + "password VARCHAR NOT NULL"
+                    + ")";
+            statement.execute(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public Profile insertProfile(Profile profile) {
@@ -79,7 +96,7 @@ public class ProfileDAO {
         }
     }
     private Profile extractProfileFromResultSet(ResultSet resultSet) throws SQLException {
-        SiteDAO siteDAO = new SiteDAO(connection);
+        SiteDAO siteDAO = new SiteDAO();
         Site website = siteDAO.getSiteById(resultSet.getInt("websiteId"));
 
         Profile profile = new Profile(resultSet.getString("profileName"), website);
