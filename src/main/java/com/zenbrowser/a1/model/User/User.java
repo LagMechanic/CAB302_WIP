@@ -3,20 +3,26 @@ package com.zenbrowser.a1.model.User;
 public class User {
 
     private Integer id;
-    private String userName;
+    private String username;
 
     private String password;
     private String firstName;
     private String lastName;
     private String email;
-    private Integer phone;
 
-    public User(String password, String firstName, String lastName,  Integer phoneNo, String email) {
+
+    public User(String username, String password, String firstName, String lastName, String email) {
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
-        this.phone = phoneNo;
+    }
+
+    public User(String username, String password)
+    {
+        this.username = username;
+        this.password = password;
     }
 
     public int getId() {
@@ -37,11 +43,11 @@ public class User {
 
 
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     public void setUsername(String username) {
-        this.userName = username;
+        this.username = username;
     }
 
     public String getFirstName() {
@@ -67,13 +73,4 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public int getPhone() {
-        return phone;
-    }
-
-    public void setPhone(Integer phone) {
-        this.phone = phone;
-    }
-
 }
