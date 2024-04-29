@@ -4,6 +4,10 @@ module com.zenbrowser.a1 {
     requires java.sql;
     requires java.desktop;
 
+    requires stanford.corenlp;
+    requires htmlunit;
+
+
 
     opens com.zenbrowser.a1 to javafx.fxml;
     exports com.zenbrowser.a1;

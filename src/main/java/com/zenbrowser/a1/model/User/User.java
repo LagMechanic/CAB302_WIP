@@ -11,7 +11,8 @@ public class User {
     private String email;
     private Integer phone;
 
-    public User(String password, String firstName, String lastName,  Integer phoneNo, String email) {
+    public User(String userName, String password, String firstName, String lastName,  Integer phoneNo, String email) {
+        this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
@@ -19,6 +20,14 @@ public class User {
         this.phone = phoneNo;
     }
 
+    public User(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+        this.firstName = null;
+        this.lastName = null;
+        this.email = null;
+        this.phone = null;
+    }
     public int getId() {
         return id;
     }

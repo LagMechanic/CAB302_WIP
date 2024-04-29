@@ -110,7 +110,7 @@ public class SqliteUserDAO implements IUserDAO {
                 String lastName = resultSet.getString("lastName");
                 Integer phone = resultSet.getInt("phone");
                 String email = resultSet.getString("email");
-                User user = new User( password, firstName, lastName, phone, email);
+                User user = new User(username, password, firstName, lastName, phone, email);
                 user.setId(id);
                 return user;
             }
@@ -128,12 +128,13 @@ public class SqliteUserDAO implements IUserDAO {
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
+                String username = resultSet.getString("username");
                 String password = resultSet.getString("password");
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");
                 Integer phone = resultSet.getInt("phone");
                 String email = resultSet.getString("email");
-                User user = new User(password, firstName, lastName, phone, email);
+                User user = new User(username, password, firstName, lastName, phone, email);
                 user.setId(id);
                 users.add(user);
             }
@@ -142,4 +143,50 @@ public class SqliteUserDAO implements IUserDAO {
         }
         return users;
     }
+
+    /**
+     * Checks if there is a user with the given username
+     * @param username username to check
+     * @return true if username is in database
+     */
+    @Override
+    public boolean checkUsername(String username) {
+        try {
+            // Select 1 if username is in table
+            String sql = "SELECT 1 FROM users WHERE username=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, username);
+
+            ResultSet resultSet = statement.executeQuery();
+            // Return true iff any rows exist
+            return resultSet.first();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Checks if there is a user with the given username and password
+     * @param username username to check
+     * @param password password to check
+     * @return true if a user has the given username and password
+     */
+    @Override
+    public boolean checkPassword(String username, String password) {
+        try {
+            // Select 1 if username is in table
+            String sql = "SELECT 1 FROM users WHERE username=?, password=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, username);
+            statement.setString(2, password);
+
+            ResultSet resultSet = statement.executeQuery();
+            // Return true iff any rows exist
+            return resultSet.first();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    
 }
