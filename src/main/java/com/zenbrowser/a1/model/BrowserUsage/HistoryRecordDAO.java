@@ -1,6 +1,6 @@
 package com.zenbrowser.a1.model.BrowserUsage;
 
-import com.zenbrowser.a1.model.DatabaseConnection;
+import com.zenbrowser.a1.model.SqliteConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -13,7 +13,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
     private Connection connection;
 
     public HistoryRecordDAO() throws SQLException {
-        this.connection = DatabaseConnection.getInstance();
+        this.connection = SqliteConnection.getInstance();
     }
     public HistoryRecordDAO(Connection connection) {
         this.connection = connection;

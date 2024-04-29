@@ -1,6 +1,5 @@
 package com.zenbrowser.a1.model.BrowserUsage;
 
-import com.zenbrowser.a1.model.DatabaseConnection;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
