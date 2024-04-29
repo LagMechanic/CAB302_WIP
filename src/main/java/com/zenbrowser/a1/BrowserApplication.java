@@ -8,11 +8,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class BrowserApplication extends Application {
+    public static final String TITLE = "ZenBrowser";
+    public static final int WIDTH = 800;
+    public static final int HEIGHT = 600;
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("ZenBrowser");
+        Scene scene = new Scene(fxmlLoader.load(), WIDTH, HEIGHT);
+        stage.setTitle(TITLE);
         stage.setScene(scene);
         stage.show();
     }
