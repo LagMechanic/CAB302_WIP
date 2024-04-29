@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="tested HistoryRecordDAO update method">
       <change afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAOTestDB.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/BrowserUsage/TestDatabaseConnection.java" afterDir="false" />
@@ -16,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/src/test/test_database.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/test_database.db" afterDir="false" />
     </list>
+    
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +42,7 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
   "lastFilter": {
     "state": "OPEN",
@@ -55,6 +58,7 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -89,13 +93,16 @@
     "git-widget-placeholder": "Luis__Torres",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+
     "last_opened_file_path": "/home/domc/IdeaProjects/CAB302_WIP/src/main/resources/com/zenbrowser/a1",
+
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Luis\IdeaProjects\CAB302_WIP\src" />
@@ -200,6 +207,7 @@
       </list>
     </recent_temporary>
   </component>
+
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
