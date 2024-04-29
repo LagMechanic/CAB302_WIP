@@ -3,7 +3,6 @@ package com.zenbrowser.a1.Controller;
 import com.zenbrowser.a1.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.scene.control.Button;
@@ -21,12 +20,7 @@ public class LoginController {
 
 
     @FXML
-    protected void onLoginButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("Home-Page.fxml"));
-        Stage stage = (Stage) username.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setScene(scene);
-        stage.show();
+    protected void onLoginButtonClick()  {
     }
 
     @FXML
@@ -37,6 +31,9 @@ public class LoginController {
     @FXML
     private Button GoToProfileButton;
 
+    @FXML
+    private Button GoToHomePageButton;
+
 
     @FXML
     protected void onGoToProfileLimits() throws IOException {
@@ -44,6 +41,15 @@ public class LoginController {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ProfileLimits.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Limits Browser");
+        stage.setScene(scene);
+    }
+
+    @FXML
+    protected void onGoToHomePage() throws IOException {
+        Stage stage = (Stage) GoToHomePageButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Home-Page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setTitle("Home Page");
         stage.setScene(scene);
     }
 }

@@ -19,8 +19,6 @@ public class HomePageController {
 
     @FXML
     private void initialize() {
-        // Initialize anything you need when the controller is created
-        // For example, you might set up event handlers or populate the history list
     }
 
     @FXML
