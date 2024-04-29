@@ -26,6 +26,8 @@
       <list>
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
+
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -37,6 +39,21 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Dom-Cutajar"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/LagMechanic/CAB302_WIP.git",
+    "accountId": "17419e0b-5ac2-41a2-b900-a07c17f15c88"
+  }
+}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -72,6 +89,7 @@
     "git-widget-placeholder": "Luis__Torres",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/domc/IdeaProjects/CAB302_WIP/src/main/resources/com/zenbrowser/a1",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",

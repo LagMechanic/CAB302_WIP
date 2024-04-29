@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.zenbrowser.a1.RegisterController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        </padding>
+        <Text>
+            Register
+        </Text>
+        <Label>Username</Label>
+        <TextField fx:id="username"></TextField>
+        <Label>Password</Label>
+        <TextField fx:id="password1"></TextField>
+        <Label>Repeat Password</Label>
+        <TextField fx:id="password2"></TextField>
+
+        <Button text="Register" onAction="#onRegisterButtonClick"/>
+        <Label>Already have an account? </Label>
+        <Button text="Login" onAction="#onLoginButtonClick"/>
+    </VBox>
+
+</AnchorPane>
