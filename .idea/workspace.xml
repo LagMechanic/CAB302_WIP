@@ -4,30 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/Profile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/ISqliteDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/SqliteConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/User/IUserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/User/SqliteUserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/User/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/Website/ISiteDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/Website/Site.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/hello-view.fxml" afterDir="false" />
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="tested HistoryRecordDAO update method">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAOTestDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/BrowserUsage/TestDatabaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/BrowserUsage/TestDatabaseUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/test_database.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/test_database.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,24 +24,40 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Dom-Cutajar"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/LagMechanic/CAB302_WIP.git",
+    "accountId": "17419e0b-5ac2-41a2-b900-a07c17f15c88"
+  }
+}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2fQlMUXUmhpGp38qV5krbyBi5xn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -66,17 +69,144 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.HistoryRecordDAOTest.executor": "Run",
+    "JUnit.HistoryRecordDAOTest.getAllUserHistoryRecords.executor": "Run",
+    "JUnit.HistoryRecordDAOTest.insertHistoryRecord.executor": "Debug",
+    "JUnit.HistoryRecordDAOTest.insertHistoryRecord_noAffectedRows.executor": "Run",
+    "JUnit.HistoryRecordDAOTest.insertHistoryRecord_withAffectedRows.executor": "Run",
+    "JUnit.HistoryRecordDAOTest.updateActivityEndDateTime.executor": "Run",
+    "JUnit.HistoryRecordDAOTestDB.executor": "Debug",
+    "JUnit.HistoryRecordDAOTestDB.testInsertHistoryRecord.executor": "Debug",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "Luis__Torres",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/domc/IdeaProjects/CAB302_WIP/src/main/resources/com/zenbrowser/a1",
     "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Luis\IdeaProjects\CAB302_WIP\src" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.zenbrowser.a1.model.BrowserUsage" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zenbrowser.a1.model.BrowserUsage" />
+      <recent name="com.zenbrowser.a1.model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.HistoryRecordDAOTestDB.testInsertHistoryRecord">
+    <configuration name="HistoryRecordDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.model.BrowserUsage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.BrowserUsage" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HistoryRecordDAOTestDB" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.model.BrowserUsage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.BrowserUsage" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAOTestDB" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HistoryRecordDAOTestDB.testInsertHistoryRecord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.model.BrowserUsage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.BrowserUsage" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAOTestDB" />
+      <option name="METHOD_NAME" value="testInsertHistoryRecord" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HistoryRecordDAOTest.getAllUserHistoryRecords" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.model.BrowserUsage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.BrowserUsage" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAOTest" />
+      <option name="METHOD_NAME" value="getAllUserHistoryRecords" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HistoryRecordDAOTest.updateActivityEndDateTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.model.BrowserUsage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.BrowserUsage" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAOTest" />
+      <option name="METHOD_NAME" value="updateActivityEndDateTime" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HistoryRecordDAOTestDB.testInsertHistoryRecord" />
+        <item itemvalue="JUnit.HistoryRecordDAOTestDB" />
+        <item itemvalue="JUnit.HistoryRecordDAOTest.getAllUserHistoryRecords" />
+        <item itemvalue="JUnit.HistoryRecordDAOTest.updateActivityEndDateTime" />
+        <item itemvalue="JUnit.HistoryRecordDAOTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -86,9 +216,196 @@
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added DatabaseConnection.java, HistoryRecord, and HistoryRecordDAO">
+      <option name="closed" value="true" />
+      <created>1714114710948</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714114710948</updated>
+    </task>
+    <task id="LOCAL-00002" summary="made SiteDAO made methods insertSite, updateSite">
+      <option name="closed" value="true" />
+      <created>1714116877864</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714116877864</updated>
+    </task>
+    <task id="LOCAL-00003" summary="deleteSite method in SiteDAO.java">
+      <option name="closed" value="true" />
+      <created>1714117412777</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714117412777</updated>
+    </task>
+    <task id="LOCAL-00004" summary="adjusted names to follow convention">
+      <option name="closed" value="true" />
+      <created>1714119045410</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714119045410</updated>
+    </task>
+    <task id="LOCAL-00005" summary="made getSiteByID() and extractSiteFromResultSet() in SiteDAO.java">
+      <option name="closed" value="true" />
+      <created>1714119732643</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714119732643</updated>
+    </task>
+    <task id="LOCAL-00006" summary="made getSiteByID() and extractSiteFromResultSet() in SiteDAO.java">
+      <option name="closed" value="true" />
+      <created>1714119810726</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714119810726</updated>
+    </task>
+    <task id="LOCAL-00007" summary="made getSiteByID() and extractSiteFromResultSet() in SiteDAO.java">
+      <option name="closed" value="true" />
+      <created>1714122131306</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714122131306</updated>
+    </task>
+    <task id="LOCAL-00008" summary="adjusted names to follow convention in Profile.java">
+      <option name="closed" value="true" />
+      <created>1714126104270</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714126104270</updated>
+    </task>
+    <task id="LOCAL-00009" summary="adjusted names to follow convention in Profile.java removed unused imports">
+      <option name="closed" value="true" />
+      <created>1714126247305</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1714126247305</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added getter and setter for website field">
+      <option name="closed" value="true" />
+      <created>1714127072749</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1714127072749</updated>
+    </task>
+    <task id="LOCAL-00011" summary="adjusted fields">
+      <option name="closed" value="true" />
+      <created>1714129379774</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714129379774</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added insertProfile(), updateProfile(), deleteProfile()">
+      <option name="closed" value="true" />
+      <created>1714129426715</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1714129426715</updated>
+    </task>
+    <task id="LOCAL-00013" summary="made getProfileByID method and extraction helper method.">
+      <option name="closed" value="true" />
+      <created>1714130249386</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1714130249386</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fixed blocked status getter,">
+      <option name="closed" value="true" />
+      <created>1714130419129</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1714130419129</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fixed blocked status getter,">
+      <option name="closed" value="true" />
+      <created>1714130455315</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1714130455315</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Created HistoryRecordDAOTest and test database">
+      <option name="closed" value="true" />
+      <created>1714135277675</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1714135277676</updated>
+    </task>
+    <task id="LOCAL-00017" summary="tested HistoryRecordDAO insert method">
+      <option name="closed" value="true" />
+      <created>1714142286528</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1714142286528</updated>
+    </task>
+    <task id="LOCAL-00018" summary="tested HistoryRecordDAO insert method">
+      <option name="closed" value="true" />
+      <created>1714210338831</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1714210338831</updated>
+    </task>
+    <task id="LOCAL-00019" summary="tested HistoryRecordDAO update method">
+      <option name="closed" value="true" />
+      <created>1714217120403</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1714217120403</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Added DatabaseConnection.java, HistoryRecord, and HistoryRecordDAO" />
+    <MESSAGE value="made SiteDAO made methods insertSite, updateSite" />
+    <MESSAGE value="deleteSite method in SiteDAO.java" />
+    <MESSAGE value="adjusted names to follow convention" />
+    <MESSAGE value="made getSiteByID() and extractSiteFromResultSet() in SiteDAO.java" />
+    <MESSAGE value="adjusted names to follow convention in Profile.java" />
+    <MESSAGE value="adjusted names to follow convention in Profile.java removed unused imports" />
+    <MESSAGE value="added getter and setter for website field" />
+    <MESSAGE value="adjusted fields" />
+    <MESSAGE value="added insertProfile(), updateProfile(), deleteProfile()" />
+    <MESSAGE value="made getProfileByID method and extraction helper method." />
+    <MESSAGE value="fixed blocked status getter," />
+    <MESSAGE value="Created HistoryRecordDAOTest and test database" />
+    <MESSAGE value="tested HistoryRecordDAO insert method" />
+    <MESSAGE value="tested HistoryRecordDAO update method" />
+    <option name="LAST_COMMIT_MESSAGE" value="tested HistoryRecordDAO update method" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.sqlite.jdbc4.JDBC4ResultSet" memberName="limitRows" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

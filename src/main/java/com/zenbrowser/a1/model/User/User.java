@@ -2,16 +2,12 @@ package com.zenbrowser.a1.model.User;
 
 public class User {
     private int id;
-    private String firstName;
+    private String username;
     private String lastName;
-    private String email;
-    private String phone;
 
-    public User(String firstName, String lastName, String email, String phone) {
-        this.firstName = firstName;
+    public User(String username, String lastName, String email, String phone) {
+        this.username = username;
         this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
     }
 
     public int getId() {
@@ -22,12 +18,12 @@ public class User {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getLastName() {
@@ -38,23 +34,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getFullName() {
-        return firstName + " " + lastName;
+        return username + " " + lastName;
     }
 }
