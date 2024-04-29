@@ -11,7 +11,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <VBox alignment="TOP_LEFT" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.addressbook.controller.MainController"
+      fx:controller=""
 >
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
@@ -20,7 +20,7 @@
     <HBox VBox.vgrow="ALWAYS" spacing="20.0">
         <VBox spacing="10.0">
             <ListView fx:id="contactsListView"  />
-            <Button text="New" onAction="#onAdd" maxWidth="Infinity"/>
+            <Button text="New" onAction="" maxWidth="Infinity"/>
         </VBox>
         <VBox spacing="10.0" prefWidth="400" fx:id="contactContainer">
             <Label text="Enter the contact's details below." />
@@ -33,7 +33,7 @@
                 <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                 <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                 <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                <TextField fx:id="" GridPane.ColumnIndex="1" GridPane.rowIndex="0" maxWidth=""Infinity
+                <TextField fx:id="" GridPane.ColumnIndex="1" GridPane.rowIndex="0" maxWidth="Infinity"/>
                 <TextField fx:id="firstNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="0" maxWidth="Infinity"/>
                 <TextField fx:id="lastNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
