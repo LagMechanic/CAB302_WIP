@@ -1,4 +1,4 @@
-package com.zenbrowser.a1.OliverBrowsingLimitsGUI;
+package com.zenbrowser.a1.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
