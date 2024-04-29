@@ -1,13 +1,12 @@
 package com.zenbrowser.a1.model.User;
 
-import com.zenbrowser.a1.model.ISqliteDAO;
 import com.zenbrowser.a1.model.SqliteConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SqliteUserDAO implements IUserDAO, ISqliteDAO {
+public class SqliteUserDAO implements IUserDAO {
     private Connection connection;
 
     public SqliteUserDAO() {
@@ -43,8 +42,8 @@ public class SqliteUserDAO implements IUserDAO, ISqliteDAO {
                     + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + "firstName VARCHAR NOT NULL,"
                     + "lastName VARCHAR NOT NULL,"
-                    + "phone VARCHAR NOT NULL,"
-                    + "email VARCHAR NOT NULL,"
+                    + "phone VARCHAR NULL,"
+                    + "email VARCHAR NULL,"
                     + "password VARCHAR NOT NULL"
                     + ")";
             statement.execute(query);
@@ -55,9 +54,13 @@ public class SqliteUserDAO implements IUserDAO, ISqliteDAO {
     @Override
     public void addContact(User user) {
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO users (firstName, lastName, phone, email, password) VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO users (username, password, firstName, lastName, phone, email) VALUES (?, ?, ?, ?, ?, ?)");
             statement.setString(1, user.getUsername());
-            statement.setString(2, user.getLastName());
+            statement.setString(2,user.getPassword());
+            statement.setString(3, user.getFirstName());
+            statement.setString(4, user.getLastName());
+            statement.setInt(5,user.getPhone());
+            statement.setString(6, user.getEmail());
             statement.executeUpdate();
             // Set the id of the new contact
             ResultSet generatedKeys = statement.getGeneratedKeys();
@@ -101,11 +104,13 @@ public class SqliteUserDAO implements IUserDAO, ISqliteDAO {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
+                String username = resultSet.getString("userName");
+                String password = resultSet.getString("password");
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");
-                String phone = resultSet.getString("phone");
+                Integer phone = resultSet.getInt("phone");
                 String email = resultSet.getString("email");
-                User user = new User(firstName, lastName, phone, email);
+                User user = new User( password, firstName, lastName, phone, email);
                 user.setId(id);
                 return user;
             }
@@ -123,11 +128,12 @@ public class SqliteUserDAO implements IUserDAO, ISqliteDAO {
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
+                String password = resultSet.getString("password");
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");
-                String phone = resultSet.getString("phone");
+                Integer phone = resultSet.getInt("phone");
                 String email = resultSet.getString("email");
-                User user = new User(firstName, lastName, phone, email);
+                User user = new User(password, firstName, lastName, phone, email);
                 user.setId(id);
                 users.add(user);
             }
