@@ -9,19 +9,19 @@ import java.util.List;
 public interface IUserDAO {
     /**
      * Adds a new contact to the database.
-     * @param user The contact to add.
+     * @param site The contact to add.
      */
-    public void addContact(User user);
+    public void addContact(User site);
     /**
      * Updates an existing contact in the database.
-     * @param user The contact to update.
+     * @param site The contact to update.
      */
-    public void updateContact(User user);
+    public void updateContact(User site);
     /**
      * Deletes a contact from the database.
-     * @param user The contact to delete.
+     * @param site The contact to delete.
      */
-    public void deleteContact(User user);
+    public void deleteContact(User site);
     /**
      * Retrieves a contact from the database.
      * @param id The id of the contact to retrieve.
