@@ -36,10 +36,12 @@ public class SqliteUserDAO implements IUserDAO{
     public void addContact(User site) {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO users (firstName, lastName, phone, email, password) VALUES (?, ?, ?, ?, ?)");
+
             statement.setString(1, site.getFirstName());
             statement.setString(2, site.getLastName());
             statement.setString(3, site.getPhone());
             statement.setString(4, site.getEmail());
+
             statement.executeUpdate();
             // Set the id of the new contact
             ResultSet generatedKeys = statement.getGeneratedKeys();
@@ -55,11 +57,13 @@ public class SqliteUserDAO implements IUserDAO{
     public void updateContact(User site) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE users SET firstName = ?, lastName = ?, phone = ?, email = ? WHERE id = ?");
+
             statement.setString(1, site.getFirstName());
             statement.setString(2, site.getLastName());
             statement.setString(3, site.getPhone());
             statement.setString(4, site.getEmail());
             statement.setInt(5, site.getId());
+
             statement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
