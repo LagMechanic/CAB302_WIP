@@ -33,4 +33,19 @@ public interface IUserDAO {
      * @return A list of all contacts in the database.
      */
     public List<User> getAllContacts();
+
+    /**
+     * Checks if there is a user with the given username
+     * @param username username to check
+     * @return true if username is in database
+     */
+    public boolean checkUsername(String username);
+
+    /**
+     * Checks if there is a user with the given username and password
+     * @param username username to check
+     * @param password password to check
+     * @return true if a user has the given username and password
+     */
+    public boolean checkPassword(String username, String password);
 }

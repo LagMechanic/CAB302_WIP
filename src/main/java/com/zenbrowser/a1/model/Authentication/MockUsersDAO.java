@@ -1,10 +1,14 @@
 package com.zenbrowser.a1.model.Authentication;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class MockUsersDAO implements IUsersDAO {
+import com.zenbrowser.a1.model.User.IUserDAO;
+import com.zenbrowser.a1.model.User.User;
+
+public class MockUsersDAO implements IUserDAO {
 
     private final Map<String, String> Users;
 
@@ -15,13 +19,31 @@ public class MockUsersDAO implements IUsersDAO {
     /**
      * Adds a new user into the database
      *
-     * @param username User's username
-     * @param password User's password
      */
     @Override
-    public void AddUser(String username, String password) {
-        if (Users.containsKey(username)) return;
-        Users.put(username, password);
+    public void addContact(User user) {
+        if (Users.containsKey(user.getUsername())) return;
+        Users.put(user.getUsername(), user.getPassword());
+    }
+
+    @Override
+    public void updateContact(User user) {
+        Users.put(user.getUsername(), user.getPassword());
+    }
+
+    @Override
+    public void deleteContact(User user) {
+        Users.remove(user.getUsername(), user.getPassword());
+    }
+
+    @Override
+    public User getContact(int id) {
+        return null;
+    }
+
+    @Override
+    public List<User> getAllContacts() {
+        return List.of();
     }
 
     /**
@@ -31,7 +53,7 @@ public class MockUsersDAO implements IUsersDAO {
      * @return true if username is in database
      */
     @Override
-    public boolean CheckUsername(String username) {
+    public boolean checkUsername(String username) {
         return Users.containsKey(username);
     }
 
@@ -43,8 +65,8 @@ public class MockUsersDAO implements IUsersDAO {
      * @return true if a user has the given username and password
      */
     @Override
-    public boolean CheckPassword(String username, String password) {
-        if (!CheckUsername(username)) return false;
+    public boolean checkPassword(String username, String password) {
+        if (!checkUsername(username)) return false;
         return Objects.equals(Users.get(username), password);
     }
 }

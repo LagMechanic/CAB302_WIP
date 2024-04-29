@@ -1,10 +1,12 @@
 package com.zenbrowser.a1.model.Authentication;
 
+import com.zenbrowser.a1.model.User.User;
+
 public interface IAuthentication {
 
-    void login(String username, String password) throws InvalidCredentials;
+    void login(User user) throws InvalidCredentials;
 
-    void signup(String username, String password) throws UserAlreadyExists;
+    void signup(User user) throws UserAlreadyExists;
 
     void logout();
 
