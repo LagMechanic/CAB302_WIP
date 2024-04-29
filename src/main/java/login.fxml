@@ -10,9 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
-<VBox alignment="TOP_LEFT" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller=""
->
+<VBox alignment="TOP_LEFT" spacing="20.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zenbrowser.a1.Controller.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>

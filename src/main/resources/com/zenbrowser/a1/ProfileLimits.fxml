@@ -6,7 +6,7 @@
 <?import java.lang.String?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.zenbrowser.a1.OliverBrowsingLimitsGUI.ProfileLimitsController">
+            fx:controller="com.zenbrowser.a1.Controller.ProfileLimitsController">
 
     <top>
         <HBox alignment="CENTER">
@@ -33,7 +33,7 @@
                 <Label text="Add Limit:" />
                 <TextField fx:id="limitField" />
             </HBox>
-            <Button text="Add URL and Limit to Profile" onAction="#addUrlAndLimit" />
+            <Button text="Add to Profile" onAction="#addUrlAndLimit" />
         </VBox>
     </left>
 

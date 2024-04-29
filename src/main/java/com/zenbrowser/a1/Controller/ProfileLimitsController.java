@@ -1,4 +1,4 @@
-package com.zenbrowser.a1.OliverBrowsingLimitsGUI;
+package com.zenbrowser.a1.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -12,13 +12,13 @@ public class ProfileLimitsController {
     private TextField limitField;
 
     @FXML
-    private TableView<com.zenbrowser.a1.OliverBrowsingLimitsGUI.UrlLimit> urlTable;
+    private TableView<com.zenbrowser.a1.ProfileLimitsGUI.UrlLimit> urlTable;
 
     public void addUrlAndLimit() {
         String url = urlField.getText();
         String limit = limitField.getText();
         if (!url.isEmpty() && !limit.isEmpty()) {
-            urlTable.getItems().add(new com.zenbrowser.a1.OliverBrowsingLimitsGUI.UrlLimit(url, limit));
+            urlTable.getItems().add(new com.zenbrowser.a1.ProfileLimitsGUI.UrlLimit(url, limit));
             urlField.clear();
             limitField.clear();
         } else {
