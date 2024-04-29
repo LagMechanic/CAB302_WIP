@@ -33,7 +33,7 @@
                 <Label text="Add Limit:" />
                 <TextField fx:id="limitField" />
             </HBox>
-            <Button text="Add URL and Limit to Profile" onAction="#addUrlAndLimit" />
+            <Button text="Add to Profile" onAction="#addUrlAndLimit" />
         </VBox>
     </left>
 

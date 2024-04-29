@@ -1,7 +1,13 @@
 package com.zenbrowser.a1.Controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class RegisterController {
 
@@ -17,7 +23,11 @@ public class RegisterController {
     }
 
     @FXML
-    protected void onLoginButtonClick() {
-
+    protected void onLoginButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(RegisterController.class.getResource("Home-Page.fxml"));
+        Stage stage = (Stage) username.getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setScene(scene);
+        stage.show();
     }
 }

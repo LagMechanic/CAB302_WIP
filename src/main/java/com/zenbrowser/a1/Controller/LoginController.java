@@ -3,6 +3,7 @@ package com.zenbrowser.a1.Controller;
 import com.zenbrowser.a1.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.scene.control.Button;
@@ -20,8 +21,12 @@ public class LoginController {
 
 
     @FXML
-    protected void onLoginButtonClick() {
-
+    protected void onLoginButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("Home-Page.fxml"));
+        Stage stage = (Stage) username.getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

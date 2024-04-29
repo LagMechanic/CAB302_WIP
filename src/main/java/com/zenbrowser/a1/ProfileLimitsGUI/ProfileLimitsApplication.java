@@ -5,11 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MainProfileLimits extends Application {
+public class ProfileLimitsApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainProfileLimits.class.getResource("ProfileLimits.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ProfileLimitsApplication.class.getResource("ProfileLimits.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Limits Browser");
         stage.setScene(scene);
