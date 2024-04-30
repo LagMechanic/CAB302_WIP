@@ -2,37 +2,33 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<VBox xmlns:fx="http://javafx.com/fxml" alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="10"
-      fx:controller="com.zenbrowser.a1.Controller.HomePageController"><![CDATA[
-    ="com.zenbrowser.a1.Controller.HomePageController">
-        ]]>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.zenbrowser.a1.Controller.HomePageController"
+            style="-fx-background-color: #D1FFBD;">
+    <top>
+        <HBox alignment="BOTTOM_CENTER">
+            <TextField fx:id="searchField" promptText="Enter your search query"/>
+            <Button text="Search"/>
+        </HBox>
+    </top>
 
-    <!-- FXML layout definition -->
-
-    <!-- Top Section -->
-    <HBox alignment="CENTER" spacing="10">
-        <TextField fx:id="searchField" promptText="Enter your search query"/>
-        <Button text="Search"/>
-    </HBox>
-
-    <!-- Main Content -->
-    <HBox spacing="10">
-        <!-- Left Dashboard -->
-        <VBox spacing="10">
-            <Label text="Dashboard" style="-fx-font-size: 18px;"/>
-            <!-- Add your dashboard components here -->
-            <Button text="Button 1"/>
-            <Button text="Button 2"/>
-            <Button text="Button 3"/>
-        </VBox>
-
-
-
-        <!-- Right History -->
-        <VBox spacing="10">
+    <center>
+        <VBox alignment="CENTER" spacing="10">
             <Label text="History" style="-fx-font-size: 18px;"/>
-            <!-- Add your history components here -->
-            <ListView fx:id="historyList" prefWidth="200"/>
+            <ListView fx:id="historyList" prefWidth="250"/>
         </VBox>
-    </HBox>
-</VBox>
+    </center>
+
+    <left>
+        <VBox alignment="CENTER" spacing="10">
+            <Label text="          Dashboard          " style="-fx-font-size: 18px;"/>
+            <Button text="Settings"/>
+            <Button text="Profile Limits" fx:id="GoToProfileButton" onAction="#onGoToProfileLimits"/>
+            <Button text="Usage Reports"/>
+            <Button text="Notification Settings"/>
+            <Button text="My Account Settings"/>
+        </VBox>
+    </left>
+
+</BorderPane>

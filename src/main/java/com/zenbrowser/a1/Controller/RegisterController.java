@@ -23,11 +23,6 @@ public class RegisterController {
     }
 
     @FXML
-    protected void onLoginButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(RegisterController.class.getResource("Home-Page.fxml"));
-        Stage stage = (Stage) username.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setScene(scene);
-        stage.show();
+    protected void onLoginButtonClick() {
     }
 }

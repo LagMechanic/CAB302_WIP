@@ -1,9 +1,15 @@
 package com.zenbrowser.a1.Controller;
 
+import com.zenbrowser.a1.HelloApplication;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HomePageController {
     @FXML
@@ -15,21 +21,26 @@ public class HomePageController {
     @FXML
     private Button searchButton;
 
-    // Add any other variables or methods you need here
+    @FXML
+    private Button GoToProfileButton;
+
 
     @FXML
     private void initialize() {
-        // Initialize anything you need when the controller is created
-        // For example, you might set up event handlers or populate the history list
     }
 
     @FXML
     private void handleSearch() {
-        // Add functionality to handle search action
         String query = searchField.getText();
-        // Perform search operation with the query
         System.out.println("Performing search for: " + query);
     }
 
-    // Add more event handler methods as needed
+    @FXML
+    protected void onGoToProfileLimits() throws IOException {
+        Stage stage = (Stage) GoToProfileButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ProfileLimits.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setTitle("Limits Browser");
+        stage.setScene(scene);
+    }
 }

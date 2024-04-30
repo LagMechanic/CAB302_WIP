@@ -4,26 +4,23 @@ import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
-import java.sql.Array;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 public class Html_Index {
     private final String connectionString = "jdbc:sqlite:Site_Index.db";
-    private Html_Record Doc;
-    private StanfordCoreNLP pipeline;
+    private final Html_Record Doc;
+    private final StanfordCoreNLP pipeline;
     static Logger logger = Logger.getLogger(Html_Index.class.getName());
     public static Set<String> STOP_WORDS = Set.of("a", "an", "and", "are", "as", "at", "be", "but", "by",
             "for", "if", "in", "into", "is", "it",
@@ -59,7 +56,7 @@ public class Html_Index {
                     } else {
                         try (PreparedStatement insertStmt = conn.prepareStatement("INSERT INTO tokens (token, urls) VALUES (?, ?)")) {
                             insertStmt.setString(1, token);
-                            insertStmt.setString(2, Doc);
+                            insertStmt.setString(2, String.valueOf(Doc));
                             insertStmt.executeUpdate();
                         }
                     }

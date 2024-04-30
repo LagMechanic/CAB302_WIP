@@ -6,46 +6,49 @@
 <?import java.lang.String?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.zenbrowser.a1.Controller.ProfileLimitsController">
-
-    <top>
-        <HBox alignment="CENTER">
-            <Label text="Profile:" />
-            <ComboBox prefWidth="100.0">
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Profile 1" />
-                        <String fx:value="Profile 2" />
-                        <String fx:value="Profile 3" />
-                    </FXCollections>
-                </items>
-            </ComboBox>
-        </HBox>
-    </top>
-
-    <left>
-        <VBox spacing="5">
-            <HBox alignment="CENTER">
-                <Label text="Add URL:" />
-                <TextField fx:id="urlField" />
-            </HBox>
-            <HBox alignment="CENTER">
-                <Label text="Add Limit:" />
-                <TextField fx:id="limitField" />
-            </HBox>
-            <Button text="Add to Profile" onAction="#addUrlAndLimit" />
-        </VBox>
-    </left>
+            fx:controller="com.zenbrowser.a1.Controller.ProfileLimitsController"
+            style="-fx-background-color: #D1FFBD;">
 
     <center>
-        <ScrollPane prefWidth="400.0">
-            <TableView fx:id="urlTable">
-                <columns>
-                    <TableColumn text="URL" prefWidth="200" />
-                    <TableColumn text="Limit" prefWidth="200" />
-                </columns>
-            </TableView>
-        </ScrollPane>
+            <ScrollPane prefWidth="400" fitToWidth="true" >
+                <VBox spacing="5" alignment="CENTER" style="-fx-background-color: #D1FFBD">
+                    <Label text="Profile:" />
+                    <ComboBox prefWidth="150.0">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Profile 1"/>
+                                <String fx:value="Profile 2"/>
+                                <String fx:value="Profile 3"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                    <Label text="Add Limit: "/>
+                    <TextField fx:id="limitField" prefWidth="50" maxWidth="150"/>
+                    <Label text="Add URL:  " />
+                    <TextField fx:id="urlField" prefWidth="50" maxWidth="150"/>
+                    <Button text="Add to Profile" onAction="#addUrlAndLimit"/>
+                    <Region VBox.vgrow="ALWAYS"/>
+                    <HBox alignment="BOTTOM_CENTER">
+                        <TableView fx:id="urlTable">
+                            <columns>
+                                <TableColumn text="URL" prefWidth="200" />
+                                <TableColumn text="Limit" prefWidth="200" />
+                            </columns>
+                        </TableView>
+                    </HBox>
+                </VBox>
+            </ScrollPane>
     </center>
+
+    <left>
+        <VBox alignment="CENTER" spacing="10">
+            <Label text="          Dashboard          " style="-fx-font-size: 18px;"/>
+            <Button text="Settings"/>
+            <Button text="Profile Limits" fx:id="GoToProfileButton" onAction="#onGoToProfileLimits"/>
+            <Button text="Usage Reports"/>
+            <Button text="Notification Settings"/>
+            <Button text="My Account Settings"/>
+        </VBox>
+    </left>
 
 </BorderPane>
