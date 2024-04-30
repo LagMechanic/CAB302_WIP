@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class RegisterController {
+public class RegisterController extends ControllerAbstract{
 
     @FXML
     private TextField username;

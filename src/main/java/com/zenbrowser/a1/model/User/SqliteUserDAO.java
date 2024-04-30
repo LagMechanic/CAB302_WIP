@@ -12,8 +12,6 @@ public class SqliteUserDAO implements IUserDAO {
     public SqliteUserDAO() {
         connection = SqliteConnection.getInstance();
         createTable();
-        // Used for testing, to be removed later
-        //insertSampleData();
     }
 
 

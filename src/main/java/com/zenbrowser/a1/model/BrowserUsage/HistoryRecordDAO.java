@@ -12,11 +12,9 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
 
     private Connection connection;
 
-    public HistoryRecordDAO() throws SQLException {
-        this.connection = SqliteConnection.getInstance();
-    }
     public HistoryRecordDAO(Connection connection) {
         this.connection = connection;
+        //createTable();
     }
 
     // method to insert browsing data to database, should call this when user opens website

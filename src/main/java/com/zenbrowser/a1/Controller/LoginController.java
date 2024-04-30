@@ -11,7 +11,7 @@ import javafx.stage.*;
 
 import java.io.IOException;
 
-public class LoginController {
+public class LoginController extends ControllerAbstract {
 
     @FXML
     private TextField username;
@@ -21,6 +21,7 @@ public class LoginController {
 
     @FXML
     protected void onLoginButtonClick()  {
+
     }
 
     @FXML

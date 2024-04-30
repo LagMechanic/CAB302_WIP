@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomePageController {
+public class HomePageController extends ControllerAbstract {
     @FXML
     private TextField searchField;
 

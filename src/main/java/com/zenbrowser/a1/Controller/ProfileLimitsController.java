@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ProfileLimitsController {
+public class ProfileLimitsController extends ControllerAbstract {
 
     @FXML
     private TextField urlField;

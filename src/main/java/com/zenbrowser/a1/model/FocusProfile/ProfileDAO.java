@@ -1,12 +1,13 @@
 package com.zenbrowser.a1.model.FocusProfile;
 
+import com.zenbrowser.a1.Controller.ControllerAbstract;
 import com.zenbrowser.a1.model.SqliteConnection;
 import com.zenbrowser.a1.model.Website.Site;
 import com.zenbrowser.a1.model.Website.SiteDAO;
 
 import java.sql.*;
 
-public class ProfileDAO {
+public class ProfileDAO implements IProfileDAO {
     private final Connection connection;
 
     public ProfileDAO() {
@@ -72,6 +73,7 @@ public class ProfileDAO {
             throw new RuntimeException(e);
         }
     }
+    @Override
     public void deleteProfile(int id) throws SQLException {
         String sql = "DELETE FROM profiles WHERE id=?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -80,7 +82,9 @@ public class ProfileDAO {
         }
     }
 
-    public Profile getProfileById(int id) {
+
+    @Override
+    public Profile getProfile(int id) {
         String sql = "SELECT * FROM profiles WHERE id=?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
