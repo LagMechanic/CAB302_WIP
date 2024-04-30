@@ -27,7 +27,7 @@ public interface IUserDAO {
      * @param id The id of the contact to retrieve.
      * @return The contact with the given id, or null if not found.
      */
-    public User getContact(int id);
+    public User getContact(String username);
     /**
      * Checks if there is a user with the given username
      * @param username username to check
