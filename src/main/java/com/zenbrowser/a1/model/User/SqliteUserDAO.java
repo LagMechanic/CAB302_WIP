@@ -114,7 +114,7 @@ public class SqliteUserDAO implements IUserDAO {
 
             ResultSet resultSet = statement.executeQuery();
             // Return true iff any rows exist
-            return resultSet.first();
+            return resultSet.next();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -137,7 +137,7 @@ public class SqliteUserDAO implements IUserDAO {
 
             ResultSet resultSet = statement.executeQuery();
             // Return true iff any rows exist
-            return resultSet.first();
+            return resultSet.next();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -9,7 +9,7 @@
 
 <?import javafx.scene.text.Text?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.zenbrowser.a1.Controller.LoginController" style="-fx-background-color: #D1FFBD;">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.zenbrowser.a1.Controller.RegisterController" style="-fx-background-color: #D1FFBD;">
 <padding>
     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
 </padding>
@@ -28,15 +28,15 @@
             <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
             <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
             <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-            <TextField fx:id="usernameTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity"/>
-            <TextField fx:id="PasswordTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="phoneTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="usernameTXT" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity"/>
+            <TextField fx:id="passwordTXT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="emailTXT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="phoneTXT" GridPane.columnIndex="1" GridPane.rowIndex="4" />
         </GridPane>
         <VBox spacing="20.0" alignment="CENTER">
-            <Button text="Register" onAction="#onRegisterButtonClick" style="-fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 20px;"/>
+            <Button text="Register" fx:id="RegisterButton" onAction="#onRegisterButtonClick" style="-fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 20px;"/>
             <Label text="Do not have a zen account? Create Now!" style="-fx-font-size:20px;"/>
-            <Button text="Login"  onAction="#onLoginButtonClick" style="-fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 20px;"/>
+            <Button text="Login" fx:id="LoginButton" onAction="#onLoginButtonClick" style="-fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 20px;"/>
         </VBox>
     </VBox>
 </center>

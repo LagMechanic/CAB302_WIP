@@ -6,7 +6,7 @@ module com.zenbrowser.a1 {
 
     requires stanford.corenlp;
     requires htmlunit;
-
+    requires static lombok;
 
 
     opens com.zenbrowser.a1 to javafx.fxml;
