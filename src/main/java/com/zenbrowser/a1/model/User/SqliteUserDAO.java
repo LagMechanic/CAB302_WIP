@@ -34,7 +34,7 @@ public class SqliteUserDAO implements IUserDAO {
     @Override
     public void addContact(User user) {
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO users (username, password, firstName, lastName, phone, email) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO users (username, password, firstName, lastName, email) VALUES (?, ?, ?, ?, ?)");
             statement.setString(1, user.getUsername());
             statement.setString(2,user.getPassword());
             statement.setString(3, user.getFirstName());
@@ -54,7 +54,7 @@ public class SqliteUserDAO implements IUserDAO {
     @Override
     public void updateContact(User user) {
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE users SET firstName = ?, lastName = ?, phone = ?, email = ? WHERE id = ?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE users SET firstName = ?, lastName = ?, email = ? WHERE id = ?");
             statement.setString(1, user.getUsername());
             statement.setString(2, user.getFirstName());
             statement.setString(3, user.getLastName());

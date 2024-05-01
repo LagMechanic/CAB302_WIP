@@ -12,8 +12,8 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
 
     private Connection connection;
 
-    public HistoryRecordDAO(Connection connection) {
-        this.connection = connection;
+    public HistoryRecordDAO() {
+        connection = SqliteConnection.getInstance();
         //createTable();
     }
 

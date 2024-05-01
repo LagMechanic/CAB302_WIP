@@ -30,25 +30,25 @@ public class LoginController extends ControllerAbstract {
     }
 
     @FXML
-    private Button GoToProfileButton;
+    private Button AccountLoginButton;
 
     @FXML
-    private Button GoToHomePageButton;
+    private Button GoToRegisterPageButton;
 
 
     @FXML
     protected void onGoToProfileLimits() throws IOException {
-        Stage stage = (Stage) GoToProfileButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("ProfileLimits.fxml"));
+        Stage stage = (Stage) AccountLoginButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("Home-Page.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Limits Browser");
         stage.setScene(scene);
     }
 
     @FXML
-    protected void onGoToHomePage() throws IOException {
-        Stage stage = (Stage) GoToHomePageButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("Home-Page.fxml"));
+    protected void onRegisterPageButton() throws IOException {
+        Stage stage = (Stage) GoToRegisterPageButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("register-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Home Page");
         stage.setScene(scene);
