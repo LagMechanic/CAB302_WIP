@@ -21,11 +21,8 @@ public class ProfileDAO implements IProfileDAO {
             Statement statement = connection.createStatement();
             String query = "CREATE TABLE IF NOT EXISTS profiles ("
                     + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "firstName VARCHAR NOT NULL,"
-                    + "lastName VARCHAR NOT NULL,"
-                    + "phone VARCHAR NULL,"
-                    + "email VARCHAR NULL,"
-                    + "password VARCHAR NOT NULL"
+                    + "profileName VARCHAR NOT NULL,"
+                    + "websiteID VARCHAR NOT NULL"
                     + ")";
             statement.execute(query);
         } catch (Exception e) {

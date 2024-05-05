@@ -19,11 +19,10 @@ public class SiteDAO implements ISiteDAO {
         try {
             Statement statement = connection.createStatement();
             String query = "CREATE TABLE IF NOT EXISTS sites ("
-                    + "siteID INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + "URL VARCHAR NOT NULL,"
                     + "siteName VARCHAR NOT NULL,"
-                    + "category VARCHAR NOT NULL,"
-                    + "blockedStatus INTEGER NOT NULL,"
+                    + "category VARCHAR NOT NULL"
                     + ")";
             statement.execute(query);
         } catch (Exception e) {
@@ -33,12 +32,11 @@ public class SiteDAO implements ISiteDAO {
 
     @Override
     public Site insertSite(Site site) {
-        String sql = "INSERT INTO sites ( URL, siteName, category, blockedStatus) VALUES ( ?, ?, ?, ?)";
+        String sql = "INSERT INTO sites ( URL, siteName, category) VALUES ( ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, site.getProfileName());
             statement.setString(2, site.getSiteName());
             statement.setString(3, site.getCategory());
-            statement.setBoolean(4, site.getIsBlockedStatus());
 
             int affectedRows = statement.executeUpdate();
             if (affectedRows > 0){
@@ -46,7 +44,7 @@ public class SiteDAO implements ISiteDAO {
                 try(var generatedKeys = statement.getGeneratedKeys()){
                     if (generatedKeys.next()){
                         int siteId = generatedKeys.getInt(1);
-                        System.out.println("generated key siteId: " + siteId);
+                        System.out.println("generated key id: " + siteId);
                         site.setId(siteId);
                         return site;
                     }
@@ -60,13 +58,12 @@ public class SiteDAO implements ISiteDAO {
 
     @Override
     public void updateSite(Site site) {
-        String sql = "UPDATE sites SET URL=?, siteName=?, category=?, blockedStatus=? WHERE id=?";
+        String sql = "UPDATE sites SET URL=?, siteName=?, category=? WHERE id=?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, site.getProfileName());
             statement.setString(2, site.getSiteName());
             statement.setString(3, site.getCategory());
-            statement.setBoolean(4, site.getIsBlockedStatus());
-            statement.setInt(5, site.getId());
+            statement.setInt(4, site.getId());
             statement.executeUpdate();
         }
         catch (SQLException e){
