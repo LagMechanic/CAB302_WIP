@@ -25,13 +25,26 @@ public class LoginController {
 
 
     @FXML
-    protected void onLoginButtonClick() {
+    protected void onLoginButtonClick() throws IOException {
+        try {
+            Authentication.getInstance().login(new User(usernameTXT.getText(), passwordTXT.getText()));
+        } catch (InvalidCredentials e) {
+            // TODO: Tell the user their username or password is incorrect
+            return;
+        }
+
+        Stage stage = (Stage) LoginButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("Home-Page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setTitle("Limits Browser");
+        stage.setScene(scene);
     }
 
     @FXML
     protected void onRegisterButtonClick() {
 
     }
+
     @FXML
     private Button GoToRegisterPageButton;
     @FXML
@@ -59,5 +72,14 @@ public class LoginController {
             }
         });
     }
-}
 
+    @FXML
+    protected void onGoToProfileLimits() throws IOException {
+        Stage stage = (Stage) GoToProfileButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ProfileLimits.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setTitle("Limits Browser");
+        stage.setScene(scene);
+    }
+
+}

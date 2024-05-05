@@ -37,13 +37,8 @@ public class MockUsersDAO implements IUserDAO {
     }
 
     @Override
-    public User getContact(int id) {
+    public User getContact(String username) {
         return null;
-    }
-
-    @Override
-    public List<User> getAllContacts() {
-        return List.of();
     }
 
     /**

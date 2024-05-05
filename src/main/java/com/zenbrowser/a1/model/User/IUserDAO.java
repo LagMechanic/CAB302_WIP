@@ -27,13 +27,7 @@ public interface IUserDAO {
      * @param id The id of the contact to retrieve.
      * @return The contact with the given id, or null if not found.
      */
-    public User getContact(int id);
-    /**
-     * Retrieves all contacts from the database.
-     * @return A list of all contacts in the database.
-     */
-    public List<User> getAllContacts();
-
+    public User getContact(String username);
     /**
      * Checks if there is a user with the given username
      * @param username username to check
@@ -48,4 +42,5 @@ public interface IUserDAO {
      * @return true if a user has the given username and password
      */
     public boolean checkPassword(String username, String password);
+
 }

@@ -4,6 +4,7 @@ module com.zenbrowser.a1 {
     requires java.sql;
     requires java.desktop;
     requires javafx.web;
+    requires static lombok;
 
 
 

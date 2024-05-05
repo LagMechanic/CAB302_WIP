@@ -1,6 +1,6 @@
 package com.zenbrowser.a1.Controller;
 
-import com.zenbrowser.a1.HelloApplication;
+import com.zenbrowser.a1.BrowserApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -38,7 +38,7 @@ public class HomePageController {
     @FXML
     protected void onGoToProfileLimits() throws IOException {
         Stage stage = (Stage) GoToProfileButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ProfileLimits.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("ProfileLimits.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Limits Browser");
         stage.setScene(scene);
