@@ -27,8 +27,8 @@
 
         <Button text="Login" onAction="#onLoginButtonClick"/>
         <Label>New? Create your account </Label>
-        <Button text="Register" onAction="#onRegisterButtonClick"/>
-        <Button text="Home Page" fx:id="GoToHomePageButton" onAction="#onGoToHomePage"/>
+        <Button text="Register" fx:id="GoToRegisterPageButton"/>
+
     </VBox>
 
 </AnchorPane>

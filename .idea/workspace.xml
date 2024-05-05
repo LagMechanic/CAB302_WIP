@@ -4,13 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="Testing ProfileLimits fxml">
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="Implementation Of main browser including&#10;Nested FXML's&#10;search integration&#10;multiple tabs&#10;Basic customisation options&#10;&#10;Modifications &amp; Additions to FXML files&#10;Home-Page.fxml: removed unnecessary buttons&#10;login-view.fxml:completely reworked how it changes between login-view.fxml and register-view.fxml by including ChangeListener's all screen changes within the Application are handled by BrowserMain.java">
+      <change afterPath="$PROJECT_DIR$/hist.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Browser_App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/SharedModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/History.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/UserIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/simple-design-wallpaper-27_195808-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/unnamded.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/unnamed.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Browser-Main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ProfileLimitsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/ProfileLimitsGUI/ProfileLimitsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/ProfileLimitsGUI/ProfileLimitsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/config/Html_Index.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/config/Html_Index.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/config/Html_Record.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/config/Html_Record.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/core/Crawler_API.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/core/Crawler_API.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/core/Crawler_API_Tester.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/core/Crawler_API_Tester.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/login-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +41,7 @@
       <list>
         <option value="Interface" />
         <option value="FxmlFile" />
+        <option value="JavaFXApplication" />
         <option value="Class" />
       </list>
     </option>
@@ -63,31 +82,111 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.BrowserApplication.executor": "Run",
+    "Application.Browser_App.executor": "Run",
     "Application.HelloApplication.executor": "Run",
     "Application.HomePageApplication.executor": "Run",
     "Application.MainProfileLimits.executor": "Run",
     "Application.ProfileLimits.executor": "Run",
     "Application.ProfileLimitsApplication.executor": "Run",
+    "Application.javafxapplication.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.AuthenticationTest.validNewUser.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "TestProfileLimits",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "C:/Users/olive/Documents/Git/CAB302_WIP/src/test/java",
+    "last_opened_file_path": "C:/Users/Benjc/Downloads/NestedFXML-master",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Benjc\Desktop\Uni\2024\Semester 1\CAB302\CAB302_WIP\src\main\resources\Icons" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Benjc\Desktop\Uni\2024\Semester 1\CAB302\CAB302_WIP\src\main\resources\Icons" />
+      <recent name="C:\Users\Benjc\Desktop\Uni\2024\Semester 1\CAB302\CAB302_WIP\src\main\resources\com\zenbrowser\a1" />
       <recent name="C:\Users\olive\Documents\Git\CAB302_WIP\src\main\Resources\com\zenbrowser\a1" />
       <recent name="C:\Users\olive\Documents\Git\CAB302_WIP\src\main\Resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.zenbrowser.a1" />
+      <recent name="com.zenbrowser.a1.model" />
     </key>
+  </component>
+  <component name="RunManager" selected="Application.Browser_App">
+    <configuration name="BrowserApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.BrowserApplication" />
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Browser_App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.Browser_App" />
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="javafxapplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.javafxapplication" />
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationTest.validNewUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.model.Authentication.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.Authentication" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.Authentication.AuthenticationTest" />
+      <option name="METHOD_NAME" value="validNewUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Browser_App" />
+        <item itemvalue="JUnit.AuthenticationTest.validNewUser" />
+        <item itemvalue="Application.javafxapplication" />
+        <item itemvalue="Application.BrowserApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -153,9 +252,19 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="tested HistoryRecordDAO update method" />
     <MESSAGE value="Testing ProfileLimits fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing ProfileLimits fxml" />
+    <MESSAGE value="Implementation Of main browser including&#10;Nested FXML's&#10;search integration&#10;multiple tabs&#10;Basic customisation options&#10;&#10;Modifications &amp; Additions to FXML files&#10;Home-Page.fxml: removed unnecessary buttons&#10;login-view.fxml:completely reworked how it changes between login-view.fxml and register-view.fxml by including ChangeListener's all screen changes within the Application are handled by BrowserMain.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation Of main browser including&#10;Nested FXML's&#10;search integration&#10;multiple tabs&#10;Basic customisation options&#10;&#10;Modifications &amp; Additions to FXML files&#10;Home-Page.fxml: removed unnecessary buttons&#10;login-view.fxml:completely reworked how it changes between login-view.fxml and register-view.fxml by including ChangeListener's all screen changes within the Application are handled by BrowserMain.java" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/BrowserApplication.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.sqlite.jdbc4.JDBC4ResultSet" memberName="limitRows" />

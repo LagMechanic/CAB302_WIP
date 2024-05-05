@@ -3,9 +3,8 @@ module com.zenbrowser.a1 {
     requires javafx.fxml;
     requires java.sql;
     requires java.desktop;
+    requires javafx.web;
 
-    requires stanford.corenlp;
-    requires htmlunit;
 
 
 
