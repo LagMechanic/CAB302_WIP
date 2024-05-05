@@ -1,6 +1,8 @@
 package com.zenbrowser.a1.Controller;
-
-import com.zenbrowser.a1.HelloApplication;
+import com.zenbrowser.a1.BrowserApplication;
+import com.zenbrowser.a1.model.Authentication.Authentication;
+import com.zenbrowser.a1.model.Authentication.InvalidCredentials;
+import com.zenbrowser.a1.model.User.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,9 +21,13 @@ public class LoginController {
 
 
     @FXML
-    private TextField username;
+    public TextField usernameTXT;
     @FXML
-    private TextField password;
+    public TextField passwordTXT;
+    @FXML
+    public Button LoginButton;
+    @FXML
+    public Button RegisterButton;
 
 
     @FXML
@@ -46,8 +52,6 @@ public class LoginController {
     }
 
     @FXML
-    private Button GoToRegisterPageButton;
-    @FXML
     private Button GoToProfileButton;
 
 
@@ -65,21 +69,13 @@ public class LoginController {
 
     @FXML
     private void initialize() {
-        GoToRegisterPageButton.setOnAction(event -> {
+        RegisterButton.setOnAction(event -> {
             // Notify the listener with the result
             if (buttonPressedListener != null) {
                 buttonPressedListener.onButtonPressed("/com/zenbrowser/a1/register-view.fxml");
             }
         });
     }
-
-    @FXML
-    protected void onGoToProfileLimits() throws IOException {
-        Stage stage = (Stage) GoToProfileButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ProfileLimits.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("Limits Browser");
-        stage.setScene(scene);
-    }
+    
 
 }

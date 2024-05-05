@@ -5,35 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="Implementation Of main browser including&#10;Nested FXML's&#10;search integration&#10;multiple tabs&#10;Basic customisation options&#10;&#10;Modifications &amp; Additions to FXML files&#10;Home-Page.fxml: removed unnecessary buttons&#10;login-view.fxml:completely reworked how it changes between login-view.fxml and register-view.fxml by including ChangeListener's all screen changes within the Application are handled by BrowserMain.java">
-      <change afterPath="$PROJECT_DIR$/hist.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Browser_App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/SharedModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/History.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/UserIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/simple-design-wallpaper-27_195808-1920x1080.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/unnamded.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/unnamed.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Browser-Main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/config/Html_Index.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/config/Html_Index.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/config/Html_Record.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/config/Html_Record.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/core/Crawler_API.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/core/Crawler_API.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/core/Crawler_API_Tester.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/browser/core/Crawler_API_Tester.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/login-view.fxml" afterDir="false" />
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="Testing ProfileLimits fxml">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/Authentication/MockUsersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/Authentication/MockUsersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/User/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/User/IUserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +34,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/.idea/workspace.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -86,7 +62,6 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.BrowserApplication.executor": "Run",
     "Application.BrowserApplication.executor": "Run",
     "Application.Browser_App.executor": "Run",
     "Application.HelloApplication.executor": "Run",
@@ -187,9 +162,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Browser_App" />
+        <item itemvalue="Application.BrowserApplication" />
         <item itemvalue="JUnit.AuthenticationTest.validNewUser" />
         <item itemvalue="Application.javafxapplication" />
-        <item itemvalue="Application.BrowserApplication" />
       </list>
     </recent_temporary>
   </component>
