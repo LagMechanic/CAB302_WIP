@@ -63,7 +63,7 @@ public class LoginController extends ControllerAbstract {
     }
 
     @FXML
-    protected void onRegisterButtonClick() throws IOException {
+    protected void onRegisterPageButtonClick() throws IOException {
         Stage stage = (Stage) RegisterPageButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("register-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
