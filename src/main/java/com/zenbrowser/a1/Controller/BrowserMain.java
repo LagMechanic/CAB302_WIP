@@ -84,7 +84,8 @@ public class BrowserMain implements Initializable {
     @FXML
     private Button GoToHistoryPageButton;
 
-
+    @FXML
+    private HBox tabBox;
 
     @FXML
     Label historyLabl;
@@ -130,18 +131,11 @@ public class BrowserMain implements Initializable {
 
     }
 
-    @FXML
-    private void newTabFunction(ActionEvent event) {
-        NewTab aTab = new NewTab();
-        Tab tab = aTab.createTab();
-        this.tabPane.getTabs().add(tab);
-        this.tabPane.getSelectionModel().select(tab);
-        this.newTabBtnPosRight();
-    }
+
 
     private void addTabSizing(){
         tabPadding += 91.0;
-        tabPane.setPadding(new Insets(0, tabPadding, 0,0));
+        tabBox.prefWidth(tabPadding);
     }
     private void reduceTabSizing(){
         tabPadding -= 91.0;
@@ -194,11 +188,8 @@ public class BrowserMain implements Initializable {
 
     public void initialize(URL url, ResourceBundle rb) {
         this.aTab.setTabBackground("file:src/main/resources/Icons/b46c8e1cde764e377f0ed9399e6380a6.jpg");
-        Tab tab = this.aTab.createTab();
-        tab.setText("Home Tab");
+        Tab tab = new Tab("Home Tab");
         this.tabPane.getTabs().add(tab);
-
-
 
         this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + BrowserMain.this.colorPicker.getValue()));
         this.histObj = new HistoryObject();
@@ -228,25 +219,32 @@ public class BrowserMain implements Initializable {
     @FXML
     protected void GoToHomePage() {
         navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
+
     }
 
     @FXML
     protected void GoToLoginPage() {
         navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");
+        addTabSizing();
     }
 
+    @FXML
+    protected void GoToHistoryPage() {
+        navigatePage("/com/zenbrowser/a1/History-Page.fxml","History");
+    }
 
-    private Tab CreateTab(String tabTitle){
+    @FXML
+    private void newTabFunction(ActionEvent event) {
         Tab tab = new Tab();
-
-        tab.setText(tabTitle);
+        tab.setText("New Tab");
 
         tabPane.getTabs().add(tab);
         tabPane.getSelectionModel().select(tab);
+        if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
+            tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 10);
+        }
 
-        return tab;
     }
-
 
 
 
@@ -271,29 +269,7 @@ public class BrowserMain implements Initializable {
             e.printStackTrace();
         }
     }
-    @FXML
-    protected void GoToHistoryPage() {
-        try {
-            // Load the content of the home page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/zenbrowser/a1/History-Page.fxml"));
-            Parent historyPageContent = loader.load();
 
-            // Get the content container from the existing tab structure
-            this.aTab = new NewTab();
-            Tab tab = this.aTab.createTab();
-            tab.setText("History Tab");
-            AnchorPane contentPane = (AnchorPane) tab.getContent();
-            BorderPane borderPane = (BorderPane) contentPane.getChildren().get(3); // Assuming the BorderPane is at index 3
-
-            // Add the content of the home page to the center of the BorderPane
-            borderPane.setCenter(historyPageContent);
-            this.tabPane.getTabs().add(tab);
-            this.tabPane.getSelectionModel().select(tab);
-            this.newTabBtnPosRight();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     class NewTab {
         private final Tab newTab = new Tab();
         private final AnchorPane smallAnchor = new AnchorPane();

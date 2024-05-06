@@ -21,14 +21,22 @@
 <BorderPane id="borderPane" fx:id="borderPane" prefHeight="448.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.BrowserMain">
     <top>
         <VBox>
-            <HBox alignment="CENTER_LEFT" style="-fx-background-color: D5D5D5;">
-                <TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="108.0" tabMaxWidth="80.0" tabMinWidth="80.0" HBox.hgrow="SOMETIMES" />
-                <Button fx:id="newTabBtn" alignment="CENTER" mnemonicParsing="false" onAction="#newTabFunction" prefHeight="30.0" prefWidth="30.0" text="+" textAlignment="CENTER">
-                    <font>
-                        <Font name="System Bold" size="12.0" />
-                    </font>
-                </Button>
-            </HBox>
+         <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="939.0" spacing="5.0" VBox.vgrow="NEVER">
+            <children>
+                   <TabPane fx:id="tabPane" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: D5D5D5;" tabMaxWidth="80.0" tabMinWidth="80.0">
+                  <HBox.margin>
+                     <Insets left="1.0" />
+                  </HBox.margin></TabPane>
+                    <Button fx:id="newTabBtn" layoutY="20.0" mnemonicParsing="false" onAction="#newTabFunction" prefHeight="16.0" prefWidth="23.0" text="+" textAlignment="CENTER">
+                        <font>
+                            <Font name="System Bold" size="12.0" />
+                        </font>
+                    </Button>
+            </children>
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+         </HBox>
 
 
             <HBox alignment="CENTER" style="-fx-background-color: #A9A9A9;" VBox.vgrow="NEVER">
@@ -43,7 +51,7 @@
             </ToolBar>
             <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="573.0" spacing="5.0" HBox.hgrow="ALWAYS">
                <children>
-                  <TextField alignment="CENTER" prefHeight="25.0" prefWidth="481.0" promptText="&quot;\ud83d\udd0e enter your url here or search something&quot;" HBox.hgrow="ALWAYS">
+                  <TextField alignment="CENTER" prefHeight="25.0" prefWidth="481.0" promptText="&quot;\ud83d\udd0e enter your url here or search something&quot;" HBox.hgrow="SOMETIMES">
                      <padding>
                         <Insets top="5.0" />
                      </padding></TextField>
@@ -51,7 +59,7 @@
                   <Button mnemonicParsing="false" text="↺" />
                </children>
                <padding>
-                  <Insets right="20.0" />
+                  <Insets right="10.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="222.0" spacing="5.0">
@@ -125,7 +133,7 @@
                       </MenuBar>
                </children>
                <HBox.margin>
-                  <Insets />
+                  <Insets right="5.0" />
                </HBox.margin>
             </HBox>
             <VBox.margin>

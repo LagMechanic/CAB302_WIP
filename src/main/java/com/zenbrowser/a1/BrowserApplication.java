@@ -9,8 +9,8 @@ import java.io.IOException;
 
 public class BrowserApplication extends Application {
     public static final String TITLE = "ZenBrowser";
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 600;
+    public static final int WIDTH = 1280;
+    public static final int HEIGHT = 800;
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("browserTab.fxml"));
