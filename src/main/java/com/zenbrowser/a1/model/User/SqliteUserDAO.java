@@ -79,11 +79,11 @@ public class SqliteUserDAO implements IUserDAO {
     @Override
     public User getContact(String Username) {
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE id = ?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
             statement.setString(1, Username);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                String username = resultSet.getString("userName");
+                String username = resultSet.getString("username");
                 String password = resultSet.getString("password");
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");

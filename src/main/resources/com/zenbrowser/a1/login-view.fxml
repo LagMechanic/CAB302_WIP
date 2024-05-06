@@ -35,7 +35,7 @@
                 <Button text="Login"  fx:id ="AccountLoginButton" onAction="#onLoginButtonClick"
                         style="-fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 20px;"/>
                 <Label text="Do not have a zen account? Create Now!" style="-fx-font-size:20px;"/>
-                <Button text="Register" fx:id ="GoToRegisterPageButton" onAction="#onRegisterButtonClick"
+                <Button text="Register" fx:id ="RegisterPageButton" onAction="#onRegisterButtonClick"
                         style="-fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 20px;"/>
 
             </VBox>

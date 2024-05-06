@@ -14,26 +14,43 @@ import java.io.IOException;
 public class LoginController extends ControllerAbstract {
 
     @FXML
-    private TextField username;
+    private TextField usernameTextField;
     @FXML
-    private TextField password;
+    private TextField passwordTextField;
+
+    @FXML
+    private TextField firstNameTextField;
+    @FXML
+    private TextField lastNameTextField;
+
+    @FXML
+    private TextField emailTextField;
+    @FXML
+    private TextField phoneTextField;
 
 
     @FXML
     protected void onLoginButtonClick()  {
-
     }
 
-    @FXML
-    protected void onRegisterButtonClick() {
+    /**private void selectUser(User user) {
+        usernameTextField.setText(contact.getFirstName());
+        passwordTextField.setText(contact.getLastName());
+        emailTextField.setText(contact.getEmail());
+        phoneTextField.setText(contact.getPhone());
 
-    }
+
+     private void checkUser(User user) {
+
+     }
+    }**/
+
 
     @FXML
     private Button AccountLoginButton;
 
     @FXML
-    private Button GoToRegisterPageButton;
+    private Button RegisterPageButton;
 
 
     @FXML
@@ -46,8 +63,8 @@ public class LoginController extends ControllerAbstract {
     }
 
     @FXML
-    protected void onRegisterPageButton() throws IOException {
-        Stage stage = (Stage) GoToRegisterPageButton.getScene().getWindow();
+    protected void onRegisterButtonClick() throws IOException {
+        Stage stage = (Stage) RegisterPageButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("register-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Home Page");
