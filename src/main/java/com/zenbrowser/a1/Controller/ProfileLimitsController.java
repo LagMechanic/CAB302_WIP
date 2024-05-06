@@ -44,7 +44,7 @@ public class ProfileLimitsController extends ControllerAbstract {
         Stage stage = (Stage) GoToProfileButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("ProfileLimits.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("Limits Browser");
+        stage.setTitle(BrowserApplication.TITLE);
         stage.setScene(scene);
     }
 
