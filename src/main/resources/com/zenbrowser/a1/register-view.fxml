@@ -35,7 +35,7 @@
             <TextField fx:id="phoneTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
         </GridPane>
         <VBox spacing="20.0" alignment="CENTER">
-            <Button text="Register" fx:id ="AccountRegisterButton" onAction="#onRegisterButtonClick"
+            <Button text="Register" fx:id ="RegisterButton" onAction="#onRegisterButtonClick"
                     style="-fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 20px;"/>
             <Label text="Do not have a zen account? Create Now!" style="-fx-font-size:20px;"/>
             <Button text="Login"  fx:id ="LoginPageButton" onAction="#onLoginPageButtonClick"

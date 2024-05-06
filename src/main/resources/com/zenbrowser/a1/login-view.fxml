@@ -28,7 +28,7 @@
                 <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-size:20px;" />
                 <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-size:20px;"/>
                 <TextField fx:id="usernameTXT" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity"/>
-                <TextField fx:id="PasswordTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="passwordTXT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             </GridPane>
 
             <VBox spacing="20.0" alignment="CENTER">
