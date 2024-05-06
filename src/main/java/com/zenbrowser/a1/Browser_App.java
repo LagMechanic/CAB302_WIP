@@ -13,7 +13,7 @@ public class Browser_App extends Application {
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
     public void start(Stage stage) throws Exception {
-        Parent root = (Parent)FXMLLoader.load(getClass().getResource("Browser-Main.fxml"));
+        Parent root = (Parent)FXMLLoader.load(getClass().getResource("Browser-main.fxml"));
         Scene scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
         stage.setTitle("Zen Browser");

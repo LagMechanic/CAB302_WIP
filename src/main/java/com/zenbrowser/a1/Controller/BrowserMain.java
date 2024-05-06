@@ -66,6 +66,8 @@ public class BrowserMain implements Initializable {
     int EtG = 1;
     int EtB = 0;
     private double newTabLeftPadding = 102.0;
+
+    private double tabPadding = 80;
     @FXML
     private Button newTabBtn;
     @FXML
@@ -89,6 +91,9 @@ public class BrowserMain implements Initializable {
 
     @FXML
     private Button GoToHomePageButton;
+
+    @FXML
+    private BorderPane borderPane;
 
     public BrowserMain() {
     }
@@ -134,6 +139,14 @@ public class BrowserMain implements Initializable {
         this.newTabBtnPosRight();
     }
 
+    private void addTabSizing(){
+        tabPadding += 91.0;
+        tabPane.setPadding(new Insets(0, tabPadding, 0,0));
+    }
+    private void reduceTabSizing(){
+        tabPadding -= 91.0;
+        tabPane.setPadding(new Insets(0, tabPadding, 0,0));
+    }
     private void newTabBtnPosRight() {
         this.newTabLeftPadding += 91.0;
         AnchorPane.setLeftAnchor(this.newTabBtn, (double) (this.newTabLeftPadding++));
@@ -184,24 +197,7 @@ public class BrowserMain implements Initializable {
         Tab tab = this.aTab.createTab();
         tab.setText("Home Tab");
         this.tabPane.getTabs().add(tab);
-        ImageView iv = new ImageView();
-        Image img = new Image("file:src/main/resources/Icons/home.png");
-        iv.setImage(img);
-        iv.setFitHeight(21.0);
-        iv.setFitWidth(20.0);
-        this.GoToHomePageButton.setGraphic(iv);
-        ImageView iv2 = new ImageView();
-        Image img2 = new Image("file:src/main/resources/Icons/history.png");
-        iv2.setImage(img2);
-        iv2.setFitHeight(21.0);
-        iv2.setFitWidth(20.0);
-        this.GoToHistoryPageButton.setGraphic(iv2);
-        ImageView iv3 = new ImageView();
-        Image img3 = new Image("file:src/main/resources/Icons/UserIcon.png");
-        iv3.setImage(img3);
-        iv3.setFitHeight(21.0);
-        iv3.setFitWidth(20.0);
-        this.ProfileButton.setGraphic(iv3);
+
 
 
         this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + BrowserMain.this.colorPicker.getValue()));
@@ -217,55 +213,41 @@ public class BrowserMain implements Initializable {
         System.out.println("You chose this file: " + file.getAbsolutePath());
 
     }
+    private void navigatePage(String pathway, String tabName){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(pathway));
+            BorderPane content = loader.load();
+            borderPane.setCenter(content);
 
+            currentTab().setText(tabName);
+
+        } catch (IOException e) {e.printStackTrace();}
+    }
+
+    private Tab currentTab(){return tabPane.getSelectionModel().getSelectedItem();}
     @FXML
     protected void GoToHomePage() {
-        try {
-            // Load the content of the home page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/zenbrowser/a1/Home-Page.fxml"));
-            Parent homePageContent = loader.load();
-
-            // Get the content container from the existing tab structure
-            this.aTab = new NewTab();
-            Tab tab = this.aTab.createTab();
-            tab.setText("Home Tab");
-            AnchorPane contentPane = (AnchorPane) tab.getContent();
-            BorderPane borderPane = (BorderPane) contentPane.getChildren().get(3); // Assuming the BorderPane is at index 3
-
-            // Add the content of the home page to the center of the BorderPane
-            borderPane.setCenter(homePageContent);
-            this.tabPane.getTabs().add(tab);
-            this.tabPane.getSelectionModel().select(tab);
-            this.newTabBtnPosRight();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
     }
+
     @FXML
     protected void GoToLoginPage() {
-        try {
-            // Load the content of the home page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/zenbrowser/a1/login-view.fxml"));
-            Parent LoginPageContent = loader.load();
-            LoginController loginViewController = loader.getController();
-            loginViewController.setButtonPressedListener(this::HandleButtonPressed);
-            // Get the content container from the existing tab structure
-            this.aTab = new NewTab();
-            Tab tab = this.aTab.createTab();
-            tab.setText("Login");
-            AnchorPane contentPane = (AnchorPane) tab.getContent();
-            BorderPane borderPane = (BorderPane) contentPane.getChildren().get(3); // Assuming the BorderPane is at index 3
-
-            // Add the content of the home page to the center of the BorderPane
-            borderPane.setCenter(LoginPageContent);
-            this.tabPane.getTabs().add(tab);
-            this.tabPane.getSelectionModel().select(tab);
-            this.newTabBtnPosRight();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");
     }
+
+
+    private Tab CreateTab(String tabTitle){
+        Tab tab = new Tab();
+
+        tab.setText(tabTitle);
+
+        tabPane.getTabs().add(tab);
+        tabPane.getSelectionModel().select(tab);
+
+        return tab;
+    }
+
+
 
 
     private void HandleButtonPressed(String result) {
