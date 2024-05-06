@@ -66,8 +66,6 @@ public class BrowserMain implements Initializable {
     int EtG = 1;
     int EtB = 0;
     private double newTabLeftPadding = 102.0;
-
-    private double tabPadding = 80;
     @FXML
     private Button newTabBtn;
     @FXML
@@ -132,19 +130,6 @@ public class BrowserMain implements Initializable {
     }
 
 
-
-    private void addTabSizing(){
-        tabPadding += 91.0;
-        tabBox.prefWidth(tabPadding);
-    }
-    private void reduceTabSizing(){
-        tabPadding -= 91.0;
-        tabPane.setPadding(new Insets(0, tabPadding, 0,0));
-    }
-    private void newTabBtnPosRight() {
-        this.newTabLeftPadding += 91.0;
-        AnchorPane.setLeftAnchor(this.newTabBtn, (double) (this.newTabLeftPadding++));
-    }
 
     private void newTabBtnPosLeft() {
         this.newTabLeftPadding -= 91.0;
@@ -219,13 +204,11 @@ public class BrowserMain implements Initializable {
     @FXML
     protected void GoToHomePage() {
         navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
-
     }
 
     @FXML
     protected void GoToLoginPage() {
         navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");
-        addTabSizing();
     }
 
     @FXML
@@ -235,38 +218,12 @@ public class BrowserMain implements Initializable {
 
     @FXML
     private void newTabFunction(ActionEvent event) {
-        Tab tab = new Tab();
-        tab.setText("New Tab");
+        Tab tab = new Tab("New Tab");
 
         tabPane.getTabs().add(tab);
         tabPane.getSelectionModel().select(tab);
         if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
             tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 10);
-        }
-
-    }
-
-
-
-    private void HandleButtonPressed(String result) {
-        try {
-            // Load the content of the home page
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(result));
-            Parent PageContent = loader.load();
-                        // Get the content container from the existing tab structure
-            Tab tab = this.tabPane.getSelectionModel().getSelectedItem();
-
-            tab.setText("Login"); // Update tab text if needed
-
-            // Get the content container from the existing tab
-            AnchorPane contentPane = (AnchorPane) tab.getContent();
-            BorderPane borderPane = (BorderPane) contentPane.getChildren().get(3); // Assuming the BorderPane is at index 3
-
-            // Replace the content of the current tab with the new content
-            borderPane.setCenter(PageContent);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

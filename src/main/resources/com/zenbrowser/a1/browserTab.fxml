@@ -42,8 +42,8 @@
             <HBox alignment="CENTER" style="-fx-background-color: #A9A9A9;" VBox.vgrow="NEVER">
             <ToolBar minWidth="-Infinity" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #A9A9A9;">
               <items>
-                  <Button mnemonicParsing="false" text="◁" />
-                  <Button mnemonicParsing="false" text="▷" />
+                  <Button fx:id="PreviousPageButton" mnemonicParsing="false" onAction="#GoToPreviousPage" text="◁" />
+                  <Button fx:id="NextPageButton" mnemonicParsing="false" onAction="#GotoNextPage" text="▷" />
               </items>
                <HBox.margin>
                   <Insets right="5.0" />
@@ -55,8 +55,8 @@
                      <padding>
                         <Insets top="5.0" />
                      </padding></TextField>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="Go" />
-                  <Button mnemonicParsing="false" text="↺" />
+                  <Button fx:id="GoButton" mnemonicParsing="false" onAction="#goButtonPressed" prefHeight="25.0" prefWidth="38.0" text="Go" />
+                  <Button fx:id="ReloadButton" mnemonicParsing="false" onAction="#GoReloadPage" text="↺" />
                </children>
                <padding>
                   <Insets right="10.0" />
