@@ -103,23 +103,23 @@ public class BrowserMain implements Initializable {
                 this.EtG = 0;
                 this.EtB = 1;
                 this.srcEng.setEngine("bing");
-                System.out.println("Bing is the eninge and Google is disabled.");
+                System.out.println("Bing is the engine and Google is disabled.");
             } else {
                 this.bingMenuItm.setSelected(false);
                 this.EtG = 1;
                 this.EtB = 0;
                 this.srcEng.setEngine("google");
-                System.out.println("Google is the eninge and Bing is disabled.");
+                System.out.println("Google is the engine and Bing is disabled.");
             }
         } else if (this.googleMenuItm.isSelected()) {
             System.out.println("Inside google");
             this.srcEng.setEngine("google");
-            System.out.println("Google is the eninge and Bing is disabled.");
+            System.out.println("Google is the engine and Bing is disabled.");
             this.EtG = 1;
         } else if (this.bingMenuItm.isSelected()) {
             System.out.println("Inside Bing.");
             this.srcEng.setEngine("bing");
-            System.out.println("Bing is the eninge and Google is disabled.");
+            System.out.println("Bing is the engine and Google is disabled.");
             this.EtB = 1;
         }
 
@@ -204,7 +204,7 @@ public class BrowserMain implements Initializable {
         this.ProfileButton.setGraphic(iv3);
 
 
-        this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color choosed: " + BrowserMain.this.colorPicker.getValue()));
+        this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + BrowserMain.this.colorPicker.getValue()));
         this.histObj = new HistoryObject();
     }
 
@@ -594,8 +594,5 @@ public class BrowserMain implements Initializable {
 
         public HistoryObject() {
         }
-
-
-
     }
 }

@@ -27,12 +27,12 @@
                 <Label text="Enter login credentials." GridPane.rowIndex="0" style="-fx-font-size:20px;"/>
                 <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-size:20px;" />
                 <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-size:20px;"/>
-                <TextField fx:id="usernameTXT" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity"/>
-                <TextField fx:id="passwordTXT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="usernameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity"/>
+                <TextField fx:id="passwordTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             </GridPane>
 
             <VBox spacing="20.0" alignment="CENTER">
-                <Button text="Login"  fx:id ="AccountLoginButton" onAction="#onLoginButtonClick"
+                <Button text="Login"  fx:id ="LoginButton" onAction="#onLoginButtonClick"
                         style="-fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 20px;"/>
                 <Label text="Do not have a zen account? Create Now!" style="-fx-font-size:20px;"/>
                 <Button text="Register" fx:id ="RegisterPageButton" onAction="#onRegisterPageButtonClick"

@@ -19,11 +19,21 @@ public abstract class ControllerAbstract {
 
     protected IHistoryRecordDAO HistoryDAO;
 
+    protected ButtonPressedListener buttonPressedListener;
+
     ControllerAbstract()
     {
         UserDAO = new SqliteUserDAO();
         SiteDAO = new SiteDAO();
         ProfileDAO = new ProfileDAO();
         HistoryDAO = new HistoryRecordDAO();
+    }
+
+
+    public interface ButtonPressedListener {
+        void onButtonPressed(String result);
+    }
+    public void setButtonPressedListener(ButtonPressedListener listener) {
+        this.buttonPressedListener = listener;
     }
 }

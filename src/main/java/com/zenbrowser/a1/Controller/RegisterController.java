@@ -46,8 +46,8 @@ public class RegisterController extends ControllerAbstract{
 
         Stage stage = (Stage) LoginButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("Home-Page.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("Limits Browser");
+        Scene scene = new Scene(fxmlLoader.load(), BrowserApplication.WIDTH, BrowserApplication.HEIGHT);
+        stage.setTitle(BrowserApplication.TITLE);
         stage.setScene(scene);
     }
 
@@ -62,6 +62,5 @@ public class RegisterController extends ControllerAbstract{
         Scene scene = new Scene(fxmlLoader.load(), BrowserApplication.WIDTH, BrowserApplication.HEIGHT);
         stage.setTitle(BrowserApplication.TITLE);
         stage.setScene(scene);
-    }
     }
 }

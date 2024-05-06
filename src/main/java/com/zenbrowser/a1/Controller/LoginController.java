@@ -33,6 +33,7 @@ public class LoginController extends ControllerAbstract{
     @FXML
     private Button RegisterPageButton;
 
+    @FXML
     protected void onLoginButtonClick() throws IOException {
         try {
             Authentication.getInstance().login(new User(usernameTextField.getText(), passwordTextField.getText()));
@@ -56,10 +57,13 @@ public class LoginController extends ControllerAbstract{
         stage.setTitle(BrowserApplication.TITLE);
         stage.setScene(scene);
     }
-
     @FXML
-    private Button GoToProfileButton;
-
-
-
+    private void initialize() {
+        RegisterPageButton.setOnAction(event -> {
+            // Notify the listener with the result
+            if (buttonPressedListener != null) {
+                buttonPressedListener.onButtonPressed("/com/zenbrowser/a1/register-view.fxml");
+            }
+        });
+    }
 }
