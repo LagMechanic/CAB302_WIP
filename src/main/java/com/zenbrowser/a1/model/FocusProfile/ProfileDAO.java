@@ -9,8 +9,8 @@ import java.sql.*;
 public class ProfileDAO {
     private final Connection connection;
 
-    public ProfileDAO() {
-        connection = SqliteConnection.getInstance();
+    public ProfileDAO(Connection connection) {
+        this.connection = connection;
         createTable();
     }
 
