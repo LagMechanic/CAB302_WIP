@@ -96,7 +96,7 @@ public class ProfileDAO {
         }
     }
     private Profile extractProfileFromResultSet(ResultSet resultSet) throws SQLException {
-        SiteDAO siteDAO = new SiteDAO();
+        SiteDAO siteDAO = new SiteDAO(SqliteConnection.getInstance());
         Site website = siteDAO.getSiteById(resultSet.getInt("websiteId"));
 
         Profile profile = new Profile(resultSet.getString("profileName"), website);
