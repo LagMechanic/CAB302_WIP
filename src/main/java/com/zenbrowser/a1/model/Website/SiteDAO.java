@@ -8,8 +8,8 @@ public class SiteDAO implements ISiteDAO {
 
     private final Connection connection;
 
-    public SiteDAO() {
-        connection = SqliteConnection.getInstance();
+    public SiteDAO(Connection connection) {
+        this.connection = connection;
         createTable();
     }
 
