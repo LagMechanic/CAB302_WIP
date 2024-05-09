@@ -11,13 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.*;
 import java.io.IOException;
 import javafx.scene.control.Button;
-import com.zenbrowser.a1.Controller.SharedModel;
-public class LoginController {
-    private SharedModel model;
 
-    public void initModel(SharedModel model) {
-        this.model = model;
-    }
+public class LoginController {
 
 
     @FXML
