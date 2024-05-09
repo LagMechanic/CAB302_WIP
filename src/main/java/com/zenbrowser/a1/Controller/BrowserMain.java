@@ -224,7 +224,8 @@ public class BrowserMain implements Initializable {
             // Load the content of the home page
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/zenbrowser/a1/Home-Page.fxml"));
             Parent homePageContent = loader.load();
-
+            HomePageController homeViewController = loader.getController();
+            homeViewController.setButtonPressedListener(this::HandleButtonPressed);
             // Get the content container from the existing tab structure
             this.aTab = new NewTab();
             Tab tab = this.aTab.createTab();
@@ -268,25 +269,95 @@ public class BrowserMain implements Initializable {
     }
 
 
-    private void HandleButtonPressed(String result) {
-        try {
-            // Load the content of the home page
+    private void HandleButtonPressed(String destination) {
+        if ("Register".equals(destination)) {
+            try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(result));
-            Parent PageContent = loader.load();
-                        // Get the content container from the existing tab structure
-            Tab tab = this.tabPane.getSelectionModel().getSelectedItem();
 
-            tab.setText("Login"); // Update tab text if needed
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/zenbrowser/a1/register-view.fxml"));
+                Parent PageContent = loader.load();
+                // Get the content container from the existing tab structure
+                RegisterController registerViewController = loader.getController();
+                registerViewController.setButtonPressedListener(this::HandleButtonPressed);
+                Tab tab = this.tabPane.getSelectionModel().getSelectedItem();
 
-            // Get the content container from the existing tab
-            AnchorPane contentPane = (AnchorPane) tab.getContent();
-            BorderPane borderPane = (BorderPane) contentPane.getChildren().get(3); // Assuming the BorderPane is at index 3
+                tab.setText("Register"); // Update tab text if needed
 
-            // Replace the content of the current tab with the new content
-            borderPane.setCenter(PageContent);
-        } catch (IOException e) {
-            e.printStackTrace();
+                // Get the content container from the existing tab
+                AnchorPane contentPane = (AnchorPane) tab.getContent();
+                BorderPane borderPane = (BorderPane) contentPane.getChildren().get(3); // Assuming the BorderPane is at index 3
+
+                // Replace the content of the current tab with the new content
+                borderPane.setCenter(PageContent);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if ("Login".equals(destination)) {
+            try {
+
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/zenbrowser/a1/login-view.fxml"));
+                Parent PageContent = loader.load();
+                // Get the content container from the existing tab structure
+                LoginController loginViewController = loader.getController();
+                loginViewController.setButtonPressedListener(this::HandleButtonPressed);
+                Tab tab = this.tabPane.getSelectionModel().getSelectedItem();
+
+                tab.setText("Login"); // Update tab text if needed
+
+                // Get the content container from the existing tab
+                AnchorPane contentPane = (AnchorPane) tab.getContent();
+                BorderPane borderPane = (BorderPane) contentPane.getChildren().get(3); // Assuming the BorderPane is at index 3
+
+                // Replace the content of the current tab with the new content
+                borderPane.setCenter(PageContent);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if ("Home".equals(destination)) {
+            try {
+
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/zenbrowser/a1/Home-Page.fxml"));
+                Parent PageContent = loader.load();
+                // Get the content container from the existing tab structure
+                HomePageController homeViewController = loader.getController();
+                homeViewController.setButtonPressedListener(this::HandleButtonPressed);
+                Tab tab = this.tabPane.getSelectionModel().getSelectedItem();
+
+                tab.setText("Home"); // Update tab text if needed
+
+                // Get the content container from the existing tab
+                AnchorPane contentPane = (AnchorPane) tab.getContent();
+                BorderPane borderPane = (BorderPane) contentPane.getChildren().get(3); // Assuming the BorderPane is at index 3
+
+                // Replace the content of the current tab with the new content
+                borderPane.setCenter(PageContent);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if ("ProfileLimits".equals(destination)) {
+            try {
+
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/zenbrowser/a1/ProfileLimits.fxml"));
+                Parent PageContent = loader.load();
+                // Get the content container from the existing tab structure
+                ProfileLimitsController profileViewController = loader.getController();
+                profileViewController.setButtonPressedListener(this::HandleButtonPressed);
+                Tab tab = this.tabPane.getSelectionModel().getSelectedItem();
+
+                tab.setText("Limits"); // Update tab text if needed
+
+                // Get the content container from the existing tab
+                AnchorPane contentPane = (AnchorPane) tab.getContent();
+                BorderPane borderPane = (BorderPane) contentPane.getChildren().get(3); // Assuming the BorderPane is at index 3
+
+                // Replace the content of the current tab with the new content
+                borderPane.setCenter(PageContent);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
     @FXML

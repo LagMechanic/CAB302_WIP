@@ -24,6 +24,11 @@ public class HomePageController {
     @FXML
     private Button GoToProfileButton;
 
+    private HomePageController.ButtonPressedListener buttonPressedListener;
+    public interface ButtonPressedListener {
+        void onButtonPressed(String destination);
+    }
+    public void setButtonPressedListener(HomePageController.ButtonPressedListener listener) {this.buttonPressedListener = listener;}
 
     @FXML
     private void initialize() {
@@ -37,10 +42,8 @@ public class HomePageController {
 
     @FXML
     protected void onGoToProfileLimits() throws IOException {
-        Stage stage = (Stage) GoToProfileButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("ProfileLimits.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("Limits Browser");
-        stage.setScene(scene);
+        if (buttonPressedListener != null) { //This lets the main browser controller know which page to switch to
+            buttonPressedListener.onButtonPressed("ProfileLimits");
+        }
     }
 }

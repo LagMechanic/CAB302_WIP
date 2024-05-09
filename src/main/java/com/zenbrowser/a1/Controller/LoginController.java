@@ -29,6 +29,14 @@ public class LoginController {
     @FXML
     public Button RegisterButton;
 
+    private ButtonPressedListener buttonPressedListener;
+    public interface ButtonPressedListener {
+        void onButtonPressed(String destination);
+    }
+
+    public void setButtonPressedListener(ButtonPressedListener listener) {
+        this.buttonPressedListener = listener;
+    }
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
@@ -39,43 +47,23 @@ public class LoginController {
             return;
         }
 
-        Stage stage = (Stage) LoginButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("Home-Page.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("Limits Browser");
-        stage.setScene(scene);
+        if (buttonPressedListener != null) { //This lets the main browser controller know which page to switch to
+            buttonPressedListener.onButtonPressed("Home");
+        }
     }
 
     @FXML
     protected void onRegisterButtonClick() {
-
+        if (buttonPressedListener != null) { //This lets the main browser controller know which page to switch to
+            buttonPressedListener.onButtonPressed("Register");
+        }
     }
 
-    @FXML
-    private Button GoToProfileButton;
 
 
 
 
 
-
-    private ButtonPressedListener buttonPressedListener;
-    public interface ButtonPressedListener {
-        void onButtonPressed(String result);
-    }
-    public void setButtonPressedListener(ButtonPressedListener listener) {
-        this.buttonPressedListener = listener;
-    }
-
-    @FXML
-    private void initialize() {
-        RegisterButton.setOnAction(event -> {
-            // Notify the listener with the result
-            if (buttonPressedListener != null) {
-                buttonPressedListener.onButtonPressed("/com/zenbrowser/a1/register-view.fxml");
-            }
-        });
-    }
     
 
 }

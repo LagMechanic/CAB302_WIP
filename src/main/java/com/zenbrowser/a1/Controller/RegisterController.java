@@ -32,6 +32,11 @@ public class RegisterController {
     private TextField username;
     @FXML
     private TextField password;
+    private RegisterController.ButtonPressedListener buttonPressedListener;
+    public interface ButtonPressedListener {
+        void onButtonPressed(String destination);
+    }
+    public void setButtonPressedListener(RegisterController.ButtonPressedListener listener) {this.buttonPressedListener = listener;}
 
 
     @FXML
@@ -46,19 +51,19 @@ public class RegisterController {
             return;
         }
 
-        Stage stage = (Stage) LoginButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("Home-Page.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("Limits Browser");
-        stage.setScene(scene);
+        if (buttonPressedListener != null) { //This lets the main browser controller know which page to switch to
+            buttonPressedListener.onButtonPressed("Home");
+        }
     }
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
-        Stage stage = (Stage) LoginButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("Limits Browser");
-        stage.setScene(scene);
+        if (buttonPressedListener != null) { //This lets the main browser controller know which page to switch to
+            buttonPressedListener.onButtonPressed("Login");
+        }
     }
+
+
+
+
 }
