@@ -7,6 +7,8 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.util.EventListener;
 import java.util.ResourceBundle;
+
+import com.zenbrowser.a1.model.Authentication.Authentication;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -220,51 +222,59 @@ public class BrowserMain implements Initializable {
 
     @FXML
     protected void GoToHomePage() {
-        try {
-            // Load the content of the home page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/zenbrowser/a1/Home-Page.fxml"));
-            Parent homePageContent = loader.load();
-            HomePageController homeViewController = loader.getController();
-            homeViewController.setButtonPressedListener(this::HandleButtonPressed);
-            // Get the content container from the existing tab structure
-            this.aTab = new NewTab();
-            Tab tab = this.aTab.createTab();
-            tab.setText("Home Tab");
-            AnchorPane contentPane = (AnchorPane) tab.getContent();
-            BorderPane borderPane = (BorderPane) contentPane.getChildren().get(3); // Assuming the BorderPane is at index 3
+        if (Authentication.getInstance().userLoggedIn()) {
+            try {
+                // Load the content of the home page
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/zenbrowser/a1/Home-Page.fxml"));
+                Parent homePageContent = loader.load();
+                HomePageController homeViewController = loader.getController();
+                homeViewController.setButtonPressedListener(this::HandleButtonPressed);
+                // Get the content container from the existing tab structure
+                this.aTab = new NewTab();
+                Tab tab = this.aTab.createTab();
+                tab.setText("Home Tab");
+                AnchorPane contentPane = (AnchorPane) tab.getContent();
+                BorderPane borderPane = (BorderPane) contentPane.getChildren().get(3); // Assuming the BorderPane is at index 3
 
-            // Add the content of the home page to the center of the BorderPane
-            borderPane.setCenter(homePageContent);
-            this.tabPane.getTabs().add(tab);
-            this.tabPane.getSelectionModel().select(tab);
-            this.newTabBtnPosRight();
+                // Add the content of the home page to the center of the BorderPane
+                borderPane.setCenter(homePageContent);
+                this.tabPane.getTabs().add(tab);
+                this.tabPane.getSelectionModel().select(tab);
+                this.newTabBtnPosRight();
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            GoToLoginPage();
         }
     }
     @FXML
     protected void GoToLoginPage() {
-        try {
-            // Load the content of the home page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/zenbrowser/a1/login-view.fxml"));
-            Parent LoginPageContent = loader.load();
-            LoginController loginViewController = loader.getController();
-            loginViewController.setButtonPressedListener(this::HandleButtonPressed);
-            // Get the content container from the existing tab structure
-            this.aTab = new NewTab();
-            Tab tab = this.aTab.createTab();
-            tab.setText("Login");
-            AnchorPane contentPane = (AnchorPane) tab.getContent();
-            BorderPane borderPane = (BorderPane) contentPane.getChildren().get(3); // Assuming the BorderPane is at index 3
+        if (Authentication.getInstance().userLoggedIn())
+            GoToHomePage();
+        else {
+            try {
+                // Load the content of the home page
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/zenbrowser/a1/login-view.fxml"));
+                Parent LoginPageContent = loader.load();
+                LoginController loginViewController = loader.getController();
+                loginViewController.setButtonPressedListener(this::HandleButtonPressed);
+                // Get the content container from the existing tab structure
+                this.aTab = new NewTab();
+                Tab tab = this.aTab.createTab();
+                tab.setText("Login");
+                AnchorPane contentPane = (AnchorPane) tab.getContent();
+                BorderPane borderPane = (BorderPane) contentPane.getChildren().get(3); // Assuming the BorderPane is at index 3
 
-            // Add the content of the home page to the center of the BorderPane
-            borderPane.setCenter(LoginPageContent);
-            this.tabPane.getTabs().add(tab);
-            this.tabPane.getSelectionModel().select(tab);
-            this.newTabBtnPosRight();
-        } catch (IOException e) {
-            e.printStackTrace();
+                // Add the content of the home page to the center of the BorderPane
+                borderPane.setCenter(LoginPageContent);
+                this.tabPane.getTabs().add(tab);
+                this.tabPane.getSelectionModel().select(tab);
+                this.newTabBtnPosRight();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
