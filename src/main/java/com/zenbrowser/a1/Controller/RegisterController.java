@@ -57,10 +57,6 @@ public class RegisterController extends ControllerAbstract{
 
     @FXML
     protected void onLoginPageButtonClick() throws IOException {
-        Stage stage = (Stage) LoginPageButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), BrowserApplication.WIDTH, BrowserApplication.HEIGHT);
-        stage.setTitle(BrowserApplication.TITLE);
-        stage.setScene(scene);
+        BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");
     }
 }

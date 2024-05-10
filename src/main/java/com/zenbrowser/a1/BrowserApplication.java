@@ -13,15 +13,15 @@ import java.io.IOException;
 public class BrowserApplication extends Application {
     public static final String TITLE = "ZenBrowser";
 
-    public BrowserMain currentController = null;
+    public static BrowserMain currentController;
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 800;
 
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(BrowserApplication.class.getResource("browserTab.fxml"));
-        currentController = loader.<BrowserMain>getController();
         Parent root = loader.load();
+        currentController = loader.getController();
         Scene scene = new Scene(root, WIDTH, HEIGHT);
         stage.setTitle(TITLE);
         stage.setScene(scene);

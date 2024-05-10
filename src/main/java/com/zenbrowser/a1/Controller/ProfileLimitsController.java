@@ -37,15 +37,8 @@ public class ProfileLimitsController extends ControllerAbstract {
     }
 
     @FXML
-    private Button GoToProfileButton;
-
-    @FXML
     protected void onGoToProfileLimits() throws IOException {
-        Stage stage = (Stage) GoToProfileButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("ProfileLimits.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle(BrowserApplication.TITLE);
-        stage.setScene(scene);
+        BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
     }
 
 

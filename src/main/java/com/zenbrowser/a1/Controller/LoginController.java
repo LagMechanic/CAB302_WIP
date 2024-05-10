@@ -43,19 +43,12 @@ public class LoginController extends ControllerAbstract{
             return;
         }
 
-        Stage stage = (Stage) LoginButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("Home-Page.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), BrowserApplication.WIDTH, BrowserApplication.HEIGHT);
-        stage.setTitle(BrowserApplication.TITLE);
-        stage.setScene(scene);
+        BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
     }
 
     @FXML
     private void onRegisterPageButtonClick() throws IOException {
-
-        //navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Register");
-
-
+        BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
     }
 
 
