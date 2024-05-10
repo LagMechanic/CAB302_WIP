@@ -24,13 +24,7 @@ public class RegisterController extends ControllerAbstract{
     @FXML
     public TextField passwordTXT;
     @FXML
-    public TextField emailTXT;
-    @FXML
-    public TextField phoneTXT;
-    @FXML
     public Button RegisterButton;
-    @FXML
-    public Button LoginButton;
 
     @FXML
     protected void onRegisterButtonClick() throws IOException {
@@ -44,15 +38,8 @@ public class RegisterController extends ControllerAbstract{
             return;
         }
 
-        Stage stage = (Stage) LoginButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("Home-Page.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), BrowserApplication.WIDTH, BrowserApplication.HEIGHT);
-        stage.setTitle(BrowserApplication.TITLE);
-        stage.setScene(scene);
+        BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
     }
-
-    @FXML
-    private Button LoginPageButton;
 
 
     @FXML

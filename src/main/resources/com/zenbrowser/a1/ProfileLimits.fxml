@@ -50,5 +50,4 @@
             <Button text="My Account Settings"/>
         </VBox>
     </left>
-
 </BorderPane>

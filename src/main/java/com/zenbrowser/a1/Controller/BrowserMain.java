@@ -75,8 +75,7 @@ public class BrowserMain extends ControllerAbstract implements Initializable {
     private Button ProfileButton;
     private NewTab aTab = new NewTab();
     HistoryObject histObj;
-    @FXML
-    private Button GoToHistoryPageButton;
+
 
     @FXML
     private HBox tabBox;

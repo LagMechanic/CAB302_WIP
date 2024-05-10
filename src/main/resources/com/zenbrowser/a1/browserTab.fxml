@@ -15,7 +15,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -65,36 +64,6 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="222.0" spacing="5.0">
                <children>
-                      <Button fx:id="GoToHomePageButton" mnemonicParsing="false" onAction="#GoToHomePage" onMouseEntered="#homeBtnHover" onMouseExited="#homeBtnHoverExit">
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Icons/home.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                      <Label fx:id="homeLabel" style="-fx-background-color: White;" />
-                      <Button fx:id="ProfileButton" mnemonicParsing="false" onAction="#GoToLoginPage" onMouseEntered="#profileBtnHover" onMouseExited="#profileBtnHoverExit">
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Icons/UserIcon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                      <Label fx:id="ProfileLabel" style="-fx-background-color: White;" />
-                      <Button fx:id="GoToHistoryPageButton" mnemonicParsing="false" onAction="#GoToHistoryPage" onMouseEntered="#historyBtnHover" onMouseExited="#historyBtnHoverExit">
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Icons/History.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                      <Label fx:id="historyLabl" style="-fx-background-color: White;" />
                       <MenuBar minWidth="-Infinity" prefHeight="40.0" prefWidth="82.0">
                           <menus>
                               <Menu mnemonicParsing="false" text="Settings">
@@ -131,6 +100,48 @@
                         <Insets />
                      </HBox.margin>
                       </MenuBar>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                            <Button fx:id="GoToHomePageButton" mnemonicParsing="false" onAction="#GoToHomePage" onMouseEntered="#homeBtnHover" onMouseExited="#homeBtnHoverExit">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Icons/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                            <Label fx:id="homeLabel" style="-fx-background-color: White;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                            <Button fx:id="ProfileButton" mnemonicParsing="false" onAction="#GoToLoginPage" onMouseEntered="#profileBtnHover" onMouseExited="#profileBtnHoverExit">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Icons/UserIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                            <Label fx:id="ProfileLabel" style="-fx-background-color: White;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                            <Button fx:id="GoToHistoryPageButton" mnemonicParsing="false" onAction="#GoToHistoryPage" onMouseEntered="#historyBtnHover" onMouseExited="#historyBtnHoverExit">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Icons/History.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                            <Label fx:id="historyLabel" style="-fx-background-color: White;" />
+                     </children>
+                  </VBox>
                </children>
                <HBox.margin>
                   <Insets right="5.0" />
@@ -143,10 +154,6 @@
         </VBox>
     </top>
    <center>
-      <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="937.0" BorderPane.alignment="CENTER">
-         <children>
-            <StackPane id="contentPane" fx:id="contentPane" prefHeight="400.0" prefWidth="1400.0" />
-         </children>
-      </HBox>
+
    </center>
 </BorderPane>
