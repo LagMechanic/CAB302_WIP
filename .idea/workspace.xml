@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="Error output for incorrect login and signup credentials are functional.">
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="Login and register buttons now greyed out until user inputs data into textfields">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/RegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Authentication/AuthenticationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Authentication/AuthenticationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -331,7 +332,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715341864848</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Login and register buttons now greyed out until user inputs data into textfields">
+      <option name="closed" value="true" />
+      <created>1715343362637</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1715343362637</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -383,7 +392,8 @@
     <MESSAGE value="Successfully got user database working." />
     <MESSAGE value="Added new fxml controls including password fields, error output labels. Producing error if authentication errors." />
     <MESSAGE value="Error output for incorrect login and signup credentials are functional." />
-    <option name="LAST_COMMIT_MESSAGE" value="Error output for incorrect login and signup credentials are functional." />
+    <MESSAGE value="Login and register buttons now greyed out until user inputs data into textfields" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login and register buttons now greyed out until user inputs data into textfields" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

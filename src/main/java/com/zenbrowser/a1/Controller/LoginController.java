@@ -23,8 +23,6 @@ public class LoginController extends ParentController {
     public PasswordField passwordField;
     @FXML
     private Button LoginButton;
-    @FXML
-    private Button RegisterPageButton;
 
 
     @FXML

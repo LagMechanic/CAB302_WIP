@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.zenbrowser.a1.model.FocusProfile.Profile;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -51,58 +52,6 @@ public class BrowserMain extends ParentController implements Initializable {
     private TabPane tabPane;
 
 
-    /**@FXML
-    private void setEngine() {
-        if (this.googleMenuItm.isSelected() && this.bingMenuItm.isSelected()) {
-            if (this.EtG > this.EtB) {
-                this.googleMenuItm.setSelected(false);
-                this.EtG = 0;
-                this.EtB = 1;
-                this.srcEng.setEngine("bing");
-                System.out.println("Bing is the engine and Google is disabled.");
-            } else {
-                this.bingMenuItm.setSelected(false);
-                this.EtG = 1;
-                this.EtB = 0;
-                this.srcEng.setEngine("google");
-                System.out.println("Google is the engine and Bing is disabled.");
-            }
-        } else if (this.googleMenuItm.isSelected()) {
-            System.out.println("Inside google");
-            this.srcEng.setEngine("google");
-            System.out.println("Google is the engine and Bing is disabled.");
-            this.EtG = 1;
-        } else if (this.bingMenuItm.isSelected()) {
-            System.out.println("Inside Bing.");
-            this.srcEng.setEngine("bing");
-            System.out.println("Bing is the engine and Google is disabled.");
-            this.EtB = 1;
-        }
-    }**/
-
-    private Tab currentTab(){return tabPane.getSelectionModel().getSelectedItem();}
-
-
-    private void switchPage(){
-        BorderPane content = (BorderPane) currentTab().getContent();
-        borderPane.setCenter(content);
-    }
-
-    //Load a page into the parent BrowserTab.fxml with parameters of child source fxml file and name of tab.
-    public void navigatePage(String pathway, String tabName){
-        try {
-            //load source fxml file and assign to a borderpane variable.
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(pathway));
-            BorderPane content = loader.load();
-            //contentPane.getChildren().add(content);
-            //Attach source file to currently viewing tab and refresh display for user to see current page.
-            currentTab().setContent(content);
-            switchPage();
-            currentTab().setText(tabName);
-
-        } catch (IOException e) {e.printStackTrace();}
-    }
-
     @FXML
     private void homeBtnHover() {
         this.homeLabel.setText("Home");
@@ -134,8 +83,8 @@ public class BrowserMain extends ParentController implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle rb) {
-        tabPane.getTabs().add(new Tab("Home"));
-        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
+
+        newTabFunction();
 
         // Add a listener to the selectionModel property
         tabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
@@ -145,15 +94,6 @@ public class BrowserMain extends ParentController implements Initializable {
         });
 
         this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + BrowserMain.this.colorPicker.getValue()));
-    }
-
-    @FXML
-    private void backgroundImgFunction() {
-        Stage stage = new Stage();
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
-        File file = fileChooser.showOpenDialog(stage);
-        System.out.println("You chose this file: " + file.getAbsolutePath());
     }
 
 
@@ -170,6 +110,30 @@ public class BrowserMain extends ParentController implements Initializable {
     @FXML
     protected void GoToHistoryPage() {
         navigatePage("/com/zenbrowser/a1/History-Page.fxml","History");
+    }
+
+
+    private Tab currentTab(){return tabPane.getSelectionModel().getSelectedItem();}
+
+
+    private void switchPage(){
+        BorderPane content = (BorderPane) currentTab().getContent();
+        borderPane.setCenter(content);
+    }
+
+    //Load a page into the parent BrowserTab.fxml with parameters of child source fxml file and name of tab.
+    public void navigatePage(String pathway, String tabName){
+        try {
+            //load source fxml file and assign to a borderpane variable.
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(pathway));
+            BorderPane content = loader.load();
+
+            //Attach source file to currently viewing tab and refresh display for user to see current page.
+            currentTab().setContent(content);
+            switchPage();
+            currentTab().setText(tabName);
+
+        } catch (IOException e) {e.printStackTrace();}
     }
 
     //Create new tab function.
@@ -201,6 +165,44 @@ public class BrowserMain extends ParentController implements Initializable {
 
     public void setEngine(ActionEvent actionEvent) {
     }
+
+    @FXML
+    private void backgroundImgFunction() {
+        Stage stage = new Stage();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        File file = fileChooser.showOpenDialog(stage);
+        System.out.println("You chose this file: " + file.getAbsolutePath());
+    }
+
+    /**@FXML
+    private void setEngine() {
+    if (this.googleMenuItm.isSelected() && this.bingMenuItm.isSelected()) {
+    if (this.EtG > this.EtB) {
+    this.googleMenuItm.setSelected(false);
+    this.EtG = 0;
+    this.EtB = 1;
+    this.srcEng.setEngine("bing");
+    System.out.println("Bing is the engine and Google is disabled.");
+    } else {
+    this.bingMenuItm.setSelected(false);
+    this.EtG = 1;
+    this.EtB = 0;
+    this.srcEng.setEngine("google");
+    System.out.println("Google is the engine and Bing is disabled.");
+    }
+    } else if (this.googleMenuItm.isSelected()) {
+    System.out.println("Inside google");
+    this.srcEng.setEngine("google");
+    System.out.println("Google is the engine and Bing is disabled.");
+    this.EtG = 1;
+    } else if (this.bingMenuItm.isSelected()) {
+    System.out.println("Inside Bing.");
+    this.srcEng.setEngine("bing");
+    System.out.println("Bing is the engine and Google is disabled.");
+    this.EtB = 1;
+    }
+    }**/
 
     /**public void goButtonPressed(ActionEvent actionEvent) {
         this.label.setText("");

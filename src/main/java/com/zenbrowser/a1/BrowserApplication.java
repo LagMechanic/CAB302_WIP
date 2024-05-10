@@ -18,13 +18,17 @@ public class BrowserApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
         FXMLLoader loader = new FXMLLoader(BrowserApplication.class.getResource("browserTab.fxml"));
         Parent root = loader.load();
         currentController = loader.getController();
+
         Scene scene = new Scene(root, WIDTH, HEIGHT);
         stage.setTitle(TITLE);
         stage.setScene(scene);
         stage.show();
+
+        currentController.navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
     }
 
     public static void main(String[] args) {
