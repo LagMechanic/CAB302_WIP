@@ -50,9 +50,8 @@ import javafx.stage.Stage;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
-public class BrowserMain implements Initializable {
-    @FXML
-    private TabPane tabPane;
+public class BrowserMain extends ControllerAbstract implements Initializable {
+
     @FXML
     private ColorPicker colorPicker;
     @FXML
@@ -93,6 +92,11 @@ public class BrowserMain implements Initializable {
 
     @FXML
     private BorderPane borderPane;
+
+    @FXML
+    private TabPane tabPane;
+
+
 
     public BrowserMain() {
     }
@@ -138,7 +142,22 @@ public class BrowserMain implements Initializable {
             System.out.println("All tabs closed.");
             Platform.exit();
         }
+    }
 
+    private Tab currentTab(){return tabPane.getSelectionModel().getSelectedItem();}
+
+    private void switchPage(BorderPane contentPage){
+        BorderPane content = (BorderPane) currentTab().getContent();
+        borderPane.setCenter(content);
+    }
+    public void navigatePage(String pathway, String tabName){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(pathway));
+            BorderPane content = loader.load();
+            borderPane.setCenter(content);
+            currentTab().setText(tabName);
+
+        } catch (IOException e) {e.printStackTrace();}
     }
 
     @FXML
@@ -189,18 +208,7 @@ public class BrowserMain implements Initializable {
         System.out.println("You chose this file: " + file.getAbsolutePath());
 
     }
-    private void navigatePage(String pathway, String tabName){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(pathway));
-            BorderPane content = loader.load();
-            borderPane.setCenter(content);
 
-            currentTab().setText(tabName);
-
-        } catch (IOException e) {e.printStackTrace();}
-    }
-
-    private Tab currentTab(){return tabPane.getSelectionModel().getSelectedItem();}
     @FXML
     protected void GoToHomePage() {
         navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
@@ -225,6 +233,18 @@ public class BrowserMain implements Initializable {
         if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
             tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 10);
         }
+    }
+
+    public void GoToPreviousPage(ActionEvent actionEvent) {
+    }
+
+    public void GotoNextPage(ActionEvent actionEvent) {
+    }
+
+    public void goButtonPressed(ActionEvent actionEvent) {
+    }
+
+    public void GoReloadPage(ActionEvent actionEvent) {
     }
 
     class NewTab {

@@ -56,7 +56,7 @@
                         <Insets top="5.0" />
                      </padding></TextField>
                   <Button fx:id="GoButton" mnemonicParsing="false" onAction="#goButtonPressed" prefHeight="25.0" prefWidth="38.0" text="Go" />
-                  <Button fx:id="ReloadButton" mnemonicParsing="false" onAction="#GoReloadPage" text="↺" />
+                  <Button fx:id="ReloadButton" mnemonicParsing="false" onAction="#GoReloadPage" prefHeight="25.0" prefWidth="38.0" text="↺" />
                </children>
                <padding>
                   <Insets right="10.0" />

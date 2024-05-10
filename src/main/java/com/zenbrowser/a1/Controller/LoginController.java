@@ -3,6 +3,7 @@ import com.zenbrowser.a1.BrowserApplication;
 import com.zenbrowser.a1.model.Authentication.Authentication;
 import com.zenbrowser.a1.model.Authentication.InvalidCredentials;
 import com.zenbrowser.a1.model.User.User;
+import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,6 +13,8 @@ import javafx.stage.*;
 import java.io.IOException;
 import javafx.scene.control.Button;
 import com.zenbrowser.a1.Controller.SharedModel;
+
+import static com.zenbrowser.a1.BrowserApplication.currentInstance;
 
 public class LoginController extends ControllerAbstract{
     private SharedModel model;
@@ -33,6 +36,10 @@ public class LoginController extends ControllerAbstract{
     @FXML
     private Button RegisterPageButton;
 
+    LoginController(){
+
+    }
+
     @FXML
     protected void onLoginButtonClick() throws IOException {
         try {
@@ -50,20 +57,12 @@ public class LoginController extends ControllerAbstract{
     }
 
     @FXML
-    protected void onRegisterPageButtonClick() throws IOException {
-        Stage stage = (Stage) RegisterPageButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("register-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), BrowserApplication.WIDTH, BrowserApplication.HEIGHT);
-        stage.setTitle(BrowserApplication.TITLE);
-        stage.setScene(scene);
+    private void onRegisterPageButtonClick() throws IOException {
+
+        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Register");
+
+
     }
-    @FXML
-    private void initialize() {
-        RegisterPageButton.setOnAction(event -> {
-            // Notify the listener with the result
-            if (buttonPressedListener != null) {
-                buttonPressedListener.onButtonPressed("/com/zenbrowser/a1/register-view.fxml");
-            }
-        });
-    }
+
+
 }
