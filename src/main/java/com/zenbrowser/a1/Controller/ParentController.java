@@ -15,13 +15,22 @@ public class ParentController {
     protected IProfileDAO ProfileDAO;
     protected IHistoryRecordDAO HistoryDAO;
 
+    protected static String currentUser;
 
-
-    ParentController()
+    public ParentController()
     {
         UserDAO = new SqliteUserDAO();
         SiteDAO = new SiteDAO();
         ProfileDAO = new ProfileDAO();
         HistoryDAO = new HistoryRecordDAO();
+        System.out.println(currentUser);
+    }
+
+    protected String getCurrentUser(){
+        return currentUser;
+    }
+
+    protected void setCurrentUser(String currentUser){
+        this.currentUser = currentUser;
     }
 }

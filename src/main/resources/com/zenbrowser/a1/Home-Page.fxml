@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane style="-fx-background-color: #D1FFBD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.HomePageController">
 
@@ -21,12 +22,20 @@
             <Button fx:id="GoToProfileButton" onAction="#onGoToProfileLimits" text="Profile Limits" />
         </VBox>
 
-        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" spacing="20.0" BorderPane.alignment="CENTER">
-            <children>
-                <Button text="Usage Reports" />
-                <Button text="Notification Settings" />
-                <Button text="My Account Settings" />
-            </children>
+        <VBox alignment="CENTER" prefHeight="343.0" prefWidth="658.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <Button text="Usage Reports"/>
+            <Button text="Notification Settings"/>
+            <Button text="My Account Settings"/>
         </VBox>
     </center>
+   <top>
+      <Label fx:id="greetingLabel" text="Welcome to zenbrowser!" BorderPane.alignment="BOTTOM_LEFT">
+         <BorderPane.margin>
+            <Insets left="10.0" top="10.0" />
+         </BorderPane.margin>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+   </top>
 </BorderPane>

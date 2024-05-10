@@ -20,7 +20,7 @@ public class LoginController extends ParentController {
     @FXML
     private TextField usernameTextField;
     @FXML
-    public PasswordField passwordField;
+    private PasswordField passwordField;
     @FXML
     private Button LoginButton;
 
@@ -36,6 +36,8 @@ public class LoginController extends ParentController {
             ErrorPromptLabel.setText("Username does not exist. Input your correct username or create a new account.");
             return;
         }
+
+        currentUser = (usernameTextField.getText());
         BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
     }
 

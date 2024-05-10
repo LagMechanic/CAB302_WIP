@@ -70,6 +70,7 @@ public class BrowserMain extends ParentController implements Initializable {
     @FXML
     private void historyBtnHoverExit() {
         this.historyLabel.setText("");
+
     }
 
     @FXML

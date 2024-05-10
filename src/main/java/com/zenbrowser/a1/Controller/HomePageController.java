@@ -5,13 +5,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class HomePageController {
+public class HomePageController extends ParentController{
+    @FXML
+    private Label greetingLabel;
     @FXML
     private TextField searchField;
 
@@ -24,7 +29,14 @@ public class HomePageController {
     @FXML
     private Button GoToProfileButton;
 
-
+    @FXML
+    public void initialize(){
+        if (super.getCurrentUser() != null){
+            String greeting = String.format("Welcome to zenbrowser%s!", getCurrentUser());
+            greetingLabel.setText(greeting);
+        }
+        else {  greetingLabel.setText("Welcome to zenbrowser!");}
+    }
 
     @FXML
     private void handleSearch() {
