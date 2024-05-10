@@ -38,10 +38,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
+import javafx.scene.layout.*;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
@@ -96,6 +93,8 @@ public class BrowserMain extends ControllerAbstract implements Initializable {
     @FXML
     private TabPane tabPane;
 
+    @FXML
+    private StackPane contentPane;
 
 
     public BrowserMain() {
@@ -146,7 +145,8 @@ public class BrowserMain extends ControllerAbstract implements Initializable {
 
     private Tab currentTab(){return tabPane.getSelectionModel().getSelectedItem();}
 
-    private void switchPage(BorderPane contentPage){
+
+    private void switchPage(){
         BorderPane content = (BorderPane) currentTab().getContent();
         borderPane.setCenter(content);
     }
@@ -154,7 +154,9 @@ public class BrowserMain extends ControllerAbstract implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(pathway));
             BorderPane content = loader.load();
-            borderPane.setCenter(content);
+            //contentPane.getChildren().add(content);
+            currentTab().setContent(content);
+            switchPage();
             currentTab().setText(tabName);
 
         } catch (IOException e) {e.printStackTrace();}
@@ -192,8 +194,15 @@ public class BrowserMain extends ControllerAbstract implements Initializable {
 
     public void initialize(URL url, ResourceBundle rb) {
         this.aTab.setTabBackground("file:src/main/resources/Icons/b46c8e1cde764e377f0ed9399e6380a6.jpg");
-        Tab tab = new Tab("Home Tab");
-        this.tabPane.getTabs().add(tab);
+        tabPane.getTabs().add(new Tab("Home"));
+        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
+
+        // Add a listener to the selectionModel property
+        tabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
+            if (newTab != null) {
+                switchPage();
+            }
+        });
 
         this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + BrowserMain.this.colorPicker.getValue()));
         this.histObj = new HistoryObject();
@@ -225,14 +234,17 @@ public class BrowserMain extends ControllerAbstract implements Initializable {
     }
 
     @FXML
-    private void newTabFunction(ActionEvent event) {
-        Tab tab = new Tab("New Tab");
+    private void newTabFunction() {
 
+        Tab tab = new Tab("New Tab");
         tabPane.getTabs().add(tab);
         tabPane.getSelectionModel().select(tab);
+
         if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
             tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 10);
         }
+
+        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
     }
 
     public void GoToPreviousPage(ActionEvent actionEvent) {

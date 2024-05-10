@@ -25,9 +25,6 @@ public class HomePageController {
     private Button GoToProfileButton;
 
 
-    @FXML
-    private void initialize() {
-    }
 
     @FXML
     private void handleSearch() {

@@ -14,8 +14,6 @@ import java.io.IOException;
 import javafx.scene.control.Button;
 import com.zenbrowser.a1.Controller.SharedModel;
 
-import static com.zenbrowser.a1.BrowserApplication.currentInstance;
-
 public class LoginController extends ControllerAbstract{
     private SharedModel model;
 
@@ -29,16 +27,12 @@ public class LoginController extends ControllerAbstract{
     @FXML
     private TextField passwordTextField;
 
-
     @FXML
-    public Button LoginButton;
+    private Button LoginButton;
 
     @FXML
     private Button RegisterPageButton;
 
-    LoginController(){
-
-    }
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
@@ -59,7 +53,7 @@ public class LoginController extends ControllerAbstract{
     @FXML
     private void onRegisterPageButtonClick() throws IOException {
 
-        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Register");
+        //navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Register");
 
 
     }
