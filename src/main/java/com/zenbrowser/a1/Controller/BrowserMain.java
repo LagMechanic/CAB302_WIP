@@ -214,7 +214,6 @@ public class BrowserMain extends ControllerAbstract implements Initializable {
         fileChooser.setTitle("Open Resource File");
         File file = fileChooser.showOpenDialog(stage);
         System.out.println("You chose this file: " + file.getAbsolutePath());
-
     }
 
     @FXML
