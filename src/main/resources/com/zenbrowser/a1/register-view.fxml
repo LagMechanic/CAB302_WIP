@@ -29,8 +29,8 @@
             <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
             <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
             <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-            <TextField fx:id="usernameTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity"/>
-            <TextField fx:id="PasswordTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="usernameTXT" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity"/>
+            <TextField fx:id="passwordTXT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="phoneTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
         </GridPane>

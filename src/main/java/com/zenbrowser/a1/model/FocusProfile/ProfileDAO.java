@@ -1,6 +1,5 @@
 package com.zenbrowser.a1.model.FocusProfile;
 
-import com.zenbrowser.a1.Controller.ControllerAbstract;
 import com.zenbrowser.a1.model.SqliteConnection;
 import com.zenbrowser.a1.model.Website.Site;
 import com.zenbrowser.a1.model.Website.SiteDAO;

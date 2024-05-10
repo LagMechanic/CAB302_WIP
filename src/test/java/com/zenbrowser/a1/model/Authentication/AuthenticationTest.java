@@ -44,6 +44,8 @@ public class AuthenticationTest {
             assertEquals(true, auth.userLoggedIn());
         } catch (InvalidCredentials e) {
             throw new RuntimeException(e);
+        } catch (UserAlreadyExists e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -71,7 +73,7 @@ public class AuthenticationTest {
             assertEquals(true, auth.userLoggedIn());
             auth.logout();
             assertEquals(false, auth.userLoggedIn());
-        } catch (InvalidCredentials e) {
+        } catch (InvalidCredentials | UserAlreadyExists e) {
             throw new RuntimeException(e);
         }
     }

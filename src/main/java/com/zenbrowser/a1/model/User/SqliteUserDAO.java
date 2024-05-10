@@ -44,7 +44,7 @@ public class SqliteUserDAO implements IUserDAO {
             // Set the id of the new contact
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
-                user.setId(generatedKeys.getInt(1));
+                user.setUsername(generatedKeys.getString(1));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,10 +54,10 @@ public class SqliteUserDAO implements IUserDAO {
     @Override
     public void updateContact(User user) {
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE users SET firstName = ?, lastName = ?, email = ? WHERE id = ?");
-            statement.setString(1, user.getUsername());
-            statement.setString(2, user.getFirstName());
-            statement.setString(3, user.getLastName());
+            PreparedStatement statement = connection.prepareStatement("UPDATE users SET firstName = ?, lastName = ?, email = ? WHERE username = ?");
+            statement.setString(1, user.getFirstName());
+            statement.setString(2, user.getLastName());
+            statement.setString(3, user.getEmail());
             statement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -68,8 +68,8 @@ public class SqliteUserDAO implements IUserDAO {
     @Override
     public void deleteContact(User user) {
         try {
-            PreparedStatement statement = connection.prepareStatement("DELETE FROM users WHERE id = ?");
-            statement.setInt(1, user.getId());
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM users WHERE username = ?");
+            statement.setString(1, user.getUsername());
             statement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -139,6 +139,27 @@ public class SqliteUserDAO implements IUserDAO {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
 
+    @Override
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            String query = "SELECT * FROM users";
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                String username = resultSet.getString("username");
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
+                String phone = resultSet.getString("phone");
+                String email = resultSet.getString("email");
+                User user = new User(username, firstName, lastName, phone, email);
+                users.add(user);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 }

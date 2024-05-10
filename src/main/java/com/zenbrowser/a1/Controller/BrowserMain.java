@@ -2,52 +2,25 @@ package com.zenbrowser.a1.Controller;
 
 import java.io.*;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.sql.Time;
-import java.time.LocalDate;
-import java.util.EventListener;
 import java.util.ResourceBundle;
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
-import javafx.concurrent.Worker;
-import javafx.concurrent.Worker.State;
+
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.HPos;
-import javafx.geometry.Insets;
-import javafx.geometry.VPos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToolBar;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebHistory;
-import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 
-public class BrowserMain extends ControllerAbstract implements Initializable {
+public class BrowserMain extends ParentController implements Initializable {
 
     @FXML
     private ColorPicker colorPicker;
@@ -218,6 +191,15 @@ public class BrowserMain extends ControllerAbstract implements Initializable {
     }
 
     public void GotoNextPage(ActionEvent actionEvent) {
+    }
+
+    public void goButtonPressed(ActionEvent actionEvent) {
+    }
+
+    public void GoReloadPage(ActionEvent actionEvent) {
+    }
+
+    public void setEngine(ActionEvent actionEvent) {
     }
 
     /**public void goButtonPressed(ActionEvent actionEvent) {

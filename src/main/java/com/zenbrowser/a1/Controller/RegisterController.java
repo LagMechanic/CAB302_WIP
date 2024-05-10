@@ -2,23 +2,16 @@ package com.zenbrowser.a1.Controller;
 
 import com.zenbrowser.a1.BrowserApplication;
 import com.zenbrowser.a1.model.Authentication.Authentication;
-import com.zenbrowser.a1.model.Authentication.InvalidCredentials;
 import com.zenbrowser.a1.model.Authentication.UserAlreadyExists;
 import com.zenbrowser.a1.model.User.User;
-import com.zenbrowser.a1.BrowserApplication;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
 
-public class RegisterController extends ControllerAbstract{
+public class RegisterController extends ParentController {
     @FXML
     public TextField usernameTXT;
     @FXML
