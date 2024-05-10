@@ -27,12 +27,14 @@
             <Label text="Create new account" GridPane.rowIndex="0" style="-fx-font-size:20px;"/>
             <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
             <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-            <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <Label text="First Name: (Optional)" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <Label text="Last Name: (Optional)" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <Label text="Email: (Optional)" GridPane.columnIndex="0" GridPane.rowIndex="5" />
             <TextField fx:id="usernameTXT" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity"/>
             <TextField fx:id="passwordTXT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="phoneTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="firstNameTXT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="lastNameTXT" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
         </GridPane>
         <VBox spacing="20.0" alignment="CENTER">
             <Button text="Register" fx:id ="RegisterButton" onAction="#onRegisterButtonClick"

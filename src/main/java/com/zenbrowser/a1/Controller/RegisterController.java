@@ -13,25 +13,37 @@ import java.io.IOException;
 
 public class RegisterController extends ParentController {
     @FXML
-    public TextField usernameTXT;
+    private TextField firstNameTXT;
     @FXML
-    public TextField passwordTXT;
+    private TextField lastNameTXT;
+
     @FXML
-    public Button RegisterButton;
+    private TextField usernameTXT;
+    @FXML
+    private TextField passwordTXT;
+    @FXML
+    private TextField emailTextField;
+
+    @FXML
+    private Button RegisterButton;
+
 
     @FXML
     protected void onRegisterButtonClick() throws IOException {
         try {
             Authentication.getInstance().signup(new User(
                     usernameTXT.getText(),
-                    passwordTXT.getText()
-            ));
+                    passwordTXT.getText(),
+                    firstNameTXT.getText(),
+                    lastNameTXT.getText(),
+                    emailTextField.getText())
+            );
+
+            BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
         } catch (UserAlreadyExists e) {
             // TODO: Tell there is already a user with that username
             return;
         }
-
-        BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
     }
 
 
