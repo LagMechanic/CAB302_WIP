@@ -42,8 +42,8 @@ public class Authentication implements IAuthentication {
 
 
     @Override
-    public void login(User user) throws InvalidCredentials, UserAlreadyExists {
-        if (!userDAO.checkUsername(user.getUsername())) throw new UserAlreadyExists();
+    public void login(User user) throws InvalidCredentials, MissingUser {
+        if (!userDAO.checkUsername(user.getUsername())) throw new MissingUser();
         if (!userDAO.checkPassword(user.getUsername(), user.getPassword())) throw new InvalidCredentials();
 
         currUser = user;
@@ -74,5 +74,7 @@ public class Authentication implements IAuthentication {
         return currUser != null;
     }
 
+    public class MissingUser extends Throwable {
+    }
 }
 

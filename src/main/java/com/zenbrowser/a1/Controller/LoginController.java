@@ -36,10 +36,10 @@ public class LoginController extends ParentController {
         } catch (InvalidCredentials e) {
             ErrorPromptLabel.setText("Username and password do not match our database records. Please try again.");
             return;
-        } catch (UserAlreadyExists e) {
+        } catch (Authentication.MissingUser e) {
             ErrorPromptLabel.setText("Username does not exist. Input your correct username or create a new account.");
+            return;
         }
-
         BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
     }
 

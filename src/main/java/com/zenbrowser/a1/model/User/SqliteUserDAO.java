@@ -128,13 +128,13 @@ public class SqliteUserDAO implements IUserDAO {
     public boolean checkPassword(String username, String password) {
         try {
             // Select 1 if username is in table
-            String sql = "SELECT 1 FROM users WHERE username=?, password=?";
+            String sql = "SELECT 1 FROM users WHERE username=? AND password=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
             statement.setString(2, password);
 
             ResultSet resultSet = statement.executeQuery();
-            // Return true iff any rows exist
+            // Return true if any rows exist
             return resultSet.next();
         } catch (Exception e) {
             throw new RuntimeException(e);
