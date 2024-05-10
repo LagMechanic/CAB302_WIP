@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class RegisterController extends ParentController {
     @FXML
-    private Label ErrorPromptLabel;
+    private Label errorPromptLabel;
     @FXML
     private TextField firstNameTXT;
     @FXML
@@ -26,9 +26,8 @@ public class RegisterController extends ParentController {
     private PasswordField passwordField;
     @FXML
     private TextField emailTextField;
-
     @FXML
-    private Button RegisterButton;
+    private Button registerButton;
 
 
     @FXML
@@ -44,7 +43,7 @@ public class RegisterController extends ParentController {
 
             BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
         } catch (UserAlreadyExists e) {
-            ErrorPromptLabel.setText("Username already exists. Select a new username to continue.");
+            errorPromptLabel.setText("Username already exists. Select a new username to continue.");
         }
     }
 
@@ -52,5 +51,11 @@ public class RegisterController extends ParentController {
     @FXML
     protected void onLoginPageButtonClick() throws IOException {
         BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");
+    }
+
+    @FXML
+    private void EnableRegisterButton() throws IOException{
+        Boolean validButton = (usernameTXT.getText().isEmpty() || passwordField.getText().isEmpty());
+        registerButton.setDisable(validButton);
     }
 }

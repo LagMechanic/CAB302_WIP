@@ -73,7 +73,9 @@ public class AuthenticationTest {
             assertEquals(true, auth.userLoggedIn());
             auth.logout();
             assertEquals(false, auth.userLoggedIn());
-        } catch (InvalidCredentials | UserAlreadyExists e) {
+        } catch (InvalidCredentials e) {
+            throw new RuntimeException(e);
+        } catch (Authentication.MissingUser e) {
             throw new RuntimeException(e);
         }
     }
