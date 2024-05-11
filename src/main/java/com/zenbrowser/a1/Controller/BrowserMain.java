@@ -2,88 +2,90 @@ package com.zenbrowser.a1.Controller;
 
 import java.io.*;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.util.EventListener;
 import java.util.ResourceBundle;
 
+import javafx.concurrent.Worker;
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
 import com.zenbrowser.a1.model.FocusProfile.Profile;
+import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckMenuItem;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebHistory;
+import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 
 public class BrowserMain extends ParentController implements Initializable {
+
+    @FXML
+    private WebView webView;
+
+    private WebHistory history;
+    protected WebEngine webEngine;
+    private String defaultEngine;
+    @FXML
+    private Label promptLabel;
+    @FXML
+    private TextField URLBox;
+    @FXML
+    private Button ReloadButton;
 
     @FXML
     private ColorPicker colorPicker;
     @FXML
     MenuItem homePageBackgroundImg;
-
-    //SearchEngine srcEng = new SearchEngine("google", "https://www.google.com");
     @FXML
-    private CheckMenuItem googleMenuItm;
+    private RadioMenuItem googleMenuItm;
     @FXML
-    private CheckMenuItem bingMenuItm;
-    int EtG = 1;
-    int EtB = 0;
-    private double newTabLeftPadding = 102.0;
-    @FXML
-    private Button newTabBtn;
+    private RadioMenuItem bingMenuItm;
     @FXML
     private Label homeLabel;
     @FXML
     private Label historyLabel;
     @FXML
     private Label ProfileLabel;
-
     @FXML
     private BorderPane borderPane;
-
     @FXML
     private TabPane tabPane;
 
 
     @FXML
-    private void homeBtnHover() {
-        this.homeLabel.setText("Home");
-    }
+    private void homeBtnHover() {homeLabel.setText("Home");}
 
     @FXML
-    private void homeBtnHoverExit() {
-        this.homeLabel.setText("");
-    }
+    private void homeBtnHoverExit() {homeLabel.setText("");}
 
     @FXML
-    private void historyBtnHover() {
-        this.historyLabel.setText("Downloads");
-    }
+    private void historyBtnHover() {historyLabel.setText("Downloads");}
 
     @FXML
-    private void historyBtnHoverExit() {
-        this.historyLabel.setText("");
-
-    }
+    private void historyBtnHoverExit() {historyLabel.setText("");}
 
     @FXML
-    private void profileBtnHover() {
-        this.ProfileLabel.setText("Profile");
-    }
+    private void profileBtnHover() {ProfileLabel.setText("Profile");}
 
     @FXML
-    private void profileBtnHoverExit() {
-        this.ProfileLabel.setText("");
-    }
+    private void profileBtnHoverExit() {ProfileLabel.setText("");}
 
     public void initialize(URL url, ResourceBundle rb) {
+        webEngine = webView.getEngine();
 
         newTabFunction();
 
@@ -99,23 +101,26 @@ public class BrowserMain extends ParentController implements Initializable {
 
 
     @FXML
-    protected void GoToHomePage() {
-        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
-    }
+    protected void GoToHomePage() {navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");}
 
     @FXML
-    protected void GoToLoginPage() {
-        navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");
-    }
+    protected void GoToLoginPage() {navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");}
 
     @FXML
-    protected void GoToHistoryPage() {
-        navigatePage("/com/zenbrowser/a1/History-Page.fxml","History");
+    protected void GoToHistoryPage() {navigatePage("/com/zenbrowser/a1/History-Page.fxml","History");}
+
+
+    private Tab currentTab()    {return tabPane.getSelectionModel().getSelectedItem();}
+
+    public void loadPage(String urlStr)
+    {
+        try{
+            webEngine.load(urlStr);
+        }catch (Exception e){
+            promptLabel.setText("You entered an invalid URL.");
+        }
+
     }
-
-
-    private Tab currentTab(){return tabPane.getSelectionModel().getSelectedItem();}
-
 
     private void switchPage(){
         BorderPane content = (BorderPane) currentTab().getContent();
@@ -149,22 +154,28 @@ public class BrowserMain extends ParentController implements Initializable {
             tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 10);
         }
 
-        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
+        loadPage(setEngine());
     }
 
-    public void GoToPreviousPage(ActionEvent actionEvent) {
+    @FXML
+    private void GoToPreviousPage(ActionEvent actionEvent) {
+        WebHistory history = webEngine.getHistory();
+        ObservableList<WebHistory.Entry> entryList = history.getEntries();
+        int currentIndex = history.getCurrentIndex();
+        Platform.runLater(() -> history.go(entryList.size() > 1 && currentIndex > 0 ? -1 : 0));
     }
 
-    public void GotoNextPage(ActionEvent actionEvent) {
+    @FXML
+    private void GotoNextPage(ActionEvent actionEvent) {
+        WebHistory history = webEngine.getHistory();
+        ObservableList<WebHistory.Entry> entryList = history.getEntries();
+        int currentIndex = history.getCurrentIndex();
+        Platform.runLater(() -> history.go(entryList.size() > 1 && currentIndex < entryList.size() - 1 ? 1 : 0));
     }
 
-    public void goButtonPressed(ActionEvent actionEvent) {
-    }
-
-    public void GoReloadPage(ActionEvent actionEvent) {
-    }
-
-    public void setEngine(ActionEvent actionEvent) {
+    @FXML
+    private void GoReloadPage(ActionEvent actionEvent) {
+        webEngine.reload();
     }
 
     @FXML
@@ -176,62 +187,36 @@ public class BrowserMain extends ParentController implements Initializable {
         System.out.println("You chose this file: " + file.getAbsolutePath());
     }
 
-    /**@FXML
-    private void setEngine() {
-    if (this.googleMenuItm.isSelected() && this.bingMenuItm.isSelected()) {
-    if (this.EtG > this.EtB) {
-    this.googleMenuItm.setSelected(false);
-    this.EtG = 0;
-    this.EtB = 1;
-    this.srcEng.setEngine("bing");
-    System.out.println("Bing is the engine and Google is disabled.");
-    } else {
-    this.bingMenuItm.setSelected(false);
-    this.EtG = 1;
-    this.EtB = 0;
-    this.srcEng.setEngine("google");
-    System.out.println("Google is the engine and Bing is disabled.");
-    }
-    } else if (this.googleMenuItm.isSelected()) {
-    System.out.println("Inside google");
-    this.srcEng.setEngine("google");
-    System.out.println("Google is the engine and Bing is disabled.");
-    this.EtG = 1;
-    } else if (this.bingMenuItm.isSelected()) {
-    System.out.println("Inside Bing.");
-    this.srcEng.setEngine("bing");
-    System.out.println("Bing is the engine and Google is disabled.");
-    this.EtB = 1;
-    }
-    }**/
+    @FXML
+    private String setEngine() {
+        if (googleMenuItm.isSelected()) {
+            System.out.println("Google is the default engine.");
+            return defaultEngine = "https://www.google.com";
 
-    /**public void goButtonPressed(ActionEvent actionEvent) {
-        this.label.setText("");
-        if (this.urlBox.getText() != null && !this.urlBox.getText().isEmpty()) {
-            String urlStr;
-            if (!this.urlBox.getText().contains(".")) {
-                BrowserMain.this.srcEng.setUrlStr(this.urlBox.getText());
-                urlStr = BrowserMain.this.srcEng.getEngineSpecificUrl();
-            } else if (!this.urlBox.getText().startsWith("http://")) {
-                urlStr = "http://" + this.urlBox.getText();
-            } else if (!this.urlBox.getText().startsWith("http://www.")) {
-                urlStr = "http://www." + this.urlBox.getText();
-            } else {
-                urlStr = this.urlBox.getText();
-            }
-
-            this.myBrowser = new MyBrowser(urlStr);
-            this.borderPane.setCenter(this.myBrowser);
-        } else {
-            this.label.setText("You didn't enter anything : (");
+        } else if (bingMenuItm.isSelected()) {
+            System.out.println("Bing is the default engine.");
+            return defaultEngine ="https://www.bing.com";
         }
+        return defaultEngine = "https://www.google.com";
     }
 
-    public void GoReloadPage(ActionEvent actionEvent) {
+    private String formatUrl(String engineName, String query) {
+            if (query.startsWith(engineName))
+                return query;
+            else {
+                return engineName + "/search?q=" + query;
+            }
     }
 
-
-
+    @FXML
+    private void goButtonPressed(ActionEvent actionEvent) {
+        promptLabel.setText("");
+        String PromptedSearch = URLBox.getText();
+        if (PromptedSearch != null) {
+            loadPage(formatUrl(defaultEngine, PromptedSearch));
+        }
+        else {promptLabel.setText("You didn't enter anything : (");}
+    }
 
     public void setTabBackground(String imageFileLocation) {
         ImageView iv = new ImageView();
@@ -241,79 +226,53 @@ public class BrowserMain extends ParentController implements Initializable {
     }
 
     class MyBrowser extends Region {
-        WebView browser = new WebView();
-        final WebEngine webEngine;
-        WebHistory history;
-
         public MyBrowser(final String url) {
-            this.webEngine = this.browser.getEngine();
-            this.history = this.webEngine.getHistory();
-            this.webEngine.getLoadWorker().stateProperty().addListener((ov, oldState, newState) -> {
+            history = webEngine.getHistory();
+            webEngine.getLoadWorker().stateProperty().addListener((ov, oldState, newState) -> {
                 ProgressIndicator progInd = new ProgressIndicator(-1.0);
                 progInd.setPrefHeight(17.0);
                 progInd.setPrefWidth(25.0);
-                NewTab.this.newTab.setGraphic(progInd);
-                NewTab.this.reloadButton.setText("X");
-                NewTab.this.reloadButton.setOnAction((e) -> {
-                    NewTab.this.myBrowser.closeWindow();
-                    NewTab.this.newTab.setText("Aborted!");
-                    NewTab.this.label.setText("You have aborted loading the page.");
-                    NewTab.this.newTab.setGraphic((Node)null);
+                currentTab().setGraphic(progInd);
+                ReloadButton.setText("X");
+                ReloadButton.setOnAction((e) -> {
+                    currentTab().setText("Aborted!");
+                    promptLabel.setText("You have aborted loading the page.");
+                    currentTab().setGraphic((Node)null);
                 });
-                if (newState == State.SUCCEEDED) {
-                    NewTab.this.label.setText("");
-                    NewTab.this.newTab.setText(MyBrowser.this.webEngine.getTitle());
-                    NewTab.this.urlBox.setText(MyBrowser.this.webEngine.getLocation());
-                    NewTab.this.newTab.setGraphic(MyBrowser.this.loadFavicon(url));
-                    NewTab.this.reloadButton.setText("↺");
-                    NewTab.this.reloadButton.setOnAction((e) -> {
-                        NewTab.this.myBrowser.reloadWebPage();
-                    });
+                if (newState == Worker.State.SUCCEEDED) {
+                    promptLabel.setText("");
+                    currentTab().setText(webEngine.getTitle());
+                    URLBox.setText(webEngine.getLocation());
+                    currentTab().setGraphic(loadFavicon(url));
+                    ReloadButton.setText("↺");
                     EventListener var10000 = new EventListener() {
                         public void handleEvent(Event ev) {
                             System.out.println("You pressed on a link");
                         }
                     };
-                    Document doc = MyBrowser.this.webEngine.getDocument();
+                    Document doc = webEngine.getDocument();
                     NodeList el = doc.getElementsByTagName("a");
 
                     for(int i = 0; i < el.getLength(); ++i) {
                     }
                 }
-
             });
 
-            this.webEngine.setCreatePopupHandler((config) -> {
-                this.browser.setFontScale(0.8);
-                if (!this.getChildren().contains(this.browser)) {
-                    this.getChildren().add(this.browser);
+            webEngine.setCreatePopupHandler((config) -> {
+                webView.setFontScale(0.8);
+                if (!this.getChildren().contains(webView)) {
+                    this.getChildren().add(webView);
                 }
 
-                return this.browser.getEngine();
+                return webView.getEngine();
             });
-            new WebView();
-            this.webEngine.load(url);
-            this.getChildren().add(this.browser);
-        }
-
-        public void goBack() {
-            WebHistory history = this.webEngine.getHistory();
-            ObservableList<WebHistory.Entry> entryList = history.getEntries();
-            int currentIndex = history.getCurrentIndex();
-            Platform.runLater(() -> history.go(entryList.size() > 1 && currentIndex > 0 ? -1 : 0));
-        }
-
-        public void goForward() {
-            WebHistory history = this.webEngine.getHistory();
-            ObservableList<WebHistory.Entry> entryList = history.getEntries();
-            int currentIndex = history.getCurrentIndex();
-            Platform.runLater(() -> history.go(entryList.size() > 1 && currentIndex < entryList.size() - 1 ? 1 : 0));
+            webEngine.load(url);
         }
 
         public ImageView loadFavicon(String location) {
             try {
                 String faviconUrl;
-                if (this.webEngine.getTitle().equalsIgnoreCase("Google")) {
+                if (webEngine.getTitle().equalsIgnoreCase("Google")) {
                     faviconUrl = "https://www.google.com/s2/favicons?domain_url=www.gmail.com";
                 } else {
                     faviconUrl = String.format("http://www.google.com/s2/favicons?domain_url=%s", URLEncoder.encode(location, "UTF-8"));
@@ -332,68 +291,6 @@ public class BrowserMain extends ParentController implements Initializable {
                 throw new RuntimeException(var5);
             }
         }
-
-        public void closeWindow() {
-            this.browser.getEngine().load((String)null);
-            this.browser = null;
-        }
-
-        public void reloadWebPage() {
-            this.webEngine.reload();
-        }
-
-        protected void layoutChildren() {
-            double w = this.getWidth();
-            double h = this.getHeight();
-            this.layoutInArea(this.browser, 0.0, 0.0, w, h, 0.0, HPos.CENTER, VPos.CENTER);
-        }
-
-        protected double computePrefWidth(double height) {
-            return 750.0;
-        }
-
-        protected double computePrefHeight(double width) {
-            return 500.0;
-        }
     }
 }
 
-class SearchEngine {
-    private String urlStr;
-    private String engineName;
-
-    private String formatUrl() {
-        if (this.engineName.equalsIgnoreCase("google")) {
-            this.urlStr = this.urlStr.replace(" ", "+");
-            return "https://www.google.com/?gws_rd=cr&ei=YpHvV47aK8vWvATsl5X4CQ#q=" + this.urlStr;
-        } else if (this.engineName.equalsIgnoreCase("bing")) {
-            return "http://www.bing.com/search?q=" + this.urlStr;
-        } else {
-            System.out.println("No search eninge by " + this.engineName + " found.");
-            return null;
-        }
-    }
-
-    public SearchEngine(String engineName, String urlStr) {
-        this.engineName = engineName;
-        this.urlStr = urlStr;
-        this.formatUrl();
-    }
-
-    public void setEngine(String engineName) {
-        this.engineName = engineName;
-    }
-
-    public void setUrlStr(String urlStr) {
-        this.urlStr = urlStr;
-    }
-
-
-    public String getUrl() {
-        return this.urlStr;
-    }
-
-    public String getEngineSpecificUrl() {
-        return this.formatUrl();
-    }**/
-}

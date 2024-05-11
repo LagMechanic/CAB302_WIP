@@ -28,7 +28,8 @@ public class BrowserApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-        currentController.navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
+
+        //currentController.navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
     }
 
     public static void main(String[] args) {

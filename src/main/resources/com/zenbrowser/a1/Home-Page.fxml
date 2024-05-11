@@ -23,9 +23,9 @@
         </VBox>
 
         <VBox alignment="CENTER" prefHeight="343.0" prefWidth="658.0" spacing="20.0" BorderPane.alignment="CENTER">
-            <Button text="Usage Reports"/>
-            <Button text="Notification Settings"/>
-            <Button text="My Account Settings"/>
+            <Button text="Usage Reports" />
+            <Button text="Notification Settings" />
+            <Button text="My Account Settings" />
         </VBox>
     </center>
    <top>
