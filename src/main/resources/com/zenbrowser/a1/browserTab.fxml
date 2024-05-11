@@ -22,9 +22,9 @@
 <BorderPane id="borderPane" fx:id="borderPane" prefHeight="448.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.BrowserMain">
     <top>
         <VBox>
-         <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="939.0" spacing="5.0" VBox.vgrow="NEVER">
+         <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="939.0" VBox.vgrow="NEVER">
             <children>
-                   <TabPane fx:id="tabPane" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: D5D5D5;" tabMaxWidth="80.0" tabMinWidth="80.0">
+                   <TabPane fx:id="tabPane" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="108.0" style="-fx-background-color: D5D5D5;" tabMaxWidth="80.0" tabMinWidth="80.0">
                   <HBox.margin>
                      <Insets left="1.0" />
                   </HBox.margin></TabPane>

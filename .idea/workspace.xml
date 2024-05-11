@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="Refactored all of Ben's Browserapplication code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="unique webview and engine for each browsertab extending off javafx tab">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ParentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ParentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -371,7 +369,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715450508190</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="unique webview and engine for each browsertab extending off javafx tab">
+      <option name="closed" value="true" />
+      <created>1715460367991</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1715460367992</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -428,7 +434,8 @@
     <MESSAGE value="Push" />
     <MESSAGE value="currentUser  now statically shared across  controllers. Initialising gives greeting" />
     <MESSAGE value="Refactored all of Ben's Browserapplication code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored all of Ben's Browserapplication code" />
+    <MESSAGE value="unique webview and engine for each browsertab extending off javafx tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="unique webview and engine for each browsertab extending off javafx tab" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

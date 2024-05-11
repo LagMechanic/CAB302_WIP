@@ -150,7 +150,7 @@ public class BrowserMain extends ParentController implements Initializable {
         tabPane.getSelectionModel().select(tab);
         //Create a buffer so tabs can be dynamically extended on browser.
         if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
-            tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 10);
+            tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
         }
 
         loadPage(defaultEngine);
