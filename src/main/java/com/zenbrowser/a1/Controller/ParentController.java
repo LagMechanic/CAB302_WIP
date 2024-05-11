@@ -23,7 +23,6 @@ public class ParentController {
         SiteDAO = new SiteDAO();
         ProfileDAO = new ProfileDAO();
         HistoryDAO = new HistoryRecordDAO();
-        System.out.println(currentUser);
     }
 
     protected String getCurrentUser(){
