@@ -44,7 +44,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
      */
     @Override
     public void insertHistoryRecord(HistoryRecord record) {
-        String sql = "INSERT INTO history (username, URL, site, historyRecordDateTime ) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO history (username, URL, siteName, historyRecordDateTime ) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -73,7 +73,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
      * @param historyRecordEndDateTime Date/time user finished activity
      */
     public void updateActivityEndDateTime(String historyRecordEndDateTime){
-        String sql = "UPDATE user_records SET historyRecordEndDateTime = ? WHERE historyRecordID = ?";
+        String sql = "UPDATE history SET historyRecordEndDateTime = ? WHERE historyRecordID = ?";
 
         try(
             PreparedStatement preparedStatement = this.connection.prepareStatement(sql)) {
@@ -91,7 +91,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
     @Override
     public List<HistoryRecord> getAllUserHistoryRecords(String username) {
         List<HistoryRecord> historyRecords = new ArrayList<>();
-        String sql = "SELECT * FROM user_records WHERE username = ?";
+        String sql = "SELECT * FROM history WHERE username = ?";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
