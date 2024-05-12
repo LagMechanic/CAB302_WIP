@@ -14,7 +14,6 @@ public class ParentController {
     protected ISiteDAO SiteDAO;
     protected IProfileDAO ProfileDAO;
     protected IHistoryRecordDAO HistoryDAO;
-
     private static String currentUser;
 
     public ParentController()

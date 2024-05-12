@@ -15,7 +15,7 @@ public class HistoryController extends ParentController {
 
     private List<HistoryRecord> records;
     public void initialize() {
-        records = HistoryDAO.getAllUserHistoryRecords(getCurrentUser());
+        records = HistoryDAO.getAllUserHistoryRecords(super.getCurrentUser());
         for (int i = records.size() - 1; i >= 0 ; i--) {
             Label entryLabel = new Label(records.get(i).toString());
             historyContainer.getChildren().add(entryLabel);

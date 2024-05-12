@@ -40,7 +40,7 @@ public class browserTab extends Tab {
     }
 
     public WebHistory getHistory() {
-        return webHistory;
+        return webEngine.getHistory();
     }
 
     public WebHistory.Entry getRecentHistory() {

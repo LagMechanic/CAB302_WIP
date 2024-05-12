@@ -82,7 +82,7 @@ public class BrowserMain extends ParentController implements Initializable {
         tabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
             if (newTab != null)
             {
-                if (currentTab().getBrowsing() == true) {
+                if (currentTab().getBrowsing()) {
                     borderPane.setCenter(currentTab().getWebView());
                 } else {
                     switchPage();
@@ -116,18 +116,24 @@ public class BrowserMain extends ParentController implements Initializable {
             currentTab().getWebEngine().load(urlStr);
             borderPane.setCenter(currentTab().getWebView());
 
-            WebHistory.Entry entry = currentTab().getRecentHistory();
+            currentTab().getWebEngine().getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
+                if (newState == Worker.State.SUCCEEDED) {
 
-            HistoryDAO.insertHistoryRecord(new HistoryRecord(
-                                getCurrentUser(),
-                                entry.getUrl(),
-                                entry.getTitle(),
-                                (Date) entry.getLastVisitedDate()));
+                    WebHistory.Entry entry = currentTab().getRecentHistory();
+                    HistoryDAO.insertHistoryRecord(new HistoryRecord(
+                            getCurrentUser(),
+                            entry.getUrl(),
+                            entry.getTitle(),
+                            (Date) entry.getLastVisitedDate()));
 
-
+                } else if (newState == Worker.State.FAILED) {
+                    System.out.println("Page loading failed!");
+                }
+            });
         }catch (Exception e){
             promptLabel.setText("You entered an invalid URL.");
         }
+
     }
 
     private void switchPage(){
@@ -219,7 +225,7 @@ public class BrowserMain extends ParentController implements Initializable {
     }
 
     @FXML
-    private void goButtonPressed(ActionEvent actionEvent) {
+    private void goButtonPressed() {
         promptLabel.setText("");
         String PromptedSearch = URLBox.getText();
         if (PromptedSearch != null) {
