@@ -19,6 +19,12 @@ public class ProfileLimitsController extends ParentController {
     @FXML
     private TableView<UrlLimit> urlTable;
 
+    private ProfileLimitsController.ButtonPressedListener buttonPressedListener;
+    public interface ButtonPressedListener {
+        void onButtonPressed(String destination);
+    }
+    public void setButtonPressedListener(ProfileLimitsController.ButtonPressedListener listener) {this.buttonPressedListener = listener;}
+
     public void addUrlAndLimit() {
         String url = urlField.getText();
         String limit = limitField.getText();

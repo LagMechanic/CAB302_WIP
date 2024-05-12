@@ -21,6 +21,14 @@ public class LoginController extends ParentController {
     @FXML
     private Button LoginButton;
 
+    private ButtonPressedListener buttonPressedListener;
+    public interface ButtonPressedListener {
+        void onButtonPressed(String destination);
+    }
+
+    public void setButtonPressedListener(ButtonPressedListener listener) {
+        this.buttonPressedListener = listener;
+    }
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
@@ -48,4 +56,5 @@ public class LoginController extends ParentController {
         Boolean validButton = (usernameTextField.getText().isEmpty() || passwordField.getText().isEmpty());
         LoginButton.setDisable(validButton);
     }
+
 }
