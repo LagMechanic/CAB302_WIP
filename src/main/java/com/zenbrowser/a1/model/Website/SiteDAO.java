@@ -8,8 +8,8 @@ public class SiteDAO implements ISiteDAO {
 
     private final Connection connection;
 
-    public SiteDAO(Connection connection) {
-        this.connection = connection;
+    public SiteDAO() {
+        connection = SqliteConnection.getInstance();
         createTable();
     }
 
@@ -91,7 +91,7 @@ public class SiteDAO implements ISiteDAO {
             try (ResultSet resultSet = statement.executeQuery()){
                 if (resultSet.next()) {
                     return extractSiteFromResultSet(resultSet);
-                    }
+                }
                 else {
                     return null;
                 }

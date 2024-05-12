@@ -9,8 +9,8 @@ import java.sql.*;
 public class ProfileDAO implements IProfileDAO {
     private final Connection connection;
 
-    public ProfileDAO(Connection connection) {
-        this.connection = connection;
+    public ProfileDAO() {
+        connection = SqliteConnection.getInstance();
         createTable();
     }
 
@@ -86,7 +86,7 @@ public class ProfileDAO implements IProfileDAO {
             statement.setInt(1, id);
             try(ResultSet resultSet = statement.executeQuery()) {
                 if(resultSet.next()) {
-                   return extractProfileFromResultSet(resultSet);
+                    return extractProfileFromResultSet(resultSet);
                 }
                 else return null;
             }
@@ -96,7 +96,7 @@ public class ProfileDAO implements IProfileDAO {
         }
     }
     private Profile extractProfileFromResultSet(ResultSet resultSet) throws SQLException {
-        SiteDAO siteDAO = new SiteDAO(SqliteConnection.getInstance());
+        SiteDAO siteDAO = new SiteDAO();
         Site website = siteDAO.getSiteById(resultSet.getInt("websiteId"));
 
         Profile profile = new Profile(resultSet.getString("profileName"), website);
