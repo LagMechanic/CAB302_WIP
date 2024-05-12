@@ -3,9 +3,11 @@ package com.zenbrowser.a1.Controller;
 import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.sql.Date;
 import java.util.EventListener;
 import java.util.ResourceBundle;
 
+import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import javafx.concurrent.Worker;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -82,19 +84,18 @@ public class BrowserMain extends ParentController implements Initializable {
 
         // Add a listener to the selectionModel property
         tabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
-            if (newTab != null) {
-                try {
+            if (newTab != null)
+            {
+                if (currentTab().getBrowsing()) {
                     borderPane.setCenter(currentTab().getWebView());
-                }
-                catch (Exception e) {
+                } else {
                     switchPage();
                 }
-            }
-            else {
+            } else
+            {
                 Stage stageInstanance = (Stage) borderPane.getScene().getWindow();
                 stageInstanance.close();
             }
-
         });
         this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + BrowserMain.this.colorPicker.getValue()));
     }
@@ -118,9 +119,25 @@ public class BrowserMain extends ParentController implements Initializable {
         try{
             currentTab().getWebEngine().load(urlStr);
             borderPane.setCenter(currentTab().getWebView());
+
+            currentTab().getWebEngine().getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
+                if (newState == Worker.State.SUCCEEDED) {
+
+                    WebHistory.Entry entry = currentTab().getRecentHistory();
+                    HistoryDAO.insertHistoryRecord(new HistoryRecord(
+                            getCurrentUser(),
+                            entry.getUrl(),
+                            entry.getTitle(),
+                            new Date(entry.getLastVisitedDate().getTime())));
+
+                } else if (newState == Worker.State.FAILED) {
+                    System.out.println("Page loading failed!");
+                }
+            });
         }catch (Exception e){
             promptLabel.setText("You entered an invalid URL.");
         }
+
     }
 
     private void switchPage(){
@@ -154,8 +171,12 @@ public class BrowserMain extends ParentController implements Initializable {
         if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
             tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
         }
-
-        loadPage(defaultEngine);
+        if (getCurrentUser() == null){
+            navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");
+        }
+        else {
+            loadPage(defaultEngine);
+        }
     }
 
     @FXML
@@ -198,7 +219,7 @@ public class BrowserMain extends ParentController implements Initializable {
         }
         return null;
     }
-
+  
     private String formatUrl(String engineName, String query) {
             if (query.startsWith(engineName))
                 return query;
@@ -208,7 +229,7 @@ public class BrowserMain extends ParentController implements Initializable {
     }
 
     @FXML
-    private void goButtonPressed(ActionEvent actionEvent) {
+    private void goButtonPressed() {
         promptLabel.setText("");
         String PromptedSearch = URLBox.getText();
         if (PromptedSearch != null) {
