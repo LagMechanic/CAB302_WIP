@@ -7,9 +7,6 @@ import java.util.EventListener;
 import java.util.ResourceBundle;
 
 import javafx.concurrent.Worker;
-import javafx.geometry.HPos;
-import javafx.geometry.VPos;
-import com.zenbrowser.a1.model.FocusProfile.Profile;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,13 +20,12 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
-import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+import com.zenbrowser.a1.model.browserTab;
 
 public class BrowserMain extends ParentController implements Initializable {
 
@@ -222,28 +218,6 @@ public class BrowserMain extends ParentController implements Initializable {
         this.borderPane.setCenter(iv);
     }
 
-    public class browserTab extends Tab{
-        private WebView webView;
-        private WebEngine webEngine;
-
-        public browserTab(String tabname){
-            super(tabname);
-            webView = new WebView();
-            webEngine = webView.getEngine();
-        }
-
-        public WebEngine getWebEngine() {
-            return webEngine;
-        }
-
-        public WebView getWebView() {
-            return webView;
-        }
-
-        public WebHistory getHistory() {
-            return webEngine.getHistory();
-        }
-    }
 
     class MyBrowser extends Region {
         public MyBrowser(final String url) {
