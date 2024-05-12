@@ -13,6 +13,7 @@ public class browserTab extends Tab {
     private WebView webView;
     private WebEngine webEngine;
     private WebHistory webHistory;
+    private Boolean browsing;
 
     private static List<WebHistory> fullHistory = new ArrayList<>();
 
@@ -23,7 +24,12 @@ public class browserTab extends Tab {
         webEngine = webView.getEngine();
         webHistory = webEngine.getHistory();
         fullHistory.add(webHistory);
+        browsing = false;
     }
+
+    public Boolean getBrowsing() {  return browsing;}
+
+    public void setBrowsing(Boolean browsing) { this.browsing = browsing;}
 
     public WebEngine getWebEngine() {
         return webEngine;

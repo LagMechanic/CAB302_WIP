@@ -80,19 +80,18 @@ public class BrowserMain extends ParentController implements Initializable {
 
         // Add a listener to the selectionModel property
         tabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
-            if (newTab != null) {
-                try {
+            if (newTab != null)
+            {
+                if (currentTab().getBrowsing() == true) {
                     borderPane.setCenter(currentTab().getWebView());
-                }
-                catch (Exception e) {
+                } else {
                     switchPage();
                 }
-            }
-            else {
+            } else
+            {
                 Stage stageInstanance = (Stage) borderPane.getScene().getWindow();
                 stageInstanance.close();
             }
-
         });
         this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + BrowserMain.this.colorPicker.getValue()));
     }

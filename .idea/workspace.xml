@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="HistoryController now access history from database instead of class.">
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="When user opens if user is not logged in open login page, if logged in then open browser">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -464,7 +465,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715513416124</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="When user opens if user is not logged in open login page, if logged in then open browser">
+      <option name="closed" value="true" />
+      <created>1715513980878</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1715513980878</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -497,7 +506,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Push current version" />
     <MESSAGE value="Fixed tabs saving content of page when switching between tabs." />
     <MESSAGE value="All controllers now open the same window controller instead of new window. Major refactoring" />
     <MESSAGE value="Changed Abstract controller to become ParentController so that parent controller class can be instantiated. fixes to authentication. Refactoring." />
@@ -522,7 +530,8 @@
     <MESSAGE value="Made significant changes to HistoryRecord and History RecordDAO as well as HistoryController." />
     <MESSAGE value="insert single record statement when loading page." />
     <MESSAGE value="HistoryController now access history from database instead of class." />
-    <option name="LAST_COMMIT_MESSAGE" value="HistoryController now access history from database instead of class." />
+    <MESSAGE value="When user opens if user is not logged in open login page, if logged in then open browser" />
+    <option name="LAST_COMMIT_MESSAGE" value="When user opens if user is not logged in open login page, if logged in then open browser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
