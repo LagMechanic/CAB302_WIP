@@ -8,6 +8,8 @@ import java.io.IOException;
 
 public class ProfileLimitsController extends ParentController {
 
+    private record UrlLimit(String url, String limit) { }
+
     @FXML
     private TextField urlField;
 
@@ -15,13 +17,13 @@ public class ProfileLimitsController extends ParentController {
     private TextField limitField;
 
     @FXML
-    private TableView<com.zenbrowser.a1.ProfileLimitsGUI.UrlLimit> urlTable;
+    private TableView<UrlLimit> urlTable;
 
     public void addUrlAndLimit() {
         String url = urlField.getText();
         String limit = limitField.getText();
         if (!url.isEmpty() && !limit.isEmpty()) {
-            urlTable.getItems().add(new com.zenbrowser.a1.ProfileLimitsGUI.UrlLimit(url, limit));
+            urlTable.getItems().add(new UrlLimit(url, limit));
             urlField.clear();
             limitField.clear();
         } else {
@@ -37,6 +39,4 @@ public class ProfileLimitsController extends ParentController {
     protected void onGoToProfileLimits() throws IOException {
         BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
     }
-
-
 }

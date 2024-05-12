@@ -22,7 +22,6 @@ public class browserTab extends Tab {
         webEngine = webView.getEngine();
         webHistory = webEngine.getHistory();
         fullHistory.add(webHistory);
-
     }
 
     public WebEngine getWebEngine() {

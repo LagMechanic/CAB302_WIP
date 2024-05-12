@@ -2,15 +2,12 @@ package com.zenbrowser.a1.Controller;
 import com.zenbrowser.a1.BrowserApplication;
 import com.zenbrowser.a1.model.Authentication.Authentication;
 import com.zenbrowser.a1.model.Authentication.InvalidCredentials;
-import com.zenbrowser.a1.model.Authentication.UserAlreadyExists;
 import com.zenbrowser.a1.model.User.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
-
 import java.io.IOException;
 
 public class LoginController extends ParentController {
@@ -37,7 +34,7 @@ public class LoginController extends ParentController {
             return;
         }
 
-        currentUser = (usernameTextField.getText());
+        setCurrentUser(usernameTextField.getText());
         BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
     }
 
