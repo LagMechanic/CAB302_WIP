@@ -1,29 +1,35 @@
 package com.zenbrowser.a1.Controller;
 
 import com.zenbrowser.a1.BrowserApplication;
+import com.zenbrowser.a1.model.ProfileLimits.ProfileLimitsDBManager;
+import com.zenbrowser.a1.model.ProfileLimits.UrlLimit;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.io.IOException;
-
 public class ProfileLimitsController extends ParentController {
+    @FXML
+    private ComboBox<String> limitComboBox;
 
     @FXML
     private TextField urlField;
 
     @FXML
-    private TextField limitField;
+    private TableView<com.zenbrowser.a1.model.ProfileLimits.UrlLimit> urlTable;
 
-    @FXML
-    private TableView<com.zenbrowser.a1.ProfileLimitsGUI.UrlLimit> urlTable;
+    private final ProfileLimitsDBManager profileLimitsDBManager;
+
+    public ProfileLimitsController() {
+        this.profileLimitsDBManager = new ProfileLimitsDBManager();
+    }
 
     public void addUrlAndLimit() {
         String url = urlField.getText();
-        String limit = limitField.getText();
+        String limit = limitComboBox.getValue();
         if (!url.isEmpty() && !limit.isEmpty()) {
-            urlTable.getItems().add(new com.zenbrowser.a1.ProfileLimitsGUI.UrlLimit(url, limit));
+            urlTable.getItems().add(new UrlLimit(url, limit));
+            profileLimitsDBManager.addUrlAndLimit(url, limit);
             urlField.clear();
-            limitField.clear();
+            limitComboBox.getSelectionModel().clearSelection();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -34,7 +40,7 @@ public class ProfileLimitsController extends ParentController {
     }
 
     @FXML
-    protected void onGoToProfileLimits() throws IOException {
+    protected void onGoToProfileLimits() {
         BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
     }
 

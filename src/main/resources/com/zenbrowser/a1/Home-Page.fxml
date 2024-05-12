@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane style="-fx-background-color: #D1FFBD;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.HomePageController">
+<BorderPane style="-fx-background-color: #D1FFBD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.HomePageController">
 
     <center>
         <VBox alignment="CENTER" spacing="10">
@@ -16,13 +16,9 @@
             <ListView fx:id="historyList" prefWidth="250" />
         </VBox>
 
-        <VBox alignment="CENTER" spacing="10">
-            <Label style="-fx-font-size: 18px;" text="Dashboard" />
-            <Button text="Settings" />
-            <Button fx:id="GoToProfileButton" onAction="#onGoToProfileLimits" text="Profile Limits" />
-        </VBox>
 
         <VBox alignment="CENTER" prefHeight="343.0" prefWidth="658.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <Button fx:id="GoToProfileButton" onAction="#onGoToProfileLimits" text="Profile Limit Settings" />
             <Button text="Usage Reports" />
             <Button text="Notification Settings" />
             <Button text="My Account Settings" />
