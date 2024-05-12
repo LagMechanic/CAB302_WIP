@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="Added currentTab browsing boolean. If true then switches to browser mode or if false switch tab content to profile mode.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="history error checks before website loading. Listener added to fix bug.">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ParentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ParentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -484,7 +480,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715514576038</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="history error checks before website loading. Listener added to fix bug.">
+      <option name="closed" value="true" />
+      <created>1715517942095</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1715517942095</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -517,7 +521,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="All controllers now open the same window controller instead of new window. Major refactoring" />
     <MESSAGE value="Changed Abstract controller to become ParentController so that parent controller class can be instantiated. fixes to authentication. Refactoring." />
     <MESSAGE value="SQL query so some variables are correctly null and not null. Removed ID as primary key and changed to username." />
     <MESSAGE value="Successfully got user database working." />
@@ -542,7 +545,8 @@
     <MESSAGE value="HistoryController now access history from database instead of class." />
     <MESSAGE value="When user opens if user is not logged in open login page, if logged in then open browser" />
     <MESSAGE value="Added currentTab browsing boolean. If true then switches to browser mode or if false switch tab content to profile mode." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added currentTab browsing boolean. If true then switches to browser mode or if false switch tab content to profile mode." />
+    <MESSAGE value="history error checks before website loading. Listener added to fix bug." />
+    <option name="LAST_COMMIT_MESSAGE" value="history error checks before website loading. Listener added to fix bug." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

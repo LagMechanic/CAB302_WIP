@@ -124,7 +124,7 @@ public class BrowserMain extends ParentController implements Initializable {
                             getCurrentUser(),
                             entry.getUrl(),
                             entry.getTitle(),
-                            (Date) entry.getLastVisitedDate()));
+                            new Date(entry.getLastVisitedDate().getTime())));
 
                 } else if (newState == Worker.State.FAILED) {
                     System.out.println("Page loading failed!");
