@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="history error checks before website loading. Listener added to fix bug.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
-
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="History controller for function which gets each history entry and creates a new label.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Browser/BrowserMainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,36 +72,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.BrowserApplication.executor&quot;: &quot;Run&quot;,
-
-    &quot;Application.BrowserMain.executor&quot;: &quot;Run&quot;,
-
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HomePageApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainProfileLimits.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ProfileLimits.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ProfileLimitsApplication.executor&quot;: &quot;Run&quot;,
-
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;JoshK&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/QUT/CAB302/Projects/CAB302_WIP/src/main/java/com/zenbrowser/a1&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/joshk/AppData/Local/SceneBuilder/SceneBuilder.exe&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4770115&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
-
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.BrowserApplication.executor": "Run",
+    "Application.BrowserMain.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Application.HomePageApplication.executor": "Run",
+    "Application.MainProfileLimits.executor": "Run",
+    "Application.ProfileLimits.executor": "Run",
+    "Application.ProfileLimitsApplication.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "JoshK",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/QUT/CAB302/Projects/CAB302_WIP/src/main/java/com/zenbrowser/a1",
+    "last_opened_file_path": "C:/Users/joshk/AppData/Local/SceneBuilder/SceneBuilder.exe",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4770115",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Benjc\Desktop\Uni\2024\Semester 1\CAB302\CAB302_WIP\src\main\java\com\zenbrowser\a1" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\olive\Documents\Git\CAB302_WIP\src\main\Resources\com\zenbrowser\a1" />
       <recent name="C:\Users\olive\Documents\Git\CAB302_WIP\src\main\Resources" />
@@ -198,7 +200,6 @@
       <option name="project" value="LOCAL" />
       <updated>1714432046956</updated>
     </task>
-
     <task id="LOCAL-00007" summary="Fixed merge errors">
       <option name="closed" value="true" />
       <created>1714513900062</created>
@@ -415,88 +416,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715477745569</updated>
     </task>
-    <task id="LOCAL-00034" summary="Changed all fxml runtime version so that error will not produce during page open event.">
+    <task id="LOCAL-00034" summary="Adjusting of tabs visual when closing a tab">
       <option name="closed" value="true" />
-      <created>1715500211121</created>
+      <created>1715503363627</created>
       <option name="number" value="00034" />
       <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
-      <updated>1715500211121</updated>
+      <updated>1715503363627</updated>
     </task>
-    <task id="LOCAL-00035" summary="Current Stage closes when all tabs have been closed.">
-      <option name="closed" value="true" />
-      <created>1715500847814</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1715500847814</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Removed unutilised ProfileLimitsApplication.java and UrlLimit.java">
-      <option name="closed" value="true" />
-      <created>1715501045217</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1715501045217</updated>
-    </task>
-    <task id="LOCAL-00037" summary="made parentcontroller currentUser a private class instead of protected so controllers have to indirectly access. Add private record UrlLimit to ProfileLimitsController">
-      <option name="closed" value="true" />
-      <created>1715502020901</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1715502020901</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Made significant changes to HistoryRecord and History RecordDAO as well as HistoryController.">
-      <option name="closed" value="true" />
-      <created>1715510199711</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1715510199711</updated>
-    </task>
-    <task id="LOCAL-00039" summary="insert single record statement when loading page.">
-      <option name="closed" value="true" />
-      <created>1715512470645</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1715512470645</updated>
-    </task>
-    <task id="LOCAL-00040" summary="HistoryController now access history from database instead of class.">
-      <option name="closed" value="true" />
-      <created>1715513416124</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1715513416124</updated>
-    </task>
-    <task id="LOCAL-00041" summary="When user opens if user is not logged in open login page, if logged in then open browser">
-      <option name="closed" value="true" />
-      <created>1715513980878</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1715513980878</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Added currentTab browsing boolean. If true then switches to browser mode or if false switch tab content to profile mode.">
-      <option name="closed" value="true" />
-      <created>1715514576038</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1715514576038</updated>
-    </task>
-    <task id="LOCAL-00043" summary="history error checks before website loading. Listener added to fix bug.">
-      <option name="closed" value="true" />
-      <created>1715517942095</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1715517942095</updated>
-    </task>
-    <option name="localTasksCounter" value="44" />
-
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -529,7 +457,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-
+    <MESSAGE value="Intialise connection for abstract class" />
+    <MESSAGE value="Fix errors" />
+    <MESSAGE value="Altered sql queries for database connections and fixed errors." />
+    <MESSAGE value="Functioning login page to register page." />
+    <MESSAGE value="Finished merging Josh and Bens versions" />
+    <MESSAGE value="Many changes. Created new browserTab.fxml off browsermain and added browsermain newtab functionality into fxml. Improved navigation methods between tab. Added and removed methods from browser main." />
+    <MESSAGE value="Push current version" />
+    <MESSAGE value="Fixed tabs saving content of page when switching between tabs." />
+    <MESSAGE value="All controllers now open the same window controller instead of new window. Major refactoring" />
     <MESSAGE value="Changed Abstract controller to become ParentController so that parent controller class can be instantiated. fixes to authentication. Refactoring." />
     <MESSAGE value="SQL query so some variables are correctly null and not null. Removed ID as primary key and changed to username." />
     <MESSAGE value="Successfully got user database working." />
@@ -545,18 +481,8 @@
     <MESSAGE value="Within browserTab class, added fullhistory list which collates all Webhistory instances." />
     <MESSAGE value="History button goes to history-view page." />
     <MESSAGE value="History controller for function which gets each history entry and creates a new label." />
-    <MESSAGE value="Changed all fxml runtime version so that error will not produce during page open event." />
-    <MESSAGE value="Current Stage closes when all tabs have been closed." />
-    <MESSAGE value="Removed unutilised ProfileLimitsApplication.java and UrlLimit.java" />
-    <MESSAGE value="made parentcontroller currentUser a private class instead of protected so controllers have to indirectly access. Add private record UrlLimit to ProfileLimitsController" />
-    <MESSAGE value="Made significant changes to HistoryRecord and History RecordDAO as well as HistoryController." />
-    <MESSAGE value="insert single record statement when loading page." />
-    <MESSAGE value="HistoryController now access history from database instead of class." />
-    <MESSAGE value="When user opens if user is not logged in open login page, if logged in then open browser" />
-    <MESSAGE value="Added currentTab browsing boolean. If true then switches to browser mode or if false switch tab content to profile mode." />
-    <MESSAGE value="history error checks before website loading. Listener added to fix bug." />
-    <option name="LAST_COMMIT_MESSAGE" value="history error checks before website loading. Listener added to fix bug." />
-
+    <MESSAGE value="Adjusting of tabs visual when closing a tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusting of tabs visual when closing a tab" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
