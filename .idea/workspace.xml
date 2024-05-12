@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="history error checks before website loading. Listener added to fix bug.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="History controller for function which gets each history entry and creates a new label.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Browser/BrowserMainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
 
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,6 +73,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
@@ -101,8 +102,11 @@
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
 
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Benjc\Desktop\Uni\2024\Semester 1\CAB302\CAB302_WIP\src\main\java\com\zenbrowser\a1" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\olive\Documents\Git\CAB302_WIP\src\main\Resources\com\zenbrowser\a1" />
       <recent name="C:\Users\olive\Documents\Git\CAB302_WIP\src\main\Resources" />
@@ -415,13 +419,13 @@
       <option name="project" value="LOCAL" />
       <updated>1715477745569</updated>
     </task>
-    <task id="LOCAL-00034" summary="Changed all fxml runtime version so that error will not produce during page open event.">
+    <task id="LOCAL-00034" summary="Adjusting of tabs visual when closing a tab">
       <option name="closed" value="true" />
-      <created>1715500211121</created>
+      <created>1715503363627</created>
       <option name="number" value="00034" />
       <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
-      <updated>1715500211121</updated>
+      <updated>1715503363627</updated>
     </task>
     <task id="LOCAL-00035" summary="Current Stage closes when all tabs have been closed.">
       <option name="closed" value="true" />
@@ -545,6 +549,7 @@
     <MESSAGE value="Within browserTab class, added fullhistory list which collates all Webhistory instances." />
     <MESSAGE value="History button goes to history-view page." />
     <MESSAGE value="History controller for function which gets each history entry and creates a new label." />
+
     <MESSAGE value="Changed all fxml runtime version so that error will not produce during page open event." />
     <MESSAGE value="Current Stage closes when all tabs have been closed." />
     <MESSAGE value="Removed unutilised ProfileLimitsApplication.java and UrlLimit.java" />
@@ -556,6 +561,7 @@
     <MESSAGE value="Added currentTab browsing boolean. If true then switches to browser mode or if false switch tab content to profile mode." />
     <MESSAGE value="history error checks before website loading. Listener added to fix bug." />
     <option name="LAST_COMMIT_MESSAGE" value="history error checks before website loading. Listener added to fix bug." />
+
 
   </component>
   <component name="XDebuggerManager">
