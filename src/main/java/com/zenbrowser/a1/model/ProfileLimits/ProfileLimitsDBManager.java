@@ -1,9 +1,6 @@
 package com.zenbrowser.a1.model.ProfileLimits;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ProfileLimitsDBManager {
     private static final String DB_URL = "jdbc:sqlite:zenbrowser.db";
@@ -18,6 +15,12 @@ public class ProfileLimitsDBManager {
                 + "url TEXT,"
                 + "`limit` TEXT"
                 + ")";
+        try (Connection connection = DriverManager.getConnection(DB_URL);
+             Statement statement = connection.createStatement()) {
+            statement.execute(createTableSQL);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addUrlAndLimit(String url, String limit) {
