@@ -1,6 +1,7 @@
 package com.zenbrowser.a1.model.Authentication;
 
 import com.zenbrowser.a1.model.User.IUserDAO;
+import com.zenbrowser.a1.model.User.MockUsersDAO;
 import com.zenbrowser.a1.model.User.SqliteUserDAO;
 import com.zenbrowser.a1.model.User.User;
 
@@ -10,11 +11,7 @@ import com.zenbrowser.a1.model.User.User;
  */
 public class Authentication implements IAuthentication {
 
-    private static User currUser;
-
-    public User getCurrUser() {
-        return currUser;
-    }
+    private User currUser;
 
     private final IUserDAO userDAO;
 
@@ -45,8 +42,8 @@ public class Authentication implements IAuthentication {
 
 
     @Override
-    public void login(User user) throws InvalidCredentials {
-        if (!userDAO.checkUsername(user.getUsername())) throw new InvalidCredentials();
+    public void login(User user) throws InvalidCredentials, MissingUser {
+        if (!userDAO.checkUsername(user.getUsername())) throw new MissingUser();
         if (!userDAO.checkPassword(user.getUsername(), user.getPassword())) throw new InvalidCredentials();
 
         currUser = user;
@@ -77,5 +74,7 @@ public class Authentication implements IAuthentication {
         return currUser != null;
     }
 
+    public class MissingUser extends Throwable {
+    }
 }
 

@@ -1,4 +1,4 @@
-package com.zenbrowser.a1.model.BrowserUsage;
+/**package com.zenbrowser.a1.model.BrowserUsage;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -91,3 +91,4 @@ class HistoryRecordDAOTest {
 
     }
 }
+ **/

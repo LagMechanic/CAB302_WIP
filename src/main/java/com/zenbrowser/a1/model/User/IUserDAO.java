@@ -43,4 +43,5 @@ public interface IUserDAO {
      */
     public boolean checkPassword(String username, String password);
 
+    public List<User> getAllUsers();
 }

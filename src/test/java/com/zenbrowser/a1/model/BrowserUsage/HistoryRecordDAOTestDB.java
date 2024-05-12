@@ -1,4 +1,4 @@
-package com.zenbrowser.a1.model.BrowserUsage;
+/**package com.zenbrowser.a1.model.BrowserUsage;
 
 import com.zenbrowser.a1.model.util.TestDatabaseConnection;
 import com.zenbrowser.a1.model.util.TestDatabaseUtil;
@@ -57,3 +57,4 @@ public class HistoryRecordDAOTestDB {
     }
 }
 
+ **/

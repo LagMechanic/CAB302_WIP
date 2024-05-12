@@ -1,4 +1,4 @@
-package com.zenbrowser.a1.model.Authentication;
+package com.zenbrowser.a1.model.User;
 
 import java.util.HashMap;
 import java.util.List;
@@ -63,5 +63,10 @@ public class MockUsersDAO implements IUserDAO {
     public boolean checkPassword(String username, String password) {
         if (!checkUsername(username)) return false;
         return Objects.equals(Users.get(username), password);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return null;
     }
 }

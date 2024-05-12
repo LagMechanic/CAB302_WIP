@@ -2,36 +2,22 @@ package com.zenbrowser.a1.Controller;
 
 import com.zenbrowser.a1.BrowserApplication;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
 import java.io.IOException;
-
-public class HomePageController {
+public class HomePageController extends ParentController{
+    @FXML
+    private Label greetingLabel;
     @FXML
     private TextField searchField;
 
     @FXML
-    private ListView<String> historyList;
-
-    @FXML
-    private Button searchButton;
-
-    @FXML
-    private Button GoToProfileButton;
-
-    private HomePageController.ButtonPressedListener buttonPressedListener;
-    public interface ButtonPressedListener {
-        void onButtonPressed(String destination);
-    }
-    public void setButtonPressedListener(HomePageController.ButtonPressedListener listener) {this.buttonPressedListener = listener;}
-
-    @FXML
-    private void initialize() {
+    public void initialize(){
+        if (super.getCurrentUser() != null){
+            String greeting = String.format("Welcome to zenbrowser%s!", getCurrentUser());
+            greetingLabel.setText(greeting);
+        }
+        else {  greetingLabel.setText("Welcome to zenbrowser!");}
     }
 
     @FXML
@@ -42,8 +28,6 @@ public class HomePageController {
 
     @FXML
     protected void onGoToProfileLimits() throws IOException {
-        if (buttonPressedListener != null) { //This lets the main browser controller know which page to switch to
-            buttonPressedListener.onButtonPressed("ProfileLimits");
-        }
+        BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/ProfileLimits.fxml", "Profile Limits");
     }
 }

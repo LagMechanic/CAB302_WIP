@@ -2,14 +2,13 @@ package com.zenbrowser.a1.Controller;
 
 import com.zenbrowser.a1.BrowserApplication;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ProfileLimitsController {
+public class ProfileLimitsController extends ParentController {
+
+    private record UrlLimit(String url, String limit) { }
 
     @FXML
     private TextField urlField;
@@ -18,7 +17,7 @@ public class ProfileLimitsController {
     private TextField limitField;
 
     @FXML
-    private TableView<com.zenbrowser.a1.ProfileLimitsGUI.UrlLimit> urlTable;
+    private TableView<UrlLimit> urlTable;
 
     private ProfileLimitsController.ButtonPressedListener buttonPressedListener;
     public interface ButtonPressedListener {
@@ -30,7 +29,7 @@ public class ProfileLimitsController {
         String url = urlField.getText();
         String limit = limitField.getText();
         if (!url.isEmpty() && !limit.isEmpty()) {
-            urlTable.getItems().add(new com.zenbrowser.a1.ProfileLimitsGUI.UrlLimit(url, limit));
+            urlTable.getItems().add(new UrlLimit(url, limit));
             urlField.clear();
             limitField.clear();
         } else {
@@ -43,16 +42,7 @@ public class ProfileLimitsController {
     }
 
     @FXML
-    private Button GoToProfileButton;
-
-    @FXML
     protected void onGoToProfileLimits() throws IOException {
-        Stage stage = (Stage) GoToProfileButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(BrowserApplication.class.getResource("ProfileLimits.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("Limits Browser");
-        stage.setScene(scene);
+        BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
     }
-
-
 }

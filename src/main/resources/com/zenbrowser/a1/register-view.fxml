@@ -1,42 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.text.Text?>
-
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.zenbrowser.a1.Controller.RegisterController" style="-fx-background-color: #D1FFBD;">
+<?import javafx.scene.control.PasswordField?>
+<BorderPane prefHeight="625.0" prefWidth="584.0" style="-fx-background-color: #D1FFBD;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.6" fx:controller="com.zenbrowser.a1.Controller.RegisterController">
 <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
 </padding>
 <center>
-    <VBox spacing="20.0" prefWidth="400" alignment="CENTER">
-        <Label text ="Zenbrowser" style="-fx-font-size:60px; -fx-font-weight: bold"/>
-        <Label text ="Register" style="-fx-font-size:40px; -fx-font-weight: bold"/>
+    <VBox alignment="CENTER" prefWidth="400.0" spacing="20.0">
+        <Label style="-fx-font-size: 50px; -fx-font-weight: bold;" text="Zenbrowser" />
+        <Label style="-fx-font-size: 35; -fx-font-weight: bold;" text="Register" />
 
-        <GridPane hgap="10.0" vgap="10.0" >
+        <GridPane hgap="10.0" vgap="10.0">
             <columnConstraints>
                 <ColumnConstraints minWidth="70" />
-                <ColumnConstraints hgrow="ALWAYS"/>
+                <ColumnConstraints hgrow="ALWAYS" />
             </columnConstraints>
-            <Label text="Create new account" GridPane.rowIndex="0" style="-fx-font-size:20px;"/>
+            <Label style="-fx-font-size:20px;" text="Create a new account" GridPane.rowIndex="0" />
             <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
             <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-            <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-            <TextField fx:id="usernameTXT" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity"/>
-            <TextField fx:id="passwordTXT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="emailTXT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="phoneTXT" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="First Name: (Optional)" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <Label text="Last Name: (Optional)" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <Label text="Email: (Optional)" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <TextField fx:id="usernameTXT" onKeyReleased="#EnableRegisterButton" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PasswordField fx:id="passwordField" onKeyReleased="#EnableRegisterButton" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="firstNameTXT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="lastNameTXT" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
         </GridPane>
-        <VBox spacing="20.0" alignment="CENTER">
-            <Button text="Register" fx:id="RegisterButton" onAction="#onRegisterButtonClick" style="-fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 20px;"/>
-            <Label text="Do not have a zen account? Create Now!" style="-fx-font-size:20px;"/>
-            <Button text="Login" fx:id="LoginButton" onAction="#onLoginButtonClick" style="-fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 20px;"/>
+         <Label fx:id="errorPromptLabel" textFill="RED" />
+        <VBox alignment="CENTER" spacing="20.0">
+            <Button fx:id="registerButton" disable="true" onAction="#onRegisterButtonClick" style="-fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 20px;" text="Register" />
+            <Label style="-fx-font-size:20px;" text="Do not have a zen account? Create Now!" />
+            <Button fx:id="LoginPageButton" onAction="#onLoginPageButtonClick" style="-fx-min-width: 70px; -fx-min-height: 30px; -fx-font-size: 16px;" text="Login" />
         </VBox>
     </VBox>
 </center>
