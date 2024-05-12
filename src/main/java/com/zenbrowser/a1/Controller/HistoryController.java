@@ -1,9 +1,4 @@
 package com.zenbrowser.a1.Controller;
-
-import javafx.event.EventHandler;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 import com.zenbrowser.a1.model.browserTab;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
