@@ -5,61 +5,54 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.sql.Date;
+
 //  this is class was made only so this object can be put into an observable list-
 //  -for the javafx tableview, which will access the properties for its columns.
 public class HistoryRecord {
-    private final IntegerProperty activityID;
-    private final StringProperty username;
-    private final StringProperty site;
-    private final StringProperty historyRecordDateTime;
-    private final StringProperty historyRecordEndDateTime;
+    private Integer activityID;
+    private final String username;
+    private final String url;
+    private final String site;
+    private final java.sql.Date historyRecordDateTime;
+    //private final StringProperty historyRecordEndDateTime;
 
-    public HistoryRecord(int activityID, String username, String site, String historyRecordDateTime, String historyRecordEndDateTime) {
-        this.activityID = new SimpleIntegerProperty(activityID);
-        this.username = new SimpleStringProperty(username);
-        this.site = new SimpleStringProperty(site);
-        this.historyRecordDateTime = new SimpleStringProperty(historyRecordDateTime);
-        this.historyRecordEndDateTime = new SimpleStringProperty(historyRecordEndDateTime);
+
+    public HistoryRecord(String username, String site, String url, java.sql.Date historyRecordDateTime) {
+        this.username = username;
+        this.site = site;
+        this.url = url;
+        this.historyRecordDateTime = historyRecordDateTime;
     }
 
     // Getters
     public int getActivityID() {
-        return activityID.get();
-    }
-
-    public IntegerProperty activityIDProperty() {
         return activityID;
+    }
+    public void setId(int id) {
+        activityID = id;
     }
 
     public String getUsername() {
-        return username.get();
-    }
-
-    public StringProperty usernameProperty() {
         return username;
     }
 
-    public String getSite() {
-        return site.get();
-    }
+    public String getURL() {return url;}
 
-    public StringProperty siteProperty() {
+    public String getSite() {
         return site;
     }
 
-    public String getHistoryRecordDateTime() {
-        return historyRecordDateTime.get();
-    }
-
-    public StringProperty historyRecordDateTimeProperty() {
+    public Date getHistoryRecordDateTime() {
         return historyRecordDateTime;
     }
 
+    /**
     public String getHistoryRecordEndDateTime() {
         return historyRecordEndDateTime.get();
     }
 
     public StringProperty historyRecordEndDateTimeProperty() {
         return historyRecordEndDateTime;
-    }
+    }**/
 }

@@ -6,7 +6,7 @@ import com.zenbrowser.a1.model.Website.SiteDAO;
 
 import java.sql.*;
 
-public class ProfileDAO {
+public class ProfileDAO implements IProfileDAO {
     private final Connection connection;
 
     public ProfileDAO(Connection connection) {
@@ -20,11 +20,8 @@ public class ProfileDAO {
             Statement statement = connection.createStatement();
             String query = "CREATE TABLE IF NOT EXISTS profiles ("
                     + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "firstName VARCHAR NOT NULL,"
-                    + "lastName VARCHAR NOT NULL,"
-                    + "phone VARCHAR NULL,"
-                    + "email VARCHAR NULL,"
-                    + "password VARCHAR NOT NULL"
+                    + "profileName VARCHAR NOT NULL,"
+                    + "websiteID VARCHAR NOT NULL"
                     + ")";
             statement.execute(query);
         } catch (Exception e) {
@@ -72,6 +69,7 @@ public class ProfileDAO {
             throw new RuntimeException(e);
         }
     }
+    @Override
     public void deleteProfile(int id) throws SQLException {
         String sql = "DELETE FROM profiles WHERE id=?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -80,7 +78,9 @@ public class ProfileDAO {
         }
     }
 
-    public Profile getProfileById(int id) {
+
+    @Override
+    public Profile getProfile(int id) {
         String sql = "SELECT * FROM profiles WHERE id=?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);

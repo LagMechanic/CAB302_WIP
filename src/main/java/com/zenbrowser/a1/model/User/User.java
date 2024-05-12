@@ -2,6 +2,7 @@ package com.zenbrowser.a1.model.User;
 
 public class User {
 
+
     private Integer id;
     private String username;
 
@@ -76,4 +77,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }
