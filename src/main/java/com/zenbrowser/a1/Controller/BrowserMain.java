@@ -73,7 +73,11 @@ public class BrowserMain extends ParentController implements Initializable {
 
     @FXML
     private void profileBtnHoverExit() {ProfileLabel.setText("");}
-
+    private void setupTabCloseHandler(Tab tab) {
+        tab.setOnCloseRequest(event -> {
+            tabPane.setMinWidth(tabPane.getWidth() - tabPane.getTabMaxWidth() - 13);
+        });
+    }
     public void initialize(URL url, ResourceBundle rb) {
         newTabFunction();
 
@@ -139,7 +143,7 @@ public class BrowserMain extends ParentController implements Initializable {
     private void newTabFunction() {
         //Create a new tab and add to tab pane control.
         browserTab tab = new browserTab("New Tab");
-
+        setupTabCloseHandler(tab);
         tabPane.getTabs().add(tab);
         tabPane.getSelectionModel().select(tab);
         //Create a buffer so tabs can be dynamically extended on browser.
