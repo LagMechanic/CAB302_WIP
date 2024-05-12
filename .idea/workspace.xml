@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="History controller for function which gets each history entry and creates a new label.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Browser/BrowserMainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +83,10 @@
     "Application.ProfileLimits.executor": "Run",
     "Application.ProfileLimitsApplication.executor": "Run",
     "Application.Unnamed.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -98,6 +102,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Benjc\Desktop\Uni\2024\Semester 1\CAB302\CAB302_WIP\src\main\java\com\zenbrowser\a1" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\olive\Documents\Git\CAB302_WIP\src\main\Resources\com\zenbrowser\a1" />
       <recent name="C:\Users\olive\Documents\Git\CAB302_WIP\src\main\Resources" />
@@ -409,7 +416,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715477745569</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Adjusting of tabs visual when closing a tab">
+      <option name="closed" value="true" />
+      <created>1715503363627</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1715503363627</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -442,7 +457,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Removed not required HelloController.java class" />
     <MESSAGE value="Intialise connection for abstract class" />
     <MESSAGE value="Fix errors" />
     <MESSAGE value="Altered sql queries for database connections and fixed errors." />
@@ -467,7 +481,8 @@
     <MESSAGE value="Within browserTab class, added fullhistory list which collates all Webhistory instances." />
     <MESSAGE value="History button goes to history-view page." />
     <MESSAGE value="History controller for function which gets each history entry and creates a new label." />
-    <option name="LAST_COMMIT_MESSAGE" value="History controller for function which gets each history entry and creates a new label." />
+    <MESSAGE value="Adjusting of tabs visual when closing a tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusting of tabs visual when closing a tab" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
