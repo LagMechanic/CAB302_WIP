@@ -37,7 +37,7 @@ public class browserTab extends Tab {
         return webHistory;
     }
 
-    public List<WebHistory.Entry> getAllEntries() {
+    public static List<WebHistory.Entry> getAllEntries() {
         List<WebHistory.Entry> allEntries = new ArrayList<>();
         for (WebHistory history : fullHistory) {
             allEntries.addAll(history.getEntries());

@@ -86,8 +86,6 @@ public class BrowserMain extends ParentController implements Initializable {
                 catch (Exception e) {
                     switchPage();
                 }
-
-
             }
         });
         this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + BrowserMain.this.colorPicker.getValue()));
