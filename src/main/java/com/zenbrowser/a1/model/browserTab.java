@@ -1,5 +1,6 @@
 package com.zenbrowser.a1.model;
 
+import javafx.collections.ObservableList;
 import javafx.scene.control.Tab;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
@@ -34,6 +35,16 @@ public class browserTab extends Tab {
 
     public WebHistory getHistory() {
         return webHistory;
+    }
+
+    public WebHistory.Entry getRecentHistory() {
+        ObservableList<WebHistory.Entry> entries = webHistory.getEntries();
+        if (!entries.isEmpty()) {
+            return entries.get(entries.size() - 1); // Returns the last entry
+        } else {
+            System.err.println("WebHistory is empty. No history entries found.");
+            return null;
+        }
     }
 
     public static List<WebHistory.Entry> getAllEntries() {

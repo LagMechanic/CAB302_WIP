@@ -114,6 +114,9 @@ public class BrowserMain extends ParentController implements Initializable {
         try{
             currentTab().getWebEngine().load(urlStr);
             borderPane.setCenter(currentTab().getWebView());
+
+            WebHistory.Entry entry = currentTab().getRecentHistory();
+
         }catch (Exception e){
             promptLabel.setText("You entered an invalid URL.");
         }
