@@ -3,9 +3,11 @@ package com.zenbrowser.a1.Controller;
 import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.sql.Date;
 import java.util.EventListener;
 import java.util.ResourceBundle;
 
+import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import javafx.concurrent.Worker;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -116,6 +118,13 @@ public class BrowserMain extends ParentController implements Initializable {
             borderPane.setCenter(currentTab().getWebView());
 
             WebHistory.Entry entry = currentTab().getRecentHistory();
+
+            HistoryDAO.insertHistoryRecord(new HistoryRecord(
+                                getCurrentUser(),
+                                entry.getUrl(),
+                                entry.getTitle(),
+                                (Date) entry.getLastVisitedDate()));
+
 
         }catch (Exception e){
             promptLabel.setText("You entered an invalid URL.");

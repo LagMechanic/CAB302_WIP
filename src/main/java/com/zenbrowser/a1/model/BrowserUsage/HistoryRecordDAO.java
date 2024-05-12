@@ -105,6 +105,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
                         resultSet.getString("URL"),
                         resultSet.getDate("historyRecordDateTime")
                 );
+                historyRecord.setId(resultSet.getInt("id"));
                 historyRecords.add(historyRecord);
             }
         } catch (SQLException e) {
