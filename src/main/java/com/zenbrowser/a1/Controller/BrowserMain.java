@@ -36,7 +36,6 @@ public class BrowserMain extends ParentController implements Initializable {
     private TextField URLBox;
     @FXML
     private Button ReloadButton;
-
     @FXML
     private ColorPicker colorPicker;
     @FXML
@@ -87,6 +86,11 @@ public class BrowserMain extends ParentController implements Initializable {
                     switchPage();
                 }
             }
+            else {
+                Stage stageInstanance = (Stage) borderPane.getScene().getWindow();
+                stageInstanance.close();
+            }
+
         });
         this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + BrowserMain.this.colorPicker.getValue()));
     }
@@ -151,21 +155,21 @@ public class BrowserMain extends ParentController implements Initializable {
     }
 
     @FXML
-    private void GoToPreviousPage(ActionEvent actionEvent) {
+    private void GoToPreviousPage() {
         ObservableList<WebHistory.Entry> entryList = currentTab().getHistory().getEntries();
         int currentIndex = currentTab().getHistory().getCurrentIndex();
         Platform.runLater(() -> currentTab().getHistory().go(entryList.size() > 1 && currentIndex > 0 ? -1 : 0));
     }
 
     @FXML
-    private void GotoNextPage(ActionEvent actionEvent) {
+    private void GotoNextPage() {
         ObservableList<WebHistory.Entry> entryList = currentTab().getHistory().getEntries();
         int currentIndex = currentTab().getHistory().getCurrentIndex();
         Platform.runLater(() -> currentTab().getHistory().go(entryList.size() > 1 && currentIndex < entryList.size() - 1 ? 1 : 0));
     }
 
     @FXML
-    private void GoReloadPage(ActionEvent actionEvent) {
+    private void GoReloadPage() {
         currentTab().getWebEngine().reload();
     }
 

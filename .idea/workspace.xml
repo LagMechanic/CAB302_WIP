@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="History controller for function which gets each history entry and creates a new label.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="Changed all fxml runtime version so that error will not produce during page open event.">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -410,7 +408,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715477745569</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Changed all fxml runtime version so that error will not produce during page open event.">
+      <option name="closed" value="true" />
+      <created>1715500211121</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1715500211121</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -443,7 +449,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Removed not required HelloController.java class" />
     <MESSAGE value="Intialise connection for abstract class" />
     <MESSAGE value="Fix errors" />
     <MESSAGE value="Altered sql queries for database connections and fixed errors." />
@@ -468,7 +473,8 @@
     <MESSAGE value="Within browserTab class, added fullhistory list which collates all Webhistory instances." />
     <MESSAGE value="History button goes to history-view page." />
     <MESSAGE value="History controller for function which gets each history entry and creates a new label." />
-    <option name="LAST_COMMIT_MESSAGE" value="History controller for function which gets each history entry and creates a new label." />
+    <MESSAGE value="Changed all fxml runtime version so that error will not produce during page open event." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed all fxml runtime version so that error will not produce during page open event." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
