@@ -15,7 +15,7 @@ public class HistoryController extends ParentController {
     private VBox historyContainer;
 
     public void initialize() {
-        for (int i = 0; i < browserTab.getAllEntries().size(); i++) {
+        for (int i = browserTab.getAllEntries().size() - 1; i >= 0 ; i--) {
             WebHistory.Entry entry = browserTab.getAllEntries().get(i);
             Label entryLabel = new Label(entry.toString());
             historyContainer.getChildren().add(entryLabel);
