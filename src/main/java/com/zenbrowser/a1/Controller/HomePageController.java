@@ -11,6 +11,7 @@ public class HomePageController extends ParentController{
     @FXML
     private TextField searchField;
 
+
     @FXML
     public void initialize(){
         if (super.getCurrentUser() != null){

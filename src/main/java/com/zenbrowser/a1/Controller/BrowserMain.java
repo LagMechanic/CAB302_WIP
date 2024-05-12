@@ -215,7 +215,7 @@ public class BrowserMain extends ParentController implements Initializable {
         }
         return null;
     }
-
+  
     private String formatUrl(String engineName, String query) {
             if (query.startsWith(engineName))
                 return query;

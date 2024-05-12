@@ -30,6 +30,7 @@ public class RegisterController extends ParentController {
     private Button registerButton;
 
 
+
     @FXML
     protected void onRegisterButtonClick() throws IOException {
         try {
@@ -59,4 +60,8 @@ public class RegisterController extends ParentController {
         Boolean validButton = (usernameTXT.getText().isEmpty() || passwordField.getText().isEmpty());
         registerButton.setDisable(validButton);
     }
+
+
+
+
 }
