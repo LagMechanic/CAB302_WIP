@@ -101,7 +101,7 @@ public class BrowserMain extends ParentController implements Initializable {
     protected void GoToLoginPage() {navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");}
 
     @FXML
-    protected void GoToHistoryPage() {navigatePage("/com/zenbrowser/a1/History-Page.fxml","History");}
+    protected void GoToHistoryPage() {navigatePage("/com/zenbrowser/a1/history-view.fxml","History");}
 
 
     private browserTab currentTab()    {return (browserTab) tabPane.getSelectionModel().getSelectedItem();}
