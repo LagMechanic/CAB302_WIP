@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #D1FFBD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.HomePageController">
+<BorderPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #D1FFBD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.HistoryController">
     <top>
         <Label fx:id="greetingLabel" text="Zenbrowser history" BorderPane.alignment="BOTTOM_LEFT">
             <BorderPane.margin>
@@ -18,7 +18,7 @@
         </Label>
     </top>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="historyContainer" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </BorderPane.margin>
