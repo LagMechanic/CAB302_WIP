@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.EventListener;
 import java.util.ResourceBundle;
 
@@ -129,7 +130,7 @@ public class BrowserMain extends ParentController implements Initializable {
                             getCurrentUser(),
                             entry.getUrl(),
                             entry.getTitle(),
-                            new Date(entry.getLastVisitedDate().getTime())));
+                            new Timestamp(entry.getLastVisitedDate().getTime())));
 
                 } else if (newState == Worker.State.FAILED) {
                     System.out.println("Page loading failed!");

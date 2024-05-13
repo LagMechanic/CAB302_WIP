@@ -52,7 +52,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
             preparedStatement.setString(1, record.getUsername());
             preparedStatement.setString(2, record.getURL());
             preparedStatement.setString(3, record.getSite());
-            preparedStatement.setDate(4, record.getHistoryRecordDateTime());
+            preparedStatement.setTimestamp(4, record.getHistoryRecordDateTime());
 
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
@@ -103,7 +103,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
                         resultSet.getString("username"),
                         resultSet.getString("siteName"),
                         resultSet.getString("URL"),
-                        resultSet.getDate("historyRecordDateTime")
+                        resultSet.getTimestamp("historyRecordDateTime")
                 );
                 historyRecord.setId(resultSet.getInt("id"));
                 historyRecords.add(historyRecord);
