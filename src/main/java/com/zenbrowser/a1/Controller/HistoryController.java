@@ -35,14 +35,11 @@ public class HistoryController extends ParentController {
             Label URLLabel = new Label(record.getURL());
             Label timeLabel = new Label(record.getHistoryRecordDateTime().toString());
 
-            // Create a new GridPane for each record
-            GridPane recordGrid = new GridPane();
-            recordGrid.add(siteLabel, 0, 0);
-            recordGrid.add(URLLabel, 0, 1);
-            recordGrid.add(timeLabel, 0, 2);
+            historyGrid.add(siteLabel, 0, row);
+            historyGrid.add(URLLabel, 0, row);
+            historyGrid.add(timeLabel, 0, row);
 
-            // Add the recordGrid to the historyContainer
-            historyContainer.getChildren().add(recordGrid);
+            row++;
         }
     }
 }
