@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Refactor updates.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAO.java" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Changed all date variables for history to become timestamps.">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,14 +153,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Testing ProfileLimits fxml">
-      <option name="closed" value="true" />
-      <created>1714376652177</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1714376652177</updated>
     </task>
     <task id="LOCAL-00004" summary="Testing ProfileLimits fxml">
       <option name="closed" value="true" />
@@ -548,7 +538,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715582920904</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Changed all date variables for history to become timestamps.">
+      <option name="closed" value="true" />
+      <created>1715583220118</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1715583220118</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -581,7 +579,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="currentUser  now statically shared across  controllers. Initialising gives greeting" />
     <MESSAGE value="Refactored all of Ben's Browserapplication code" />
     <MESSAGE value="unique webview and engine for each browsertab extending off javafx tab" />
     <MESSAGE value="Encapsulation of browserTab class" />
@@ -606,7 +603,8 @@
     <MESSAGE value="Removing non utilized  methods and variables in History, profileLimits and register controllers." />
     <MESSAGE value="modifying browsertab and home-page fxml to move relocate to other page." />
     <MESSAGE value="Refactor updates." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor updates." />
+    <MESSAGE value="Changed all date variables for history to become timestamps." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed all date variables for history to become timestamps." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
