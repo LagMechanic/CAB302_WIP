@@ -14,13 +14,8 @@ public class AuthenticationApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        String fxmlFileName = "login-view.fxml"; // Default FXML file
-        if (!getParameters().getRaw().isEmpty()) {
-            // Check if command-line arguments are provided
-            fxmlFileName = getParameters().getRaw().get(0); // Get the first command-line argument
-        }
 
-        FXMLLoader loader = new FXMLLoader(BrowserApplication.class.getResource(fxmlFileName));
+        FXMLLoader loader = new FXMLLoader(BrowserApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(loader.load(), WIDTH, HEIGHT);
         stage.setTitle(TITLE);
         stage.setScene(scene);

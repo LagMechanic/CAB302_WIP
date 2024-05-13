@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Fixed bug history willl add in same column">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/AuthenticationApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/BrowserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/BrowserApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ProfileLimitsController.java" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Login and registration will now open new application before opening main application so bar utility can't be accessed. Browsermain and home page is being collated.">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/AuthenticationApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/AuthenticationApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="JoshsBranch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -78,7 +69,7 @@
   "keyToString": {
     "Application.BrowserApplication.executor": "Run",
     "Application.Login.executor": "Run",
-    "git-widget-placeholder": "JoshsBranch",
+    "git-widget-placeholder": "MainToHome",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
@@ -164,14 +155,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Added abstract class for controller to encapsulate all controller connections.">
-      <option name="closed" value="true" />
-      <created>1714516744169</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1714516744169</updated>
     </task>
     <task id="LOCAL-00009" summary="Removed not required HelloController.java class">
       <option name="closed" value="true" />
@@ -557,7 +540,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715585010745</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Login and registration will now open new application before opening main application so bar utility can't be accessed. Browsermain and home page is being collated.">
+      <option name="closed" value="true" />
+      <created>1715603230677</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1715603230677</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -590,7 +581,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="History button goes to history-view page." />
     <MESSAGE value="History controller for function which gets each history entry and creates a new label." />
     <MESSAGE value="Changed all fxml runtime version so that error will not produce during page open event." />
     <MESSAGE value="Current Stage closes when all tabs have been closed." />
@@ -615,7 +605,8 @@
     <MESSAGE value="Refactor history records into method." />
     <MESSAGE value="Completed method which populates records in grid." />
     <MESSAGE value="Fixed bug history willl add in same column" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug history willl add in same column" />
+    <MESSAGE value="Login and registration will now open new application before opening main application so bar utility can't be accessed. Browsermain and home page is being collated." />
+    <option name="LAST_COMMIT_MESSAGE" value="Login and registration will now open new application before opening main application so bar utility can't be accessed. Browsermain and home page is being collated." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
