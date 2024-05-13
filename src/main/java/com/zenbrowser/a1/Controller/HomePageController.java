@@ -7,7 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 public class HomePageController extends ParentController{
-    public Button GoToProfileButton;
+
+    @FXML
+    private Button goUsageReports;
+    @FXML
+    private Button goNotificationPage;
+    @FXML
+    private Button goAccountSettings;
     @FXML
     private Label greetingLabel;
     @FXML
