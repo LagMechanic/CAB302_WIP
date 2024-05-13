@@ -10,8 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
-
 
 public class RegisterController extends ParentController {
     @FXML
@@ -29,10 +27,8 @@ public class RegisterController extends ParentController {
     @FXML
     private Button registerButton;
 
-
-
     @FXML
-    protected void onRegisterButtonClick() throws IOException {
+    protected void onRegisterButtonClick()  {
         try {
             Authentication.getInstance().signup(new User(
                     usernameTXT.getText(),
@@ -51,17 +47,13 @@ public class RegisterController extends ParentController {
 
 
     @FXML
-    protected void onLoginPageButtonClick() throws IOException {
+    protected void onLoginPageButtonClick() {
         BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");
     }
 
     @FXML
-    private void EnableRegisterButton() throws IOException{
+    private void EnableRegisterButton() {
         boolean validButton = (usernameTXT.getText().isEmpty() || passwordField.getText().isEmpty());
         registerButton.setDisable(validButton);
     }
-
-
-
-
 }

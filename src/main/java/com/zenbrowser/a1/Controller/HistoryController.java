@@ -1,14 +1,11 @@
 package com.zenbrowser.a1.Controller;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
-import com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAO;
-import com.zenbrowser.a1.model.browserTab;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
-import javafx.scene.web.WebHistory;
-
 import java.util.List;
+
 
 public class HistoryController extends ParentController {
     @FXML
