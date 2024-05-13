@@ -51,9 +51,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
 
             preparedStatement.setString(1, record.getUsername());
             preparedStatement.setString(2, record.getURL());
-            System.out.println(record.getURL() + "1");
             preparedStatement.setString(3, record.getSite());
-            System.out.println(record.getSite() + "2");
             preparedStatement.setTimestamp(4, record.getHistoryRecordDateTime());
 
             preparedStatement.executeUpdate();
