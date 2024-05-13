@@ -19,6 +19,7 @@
          </font>
       </Label>
    </top>
+
    <left>
         <VBox alignment="CENTER" prefHeight="343.0" prefWidth="150.0" spacing="20.0" BorderPane.alignment="CENTER">
             <Button fx:id="goUsageReports" text="Usage Reports" />
@@ -27,6 +28,6 @@
         </VBox>
    </left>
    <center>
-      <WebView minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+       <WebView fx:id="webView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

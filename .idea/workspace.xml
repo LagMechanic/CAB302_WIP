@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Added fxml functionality to homepage buttons." />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Removing non utilized  methods and variables in History, profileLimits and register controllers.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -520,7 +525,31 @@
       <option name="project" value="LOCAL" />
       <updated>1715578782333</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Changing homepage layout so that buttons on left side and browser on center panel.">
+      <option name="closed" value="true" />
+      <created>1715579064291</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1715579064291</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Removing non utilized loginController methods and variables.">
+      <option name="closed" value="true" />
+      <created>1715579269646</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1715579269646</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Removing non utilized  methods and variables in History, profileLimits and register controllers.">
+      <option name="closed" value="true" />
+      <created>1715579399520</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1715579399520</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -553,9 +582,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added new fxml controls including password fields, error output labels. Producing error if authentication errors." />
-    <MESSAGE value="Error output for incorrect login and signup credentials are functional." />
-    <MESSAGE value="Login and register buttons now greyed out until user inputs data into textfields" />
     <MESSAGE value="Fixed error where home-page would not display during intialization" />
     <MESSAGE value="Push" />
     <MESSAGE value="currentUser  now statically shared across  controllers. Initialising gives greeting" />
@@ -578,7 +604,10 @@
     <MESSAGE value="History displays entry variables seperately instead of single entry." />
     <MESSAGE value="Removed unneccessary vbox components in Home-Page.fxml" />
     <MESSAGE value="Added fxml functionality to homepage buttons." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added fxml functionality to homepage buttons." />
+    <MESSAGE value="Changing homepage layout so that buttons on left side and browser on center panel." />
+    <MESSAGE value="Removing non utilized loginController methods and variables." />
+    <MESSAGE value="Removing non utilized  methods and variables in History, profileLimits and register controllers." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removing non utilized  methods and variables in History, profileLimits and register controllers." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

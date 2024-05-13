@@ -11,7 +11,6 @@ import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import javafx.concurrent.Worker;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -137,9 +136,7 @@ public class BrowserMain extends ParentController implements Initializable {
             });
         }catch (Exception e){
             System.out.println("Page loading failed!");
-
         }
-
     }
 
     private void switchPage(){
@@ -243,7 +240,6 @@ public class BrowserMain extends ParentController implements Initializable {
              else{
                 loadPage(formatUrl(defaultEngine, PromptedSearch));
             }
-
         }
         else {promptLabel.setText("You didn't enter anything : (");}
     }

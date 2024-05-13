@@ -22,7 +22,7 @@
 <BorderPane id="borderPane" fx:id="borderPane" prefHeight="448.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.BrowserMain">
     <top>
         <VBox>
-         <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="939.0" VBox.vgrow="NEVER">
+         <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="1000.0" VBox.vgrow="NEVER">
             <children>
                    <TabPane fx:id="tabPane" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="108.0" style="-fx-background-color: D5D5D5;" tabMaxWidth="80.0" tabMinWidth="80.0">
                   <HBox.margin>
@@ -38,8 +38,6 @@
                <Insets />
             </VBox.margin>
          </HBox>
-
-            <Label fx:id="promptLabel" />
 
             <HBox alignment="CENTER" style="-fx-background-color: #A9A9A9;" VBox.vgrow="NEVER">
                 <ToolBar minWidth="-Infinity" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #A9A9A9;">
@@ -151,6 +149,8 @@
                <Insets />
             </VBox.margin>
             </HBox>
+   
+                                    <Label fx:id="promptLabel" />
         </VBox>
     </top>
    <center>
