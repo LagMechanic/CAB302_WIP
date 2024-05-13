@@ -171,12 +171,8 @@ public class BrowserMain extends ParentController implements Initializable {
         if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
             tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
         }
-        if (getCurrentUser() == null){
-            navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");
-        }
-        else {
-            goButtonPressed();
-        }
+
+        goButtonPressed();
     }
 
     @FXML
