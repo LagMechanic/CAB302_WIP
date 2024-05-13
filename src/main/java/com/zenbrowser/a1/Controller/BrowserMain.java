@@ -56,6 +56,7 @@ public class BrowserMain extends ParentController implements Initializable {
     @FXML
     private TabPane tabPane;
 
+
     @FXML
     private void homeBtnHover() {homeLabel.setText("Home");}
 
@@ -73,25 +74,25 @@ public class BrowserMain extends ParentController implements Initializable {
 
     @FXML
     private void profileBtnHoverExit() {ProfileLabel.setText("");}
+
     private void setupTabCloseHandler(Tab tab) {
         tab.setOnCloseRequest(event -> {
             tabPane.setMinWidth(tabPane.getWidth() - tabPane.getTabMaxWidth() - 13);
         });
     }
+
     public void initialize(URL url, ResourceBundle rb) {
         newTabFunction();
 
         // Add a listener to the selectionModel property
         tabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
-            if (newTab != null)
-            {
+            if (newTab != null) {
                 if (currentTab().getBrowsing()) {
                     borderPane.setCenter(currentTab().getWebView());
                 } else {
                     switchPage();
                 }
-            } else
-            {
+            } else {
                 Stage stageInstanance = (Stage) borderPane.getScene().getWindow();
                 stageInstanance.close();
             }

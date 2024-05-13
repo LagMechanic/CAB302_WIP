@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Removing non utilized  methods and variables in History, profileLimits and register controllers.">
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="modifying browsertab and home-page fxml to move relocate to other page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -156,14 +156,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00001" summary="tested HistoryRecordDAO update method">
-      <option name="closed" value="true" />
-      <created>1714376445303</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1714376445303</updated>
     </task>
     <task id="LOCAL-00002" summary="Testing ProfileLimits fxml">
       <option name="closed" value="true" />
@@ -549,7 +541,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715579399520</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="modifying browsertab and home-page fxml to move relocate to other page.">
+      <option name="closed" value="true" />
+      <created>1715580167923</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1715580167923</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -568,7 +568,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/JoshK" />
+                        <option value="HEAD" />
                       </list>
                     </value>
                   </entry>
@@ -582,7 +582,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed error where home-page would not display during intialization" />
     <MESSAGE value="Push" />
     <MESSAGE value="currentUser  now statically shared across  controllers. Initialising gives greeting" />
     <MESSAGE value="Refactored all of Ben's Browserapplication code" />
@@ -607,7 +606,8 @@
     <MESSAGE value="Changing homepage layout so that buttons on left side and browser on center panel." />
     <MESSAGE value="Removing non utilized loginController methods and variables." />
     <MESSAGE value="Removing non utilized  methods and variables in History, profileLimits and register controllers." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removing non utilized  methods and variables in History, profileLimits and register controllers." />
+    <MESSAGE value="modifying browsertab and home-page fxml to move relocate to other page." />
+    <option name="LAST_COMMIT_MESSAGE" value="modifying browsertab and home-page fxml to move relocate to other page." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

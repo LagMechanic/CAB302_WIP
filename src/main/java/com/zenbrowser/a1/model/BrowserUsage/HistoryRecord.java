@@ -1,10 +1,5 @@
 package com.zenbrowser.a1.model.BrowserUsage;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 import java.sql.Date;
 import java.util.Objects;
 
