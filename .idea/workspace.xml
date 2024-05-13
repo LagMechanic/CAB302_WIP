@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="History displays entry variables seperately instead of single entry.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HomePageController.java" afterDir="false" />
-    </list>
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Added fxml functionality to homepage buttons." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -506,7 +504,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715578338123</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Removed unneccessary vbox components in Home-Page.fxml">
+      <option name="closed" value="true" />
+      <created>1715578615975</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1715578615975</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Added fxml functionality to homepage buttons.">
+      <option name="closed" value="true" />
+      <created>1715578782333</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1715578782333</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -539,8 +553,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="SQL query so some variables are correctly null and not null. Removed ID as primary key and changed to username." />
-    <MESSAGE value="Successfully got user database working." />
     <MESSAGE value="Added new fxml controls including password fields, error output labels. Producing error if authentication errors." />
     <MESSAGE value="Error output for incorrect login and signup credentials are functional." />
     <MESSAGE value="Login and register buttons now greyed out until user inputs data into textfields" />
@@ -564,7 +576,9 @@
     <MESSAGE value="Added currentTab browsing boolean. If true then switches to browser mode or if false switch tab content to profile mode." />
     <MESSAGE value="history error checks before website loading. Listener added to fix bug." />
     <MESSAGE value="History displays entry variables seperately instead of single entry." />
-    <option name="LAST_COMMIT_MESSAGE" value="History displays entry variables seperately instead of single entry." />
+    <MESSAGE value="Removed unneccessary vbox components in Home-Page.fxml" />
+    <MESSAGE value="Added fxml functionality to homepage buttons." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added fxml functionality to homepage buttons." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
