@@ -12,8 +12,6 @@ public class HistoryController extends ParentController {
     @FXML
     private GridPane historyGrid;
 
-    @FXML
-    private VBox historyContainer;
 
     private List<HistoryRecord> records;
 

@@ -128,8 +128,8 @@ public class BrowserMain extends ParentController implements Initializable {
                     WebHistory.Entry entry = currentTab().getRecentHistory();
                     HistoryDAO.insertHistoryRecord(new HistoryRecord(
                             getCurrentUser(),
-                            entry.getUrl(),
                             entry.getTitle(),
+                            entry.getUrl(),
                             new Timestamp(entry.getLastVisitedDate().getTime())));
 
                 } else if (newState == Worker.State.FAILED) {
