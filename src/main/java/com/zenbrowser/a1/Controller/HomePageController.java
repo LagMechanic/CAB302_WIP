@@ -2,10 +2,12 @@ package com.zenbrowser.a1.Controller;
 
 import com.zenbrowser.a1.BrowserApplication;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 public class HomePageController extends ParentController{
+    public Button GoToProfileButton;
     @FXML
     private Label greetingLabel;
     @FXML

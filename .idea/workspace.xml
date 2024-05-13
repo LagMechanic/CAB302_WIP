@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Fix merge errors.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/BrowserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/BrowserApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/User/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="History displays entry variables seperately instead of single entry.">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HomePageController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +67,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.BrowserApplication.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "JoshsBranch",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
@@ -501,7 +498,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715517942095</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="History displays entry variables seperately instead of single entry.">
+      <option name="closed" value="true" />
+      <created>1715578338123</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1715578338123</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -534,7 +539,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Changed Abstract controller to become ParentController so that parent controller class can be instantiated. fixes to authentication. Refactoring." />
     <MESSAGE value="SQL query so some variables are correctly null and not null. Removed ID as primary key and changed to username." />
     <MESSAGE value="Successfully got user database working." />
     <MESSAGE value="Added new fxml controls including password fields, error output labels. Producing error if authentication errors." />
@@ -559,7 +563,8 @@
     <MESSAGE value="When user opens if user is not logged in open login page, if logged in then open browser" />
     <MESSAGE value="Added currentTab browsing boolean. If true then switches to browser mode or if false switch tab content to profile mode." />
     <MESSAGE value="history error checks before website loading. Listener added to fix bug." />
-    <option name="LAST_COMMIT_MESSAGE" value="history error checks before website loading. Listener added to fix bug." />
+    <MESSAGE value="History displays entry variables seperately instead of single entry." />
+    <option name="LAST_COMMIT_MESSAGE" value="History displays entry variables seperately instead of single entry." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
