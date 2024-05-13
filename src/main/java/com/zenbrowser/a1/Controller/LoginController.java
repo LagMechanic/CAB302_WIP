@@ -8,10 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import java.io.IOException;
+
 
 public class LoginController extends ParentController {
-
     @FXML
     private Label ErrorPromptLabel;
     @FXML
@@ -21,17 +20,9 @@ public class LoginController extends ParentController {
     @FXML
     private Button LoginButton;
 
-    private ButtonPressedListener buttonPressedListener;
-    public interface ButtonPressedListener {
-        void onButtonPressed(String destination);
-    }
-
-    public void setButtonPressedListener(ButtonPressedListener listener) {
-        this.buttonPressedListener = listener;
-    }
 
     @FXML
-    protected void onLoginButtonClick() throws IOException {
+    protected void onLoginButtonClick() {
         try {
             Authentication.getInstance().login(new User(usernameTextField.getText(), passwordField.getText()));
         } catch (InvalidCredentials e) {
@@ -47,14 +38,13 @@ public class LoginController extends ParentController {
     }
 
     @FXML
-    private void onRegisterPageButtonClick() throws IOException {
+    private void onRegisterPageButtonClick() {
         BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
     }
 
     @FXML
-    private void EnableLoginButton() throws IOException{
+    private void EnableLoginButton() {
         Boolean validButton = (usernameTextField.getText().isEmpty() || passwordField.getText().isEmpty());
         LoginButton.setDisable(validButton);
     }
-
 }
