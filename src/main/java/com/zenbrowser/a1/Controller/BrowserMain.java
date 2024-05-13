@@ -64,7 +64,7 @@ public class BrowserMain extends ParentController implements Initializable {
     private void homeBtnHoverExit() {homeLabel.setText("");}
 
     @FXML
-    private void historyBtnHover() {historyLabel.setText("Downloads");}
+    private void historyBtnHover() {historyLabel.setText("History");}
 
     @FXML
     private void historyBtnHoverExit() {historyLabel.setText("");}
@@ -116,6 +116,7 @@ public class BrowserMain extends ParentController implements Initializable {
 
     public void loadPage(String urlStr)
     {
+
         try{
             currentTab().getWebEngine().load(urlStr);
             borderPane.setCenter(currentTab().getWebView());
@@ -135,7 +136,8 @@ public class BrowserMain extends ParentController implements Initializable {
                 }
             });
         }catch (Exception e){
-            promptLabel.setText("You entered an invalid URL.");
+            System.out.println("Page loading failed!");
+
         }
 
     }
@@ -233,7 +235,15 @@ public class BrowserMain extends ParentController implements Initializable {
         promptLabel.setText("");
         String PromptedSearch = URLBox.getText();
         if (PromptedSearch != null) {
-            loadPage(formatUrl(defaultEngine, PromptedSearch));
+            if (PromptedSearch.startsWith("https")){
+                loadPage(PromptedSearch);
+            } else if (PromptedSearch.startsWith("www.")){
+                loadPage("https://" + PromptedSearch);
+            }
+             else{
+                loadPage(formatUrl(defaultEngine, PromptedSearch));
+            }
+
         }
         else {promptLabel.setText("You didn't enter anything : (");}
     }
