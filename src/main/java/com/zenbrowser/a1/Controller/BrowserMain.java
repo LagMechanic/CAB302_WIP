@@ -3,7 +3,6 @@ package com.zenbrowser.a1.Controller;
 import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.EventListener;
 import java.util.ResourceBundle;
@@ -172,7 +171,7 @@ public class BrowserMain extends ParentController implements Initializable {
             tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
         }
 
-        goButtonPressed();
+
     }
 
     @FXML
@@ -224,29 +223,33 @@ public class BrowserMain extends ParentController implements Initializable {
             }
     }
 
+    private HomePageController checkController(){
+        if (currentTab().contentController instanceof HomePageController){
+            HomePageController homeController = (HomePageController) currentTab().contentController;
+            return homeController;
+        }
+        return null;
+    }
+
     @FXML
     private void goButtonPressed() {
         navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
 
-        if (currentTab().contentController instanceof HomePageController){
-            HomePageController homeController = (HomePageController) currentTab().contentController;
             promptLabel.setText("");
             String PromptedSearch = URLBox.getText();
-            if (PromptedSearch != null) {
+            if (PromptedSearch != "") {
                 if (PromptedSearch.startsWith("https")){
-                    homeController.loadPage(PromptedSearch, currentTab());
+                    checkController().loadPage(PromptedSearch, currentTab());
                 } else if (PromptedSearch.startsWith("www.")){
-                    homeController.loadPage("https://" + PromptedSearch, currentTab());
+                    checkController().loadPage("https://" + PromptedSearch, currentTab());
                 }
                 else{
-                    homeController.loadPage(formatUrl(defaultEngine, PromptedSearch), currentTab());
+                    checkController().loadPage(formatUrl(defaultEngine, PromptedSearch), currentTab());
                 }
             }
             else {promptLabel.setText("You didn't enter anything : (");}
-        }
-
-
     }
+
 
     public void setTabBackground(String imageFileLocation) {
         ImageView iv = new ImageView();

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Login and registration will now open new application before opening main application so bar utility can't be accessed. Browsermain and home page is being collated.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/AuthenticationApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/AuthenticationApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/RegisterController.java" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="homepage greeting label text error fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,38 +156,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Removed not required HelloController.java class">
-      <option name="closed" value="true" />
-      <created>1714516784261</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1714516784261</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Intialise connection for abstract class">
-      <option name="closed" value="true" />
-      <created>1714517191024</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1714517191024</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Fix errors">
-      <option name="closed" value="true" />
-      <created>1714532372725</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1714532372725</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Altered sql queries for database connections and fixed errors.">
-      <option name="closed" value="true" />
-      <created>1714880417971</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1714880417971</updated>
     </task>
     <task id="LOCAL-00013" summary="Functioning login page to register page.">
       <option name="closed" value="true" />
@@ -548,7 +517,39 @@
       <option name="project" value="LOCAL" />
       <updated>1715603230677</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="RegistrationController buttons now open login window and main application">
+      <option name="closed" value="true" />
+      <created>1715603614737</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1715603614737</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Bug where login is opened after login completed instead of home page">
+      <option name="closed" value="true" />
+      <created>1715603704330</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1715603704330</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Check for currentUser on newTab no longer required. Removed">
+      <option name="closed" value="true" />
+      <created>1715603908091</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1715603908091</updated>
+    </task>
+    <task id="LOCAL-00061" summary="homepage greeting label text error fix">
+      <option name="closed" value="true" />
+      <created>1715603944455</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1715603944455</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -581,10 +582,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="History controller for function which gets each history entry and creates a new label." />
-    <MESSAGE value="Changed all fxml runtime version so that error will not produce during page open event." />
-    <MESSAGE value="Current Stage closes when all tabs have been closed." />
-    <MESSAGE value="Removed unutilised ProfileLimitsApplication.java and UrlLimit.java" />
     <MESSAGE value="made parentcontroller currentUser a private class instead of protected so controllers have to indirectly access. Add private record UrlLimit to ProfileLimitsController" />
     <MESSAGE value="Made significant changes to HistoryRecord and History RecordDAO as well as HistoryController." />
     <MESSAGE value="insert single record statement when loading page." />
@@ -606,7 +603,11 @@
     <MESSAGE value="Completed method which populates records in grid." />
     <MESSAGE value="Fixed bug history willl add in same column" />
     <MESSAGE value="Login and registration will now open new application before opening main application so bar utility can't be accessed. Browsermain and home page is being collated." />
-    <option name="LAST_COMMIT_MESSAGE" value="Login and registration will now open new application before opening main application so bar utility can't be accessed. Browsermain and home page is being collated." />
+    <MESSAGE value="RegistrationController buttons now open login window and main application" />
+    <MESSAGE value="Bug where login is opened after login completed instead of home page" />
+    <MESSAGE value="Check for currentUser on newTab no longer required. Removed" />
+    <MESSAGE value="homepage greeting label text error fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="homepage greeting label text error fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
