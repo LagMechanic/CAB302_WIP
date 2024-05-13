@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="History controller for function which gets each history entry and creates a new label.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Browser/BrowserMainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Browser/BrowserMainTest.java" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Fix merge errors.">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/BrowserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/BrowserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/User/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,35 +67,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.BrowserApplication.executor&quot;: &quot;Run&quot;,
-
-    &quot;Application.BrowserMain.executor&quot;: &quot;Run&quot;,
-
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HomePageApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainProfileLimits.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ProfileLimits.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ProfileLimitsApplication.executor&quot;: &quot;Run&quot;,
-
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;JoshK&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/QUT/CAB302/Projects/CAB302_WIP/src/main/java/com/zenbrowser/a1&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/joshk/AppData/Local/SceneBuilder/SceneBuilder.exe&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4770115&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
-
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BrowserApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
   }
-}&gt;</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Benjc\Desktop\Uni\2024\Semester 1\CAB302\CAB302_WIP\src\main\java\com\zenbrowser\a1" />
@@ -171,13 +147,6 @@
         <item itemvalue="JUnit.BrowserMainTest.testLoadPage" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

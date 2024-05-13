@@ -11,7 +11,6 @@ import java.io.IOException;
 
 public class BrowserApplication extends Application {
     public static final String TITLE = "ZenBrowser";
-
     public static BrowserMain currentController;
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 800;
