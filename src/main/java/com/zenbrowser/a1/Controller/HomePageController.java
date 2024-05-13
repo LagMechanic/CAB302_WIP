@@ -30,7 +30,7 @@ public class HomePageController extends ParentController{
     @FXML
     public void initialize(){
         if (super.getCurrentUser() != null){
-            String greeting = String.format("Welcome to zenbrowser%s!", getCurrentUser());
+            String greeting = String.format("Welcome to zenbrowser, %s!", getCurrentUser());
             greetingLabel.setText(greeting);
         }
         else {  greetingLabel.setText("Welcome to zenbrowser!");}
