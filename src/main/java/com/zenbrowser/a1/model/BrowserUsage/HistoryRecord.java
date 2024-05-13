@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.sql.Date;
+import java.util.Objects;
 
 //  this is class was made only so this object can be put into an observable list-
 //  -for the javafx tableview, which will access the properties for its columns.
@@ -45,6 +46,11 @@ public class HistoryRecord {
 
     public Date getHistoryRecordDateTime() {
         return historyRecordDateTime;
+    }
+
+    @Override
+    public String toString() {
+        return ( Objects.equals(getURL(), "") ? getSite() : getURL() ) + " " + getHistoryRecordDateTime().toLocalDate().toString();
     }
 
     /**

@@ -57,7 +57,7 @@ public class RegisterController extends ParentController {
 
     @FXML
     private void EnableRegisterButton() throws IOException{
-        Boolean validButton = (usernameTXT.getText().isEmpty() || passwordField.getText().isEmpty());
+        boolean validButton = (usernameTXT.getText().isEmpty() || passwordField.getText().isEmpty());
         registerButton.setDisable(validButton);
     }
 
