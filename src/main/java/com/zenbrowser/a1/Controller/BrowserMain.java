@@ -117,7 +117,6 @@ public class BrowserMain extends ParentController implements Initializable {
 
     public void loadPage(String urlStr)
     {
-
         try{
             currentTab().getWebEngine().load(urlStr);
             borderPane.setCenter(currentTab().getWebView());
@@ -151,7 +150,7 @@ public class BrowserMain extends ParentController implements Initializable {
             //load source fxml file and assign to a borderpane variable.
             FXMLLoader loader = new FXMLLoader(getClass().getResource(pathway));
             BorderPane content = loader.load();
-
+            currentTab().contentController = loader.getController();
             //Attach source file to currently viewing tab and refresh display for user to see current page.
             currentTab().setContent(content);
             switchPage();
@@ -176,7 +175,7 @@ public class BrowserMain extends ParentController implements Initializable {
             navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");
         }
         else {
-            loadPage(defaultEngine);
+            goButtonPressed();
         }
     }
 
@@ -231,19 +230,26 @@ public class BrowserMain extends ParentController implements Initializable {
 
     @FXML
     private void goButtonPressed() {
-        promptLabel.setText("");
-        String PromptedSearch = URLBox.getText();
-        if (PromptedSearch != null) {
-            if (PromptedSearch.startsWith("https")){
-                loadPage(PromptedSearch);
-            } else if (PromptedSearch.startsWith("www.")){
-                loadPage("https://" + PromptedSearch);
+        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
+
+        if (currentTab().contentController instanceof HomePageController){
+            HomePageController homeController = (HomePageController) currentTab().contentController;
+            promptLabel.setText("");
+            String PromptedSearch = URLBox.getText();
+            if (PromptedSearch != null) {
+                if (PromptedSearch.startsWith("https")){
+                    homeController.loadPage(PromptedSearch, currentTab());
+                } else if (PromptedSearch.startsWith("www.")){
+                    homeController.loadPage("https://" + PromptedSearch, currentTab());
+                }
+                else{
+                    homeController.loadPage(formatUrl(defaultEngine, PromptedSearch), currentTab());
+                }
             }
-             else{
-                loadPage(formatUrl(defaultEngine, PromptedSearch));
-            }
+            else {promptLabel.setText("You didn't enter anything : (");}
         }
-        else {promptLabel.setText("You didn't enter anything : (");}
+
+
     }
 
     public void setTabBackground(String imageFileLocation) {

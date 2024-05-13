@@ -1,5 +1,6 @@
 package com.zenbrowser.a1.model;
 
+import com.zenbrowser.a1.Controller.ParentController;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Tab;
 import javafx.scene.web.WebEngine;
@@ -14,11 +15,10 @@ public class browserTab extends Tab {
     private WebEngine webEngine;
     private WebHistory webHistory;
     private Boolean browsing;
-
+    public ParentController contentController;
     private static List<WebHistory> fullHistory = new ArrayList<>();
 
     public browserTab(String tabname) {
-
         super(tabname);
         webView = new WebView();
         webEngine = webView.getEngine();

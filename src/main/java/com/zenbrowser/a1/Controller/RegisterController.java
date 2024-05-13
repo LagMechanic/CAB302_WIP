@@ -39,7 +39,7 @@ public class RegisterController extends ParentController {
             );
 
             setCurrentUser(usernameTXT.getText());
-            BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
+            BrowserApplication.tabController.navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
         } catch (UserAlreadyExists e) {
             errorPromptLabel.setText("Username already exists. Select a new username to continue.");
         }
@@ -48,7 +48,7 @@ public class RegisterController extends ParentController {
 
     @FXML
     protected void onLoginPageButtonClick() {
-        BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");
+        BrowserApplication.tabController.navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");
     }
 
     @FXML

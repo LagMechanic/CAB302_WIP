@@ -4,8 +4,6 @@ import com.zenbrowser.a1.BrowserApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.io.IOException;
-
 public class ProfileLimitsController extends ParentController {
 
     private record UrlLimit(String url, String limit) { }
@@ -38,6 +36,6 @@ public class ProfileLimitsController extends ParentController {
 
     @FXML
     protected void onGoToProfileLimits()  {
-        BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
+        BrowserApplication.tabController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
     }
 }
