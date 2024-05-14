@@ -1,12 +1,12 @@
 package com.zenbrowser.a1.Controller;
 
 import com.zenbrowser.a1.model.ProfileLimits.UrlLimit;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 
 public class ProfileLimitsController{
@@ -18,9 +18,6 @@ public class ProfileLimitsController{
 
     @FXML
     public Button UrlLimitData;
-
-    @FXML
-    public Button GoToProfileButton;
 
     @FXML
     public ComboBox<String> profileBox;
@@ -40,9 +37,9 @@ public class ProfileLimitsController{
     private final ObservableList<UrlLimit> profileLimitsData = FXCollections.observableArrayList();
 
     public void initialize(){
-        url.setCellValueFactory(new PropertyValueFactory<>("Url"));
-        limit.setCellValueFactory(new PropertyValueFactory<>("Limit"));
-        profile.setCellValueFactory(new PropertyValueFactory<>("Profile"));
+        url.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Url()));
+        limit.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Limit()));
+        profile.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Profile()));
 
         tbData.setItems(profileLimitsData);
     }

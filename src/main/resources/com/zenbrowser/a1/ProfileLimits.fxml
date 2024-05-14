@@ -45,8 +45,9 @@
                     <HBox alignment="BOTTOM_CENTER">
                         <TableView fx:id="tbData">
                             <columns>
-                                <TableColumn prefWidth="200" text="URL" />
-                                <TableColumn prefWidth="200" text="Limit" />
+                                <TableColumn prefWidth="200" text="URL" fx:id="url" />
+                                <TableColumn prefWidth="200" text="Limit" fx:id="limit"/>
+                                <TableColumn prefWidth="200" text="Profile" fx:id="profile"/>
                             </columns>
                         </TableView>
                     </HBox>
