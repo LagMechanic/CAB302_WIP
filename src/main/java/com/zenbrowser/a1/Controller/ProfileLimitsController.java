@@ -2,21 +2,16 @@ package com.zenbrowser.a1.Controller;
 
 import com.zenbrowser.a1.BrowserApplication;
 import com.zenbrowser.a1.model.ProfileLimits.ProfileLimitsApplication;
+import com.zenbrowser.a1.model.ProfileLimits.UrlLimit;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-
-
-public class ProfileLimitsController implements Initializable {
+public class ProfileLimitsController extends ParentController{
     @FXML
     public TextField limitField;
 
@@ -27,7 +22,13 @@ public class ProfileLimitsController implements Initializable {
     public Button UrlLimitData;
 
     @FXML
-    private TableView<ProfileLimitsApplication> tbData;
+    public Button GoToProfileButton;
+
+    @FXML
+    public ComboBox<String> profileBox;
+
+    @FXML
+    private TableView<UrlLimit> tbData;
 
     @FXML
     public TableColumn<ProfileLimitsApplication, Integer> profile;
@@ -38,24 +39,37 @@ public class ProfileLimitsController implements Initializable {
     @FXML
     public TableColumn<ProfileLimitsApplication, String> limit;
 
-    private final ObservableList<ProfileLimitsApplication> profileLimitsData = FXCollections.observableArrayList();
+    private final ObservableList<UrlLimit> profileLimitsData = FXCollections.observableArrayList();
 
-    public void initialize(URL location, ResourceBundle resources){
+    public void initialize(){
         url.setCellValueFactory(new PropertyValueFactory<>("Url"));
         limit.setCellValueFactory(new PropertyValueFactory<>("Limit"));
         profile.setCellValueFactory(new PropertyValueFactory<>("Profile"));
 
-        tbData.setItems(ProfileLimitsApplication);
+        tbData.setItems(profileLimitsData);
     }
-
-    private final ObservableList<ProfileLimitsApplication> ProfileLimitsApplication = FXCollections.observableArrayList(
-            new ProfileLimitsApplication("google.com", "30 minutes", 1),
-            new ProfileLimitsApplication("bing.com", "30 minutes", 2)
-    );
-
 
     @FXML
     protected void onGoToProfileLimits() {
         BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
+    }
+
+    public void addUrlAndLimit() {
+        String url = urlField.getText();
+        String limit = limitField.getText();
+        String profile = profileBox.getSelectionModel().getSelectedItem();
+        if (!url.isEmpty() && !limit.isEmpty() && profile != null && !profile.isEmpty()) {
+            profileLimitsData.add(new UrlLimit(url, limit, profile));
+            urlField.clear();
+            limitField.clear();
+            profileBox.getSelectionModel().clearSelection();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setHeaderText(null);
+            alert.setContentText("URL, Limit, or Profile cannot be empty");
+        alert.showAndWait();
+        }
+
     }
 }

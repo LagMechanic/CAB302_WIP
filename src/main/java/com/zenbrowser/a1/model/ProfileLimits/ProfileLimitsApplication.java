@@ -8,14 +8,14 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class ProfileLimitsApplication extends Application {
-    private SimpleStringProperty url;
-    private SimpleStringProperty limit;
-    private SimpleStringProperty profile;
+    private final SimpleStringProperty url;
+    private final SimpleStringProperty limit;
+    private final SimpleStringProperty profile;
 
-    public ProfileLimitsApplication(String Url, String Limit) {
-        this.url = new SimpleStringProperty(url);
-        this.limit = new SimpleStringProperty(limit);
-        this.profile = new SimpleStringProperty(profile);
+    public ProfileLimitsApplication(String Url, String Limit, String Profile) {
+        this.url = new SimpleStringProperty(Url);
+        this.limit = new SimpleStringProperty(Limit);
+        this.profile = new SimpleStringProperty(Profile);
     }
 
     public String getUrl() {
@@ -23,7 +23,7 @@ public class ProfileLimitsApplication extends Application {
     }
 
     public void setUrl(String url) {
-        this.url = new SimpleStringProperty(url);
+        this.url.set(url);
     }
 
     public String getLimit() {
@@ -31,7 +31,7 @@ public class ProfileLimitsApplication extends Application {
     }
 
     public void setLimit(String limit) {
-        this.limit = new SimpleStringProperty(limit);
+        this.limit.set(limit);
     }
 
     public String getProfile() {
@@ -39,7 +39,7 @@ public class ProfileLimitsApplication extends Application {
     }
 
     public void setProfile(String profile) {
-        this.profile = new SimpleStringProperty(profile);
+        this.profile.set(profile);
     }
 
     public static void main(String[] args) {
@@ -49,7 +49,7 @@ public class ProfileLimitsApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Url Limits");
-        Pane myPane = (Pane) FXMLLoader.load(getClass().getResource("ProfileLimits.fxml"));
+        Pane myPane = FXMLLoader.load(getClass().getResource("ProfileLimits.fxml"));
         Scene myScene = new Scene(myPane);
         stage.setScene(myScene);
         stage.show();
