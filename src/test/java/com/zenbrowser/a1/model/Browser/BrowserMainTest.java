@@ -2,12 +2,14 @@ package com.zenbrowser.a1.model.Browser;
 
 import com.zenbrowser.a1.Controller.BrowserMain;
 
+import com.zenbrowser.a1.model.Authentication.UserAlreadyExists;
 import org.junit.Before;
 import org.junit.Test;
-import org.testfx.framework.junit.ApplicationTest;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
-public class BrowserMainTest extends ApplicationTest {
+public class BrowserMainTest {
 
     private BrowserMain browserMain;
 
@@ -21,12 +23,13 @@ public class BrowserMainTest extends ApplicationTest {
 
     @Test
     public void testLoadPage() {
-        String validUrl = "https://www.qut.edu.au/";
-        browserMain.loadPage(validUrl);
-        // Add assertions based on expected behavior when loading a page
+        try {
+            String validUrl = "https://www.qut.edu.au/";
+            browserMain.loadPage(validUrl);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
-
 }
 
-    // Add more tests for other methods in BrowserMain as needed
-
+// Add more tests for other methods in BrowserMain as needed

@@ -200,11 +200,11 @@ public class BrowserMain extends ParentController implements Initializable {
     }
 
     private String formatUrl(String engineName, String query) {
-            if (query.startsWith(engineName))
-                return query;
-            else {
-                return engineName + "/search?q=" + query;
-            }
+        if (query.startsWith(engineName))
+            return query;
+        else {
+            return engineName + "/search?q=" + query;
+        }
     }
 
     @FXML
@@ -292,4 +292,3 @@ public class BrowserMain extends ParentController implements Initializable {
         }
     }
 }
-

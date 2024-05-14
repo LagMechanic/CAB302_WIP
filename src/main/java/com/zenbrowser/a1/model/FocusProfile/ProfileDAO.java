@@ -86,7 +86,7 @@ public class ProfileDAO implements IProfileDAO {
             statement.setInt(1, id);
             try(ResultSet resultSet = statement.executeQuery()) {
                 if(resultSet.next()) {
-                   return extractProfileFromResultSet(resultSet);
+                    return extractProfileFromResultSet(resultSet);
                 }
                 else return null;
             }

@@ -44,6 +44,7 @@ public class ProfileLimitsController{
         tbData.setItems(profileLimitsData);
     }
 
+
     public void addUrlAndLimit() {
         String url = urlField.getText();
         String limit = limitField.getText();

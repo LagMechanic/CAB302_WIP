@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="Profile Limits Functionality" />
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="Implementation Of main browser including&#10;Nested FXML's&#10;search integration&#10;multiple tabs&#10;Basic customisation options&#10;&#10;Modifications &amp; Additions to FXML files&#10;Home-Page.fxml: removed unnecessary buttons&#10;login-view.fxml:completely reworked how it changes between login-view.fxml and register-view.fxml by including ChangeListener's all screen changes within the Application are handled by BrowserMain.java">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ParentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ParentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ProfileLimitsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/ProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/ProfileDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/Website/SiteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/Website/SiteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/simple-design-wallpaper-27_195808-1920x1080.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/unnamded.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/unnamed.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Browser/BrowserMainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Browser/BrowserMainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/test_database.db" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +31,7 @@
       <list>
         <option value="Interface" />
         <option value="FxmlFile" />
+        <option value="JavaFXApplication" />
         <option value="Class" />
       </list>
     </option>
@@ -25,27 +42,13 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="joshw9" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;JoshK28&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="2ced8e9e-afb7-415c-90df-1de291f0d376" />
-        <option name="url" value="https://github.com/LagMechanic/CAB302_WIP.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/.idea/workspace.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -73,72 +76,116 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.BrowserApplication.executor": "Run",
-    "Application.BrowserMain.executor": "Run",
+    "Application.Browser_App.executor": "Run",
     "Application.HelloApplication.executor": "Run",
     "Application.HomePageApplication.executor": "Run",
     "Application.MainProfileLimits.executor": "Run",
     "Application.ProfileLimits.executor": "Run",
     "Application.ProfileLimitsApplication.executor": "Run",
-    "Application.Unnamed.executor": "Run",
+    "Application.javafxapplication.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.AuthenticationTest.validNewUser.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "OliverS",
+    "git-widget-placeholder": "OliverScully",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/QUT/CAB302/Projects/CAB302_WIP/src/main/java/com/zenbrowser/a1",
-    "last_opened_file_path": "C:/Users/joshk/AppData/Local/SceneBuilder/SceneBuilder.exe",
+    "last_directory_selection": "C:/Users/olive/Documents/Git/CAB302_WIP/src/test/java",
+    "last_opened_file_path": "C:/Users/Benjc/Downloads/NestedFXML-master",
     "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.4770115",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Benjc\Desktop\Uni\2024\Semester 1\CAB302\CAB302_WIP\src\main\java\com\zenbrowser\a1" />
+      <recent name="C:\Users\Benjc\Desktop\Uni\2024\Semester 1\CAB302\CAB302_WIP\src\main\resources\Icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Benjc\Desktop\Uni\2024\Semester 1\CAB302\CAB302_WIP\src\main\resources\Icons" />
+      <recent name="C:\Users\Benjc\Desktop\Uni\2024\Semester 1\CAB302\CAB302_WIP\src\main\resources\com\zenbrowser\a1" />
       <recent name="C:\Users\olive\Documents\Git\CAB302_WIP\src\main\Resources\com\zenbrowser\a1" />
       <recent name="C:\Users\olive\Documents\Git\CAB302_WIP\src\main\Resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.zenbrowser.a1.model.User" />
       <recent name="com.zenbrowser.a1" />
+      <recent name="com.zenbrowser.a1.model" />
     </key>
   </component>
   <component name="RunManager" selected="Application.BrowserApplication">
-    <configuration name="BrowserApplication" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="17" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <configuration name="BrowserApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.BrowserApplication" />
       <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BrowserMain" type="Application" factoryName="Application">
+    <configuration name="Browser_App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.Browser_App" />
       <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="javafxapplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.javafxapplication" />
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationTest.validNewUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="a1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zenbrowser.a1.model.Authentication.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.Authentication" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.Authentication.AuthenticationTest" />
+      <option name="METHOD_NAME" value="validNewUser" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Browser_App" />
+      <item itemvalue="Application.javafxapplication" />
       <item itemvalue="Application.BrowserApplication" />
-      <item itemvalue="Application.BrowserMain" />
+      <item itemvalue="JUnit.AuthenticationTest.validNewUser" />
     </list>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-      </set>
-    </attachedChunks>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.BrowserApplication" />
+        <item itemvalue="Application.Browser_App" />
+        <item itemvalue="JUnit.AuthenticationTest.validNewUser" />
+        <item itemvalue="Application.javafxapplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -197,285 +244,8 @@
       <option name="project" value="LOCAL" />
       <updated>1714432046956</updated>
     </task>
-    <task id="LOCAL-00007" summary="Fixed merge errors">
-      <option name="closed" value="true" />
-      <created>1714513900062</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1714513900062</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Added abstract class for controller to encapsulate all controller connections.">
-      <option name="closed" value="true" />
-      <created>1714516744169</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1714516744169</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Removed not required HelloController.java class">
-      <option name="closed" value="true" />
-      <created>1714516784261</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1714516784261</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Intialise connection for abstract class">
-      <option name="closed" value="true" />
-      <created>1714517191024</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1714517191024</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Fix errors">
-      <option name="closed" value="true" />
-      <created>1714532372725</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1714532372725</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Altered sql queries for database connections and fixed errors.">
-      <option name="closed" value="true" />
-      <created>1714880417971</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1714880417971</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Functioning login page to register page.">
-      <option name="closed" value="true" />
-      <created>1714978901549</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1714978901549</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Finished merging Josh and Bens versions">
-      <option name="closed" value="true" />
-      <created>1714988946798</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1714988946798</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Many changes. Created new browserTab.fxml off browsermain and added browsermain newtab functionality into fxml. Improved navigation methods between tab. Added and removed methods from browser main.">
-      <option name="closed" value="true" />
-      <created>1715012934574</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1715012934574</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Push current version">
-      <option name="closed" value="true" />
-      <created>1715316733590</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1715316733590</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Fixed tabs saving content of page when switching between tabs.">
-      <option name="closed" value="true" />
-      <created>1715326072087</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1715326072087</updated>
-    </task>
-    <task id="LOCAL-00018" summary="All controllers now open the same window controller instead of new window. Major refactoring">
-      <option name="closed" value="true" />
-      <created>1715326800868</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1715326800868</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Changed Abstract controller to become ParentController so that parent controller class can be instantiated. fixes to authentication. Refactoring.">
-      <option name="closed" value="true" />
-      <created>1715333690402</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1715333690402</updated>
-    </task>
-    <task id="LOCAL-00020" summary="SQL query so some variables are correctly null and not null. Removed ID as primary key and changed to username.">
-      <option name="closed" value="true" />
-      <created>1715333819118</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1715333819118</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Successfully got user database working.">
-      <option name="closed" value="true" />
-      <created>1715339684232</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1715339684232</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Added new fxml controls including password fields, error output labels. Producing error if authentication errors.">
-      <option name="closed" value="true" />
-      <created>1715341046255</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1715341046255</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Error output for incorrect login and signup credentials are functional.">
-      <option name="closed" value="true" />
-      <created>1715341864848</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1715341864848</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Login and register buttons now greyed out until user inputs data into textfields">
-      <option name="closed" value="true" />
-      <created>1715343362637</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1715343362637</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Fixed error where home-page would not display during intialization">
-      <option name="closed" value="true" />
-      <created>1715344999237</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1715344999237</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Push">
-      <option name="closed" value="true" />
-      <created>1715345076275</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1715345076275</updated>
-    </task>
-    <task id="LOCAL-00027" summary="currentUser  now statically shared across  controllers. Initialising gives greeting">
-      <option name="closed" value="true" />
-      <created>1715351101110</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1715351101110</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Refactored all of Ben's Browserapplication code">
-      <option name="closed" value="true" />
-      <created>1715450508190</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1715450508190</updated>
-    </task>
-    <task id="LOCAL-00029" summary="unique webview and engine for each browsertab extending off javafx tab">
-      <option name="closed" value="true" />
-      <created>1715460367991</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1715460367992</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Encapsulation of browserTab class">
-      <option name="closed" value="true" />
-      <created>1715476029618</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1715476029618</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Within browserTab class, added fullhistory list which collates all Webhistory instances.">
-      <option name="closed" value="true" />
-      <created>1715476767587</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1715476767587</updated>
-    </task>
-    <task id="LOCAL-00032" summary="History button goes to history-view page.">
-      <option name="closed" value="true" />
-      <created>1715477292059</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1715477292059</updated>
-    </task>
-    <task id="LOCAL-00033" summary="History controller for function which gets each history entry and creates a new label.">
-      <option name="closed" value="true" />
-      <created>1715477745569</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1715477745569</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Adjusting of tabs visual when closing a tab">
-      <option name="closed" value="true" />
-      <created>1715503363627</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1715503363627</updated>
-    </task>
-    <task id="LOCAL-00035" summary="History controller for function which gets each history entry and creates a new label.">
-      <option name="closed" value="true" />
-      <created>1715519656383</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1715519656383</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Profile Limits Functionality">
-      <option name="closed" value="true" />
-      <created>1715519725327</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1715519725328</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Profile Limits Functionality">
-      <option name="closed" value="true" />
-      <created>1715653767255</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1715653767257</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Profile Limits Functionality">
-      <option name="closed" value="true" />
-      <created>1715656574705</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1715656574709</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Profile Limits Functionality">
-      <option name="closed" value="true" />
-      <created>1715660335422</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1715660335422</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Profile Limits Functionality">
-      <option name="closed" value="true" />
-      <created>1715664212061</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1715664212064</updated>
-    </task>
-    <option name="localTasksCounter" value="41" />
+    <option name="localTasksCounter" value="7" />
     <servers />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="dependencySupport" implementationName="java:com.google.protobuf:protobuf-java" />
-    <option featureType="dependencySupport" implementationName="java:org.openjfx:javafx-base" />
-    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -488,7 +258,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/JoshK" />
+                        <option value="origin/joshw9" />
                       </list>
                     </value>
                   </entry>
@@ -502,44 +272,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fix errors" />
-    <MESSAGE value="Altered sql queries for database connections and fixed errors." />
-    <MESSAGE value="Functioning login page to register page." />
-    <MESSAGE value="Finished merging Josh and Bens versions" />
-    <MESSAGE value="Many changes. Created new browserTab.fxml off browsermain and added browsermain newtab functionality into fxml. Improved navigation methods between tab. Added and removed methods from browser main." />
-    <MESSAGE value="Push current version" />
-    <MESSAGE value="Fixed tabs saving content of page when switching between tabs." />
-    <MESSAGE value="All controllers now open the same window controller instead of new window. Major refactoring" />
-    <MESSAGE value="Changed Abstract controller to become ParentController so that parent controller class can be instantiated. fixes to authentication. Refactoring." />
-    <MESSAGE value="SQL query so some variables are correctly null and not null. Removed ID as primary key and changed to username." />
-    <MESSAGE value="Successfully got user database working." />
-    <MESSAGE value="Added new fxml controls including password fields, error output labels. Producing error if authentication errors." />
-    <MESSAGE value="Error output for incorrect login and signup credentials are functional." />
-    <MESSAGE value="Login and register buttons now greyed out until user inputs data into textfields" />
-    <MESSAGE value="Fixed error where home-page would not display during intialization" />
-    <MESSAGE value="Push" />
-    <MESSAGE value="currentUser  now statically shared across  controllers. Initialising gives greeting" />
-    <MESSAGE value="Refactored all of Ben's Browserapplication code" />
-    <MESSAGE value="unique webview and engine for each browsertab extending off javafx tab" />
-    <MESSAGE value="Encapsulation of browserTab class" />
-    <MESSAGE value="Within browserTab class, added fullhistory list which collates all Webhistory instances." />
-    <MESSAGE value="History button goes to history-view page." />
-    <MESSAGE value="Adjusting of tabs visual when closing a tab" />
-    <MESSAGE value="History controller for function which gets each history entry and creates a new label." />
+    <MESSAGE value="tested HistoryRecordDAO update method" />
+    <MESSAGE value="Testing ProfileLimits fxml" />
     <MESSAGE value="Profile Limits Functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Profile Limits Functionality" />
+    <MESSAGE value="Implementation Of main browser including&#10;Nested FXML's&#10;search integration&#10;multiple tabs&#10;Basic customisation options&#10;&#10;Modifications &amp; Additions to FXML files&#10;Home-Page.fxml: removed unnecessary buttons&#10;login-view.fxml:completely reworked how it changes between login-view.fxml and register-view.fxml by including ChangeListener's all screen changes within the Application are handled by BrowserMain.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation Of main browser including&#10;Nested FXML's&#10;search integration&#10;multiple tabs&#10;Basic customisation options&#10;&#10;Modifications &amp; Additions to FXML files&#10;Home-Page.fxml: removed unnecessary buttons&#10;login-view.fxml:completely reworked how it changes between login-view.fxml and register-view.fxml by including ChangeListener's all screen changes within the Application are handled by BrowserMain.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="org.sqlite.SQLiteException" package="org.sqlite" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/BrowserApplication.java</url>
+          <line>9</line>
           <option name="timeStamp" value="1" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.RuntimeException" package="java.lang" />
-          <option name="timeStamp" value="2" />
-        </breakpoint>
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -547,10 +293,5 @@
         <PinnedItemInfo parentTag="org.sqlite.jdbc4.JDBC4ResultSet" memberName="limitRows" />
       </pinned-members>
     </pin-to-top-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="((WinApplication)this.arg$1).invokeLaterDispatcher" custom="com.sun.glass.ui.win.WinApplication,java.lang.Runnable" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

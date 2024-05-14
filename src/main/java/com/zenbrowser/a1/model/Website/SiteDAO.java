@@ -91,7 +91,7 @@ public class SiteDAO implements ISiteDAO {
             try (ResultSet resultSet = statement.executeQuery()){
                 if (resultSet.next()) {
                     return extractSiteFromResultSet(resultSet);
-                    }
+                }
                 else {
                     return null;
                 }
