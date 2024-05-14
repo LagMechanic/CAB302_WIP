@@ -13,17 +13,12 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
 public class browserTab extends Tab {
     private WebView webView;
     private WebEngine webEngine;
     private WebHistory webHistory;
-    private Boolean browsing;
     public ParentController contentController;
-    private static List<WebHistory> fullHistory = new ArrayList<>();
     private Node page;
 
     public browserTab(String tabname) {
@@ -31,8 +26,6 @@ public class browserTab extends Tab {
         webView = new WebView();
         webEngine = webView.getEngine();
         webHistory = webEngine.getHistory();
-        fullHistory.add(webHistory);
-        browsing = false;
         page = new Pane();
     }
 
@@ -43,9 +36,6 @@ public class browserTab extends Tab {
 
     public final Node getPage(){    return page;}
 
-    public Boolean getBrowsing() {  return browsing;}
-
-    public void setBrowsing(Boolean browsing) { this.browsing = browsing;}
 
     public WebEngine getWebEngine() {
         return webEngine;
@@ -68,13 +58,4 @@ public class browserTab extends Tab {
             return null;
         }
     }
-
-    public static List<WebHistory.Entry> getAllEntries() {
-        List<WebHistory.Entry> allEntries = new ArrayList<>();
-        for (WebHistory history : fullHistory) {
-            allEntries.addAll(history.getEntries());
-        }
-        return allEntries;
-    }
-
 }
