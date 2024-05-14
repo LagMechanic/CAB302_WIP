@@ -90,9 +90,7 @@ public class BrowserMain extends ParentController implements Initializable {
         // Add a listener to tab selection event.
         tabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
             if (newTab != null) {
-
                 switchPage();
-
             } else {
                 Stage stageInstanance = (Stage) borderPane.getScene().getWindow();
                 stageInstanance.close();
@@ -138,7 +136,8 @@ public class BrowserMain extends ParentController implements Initializable {
 
 
     private void switchPage(){
-        borderPane.setCenter(currentTab().getContent());
+        borderPane.setCenter(currentTab().getPage());
+        System.out.println(currentTab().getPage());
     }
 
     //Load a page into the parent BrowserTab.fxml with parameters of child source fxml file and name of tab.

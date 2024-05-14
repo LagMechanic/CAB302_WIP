@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Changed how page opens in consideration to start of load. Created method to check Controller type.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/TestApplication.java" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Error when saving content into tab content as well as browser content as two instances. New method which sets container. Modifications to browsermain">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/BrowserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/BrowserApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -167,14 +161,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Finished merging Josh and Bens versions">
-      <option name="closed" value="true" />
-      <created>1714988946798</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1714988946798</updated>
     </task>
     <task id="LOCAL-00015" summary="Many changes. Created new browserTab.fxml off browsermain and added browsermain newtab functionality into fxml. Improved navigation methods between tab. Added and removed methods from browser main.">
       <option name="closed" value="true" />
@@ -560,7 +546,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715604833354</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Error when saving content into tab content as well as browser content as two instances. New method which sets container. Modifications to browsermain">
+      <option name="closed" value="true" />
+      <created>1715727555207</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1715727555207</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -593,7 +587,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Made significant changes to HistoryRecord and History RecordDAO as well as HistoryController." />
     <MESSAGE value="insert single record statement when loading page." />
     <MESSAGE value="HistoryController now access history from database instead of class." />
     <MESSAGE value="When user opens if user is not logged in open login page, if logged in then open browser" />
@@ -618,7 +611,8 @@
     <MESSAGE value="Check for currentUser on newTab no longer required. Removed" />
     <MESSAGE value="homepage greeting label text error fix" />
     <MESSAGE value="Changed how page opens in consideration to start of load. Created method to check Controller type." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed how page opens in consideration to start of load. Created method to check Controller type." />
+    <MESSAGE value="Error when saving content into tab content as well as browser content as two instances. New method which sets container. Modifications to browsermain" />
+    <option name="LAST_COMMIT_MESSAGE" value="Error when saving content into tab content as well as browser content as two instances. New method which sets container. Modifications to browsermain" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
