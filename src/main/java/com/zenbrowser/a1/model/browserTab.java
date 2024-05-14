@@ -1,12 +1,17 @@
 package com.zenbrowser.a1.model;
 
 import com.zenbrowser.a1.Controller.ParentController;
+import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Worker;
+import javafx.scene.Node;
 import javafx.scene.control.Tab;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +30,10 @@ public class browserTab extends Tab {
         webHistory = webEngine.getHistory();
         fullHistory.add(webHistory);
         browsing = false;
+    }
+
+    public final void setPage(BorderPane container, Node content) {
+        container.centerProperty().set(content);
     }
 
     public Boolean getBrowsing() {  return browsing;}
@@ -60,4 +69,5 @@ public class browserTab extends Tab {
         }
         return allEntries;
     }
+
 }

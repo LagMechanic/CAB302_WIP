@@ -17,26 +17,23 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.web.WebView?>
 
 <BorderPane id="borderPane" fx:id="borderPane" prefHeight="448.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.BrowserMain">
     <top>
         <VBox>
-         <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="1000.0" VBox.vgrow="NEVER">
+         <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="1000.0">
             <children>
                    <TabPane fx:id="tabPane" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="108.0" style="-fx-background-color: D5D5D5;" tabMaxWidth="80.0" tabMinWidth="80.0">
                   <HBox.margin>
                      <Insets left="1.0" />
-                  </HBox.margin></TabPane>
+                  </HBox.margin>
+               </TabPane>
                     <Button fx:id="newTabBtn" layoutY="20.0" mnemonicParsing="false" onAction="#newTabFunction" prefHeight="16.0" prefWidth="23.0" text="+" textAlignment="CENTER">
                         <font>
                             <Font name="System Bold" size="12.0" />
                         </font>
                     </Button>
             </children>
-            <VBox.margin>
-               <Insets />
-            </VBox.margin>
          </HBox>
 
             <HBox alignment="CENTER" style="-fx-background-color: #A9A9A9;" VBox.vgrow="NEVER">
@@ -155,8 +152,5 @@
     </top>
    <center>
 
-   </center>
-   <center>
-      <WebView fx:id="webView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

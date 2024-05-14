@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import java.util.EventListener;
 import java.util.ResourceBundle;
 
+import com.zenbrowser.a1.AuthenticationApplication;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import javafx.concurrent.Worker;
 import javafx.application.Platform;
@@ -17,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -81,23 +83,42 @@ public class BrowserMain extends ParentController implements Initializable {
         });
     }
 
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
         newTabFunction();
 
-        // Add a listener to the selectionModel property
+        // Add a listener to tab selection event.
         tabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
             if (newTab != null) {
-                if (currentTab().getBrowsing()) {
-                    borderPane.setCenter(currentTab().getWebView());
-                } else {
-                    switchPage();
-                }
+
+                switchPage();
+
             } else {
                 Stage stageInstanance = (Stage) borderPane.getScene().getWindow();
                 stageInstanance.close();
             }
         });
+
         this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + BrowserMain.this.colorPicker.getValue()));
+    }
+
+    //Create new tab function.
+    @FXML
+    private void newTabFunction() {
+        //Create a new tab and add to tab pane control.
+        browserTab tab = new browserTab("New Tab");
+        setupTabCloseHandler(tab);
+        tabPane.getTabs().add(tab);
+        tabPane.getSelectionModel().select(tab);
+        //Create a buffer so tabs can be dynamically extended on browser.
+        if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
+            tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
+        }
+
+
+
+        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
+        loadPage(defaultEngine);
     }
 
 
@@ -114,11 +135,32 @@ public class BrowserMain extends ParentController implements Initializable {
     private browserTab currentTab()    {return (browserTab) tabPane.getSelectionModel().getSelectedItem();}
 
 
-    public void loadPage(String urlStr)
+
+
+    private void switchPage(){
+        borderPane.setCenter(currentTab().getContent());
+    }
+
+    //Load a page into the parent BrowserTab.fxml with parameters of child source fxml file and name of tab.
+    public void navigatePage(String pathway, String tabName){
+
+        try {
+            //load source fxml file and assign to a borderpane variable.
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(pathway));
+            BorderPane content = loader.load();
+            currentTab().setPage(borderPane, content);
+
+            currentTab().contentController = loader.getController();
+            currentTab().setText(tabName);
+
+        } catch (IOException e) {e.printStackTrace();}
+    }
+
+    private void loadPage(String urlStr)
     {
         try{
             currentTab().getWebEngine().load(urlStr);
-            borderPane.setCenter(currentTab().getWebView());
+            checkController().updateLoading(currentTab().getWebView());
 
             currentTab().getWebEngine().getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
                 if (newState == Worker.State.SUCCEEDED) {
@@ -139,40 +181,7 @@ public class BrowserMain extends ParentController implements Initializable {
         }
     }
 
-    private void switchPage(){
-        borderPane.setCenter(currentTab().getContent());
-    }
 
-    //Load a page into the parent BrowserTab.fxml with parameters of child source fxml file and name of tab.
-    public void navigatePage(String pathway, String tabName){
-        try {
-            //load source fxml file and assign to a borderpane variable.
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(pathway));
-            BorderPane content = loader.load();
-            currentTab().contentController = loader.getController();
-            //Attach source file to currently viewing tab and refresh display for user to see current page.
-            currentTab().setContent(content);
-            switchPage();
-            currentTab().setText(tabName);
-
-        } catch (IOException e) {e.printStackTrace();}
-    }
-
-    //Create new tab function.
-    @FXML
-    private void newTabFunction() {
-        //Create a new tab and add to tab pane control.
-        browserTab tab = new browserTab("New Tab");
-        setupTabCloseHandler(tab);
-        tabPane.getTabs().add(tab);
-        tabPane.getSelectionModel().select(tab);
-        //Create a buffer so tabs can be dynamically extended on browser.
-        if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
-            tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
-        }
-
-
-    }
 
     @FXML
     private void GoToPreviousPage() {
@@ -231,6 +240,8 @@ public class BrowserMain extends ParentController implements Initializable {
         return null;
     }
 
+
+
     @FXML
     private void goButtonPressed() {
         navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
@@ -239,12 +250,12 @@ public class BrowserMain extends ParentController implements Initializable {
             String PromptedSearch = URLBox.getText();
             if (PromptedSearch != "") {
                 if (PromptedSearch.startsWith("https")){
-                    checkController().loadPage(PromptedSearch, currentTab());
+                    loadPage(PromptedSearch);
                 } else if (PromptedSearch.startsWith("www.")){
-                    checkController().loadPage("https://" + PromptedSearch, currentTab());
+                    loadPage("https://" + PromptedSearch);
                 }
                 else{
-                    checkController().loadPage(formatUrl(defaultEngine, PromptedSearch), currentTab());
+                    loadPage(formatUrl(defaultEngine, PromptedSearch));
                 }
             }
             else {promptLabel.setText("You didn't enter anything : (");}

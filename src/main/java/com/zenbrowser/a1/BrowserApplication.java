@@ -26,8 +26,6 @@ public class BrowserApplication extends Application {
         stage.setTitle(TITLE);
         stage.setScene(scene);
         stage.show();
-
-        tabController.navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
     }
 
     public static void main(String[] args) {

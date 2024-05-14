@@ -42,7 +42,6 @@ public class LoginController extends ParentController {
         setCurrentUser(usernameTextField.getText());
         BrowserApplication browserApplication = new BrowserApplication();
         browserApplication.start(new Stage());
-
         Stage stage = (Stage) LoginButton.getScene().getWindow();
         stage.close();
     }
@@ -53,6 +52,8 @@ public class LoginController extends ParentController {
         FXMLLoader fxmlLoader = new FXMLLoader(AuthenticationApplication.class.getResource("/com/zenbrowser/a1/register-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), AuthenticationApplication.WIDTH, AuthenticationApplication.HEIGHT);
         stage.setScene(scene);
+
+
     }
 
     @FXML
