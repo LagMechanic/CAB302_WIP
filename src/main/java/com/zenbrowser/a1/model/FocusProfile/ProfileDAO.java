@@ -1,15 +1,14 @@
 package com.zenbrowser.a1.model.FocusProfile;
 
-import com.zenbrowser.a1.model.SqliteConnection;
 import com.zenbrowser.a1.model.Website.Site;
 import com.zenbrowser.a1.model.Website.SiteDAO;
 
 import java.sql.*;
 
 public class ProfileDAO implements IProfileDAO {
-    private final Connection connection;
+    private Connection connection;
 
-    public ProfileDAO(Connection connection) {
+    public ProfileDAO() {
         this.connection = connection;
         createTable();
     }
@@ -96,7 +95,7 @@ public class ProfileDAO implements IProfileDAO {
         }
     }
     private Profile extractProfileFromResultSet(ResultSet resultSet) throws SQLException {
-        SiteDAO siteDAO = new SiteDAO(SqliteConnection.getInstance());
+        SiteDAO siteDAO = new SiteDAO();
         Site website = siteDAO.getSiteById(resultSet.getInt("websiteId"));
 
         Profile profile = new Profile(resultSet.getString("profileName"), website);

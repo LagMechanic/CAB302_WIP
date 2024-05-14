@@ -8,9 +8,6 @@ import com.zenbrowser.a1.model.User.IUserDAO;
 import com.zenbrowser.a1.model.User.SqliteUserDAO;
 import com.zenbrowser.a1.model.Website.ISiteDAO;
 import com.zenbrowser.a1.model.Website.SiteDAO;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public abstract class ParentController {
     protected IUserDAO UserDAO;
