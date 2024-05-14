@@ -1,9 +1,10 @@
 package com.zenbrowser.a1.model.BrowserUsage;
 
-import javafx.collections.ObservableList;
+import java.util.List;
 
 public interface IHistoryRecordDAO {
-    void insertHistoryRecord(String username, String site, String historyRecordDateTime);
+    void insertHistoryRecord(HistoryRecord record);
     void updateActivityEndDateTime(String HistoryRecordEndDateTime);
-    ObservableList<HistoryRecord> getAllUserHistoryRecords(String username);
+
+    List<HistoryRecord> getAllUserHistoryRecords(String username);
 }

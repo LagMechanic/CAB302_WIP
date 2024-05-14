@@ -1,12 +1,15 @@
 package com.zenbrowser.a1.model.Website;
 
+import com.zenbrowser.a1.model.SqliteConnection;
+
 import java.sql.*;
 
 public class SiteDAO implements ISiteDAO {
 
-    private Connection connection;
+    private final Connection connection;
 
     public SiteDAO() {
+        connection = SqliteConnection.getInstance();
         createTable();
     }
 

@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
 import java.io.IOException;
 
 public class LoginController extends ParentController {
@@ -22,6 +21,14 @@ public class LoginController extends ParentController {
     @FXML
     private Button LoginButton;
 
+    private ButtonPressedListener buttonPressedListener;
+    public interface ButtonPressedListener {
+        void onButtonPressed(String destination);
+    }
+
+    public void setButtonPressedListener(ButtonPressedListener listener) {
+        this.buttonPressedListener = listener;
+    }
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
@@ -35,7 +42,7 @@ public class LoginController extends ParentController {
             return;
         }
 
-        currentUser = (usernameTextField.getText());
+        setCurrentUser(usernameTextField.getText());
         BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
     }
 
@@ -49,4 +56,5 @@ public class LoginController extends ParentController {
         Boolean validButton = (usernameTextField.getText().isEmpty() || passwordField.getText().isEmpty());
         LoginButton.setDisable(validButton);
     }
+
 }

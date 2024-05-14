@@ -1,15 +1,16 @@
 package com.zenbrowser.a1.model.FocusProfile;
 
+import com.zenbrowser.a1.model.SqliteConnection;
 import com.zenbrowser.a1.model.Website.Site;
 import com.zenbrowser.a1.model.Website.SiteDAO;
 
 import java.sql.*;
 
 public class ProfileDAO implements IProfileDAO {
-    private Connection connection;
+    private final Connection connection;
 
     public ProfileDAO() {
-        this.connection = connection;
+        connection = SqliteConnection.getInstance();
         createTable();
     }
 
