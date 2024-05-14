@@ -1,29 +1,26 @@
 package com.zenbrowser.a1.model.ProfileLimits;
 
-import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
-public class ProfileLimitsApplication extends Application {
-    private final SimpleStringProperty url;
+import static javafx.application.Application.launch;
+
+public class ProfileLimitsApplication {
+    private final SimpleStringProperty Url;
     private final SimpleStringProperty limit;
     private final SimpleStringProperty profile;
 
-    public ProfileLimitsApplication(String Url, String Limit, String Profile) {
-        this.url = new SimpleStringProperty(Url);
+    public ProfileLimitsApplication(String url, String Limit, String Profile) {
+        this.Url = new SimpleStringProperty(url);
         this.limit = new SimpleStringProperty(Limit);
         this.profile = new SimpleStringProperty(Profile);
     }
 
     public String getUrl() {
-        return url.get();
+        return Url.get();
     }
 
     public void setUrl(String url) {
-        this.url.set(url);
+        this.Url.set(url);
     }
 
     public String getLimit() {
@@ -46,13 +43,5 @@ public class ProfileLimitsApplication extends Application {
         launch(args);
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        stage.setTitle("Url Limits");
-        Pane myPane = FXMLLoader.load(getClass().getResource("ProfileLimits.fxml"));
-        Scene myScene = new Scene(myPane);
-        stage.setScene(myScene);
-        stage.show();
 
-    }
 }

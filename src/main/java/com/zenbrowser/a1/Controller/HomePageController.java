@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 public class HomePageController extends ParentController{
     @FXML
     private Label greetingLabel;
+
     @FXML
     private TextField searchField;
 

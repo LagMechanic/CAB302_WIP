@@ -10,6 +10,8 @@ import com.zenbrowser.a1.model.Website.ISiteDAO;
 import com.zenbrowser.a1.model.Website.SiteDAO;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public abstract class ParentController {
     protected IUserDAO UserDAO;
     protected ISiteDAO SiteDAO;
@@ -34,5 +36,5 @@ public abstract class ParentController {
         this.currentUser = currentUser;
     }
 
-    public abstract void start(Stage stage);
+
 }
