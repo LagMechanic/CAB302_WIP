@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="History controller for function which gets each history entry and creates a new label.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/ProfileLimits/ProfileLimitsApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/ProfileLimits/ProfileLimitsDBManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/ProfileLimits/UrlLimit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="Profile Limits Functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ParentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ParentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ProfileLimitsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/ProfileLimits/ProfileLimitsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/ProfileLimits/ProfileLimitsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/ProfileLimits/ProfileLimitsDBManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/ProfileLimits/UrlLimit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/ProfileLimits/UrlLimit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
@@ -66,7 +65,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -432,7 +431,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715503363627</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="History controller for function which gets each history entry and creates a new label.">
+      <option name="closed" value="true" />
+      <created>1715519656383</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1715519656383</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Profile Limits Functionality">
+      <option name="closed" value="true" />
+      <created>1715519725327</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1715519725328</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -465,7 +480,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Intialise connection for abstract class" />
     <MESSAGE value="Fix errors" />
     <MESSAGE value="Altered sql queries for database connections and fixed errors." />
     <MESSAGE value="Functioning login page to register page." />
@@ -488,9 +502,10 @@
     <MESSAGE value="Encapsulation of browserTab class" />
     <MESSAGE value="Within browserTab class, added fullhistory list which collates all Webhistory instances." />
     <MESSAGE value="History button goes to history-view page." />
-    <MESSAGE value="History controller for function which gets each history entry and creates a new label." />
     <MESSAGE value="Adjusting of tabs visual when closing a tab" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusting of tabs visual when closing a tab" />
+    <MESSAGE value="History controller for function which gets each history entry and creates a new label." />
+    <MESSAGE value="Profile Limits Functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Profile Limits Functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

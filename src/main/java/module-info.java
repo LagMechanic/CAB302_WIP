@@ -5,8 +5,7 @@ module com.zenbrowser.a1 {
     requires java.desktop;
     requires javafx.web;
     requires static lombok;
-
-
+    requires org.slf4j;
 
 
     opens com.zenbrowser.a1 to javafx.fxml;
