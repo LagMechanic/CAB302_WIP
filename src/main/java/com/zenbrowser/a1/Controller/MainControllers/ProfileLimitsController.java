@@ -1,10 +1,9 @@
-package com.zenbrowser.a1.Controller;
+package com.zenbrowser.a1.Controller.MainControllers;
 
 import com.zenbrowser.a1.BrowserApplication;
+import com.zenbrowser.a1.Controller.ParentController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
-import java.io.IOException;
 
 public class ProfileLimitsController extends ParentController {
 
@@ -38,6 +37,6 @@ public class ProfileLimitsController extends ParentController {
 
     @FXML
     protected void onGoToProfileLimits()  {
-        BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
+        BrowserApplication.tabController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
     }
 }

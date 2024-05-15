@@ -1,13 +1,19 @@
-package com.zenbrowser.a1.Controller;
+package com.zenbrowser.a1.Controller.MainControllers;
 
 import com.zenbrowser.a1.BrowserApplication;
+import com.zenbrowser.a1.Controller.ParentController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import java.io.IOException;
-public class HomePageController extends ParentController{
+import javafx.scene.layout.BorderPane;
+import javafx.scene.web.WebView;
 
+import java.io.IOException;
+
+public class HomePageController extends ParentController {
+
+    @FXML
+    private BorderPane homePane;
     @FXML
     private Button goUsageReports;
     @FXML
@@ -16,27 +22,26 @@ public class HomePageController extends ParentController{
     private Button goAccountSettings;
     @FXML
     private Label greetingLabel;
-    @FXML
-    private TextField searchField;
 
 
     @FXML
     public void initialize(){
         if (super.getCurrentUser() != null){
-            String greeting = String.format("Welcome to zenbrowser%s!", getCurrentUser());
+            String greeting = String.format("Welcome to zenbrowser, %s!", getCurrentUser());
             greetingLabel.setText(greeting);
         }
         else {  greetingLabel.setText("Welcome to zenbrowser!");}
+
+
     }
 
-    @FXML
-    private void handleSearch() {
-        String query = searchField.getText();
-        System.out.println("Performing search for: " + query);
-    }
 
     @FXML
     protected void onGoToProfileLimits() throws IOException {
-        BrowserApplication.currentController.navigatePage("/com/zenbrowser/a1/ProfileLimits.fxml", "Profile Limits");
+        BrowserApplication.tabController.navigatePage("/com/zenbrowser/a1/ProfileLimits.fxml", "Profile Limits");
+    }
+
+    public void updateLoading(WebView browserView){
+        homePane.setCenter(browserView);
     }
 }

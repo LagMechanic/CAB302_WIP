@@ -13,4 +13,8 @@ module com.zenbrowser.a1 {
     exports com.zenbrowser.a1;
     exports com.zenbrowser.a1.Controller;
     opens com.zenbrowser.a1.Controller to javafx.fxml;
+    exports com.zenbrowser.a1.Controller.AuthenticationControllers;
+    opens com.zenbrowser.a1.Controller.AuthenticationControllers to javafx.fxml;
+    exports com.zenbrowser.a1.Controller.MainControllers;
+    opens com.zenbrowser.a1.Controller.MainControllers to javafx.fxml;
 }
