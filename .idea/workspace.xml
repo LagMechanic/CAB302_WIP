@@ -4,24 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Removed untilized history methods and variables.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/BrowserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/BrowserApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/BrowserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/BrowserMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/AuthenticationControllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/AuthenticationControllers/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/register-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/register-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Browser/BrowserMainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Browser/BrowserMainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Refactor and created directories to organize controllers. Renamed browserMain to more appropriate TabController">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +106,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BrowserMainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TabControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="a1" />
       <extension name="coverage">
         <pattern>
@@ -131,13 +115,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.Browser" />
-      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.Browser.BrowserMainTest" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.Browser.TabControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BrowserMainTest.testLoadPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TabControllerTest.testLoadPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="a1" />
       <extension name="coverage">
         <pattern>
@@ -146,7 +130,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.zenbrowser.a1.model.Browser" />
-      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.Browser.BrowserMainTest" />
+      <option name="MAIN_CLASS_NAME" value="com.zenbrowser.a1.model.Browser.TabControllerTest" />
       <option name="METHOD_NAME" value="testLoadPage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -156,13 +140,13 @@
     <list>
       <item itemvalue="Application.BrowserApplication" />
       <item itemvalue="Application.Login" />
-      <item itemvalue="JUnit.BrowserMainTest" />
-      <item itemvalue="JUnit.BrowserMainTest.testLoadPage" />
+      <item itemvalue="JUnit.TabControllerTest.testLoadPage" />
+      <item itemvalue="JUnit.TabControllerTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BrowserMainTest" />
-        <item itemvalue="JUnit.BrowserMainTest.testLoadPage" />
+        <item itemvalue="JUnit.TabControllerTest" />
+        <item itemvalue="JUnit.TabControllerTest.testLoadPage" />
       </list>
     </recent_temporary>
   </component>
@@ -174,22 +158,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Fixed tabs saving content of page when switching between tabs.">
-      <option name="closed" value="true" />
-      <created>1715326072087</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1715326072087</updated>
-    </task>
-    <task id="LOCAL-00018" summary="All controllers now open the same window controller instead of new window. Major refactoring">
-      <option name="closed" value="true" />
-      <created>1715326800868</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1715326800868</updated>
     </task>
     <task id="LOCAL-00019" summary="Changed Abstract controller to become ParentController so that parent controller class can be instantiated. fixes to authentication. Refactoring.">
       <option name="closed" value="true" />
@@ -567,7 +535,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715731018997</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Fixed home button error which would not load webview and display page not loaded error. Refactoring">
+      <option name="closed" value="true" />
+      <created>1715731738217</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1715731738217</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Refactor and created directories to organize controllers. Renamed browserMain to more appropriate TabController">
+      <option name="closed" value="true" />
+      <created>1715732034739</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1715732034739</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -600,8 +584,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="When user opens if user is not logged in open login page, if logged in then open browser" />
-    <MESSAGE value="Added currentTab browsing boolean. If true then switches to browser mode or if false switch tab content to profile mode." />
     <MESSAGE value="history error checks before website loading. Listener added to fix bug." />
     <MESSAGE value="History displays entry variables seperately instead of single entry." />
     <MESSAGE value="Removed unneccessary vbox components in Home-Page.fxml" />
@@ -625,7 +607,9 @@
     <MESSAGE value="Error when saving content into tab content as well as browser content as two instances. New method which sets container. Modifications to browsermain" />
     <MESSAGE value="Added getPage method to go with new setPage method. Modified to fix errors" />
     <MESSAGE value="Removed untilized history methods and variables." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed untilized history methods and variables." />
+    <MESSAGE value="Fixed home button error which would not load webview and display page not loaded error. Refactoring" />
+    <MESSAGE value="Refactor and created directories to organize controllers. Renamed browserMain to more appropriate TabController" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor and created directories to organize controllers. Renamed browserMain to more appropriate TabController" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -639,7 +623,7 @@
           <option name="timeStamp" value="2" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Browser/BrowserMainTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/java/com/zenbrowser/a1/model/Browser/TabControllerTest.java</url>
           <line>8</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>

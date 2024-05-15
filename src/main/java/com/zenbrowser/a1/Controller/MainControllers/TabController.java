@@ -9,6 +9,8 @@ import java.util.ResourceBundle;
 
 import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -157,20 +159,26 @@ public class TabController extends ParentController implements Initializable {
             currentTab().getWebEngine().load(urlStr);
             checkController().updateLoading(currentTab().getWebView());
 
-            currentTab().getWebEngine().getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
-                if (newState == Worker.State.SUCCEEDED) {
-
-                    WebHistory.Entry entry = currentTab().getRecentHistory();
-                    HistoryDAO.insertHistoryRecord(new HistoryRecord(
-                            getCurrentUser(),
-                            entry.getTitle(),
-                            entry.getUrl(),
-                            new Timestamp(entry.getLastVisitedDate().getTime())));
-
-                } else if (newState == Worker.State.FAILED) {
-                    System.out.println("Page loading failed!");
+            ChangeListener<Worker.State> listener = new ChangeListener<>() {
+                @Override
+                public void changed(ObservableValue<? extends Worker.State> obs, Worker.State oldState, Worker.State newState) {
+                    if (newState == Worker.State.SUCCEEDED) {
+                        WebHistory.Entry entry = currentTab().getRecentHistory();
+                        HistoryDAO.insertHistoryRecord(new HistoryRecord(
+                                getCurrentUser(),
+                                entry.getTitle(),
+                                entry.getUrl(),
+                                new Timestamp(entry.getLastVisitedDate().getTime())));
+                    } else if (newState == Worker.State.FAILED) {
+                        System.out.println("Page loading failed!");
+                        currentTab().getWebEngine().getLoadWorker().stateProperty().removeListener(this);
+                    }
                 }
-            });
+            };
+
+            currentTab().getWebEngine().getLoadWorker().stateProperty().addListener(listener);
+
+
         }catch (Exception e){
             System.out.println("Page loading failed!");
         }
