@@ -1,6 +1,6 @@
 package com.zenbrowser.a1;
 
-import com.zenbrowser.a1.Controller.MainControllers.BrowserMain;
+import com.zenbrowser.a1.Controller.MainControllers.TabController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class BrowserApplication extends Application {
     public static final String TITLE = "ZenBrowser";
-    public static BrowserMain tabController;
+    public static TabController tabController;
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 800;
 

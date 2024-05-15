@@ -29,7 +29,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import com.zenbrowser.a1.model.browserTab;
 
-public class BrowserMain extends ParentController implements Initializable {
+public class TabController extends ParentController implements Initializable {
 
     private String defaultEngine = "https://www.google.com";
     @FXML
@@ -96,7 +96,7 @@ public class BrowserMain extends ParentController implements Initializable {
             }
         });
 
-        this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + BrowserMain.this.colorPicker.getValue()));
+        this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + TabController.this.colorPicker.getValue()));
     }
 
     //Create new tab function.

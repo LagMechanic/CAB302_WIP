@@ -1,18 +1,18 @@
 package com.zenbrowser.a1.model.Browser;
 
-import com.zenbrowser.a1.Controller.MainControllers.BrowserMain;
+import com.zenbrowser.a1.Controller.MainControllers.TabController;
 
 import org.junit.Before;
 import org.junit.Test;
 
 
-public class BrowserMainTest {
+public class TabControllerTest {
 
-    private BrowserMain browserMain;
+    private TabController tabController;
 
     @Before
     public void setUp() {
-        browserMain = new BrowserMain();
+        tabController = new TabController();
 
 
         // Mock any other dependencies as needed
@@ -22,7 +22,7 @@ public class BrowserMainTest {
     public void testLoadPage() {
         try {
             String validUrl = "https://www.qut.edu.au/";
-            browserMain.loadPage(validUrl);
+            tabController.loadPage(validUrl);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
