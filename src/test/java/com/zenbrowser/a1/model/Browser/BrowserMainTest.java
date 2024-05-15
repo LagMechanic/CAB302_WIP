@@ -1,12 +1,9 @@
 package com.zenbrowser.a1.model.Browser;
 
-import com.zenbrowser.a1.Controller.BrowserMain;
+import com.zenbrowser.a1.Controller.MainControllers.BrowserMain;
 
-import com.zenbrowser.a1.model.Authentication.UserAlreadyExists;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 
 public class BrowserMainTest {

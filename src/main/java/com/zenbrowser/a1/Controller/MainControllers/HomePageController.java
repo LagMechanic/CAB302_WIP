@@ -1,20 +1,16 @@
-package com.zenbrowser.a1.Controller;
+package com.zenbrowser.a1.Controller.MainControllers;
 
 import com.zenbrowser.a1.BrowserApplication;
-import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
-import com.zenbrowser.a1.model.browserTab;
-import javafx.concurrent.Worker;
+import com.zenbrowser.a1.Controller.ParentController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 
 import java.io.IOException;
-import java.sql.Timestamp;
 
-public class HomePageController extends ParentController{
+public class HomePageController extends ParentController {
 
     @FXML
     private BorderPane homePane;

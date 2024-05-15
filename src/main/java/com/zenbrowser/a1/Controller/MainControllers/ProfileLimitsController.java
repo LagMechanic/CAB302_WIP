@@ -1,6 +1,7 @@
-package com.zenbrowser.a1.Controller;
+package com.zenbrowser.a1.Controller.MainControllers;
 
 import com.zenbrowser.a1.BrowserApplication;
+import com.zenbrowser.a1.Controller.ParentController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 

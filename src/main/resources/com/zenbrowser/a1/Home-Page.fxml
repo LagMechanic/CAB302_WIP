@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="homePane" style="-fx-background-color: #D1FFBD;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.HomePageController">
+<BorderPane fx:id="homePane" style="-fx-background-color: #D1FFBD;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.HomePageController">
    <top>
       <Label fx:id="greetingLabel" text="Welcome to zenbrowser!" BorderPane.alignment="BOTTOM_LEFT">
          <BorderPane.margin>

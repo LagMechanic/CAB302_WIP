@@ -1,4 +1,4 @@
-package com.zenbrowser.a1.Controller;
+package com.zenbrowser.a1.Controller.MainControllers;
 
 import java.io.*;
 import java.net.URL;
@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 import java.util.EventListener;
 import java.util.ResourceBundle;
 
-import com.zenbrowser.a1.AuthenticationApplication;
+import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import javafx.concurrent.Worker;
 import javafx.application.Platform;
@@ -18,7 +18,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -113,15 +112,12 @@ public class BrowserMain extends ParentController implements Initializable {
             tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
         }
 
-
-
-        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
         loadPage(defaultEngine);
     }
 
 
     @FXML
-    protected void GoToHomePage() {navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");}
+    protected void GoToHomePage() { loadPage(defaultEngine);}
 
     @FXML
     protected void GoToLoginPage() {navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");}
@@ -137,12 +133,10 @@ public class BrowserMain extends ParentController implements Initializable {
 
     private void switchPage(){
         borderPane.setCenter(currentTab().getPage());
-        System.out.println(currentTab().getPage());
     }
 
     //Load a page into the parent BrowserTab.fxml with parameters of child source fxml file and name of tab.
     public void navigatePage(String pathway, String tabName){
-
         try {
             //load source fxml file and assign to a borderpane variable.
             FXMLLoader loader = new FXMLLoader(getClass().getResource(pathway));
@@ -157,6 +151,8 @@ public class BrowserMain extends ParentController implements Initializable {
 
     private void loadPage(String urlStr)
     {
+        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
+
         try{
             currentTab().getWebEngine().load(urlStr);
             checkController().updateLoading(currentTab().getWebView());

@@ -1,6 +1,7 @@
-package com.zenbrowser.a1.Controller;
+package com.zenbrowser.a1.Controller.AuthenticationControllers;
 import com.zenbrowser.a1.AuthenticationApplication;
 import com.zenbrowser.a1.BrowserApplication;
+import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.Authentication.Authentication;
 import com.zenbrowser.a1.model.Authentication.InvalidCredentials;
 import com.zenbrowser.a1.model.User.User;
