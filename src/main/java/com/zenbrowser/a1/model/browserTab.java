@@ -1,35 +1,41 @@
 package com.zenbrowser.a1.model;
 
+import com.zenbrowser.a1.Controller.ParentController;
+import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
+import javafx.beans.property.ObjectProperty;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Worker;
+import javafx.scene.Node;
 import javafx.scene.control.Tab;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class browserTab extends Tab {
     private WebView webView;
     private WebEngine webEngine;
     private WebHistory webHistory;
-    private Boolean browsing;
-
-    private static List<WebHistory> fullHistory = new ArrayList<>();
+    public ParentController contentController;
+    private Node page;
 
     public browserTab(String tabname) {
-
         super(tabname);
         webView = new WebView();
         webEngine = webView.getEngine();
         webHistory = webEngine.getHistory();
-        fullHistory.add(webHistory);
-        browsing = false;
+        page = new Pane();
     }
 
-    public Boolean getBrowsing() {  return browsing;}
+    public final void setPage(BorderPane container, Node content) {
+        page = content;
+        container.centerProperty().set(content);
+    }
 
-    public void setBrowsing(Boolean browsing) { this.browsing = browsing;}
+    public final Node getPage(){    return page;}
+
 
     public WebEngine getWebEngine() {
         return webEngine;
@@ -51,13 +57,5 @@ public class browserTab extends Tab {
             System.err.println("WebHistory is empty. No history entries found.");
             return null;
         }
-    }
-
-    public static List<WebHistory.Entry> getAllEntries() {
-        List<WebHistory.Entry> allEntries = new ArrayList<>();
-        for (WebHistory history : fullHistory) {
-            allEntries.addAll(history.getEntries());
-        }
-        return allEntries;
     }
 }

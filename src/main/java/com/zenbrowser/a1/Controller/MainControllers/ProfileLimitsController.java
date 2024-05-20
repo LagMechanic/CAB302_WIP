@@ -1,38 +1,31 @@
 package com.zenbrowser.a1.Controller;
 
+import com.zenbrowser.a1.BrowserApplication;
+import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.ProfileLimits.UrlLimit;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
 
-
-public class ProfileLimitsController{
+public class ProfileLimitsController extends ParentController {
     @FXML
     public TextField limitField;
 
     @FXML
     public TextField urlField;
 
-    @FXML
-    public Button UrlLimitData;
+    private record UrlLimit(String url, String limit) { }
 
     @FXML
-    public ComboBox<String> profileBox;
+    private TextField urlField;
 
     @FXML
-    private TableView<UrlLimit> tbData;
+    private TextField limitField;
 
     @FXML
-    public TableColumn<UrlLimit, String> profile;
-
-    @FXML
-    public TableColumn<UrlLimit, String> url;
-
-    @FXML
-    public TableColumn<UrlLimit, String> limit;
+    private TableView<UrlLimit> urlTable;
 
     private final ObservableList<UrlLimit> profileLimitsData = FXCollections.observableArrayList();
 
@@ -47,22 +40,21 @@ public class ProfileLimitsController{
     public void addUrlAndLimit() {
         String url = urlField.getText();
         String limit = limitField.getText();
-        String profile = profileBox.getSelectionModel().getSelectedItem();
-        if (!url.isEmpty() && !limit.isEmpty() && profile != null && !profile.isEmpty()) {
-            UrlLimit newUrlLimit = new UrlLimit(url, limit, profile);
-            profileLimitsData.add(newUrlLimit);
-
+        if (!url.isEmpty() && !limit.isEmpty()) {
+            urlTable.getItems().add(new UrlLimit(url, limit));
             urlField.clear();
             limitField.clear();
-            profileBox.getSelectionModel().clearSelection();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("ERROR");
+            alert.setTitle("Error");
             alert.setHeaderText(null);
-            alert.setContentText("URL, Limit, or Profile cannot be empty");
-        alert.showAndWait();
+            alert.setContentText("URL or Limit cannot be empty");
+            alert.showAndWait();
         }
-
     }
 
+    @FXML
+    protected void onGoToProfileLimits()  {
+        BrowserApplication.tabController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
+    }
 }
