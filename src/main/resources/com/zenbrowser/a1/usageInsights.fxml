@@ -9,25 +9,23 @@
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.UsageInsightsController">
  <center>
-    <VBox prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-       <children>
-          <BarChart fx:id="topVisitedChart" title="Top Visited Sites">
-            <xAxis>
-              <CategoryAxis label="Site Name" side="BOTTOM" />
-            </xAxis>
-            <yAxis>
-              <NumberAxis label="Visits" side="LEFT" />
-            </yAxis>
-          </BarChart>
-          <LineChart id="historyChart" fx:id="historyChart" title="Sites Per day">
-            <xAxis>
-              <CategoryAxis label="Date" side="BOTTOM" />
-            </xAxis>
-            <yAxis>
-              <NumberAxis label="Sites Opened" side="LEFT" />
-            </yAxis>
-          </LineChart>
-       </children>
-    </VBox>
+     <VBox prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <BarChart fx:id="topVisitedChart" title="Top Visited Sites">
+             <xAxis>
+                 <CategoryAxis label="Site Name" side="BOTTOM"/>
+             </xAxis>
+             <yAxis>
+                 <NumberAxis label="Visits" side="LEFT"/>
+             </yAxis>
+         </BarChart>
+         <LineChart id="historyChart" fx:id="historyChart" title="Sites Per day">
+             <xAxis>
+                 <CategoryAxis label="Date" side="BOTTOM"/>
+             </xAxis>
+             <yAxis>
+                 <NumberAxis label="Sites Opened" side="LEFT"/>
+             </yAxis>
+         </LineChart>
+     </VBox>
  </center>
 </BorderPane>

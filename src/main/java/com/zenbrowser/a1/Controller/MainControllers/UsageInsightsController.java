@@ -4,6 +4,7 @@ import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAO;
 import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 
@@ -14,13 +15,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class UsageInsightsController extends ParentController {
-
+    @FXML
+    private BarChart topVisitedChart;
     @FXML
     private LineChart<String,Number> historyChart;
+
     private List<HistoryRecord> records;
     private List<HistoryRecord> records2 = new ArrayList<>();
-    public void initialize() {
 
+    public void initialize() {
+        records = HistoryDAO.getAllUserHistoryRecords(super.getCurrentUser());
 
 
         // Add some mock history records
@@ -33,9 +37,11 @@ public class UsageInsightsController extends ParentController {
         records2.add(new HistoryRecord("7", "https://example.com/page7", "https://example.com/page7",Timestamp.valueOf("2024-05-10 10:30:00")));
         records2.add(new HistoryRecord("8", "https://example.com/page8", "https://example.com/page8",Timestamp.valueOf("2024-05-10 11:15:00")));
         records2.add(new HistoryRecord("9", "https://example.com/page9", "https://example.com/page9",Timestamp.valueOf("2024-05-12 14:30:00")));
-        records2.add(new HistoryRecord("10", "https://example.com/page10", "https://example.com/page10",Timestamp.valueOf("2024-05-13 15:45:00")));records = new HistoryRecordDAO().getAllUserHistoryRecords(super.getCurrentUser());
+        records2.add(new HistoryRecord("10", "https://example.com/page10", "https://example.com/page10",Timestamp.valueOf("2024-05-13 15:45:00")));
         populateLineChart();
     }
+
+
     private void populateLineChart() {
         Map<String, Integer> dateCountMap = new HashMap<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");

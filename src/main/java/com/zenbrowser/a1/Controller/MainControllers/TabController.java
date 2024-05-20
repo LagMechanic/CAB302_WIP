@@ -3,21 +3,15 @@ package com.zenbrowser.a1.Controller.MainControllers;
 import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.sql.Date;
-import java.sql.Timestamp;
 import java.util.EventListener;
 import java.util.ResourceBundle;
 
 import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,7 +21,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.web.WebHistory;
-import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.w3c.dom.Document;
@@ -129,13 +122,13 @@ public class TabController extends ParentController implements Initializable {
 
 
     @FXML
-    protected void GoToHomePage() { loadPage(defaultEngine);}
+    private void GoToHomePage() { loadPage(defaultEngine);}
 
     @FXML
-    protected void GoToLoginPage() {navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");}
+    private void GoToLoginPage() {navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");}
 
     @FXML
-    protected void GoToHistoryPage() {navigatePage("/com/zenbrowser/a1/history-view.fxml","History");}
+    private void GoToHistoryPage() {navigatePage("/com/zenbrowser/a1/history-view.fxml","History");}
 
     @FXML
     private void goUsageReports() {navigatePage("/com/zenbrowser/a1/usageInsights.fxml","Usage Report");}

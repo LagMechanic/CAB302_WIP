@@ -11,8 +11,6 @@ import java.util.List;
 public class HistoryController extends ParentController {
     @FXML
     private GridPane historyGrid;
-
-
     private List<HistoryRecord> records;
 
 
