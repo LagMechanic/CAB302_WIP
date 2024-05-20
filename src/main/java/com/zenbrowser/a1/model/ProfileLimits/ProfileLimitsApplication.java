@@ -6,12 +6,14 @@ import static javafx.application.Application.launch;
 
 public class ProfileLimitsApplication {
     private final SimpleStringProperty url;
-    private final SimpleStringProperty limit;
+    private final SimpleStringProperty hours;
+    private final SimpleStringProperty minutes;
     private final SimpleStringProperty profile;
 
-    public ProfileLimitsApplication(String Url, String Limit, String Profile) {
+    public ProfileLimitsApplication(String Url, String Hours, String Minutes, String Profile) {
         this.url = new SimpleStringProperty(Url);
-        this.limit = new SimpleStringProperty(Limit);
+        this.hours = new SimpleStringProperty(Hours);
+        this.minutes = new SimpleStringProperty(Minutes);
         this.profile = new SimpleStringProperty(Profile);
     }
 
@@ -23,21 +25,17 @@ public class ProfileLimitsApplication {
         this.url.set(url);
     }
 
-    public String getLimit() {
-        return limit.get();
-    }
+    public String getHours() { return hours.get(); }
 
-    public void setLimit(String limit) {
-        this.limit.set(limit);
-    }
+    public void setHours(String hours) { this.hours.set(hours); }
 
-    public String getProfile() {
-        return profile.get();
-    }
+    public String getMinutes() { return minutes.get(); }
 
-    public void setProfile(String profile) {
-        this.profile.set(profile);
-    }
+    public void setMinutes(String minutes){ this.minutes.set(minutes); }
+
+    public String getProfile() { return profile.get(); }
+
+    public void setProfile(String profile) { this.profile.set(profile); }
 
     public static void main(String[] args) {
         launch(args);
