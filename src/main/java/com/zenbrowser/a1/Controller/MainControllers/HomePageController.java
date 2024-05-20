@@ -31,8 +31,6 @@ public class HomePageController extends ParentController {
             greetingLabel.setText(greeting);
         }
         else {  greetingLabel.setText("Welcome to zenbrowser!");}
-
-
     }
 
 

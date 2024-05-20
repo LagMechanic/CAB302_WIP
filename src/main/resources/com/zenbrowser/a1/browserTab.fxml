@@ -18,14 +18,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="borderPane" fx:id="borderPane" prefHeight="448.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.TabController">
+<BorderPane id="borderPane" fx:id="borderPane" prefHeight="448.0" prefWidth="939.0" style="-fx-background-color: D1FFBD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.TabController">
     <top>
         <VBox>
          <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="1000.0">
             <children>
                    <TabPane fx:id="tabPane" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="108.0" style="-fx-background-color: D5D5D5;" tabMaxWidth="80.0" tabMinWidth="80.0">
                   <HBox.margin>
-                     <Insets left="1.0" />
+                     <Insets />
                   </HBox.margin>
                </TabPane>
                     <Button fx:id="newTabBtn" layoutY="20.0" mnemonicParsing="false" onAction="#newTabFunction" prefHeight="16.0" prefWidth="23.0" text="+" textAlignment="CENTER">
@@ -99,11 +99,9 @@
                      <children>
                             <Button fx:id="GoToHomePageButton" mnemonicParsing="false" onAction="#GoToHomePage" onMouseEntered="#homeBtnHover" onMouseExited="#homeBtnHoverExit">
                            <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../Icons/home.png" />
-                                 </image>
-                              </ImageView>
+                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                   <Image url="@../../../Icons/home.png"/>
+                               </ImageView>
                            </graphic>
                         </Button>
                             <Label fx:id="homeLabel" style="-fx-background-color: White;" />
@@ -113,30 +111,25 @@
                      <children>
                             <Button fx:id="ProfileButton" mnemonicParsing="false" onAction="#GoToLoginPage" onMouseEntered="#profileBtnHover" onMouseExited="#profileBtnHoverExit">
                            <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../Icons/UserIcon.png" />
-                                 </image>
-                              </ImageView>
+                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                   <Image url="@../../../Icons/UserIcon.png"/>
+                               </ImageView>
                            </graphic>
                         </Button>
                             <Label fx:id="ProfileLabel" style="-fx-background-color: White;" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                            <Button fx:id="GoToHistoryPageButton" mnemonicParsing="false" onAction="#GoToHistoryPage" onMouseEntered="#historyBtnHover" onMouseExited="#historyBtnHoverExit">
-                           <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../Icons/History.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                            <Label fx:id="historyLabel" style="-fx-background-color: White;" />
-                     </children>
-                  </VBox>
+                   <VBox prefHeight="200.0" prefWidth="100.0">
+                       <Button fx:id="GoToHistoryPageButton" mnemonicParsing="false" onAction="#GoToHistoryPage"
+                               onMouseEntered="#historyBtnHover" onMouseExited="#historyBtnHoverExit">
+                      <graphic>
+                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                              <Image url="@../../../Icons/History.png"/>
+                          </ImageView>
+                      </graphic>
+                       </Button>
+                       <Label fx:id="historyLabel" style="-fx-background-color: White;"/>
+                   </VBox>
                </children>
                <HBox.margin>
                   <Insets right="5.0" />
@@ -146,10 +139,29 @@
                <Insets />
             </VBox.margin>
             </HBox>
-   
-                                    <Label fx:id="promptLabel" />
+
+
         </VBox>
     </top>
+    <left>
+
+        <VBox alignment="CENTER" prefHeight="343.0" prefWidth="150.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <Label fx:id="greetingLabel" prefHeight="67.0" prefWidth="132.0" text="Welcome to zenbrowser!" wrapText="true" BorderPane.alignment="BOTTOM_LEFT">
+                <BorderPane.margin>
+                    <Insets left="10.0" top="10.0" />
+                </BorderPane.margin>
+                <font>
+                    <Font name="System Bold Italic" size="12.0" />
+                </font>
+            <VBox.margin>
+               <Insets bottom="50.0" />
+            </VBox.margin>
+            </Label>
+            <Button fx:id="goUsageReports" text="Usage Reports" />
+            <Button fx:id="goNotificationPage" text="Notification Settings" />
+            <Button fx:id="goAccountSettings" text="My Account Settings" />
+        </VBox>
+    </left>
    <center>
 
    </center>

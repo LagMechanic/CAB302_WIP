@@ -15,7 +15,6 @@ public class browserTab extends Tab {
     private WebView webView;
     private WebEngine webEngine;
     private WebHistory webHistory;
-    public ParentController contentController;
     private Node page;
 
     public browserTab(String tabname) {

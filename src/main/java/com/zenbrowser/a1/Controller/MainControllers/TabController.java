@@ -25,6 +25,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.web.WebHistory;
+import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.w3c.dom.Document;
@@ -98,7 +99,13 @@ public class TabController extends ParentController implements Initializable {
             }
         });
 
-        this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + TabController.this.colorPicker.getValue()));
+        if (super.getCurrentUser() != null){
+            String greeting = String.format("Welcome to zenbrowser, %s!", getCurrentUser());
+            greetingLabel.setText(greeting);
+        }
+        else {  greetingLabel.setText("Welcome to zenbrowser!");}
+
+        //this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + TabController.this.colorPicker.getValue()));
     }
 
     //Create new tab function.
@@ -131,12 +138,6 @@ public class TabController extends ParentController implements Initializable {
     private browserTab currentTab()    {return (browserTab) tabPane.getSelectionModel().getSelectedItem();}
 
 
-
-
-    private void switchPage(){
-        borderPane.setCenter(currentTab().getPage());
-    }
-
     //Load a page into the parent BrowserTab.fxml with parameters of child source fxml file and name of tab.
     public void navigatePage(String pathway, String tabName){
         try {
@@ -144,8 +145,6 @@ public class TabController extends ParentController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(pathway));
             BorderPane content = loader.load();
             currentTab().setPage(borderPane, content);
-
-            currentTab().contentController = loader.getController();
             currentTab().setText(tabName);
 
         } catch (IOException e) {e.printStackTrace();}
@@ -153,11 +152,9 @@ public class TabController extends ParentController implements Initializable {
 
     private void loadPage(String urlStr)
     {
-        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
-
         try{
             currentTab().getWebEngine().load(urlStr);
-            checkController().updateLoading(currentTab().getWebView());
+            updateLoading(currentTab().getWebView());
 
             ChangeListener<Worker.State> listener = new ChangeListener<>() {
                 @Override
@@ -184,6 +181,13 @@ public class TabController extends ParentController implements Initializable {
         }
     }
 
+    private void switchPage(){
+        borderPane.setCenter(currentTab().getPage());
+    }
+
+    private void updateLoading(WebView browserView){
+        borderPane.setCenter(browserView);
+    }
 
 
     @FXML
@@ -235,14 +239,6 @@ public class TabController extends ParentController implements Initializable {
             }
     }
 
-    private HomePageController checkController(){
-        if (currentTab().contentController instanceof HomePageController){
-            HomePageController homeController = (HomePageController) currentTab().contentController;
-            return homeController;
-        }
-        return null;
-    }
-
 
 
     @FXML
@@ -263,6 +259,19 @@ public class TabController extends ParentController implements Initializable {
             }
             else {promptLabel.setText("You didn't enter anything : (");}
     }
+
+    @FXML
+    private BorderPane homePane;
+    @FXML
+    private Button goUsageReports;
+    @FXML
+    private Button goNotificationPage;
+    @FXML
+    private Button goAccountSettings;
+    @FXML
+    private Label greetingLabel;
+
+
 
 
     public void setTabBackground(String imageFileLocation) {

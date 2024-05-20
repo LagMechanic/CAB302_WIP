@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Refactor and created directories to organize controllers. Renamed browserMain to more appropriate TabController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HomePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,12 +43,12 @@
     &quot;assignee&quot;: &quot;JoshK28&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/LagMechanic/CAB302_WIP.git",
-    "accountId": "2ced8e9e-afb7-415c-90df-1de291f0d376"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/LagMechanic/CAB302_WIP.git&quot;,
+    &quot;accountId&quot;: &quot;2ced8e9e-afb7-415c-90df-1de291f0d376&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -69,7 +72,7 @@
     "Application.BrowserApplication.executor": "Run",
     "Application.Login.executor": "Run",
     "Application.TestApplication.executor": "Run",
-    "git-widget-placeholder": "JoshsBranch",
+    "git-widget-placeholder": "JoshsBranchMerge",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
@@ -145,6 +148,8 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TabControllerTest" />
+        <item itemvalue="JUnit.TabControllerTest.testLoadPage" />
         <item itemvalue="JUnit.TabControllerTest" />
         <item itemvalue="JUnit.TabControllerTest.testLoadPage" />
       </list>
