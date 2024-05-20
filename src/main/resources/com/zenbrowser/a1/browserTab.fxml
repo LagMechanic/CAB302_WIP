@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="borderPane" fx:id="borderPane" prefHeight="448.0" prefWidth="939.0" style="-fx-background-color: D1FFBD;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.TabController">
+<BorderPane id="borderPane" fx:id="borderPane" style="-fx-background-color: #D1FFBD;" prefHeight="448.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.TabController">
     <top>
         <VBox>
             <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="1000.0">
@@ -51,7 +51,7 @@
                     <Button fx:id="GoButton" mnemonicParsing="false" onAction="#goButtonPressed" prefHeight="25.0" prefWidth="38.0" text="Go" />
                     <Button fx:id="ReloadButton" mnemonicParsing="false" onAction="#GoReloadPage" prefHeight="25.0" prefWidth="38.0" text="↺" />
                 </HBox>
-            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="222.0" spacing="5.0">
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="222.0" spacing="5.0" >
                <children>
                       <MenuBar minWidth="-Infinity" prefHeight="27.0" prefWidth="82.0">
                           <menus>
@@ -121,7 +121,7 @@
     </top>
     <left>
 
-        <VBox alignment="CENTER" prefHeight="343.0" prefWidth="150.0" spacing="20.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="343.0" prefWidth="150.0" spacing="20.0" BorderPane.alignment="CENTER" >
             <Label style="-fx-font-size: 18px;" text="  Dashboard " />
             <Label fx:id="greetingLabel" prefHeight="67.0" prefWidth="132.0" text="Welcome to zenbrowser!" wrapText="true" BorderPane.alignment="BOTTOM_LEFT">
                 <BorderPane.margin>

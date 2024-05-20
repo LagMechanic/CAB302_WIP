@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="finishing profile limits functionality with the table working but without it connecting to a database yet">
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Removed ProfileLimits dashboard, as in place for browserTab">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/usageInsights.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/usageInsights.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,22 +169,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Within browserTab class, added fullhistory list which collates all Webhistory instances.">
-      <option name="closed" value="true" />
-      <created>1715476767587</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1715476767587</updated>
-    </task>
-    <task id="LOCAL-00032" summary="History button goes to history-view page.">
-      <option name="closed" value="true" />
-      <created>1715477292059</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1715477292059</updated>
     </task>
     <task id="LOCAL-00033" summary="History controller for function which gets each history entry and creates a new label.">
       <option name="closed" value="true" />
@@ -559,7 +546,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716200385317</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Added functionality to go to profileLimits. Other bug fixes and refactoring changes.">
+      <option name="closed" value="true" />
+      <created>1716202852202</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1716202852204</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Removed ProfileLimits dashboard, as in place for browserTab">
+      <option name="closed" value="true" />
+      <created>1716202995080</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1716202995080</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -592,8 +595,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Completed method which populates records in grid." />
-    <MESSAGE value="Fixed bug history willl add in same column" />
     <MESSAGE value="Login and registration will now open new application before opening main application so bar utility can't be accessed. Browsermain and home page is being collated." />
     <MESSAGE value="RegistrationController buttons now open login window and main application" />
     <MESSAGE value="Bug where login is opened after login completed instead of home page" />
@@ -617,7 +618,9 @@
     <MESSAGE value="Added button to be able to navigate to usageInsights.fxml.&#10;Fixed bug of UsageInsights as anchorpane not being insertable." />
     <MESSAGE value="Refactoring, deletion of unutilized code, changing method access classes." />
     <MESSAGE value="finishing profile limits functionality with the table working but without it connecting to a database yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="finishing profile limits functionality with the table working but without it connecting to a database yet" />
+    <MESSAGE value="Added functionality to go to profileLimits. Other bug fixes and refactoring changes." />
+    <MESSAGE value="Removed ProfileLimits dashboard, as in place for browserTab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed ProfileLimits dashboard, as in place for browserTab" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

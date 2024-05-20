@@ -19,11 +19,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;">
 
     <center>
             <ScrollPane fitToWidth="true" prefWidth="400">
-                <VBox alignment="CENTER" spacing="5" style="-fx-background-image: url=&quot;ZenBrowser&quot;;">
+                <VBox alignment="CENTER" spacing="5">
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Limits Settings">
                <font>
                   <Font size="24.0" />
