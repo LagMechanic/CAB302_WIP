@@ -1,42 +1,77 @@
 package com.zenbrowser.a1.Controller.MainControllers;
 
-import com.zenbrowser.a1.BrowserApplication;
-import com.zenbrowser.a1.Controller.ParentController;
+import com.zenbrowser.a1.model.ProfileLimits.UrlLimit;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 
-public class ProfileLimitsController extends ParentController {
 
-    private record UrlLimit(String url, String limit) { }
+public class ProfileLimitsController{
+    @FXML
+    public ComboBox<String> minutesBox;
 
     @FXML
-    private TextField urlField;
+    public ComboBox<String> hoursBox;
 
     @FXML
-    private TextField limitField;
+    public TextField urlField;
 
     @FXML
-    private TableView<UrlLimit> urlTable;
+    public Button UrlLimitData;
 
+    @FXML
+    public ComboBox<String> profileBox;
+
+    @FXML
+    private TableView<UrlLimit> tbData;
+
+    @FXML
+    public TableColumn<UrlLimit, String> profile;
+
+    @FXML
+    public TableColumn<UrlLimit, String> url;
+
+    @FXML
+    public TableColumn<UrlLimit, String> hours;
+
+    @FXML
+    public TableColumn<UrlLimit, String> minutes;
+
+    private final ObservableList<UrlLimit> profileLimitsData = FXCollections.observableArrayList();
+
+    public void initialize(){
+        url.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Url()));
+        hours.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Hours()));
+        minutes.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Minutes()));
+        profile.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Profile()));
+
+        tbData.setItems(profileLimitsData);
+    }
 
     public void addUrlAndLimit() {
         String url = urlField.getText();
-        String limit = limitField.getText();
-        if (!url.isEmpty() && !limit.isEmpty()) {
-            urlTable.getItems().add(new UrlLimit(url, limit));
+        String hours = hoursBox.getSelectionModel().getSelectedItem();
+        String minutes = minutesBox.getSelectionModel().getSelectedItem();
+        String profile = profileBox.getSelectionModel().getSelectedItem();
+        if (!url.isEmpty() && hours != null && !hours.isEmpty() && minutes != null && !minutes.isEmpty() && profile != null && !profile.isEmpty()) {
+            UrlLimit newUrlLimit = new UrlLimit(url, hours, minutes, profile);
+            profileLimitsData.add(newUrlLimit);
+
             urlField.clear();
-            limitField.clear();
+            hoursBox.getSelectionModel().clearSelection();
+            minutesBox.getSelectionModel().clearSelection();
+            profileBox.getSelectionModel().clearSelection();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
+            alert.setTitle("ERROR");
             alert.setHeaderText(null);
-            alert.setContentText("URL or Limit cannot be empty");
-            alert.showAndWait();
+            alert.setContentText("Profile, Hours, Minutes, or URL cannot be empty");
+        alert.showAndWait();
         }
+
     }
 
-    @FXML
-    protected void onGoToProfileLimits()  {
-        BrowserApplication.tabController.navigatePage("/com/zenbrowser/a1/register-view.fxml", "Register");
-    }
 }

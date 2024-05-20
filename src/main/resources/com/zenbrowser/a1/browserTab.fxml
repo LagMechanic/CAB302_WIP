@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ColorPicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.RadioMenuItem?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane id="borderPane" fx:id="borderPane" prefHeight="448.0" prefWidth="939.0" style="-fx-background-color: D1FFBD;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.TabController">
     <top>
@@ -34,7 +22,7 @@
             </HBox>
 
             <HBox alignment="CENTER" style="-fx-background-color: #A9A9A9;" VBox.vgrow="NEVER">
-                <ToolBar minWidth="-Infinity" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #A9A9A9;">
+                <ToolBar minWidth="-Infinity" prefHeight="40.0" prefWidth="60.0" style="-fx-background-color: #A9A9A9;">
                     <HBox.margin>
                         <Insets right="5.0" />
                     </HBox.margin>
@@ -59,7 +47,7 @@
                 </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="222.0" spacing="5.0">
                <children>
-                      <MenuBar minWidth="-Infinity" prefHeight="40.0" prefWidth="82.0">
+                      <MenuBar minWidth="-Infinity" prefHeight="27.0" prefWidth="82.0">
                           <menus>
                               <Menu mnemonicParsing="false" text="Settings">
                                   <Menu mnemonicParsing="false" text="Search Engine">
@@ -83,9 +71,6 @@
                                   </Menu>
                               </Menu>
                           </menus>
-                          <padding>
-                              <Insets right="5.0" top="6.0" />
-                          </padding>
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>

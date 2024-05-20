@@ -29,5 +29,4 @@ public class TabControllerTest {
     }
 }
 
-    // Add more tests for other methods in BrowserMain as needed
-
+// Add more tests for other methods in BrowserMain as needed

@@ -9,7 +9,7 @@ import com.zenbrowser.a1.model.User.SqliteUserDAO;
 import com.zenbrowser.a1.model.Website.ISiteDAO;
 import com.zenbrowser.a1.model.Website.SiteDAO;
 
-public class ParentController {
+public abstract class ParentController {
     protected IUserDAO UserDAO;
     protected ISiteDAO SiteDAO;
     protected IProfileDAO ProfileDAO;
@@ -31,4 +31,6 @@ public class ParentController {
     protected void setCurrentUser(String currentUser){
         this.currentUser = currentUser;
     }
+
+
 }
