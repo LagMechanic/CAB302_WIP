@@ -251,10 +251,6 @@ public class TabController extends ParentController implements Initializable {
 
 
 
-
-
-
-
     public void setTabBackground(String imageFileLocation) {
         ImageView iv = new ImageView();
         Image img = new Image(imageFileLocation);
