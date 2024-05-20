@@ -1,4 +1,4 @@
-package com.zenbrowser.a1.Controller;
+package com.zenbrowser.a1.Controller.MainControllers;
 
 import com.zenbrowser.a1.BrowserApplication;
 import com.zenbrowser.a1.Controller.ParentController;
@@ -18,24 +18,19 @@ public class ProfileLimitsController extends ParentController {
 
     private record UrlLimit(String url, String limit) { }
 
-    @FXML
-    private TextField urlField;
-
-    @FXML
-    private TextField limitField;
 
     @FXML
     private TableView<UrlLimit> urlTable;
 
-    private final ObservableList<UrlLimit> profileLimitsData = FXCollections.observableArrayList();
+//    private final ObservableList<UrlLimit> profileLimitsData = FXCollections.observableArrayList();
 
-    public void initialize(){
-        url.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Url()));
-        limit.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Limit()));
-        profile.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Profile()));
-
-        tbData.setItems(profileLimitsData);
-    }
+//    public void initialize(){
+//        url.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Url()));
+//        limit.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Limit()));
+//        profile.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Profile()));
+//
+//        tbData.setItems(profileLimitsData);
+//    }
 
     public void addUrlAndLimit() {
         String url = urlField.getText();
