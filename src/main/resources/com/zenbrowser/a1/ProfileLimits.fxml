@@ -18,10 +18,9 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<BorderPane style="-fx-background-image: url('/src/main/java/Resources/Images/WallPaper.jpg');" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
-    <ImageView>
-        <Image url="@/Images/WallPaper.jpg"/>
-    </ImageView>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
+
     <center>
             <ScrollPane fitToWidth="true" prefWidth="400">
                 <VBox alignment="CENTER" spacing="5" style="-fx-background-image: url=&quot;ZenBrowser&quot;;">

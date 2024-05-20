@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Refactoring, deletion of unutilized code, changing method access classes.">
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="finishing profile limits functionality with the table working but without it connecting to a database yet">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,15 +69,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BrowserApplication.executor": "Run",
-    "Application.Login.executor": "Run",
-    "Application.TestApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BrowserApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Login.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Benjc\Desktop\Uni\2024\Semester 1\CAB302\CAB302_WIP\src\main\java\com\zenbrowser\a1" />
@@ -589,7 +592,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactor history records into method." />
     <MESSAGE value="Completed method which populates records in grid." />
     <MESSAGE value="Fixed bug history willl add in same column" />
     <MESSAGE value="Login and registration will now open new application before opening main application so bar utility can't be accessed. Browsermain and home page is being collated." />
@@ -614,7 +616,8 @@
     <MESSAGE value="Finished merging Luis version to main and fixing issues." />
     <MESSAGE value="Added button to be able to navigate to usageInsights.fxml.&#10;Fixed bug of UsageInsights as anchorpane not being insertable." />
     <MESSAGE value="Refactoring, deletion of unutilized code, changing method access classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring, deletion of unutilized code, changing method access classes." />
+    <MESSAGE value="finishing profile limits functionality with the table working but without it connecting to a database yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="finishing profile limits functionality with the table working but without it connecting to a database yet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

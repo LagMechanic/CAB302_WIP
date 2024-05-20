@@ -11,6 +11,7 @@ import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import javafx.concurrent.Worker;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -133,6 +134,9 @@ public class TabController extends ParentController implements Initializable {
     @FXML
     private void goUsageReports() {navigatePage("/com/zenbrowser/a1/usageInsights.fxml","Usage Report");}
 
+    @FXML
+    private void goProfileLimits() {navigatePage("/com/zenbrowser/a1/ProfileLimits.fxml","Zen Profiles");}
+
 
     //Load a page into the parent BrowserTab.fxml with parameters of child source fxml file and name of tab.
     public void navigatePage(String pathway, String tabName){
@@ -254,6 +258,7 @@ public class TabController extends ParentController implements Initializable {
         iv.setImage(img);
         this.borderPane.setCenter(iv);
     }
+
 
 
     class MyBrowser extends Region {
