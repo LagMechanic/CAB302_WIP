@@ -11,7 +11,8 @@ import javafx.scene.web.WebView;
 import java.io.IOException;
 
 public class HomePageController extends ParentController {
-
+    @FXML
+    public Button GoToProfileButton;
     @FXML
     private BorderPane homePane;
     @FXML
