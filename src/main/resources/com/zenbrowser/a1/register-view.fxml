@@ -31,11 +31,11 @@
             <Label text="First Name: (Optional)" GridPane.columnIndex="0" GridPane.rowIndex="3" />
             <Label text="Last Name: (Optional)" GridPane.columnIndex="0" GridPane.rowIndex="4" />
             <Label text="Email: (Optional)" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-            <TextField fx:id="usernameTXT" onKeyReleased="#EnableRegisterButton" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <PasswordField fx:id="passwordField" onKeyReleased="#EnableRegisterButton" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="firstNameTXT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="lastNameTXT" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="usernameTXT" onKeyPressed="#CheckRegister" onKeyReleased="#EnableRegisterButton" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PasswordField fx:id="passwordField" onKeyPressed="#CheckRegister" onKeyReleased="#EnableRegisterButton" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="firstNameTXT" onKeyPressed="#CheckRegister" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="lastNameTXT" onKeyPressed="#CheckRegister" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="emailTextField" onKeyPressed="#CheckRegister" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <rowConstraints>
                <RowConstraints />
                <RowConstraints />
@@ -47,7 +47,7 @@
         </GridPane>
          <Label fx:id="errorPromptLabel" textFill="RED" />
         <VBox alignment="CENTER" spacing="20.0">
-            <Button fx:id="registerButton" disable="true" onAction="#onRegisterButtonClick" style="-fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 20px;" text="Register" />
+            <Button fx:id="registerButton" disable="true"  onAction="#onRegisterButtonClick" style="-fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 20px;" text="Register" />
             <Label style="-fx-font-size:20px;" text="Already have a zen account? Login Now!" />
             <Button onAction="#onLoginPageButtonClick" style="-fx-min-width: 70px; -fx-min-height: 30px; -fx-font-size: 16px;" text="Login" />
         </VBox>

@@ -31,7 +31,7 @@
                 <Label style="-fx-font-size:20px;" text="Enter login credentials." GridPane.rowIndex="0" />
                 <Label style="-fx-font-size:20px;" text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                 <Label style="-fx-font-size:20px;" text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <TextField fx:id="usernameTextField" maxWidth="Infinity" onKeyReleased="#EnableLoginButton" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="usernameTextField" maxWidth="Infinity" onKeyPressed="#CheckLogin" onKeyReleased="#EnableLoginButton" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <PasswordField fx:id="passwordField" onKeyPressed="#CheckLogin" onKeyReleased="#EnableLoginButton" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <rowConstraints>
                <RowConstraints />
@@ -47,7 +47,7 @@
                <font>
                   <Font size="11.0" />
                </font></Label>
-                <Button fx:id="RegisterPageButton" onAction="#onRegisterPageButtonClick" style="-fx-min-width: 70px; -fx-min-height: 30px; -fx-font-size: 16;" text="Register" />
+                <Button onAction="#onRegisterPageButtonClick" style="-fx-min-width: 70px; -fx-min-height: 30px; -fx-font-size: 16;" text="Register" />
 
             </VBox>
         </VBox>
