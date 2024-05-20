@@ -234,17 +234,19 @@ public class TabController extends ParentController implements Initializable {
 
     @FXML
     private void goButtonPressed() {
-            String PromptedSearch = URLBox.getText();
-            if (PromptedSearch != "") {
-                if (PromptedSearch.startsWith("https")){
-                    loadPage(PromptedSearch);
-                } else if (PromptedSearch.startsWith("www.")){
-                    loadPage("https://" + PromptedSearch);
-                }
-                else{
-                    loadPage(formatUrl(defaultEngine, PromptedSearch));
-                }
+        String PromptedSearch = URLBox.getText();
+        if (PromptedSearch != "") {
+
+            if (PromptedSearch.startsWith("https")){    }
+
+            else if (PromptedSearch.startsWith("www.")){
+                PromptedSearch = "https://" + PromptedSearch;
             }
+            else{
+                PromptedSearch= (formatUrl(defaultEngine, PromptedSearch));
+            }
+        }
+        loadPage(PromptedSearch);
     }
 
 
