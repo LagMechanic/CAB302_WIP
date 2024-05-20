@@ -19,6 +19,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
+<?import javafx.scene.effect.DropShadow?>
 <BorderPane xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;">
 
     <center>
@@ -91,4 +92,7 @@
                 </VBox>
             </ScrollPane>
     </center>
+    <effect>
+        <DropShadow offsetX="10" offsetY="3" color="black"/>
+    </effect>
 </BorderPane>

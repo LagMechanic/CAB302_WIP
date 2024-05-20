@@ -18,6 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.effect.DropShadow?>
 <BorderPane id="borderPane" fx:id="borderPane" style="-fx-background-color: #D1FFBD;" prefHeight="448.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.TabController">
     <top>
         <VBox>
@@ -140,6 +141,5 @@
         </VBox>
     </left>
    <center>
-
    </center>
 </BorderPane>
