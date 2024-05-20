@@ -11,7 +11,10 @@ import javafx.scene.control.Button;
 
 public class ProfileLimitsController{
     @FXML
-    public TextField limitField;
+    public ComboBox<String> minutesBox;
+
+    @FXML
+    public ComboBox<String> hoursBox;
 
     @FXML
     public TextField urlField;
@@ -32,13 +35,17 @@ public class ProfileLimitsController{
     public TableColumn<UrlLimit, String> url;
 
     @FXML
-    public TableColumn<UrlLimit, String> limit;
+    public TableColumn<UrlLimit, String> hours;
+
+    @FXML
+    public TableColumn<UrlLimit, String> minutes;
 
     private final ObservableList<UrlLimit> profileLimitsData = FXCollections.observableArrayList();
 
     public void initialize(){
         url.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Url()));
-        limit.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Limit()));
+        hours.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Hours()));
+        minutes.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Minutes()));
         profile.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Profile()));
 
         tbData.setItems(profileLimitsData);
@@ -46,20 +53,22 @@ public class ProfileLimitsController{
 
     public void addUrlAndLimit() {
         String url = urlField.getText();
-        String limit = limitField.getText();
+        String hours = hoursBox.getSelectionModel().getSelectedItem();
+        String minutes = minutesBox.getSelectionModel().getSelectedItem();
         String profile = profileBox.getSelectionModel().getSelectedItem();
-        if (!url.isEmpty() && !limit.isEmpty() && profile != null && !profile.isEmpty()) {
-            UrlLimit newUrlLimit = new UrlLimit(url, limit, profile);
+        if (!url.isEmpty() && hours != null && !hours.isEmpty() && minutes != null && !minutes.isEmpty() && profile != null && !profile.isEmpty()) {
+            UrlLimit newUrlLimit = new UrlLimit(url, hours, minutes, profile);
             profileLimitsData.add(newUrlLimit);
 
             urlField.clear();
-            limitField.clear();
+            hoursBox.getSelectionModel().clearSelection();
+            minutesBox.getSelectionModel().clearSelection();
             profileBox.getSelectionModel().clearSelection();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
             alert.setHeaderText(null);
-            alert.setContentText("URL, Limit, or Profile cannot be empty");
+            alert.setContentText("Profile, Hours, Minutes, or URL cannot be empty");
         alert.showAndWait();
         }
 

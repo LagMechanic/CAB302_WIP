@@ -37,7 +37,37 @@
                         </items>
                     </ComboBox>
                     <Label text="Add Limit: " />
-            <TextField fx:id="limitField" maxWidth="200" prefWidth="50.0" promptText="Add Limit:" />
+                    <HBox alignment="CENTER" prefHeight="37.0" prefWidth="384.0" spacing="10.0">
+                        <ComboBox fx:id="hoursBox" maxWidth="100.0" prefWidth="100.0" promptText="Hours">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="0" />
+                                    <String fx:value="1" />
+                                    <String fx:value="2" />
+                                    <String fx:value="3" />
+                                    <String fx:value="4" />
+                                    <String fx:value="5" />
+                                    <String fx:value="6" />
+                                    <String fx:value="7" />
+                                    <String fx:value="8" />
+                                    <String fx:value="9" />
+                                    <String fx:value="10" />
+                                    <String fx:value="11" />
+                                    <String fx:value="12" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        <ComboBox fx:id="minutesBox" prefWidth="100.0" promptText="Minutes">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="0" />
+                                    <String fx:value="15" />
+                                    <String fx:value="30" />
+                                    <String fx:value="45" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                    </HBox>
                     <Label text="Add URL:" />
                     <TextField fx:id="urlField" maxWidth="200.0" prefWidth="50" promptText="Add URL:" />
                     <Button fx:id="UrlLimitData" onAction="#addUrlAndLimit" prefWidth="200.0" text="Add to URL and Limit to Profile" />
@@ -45,9 +75,10 @@
                     <HBox alignment="BOTTOM_CENTER">
                         <TableView fx:id="tbData">
                             <columns>
-                                <TableColumn prefWidth="200" text="URL" fx:id="url" />
-                                <TableColumn prefWidth="200" text="Limit" fx:id="limit"/>
-                                <TableColumn prefWidth="200" text="Profile" fx:id="profile"/>
+                                <TableColumn fx:id="profile" maxWidth="150.0" prefWidth="150.0" text="Profile" />
+                                <TableColumn fx:id="hours" maxWidth="150.0" prefWidth="150.0" text="Hours" />
+                                <TableColumn fx:id="minutes" maxWidth="150.0" prefWidth="150.0" text="Minutes" />
+                                <TableColumn fx:id="url" maxWidth="150.0" prefWidth="150.0" text="URL" />
                             </columns>
                         </TableView>
                     </HBox>
