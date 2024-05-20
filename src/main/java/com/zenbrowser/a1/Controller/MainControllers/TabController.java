@@ -256,8 +256,6 @@ public class TabController extends ParentController implements Initializable {
     }
 
 
-
-
     class MyBrowser extends Region {
         public MyBrowser(final String url) {
             currentTab.getWebEngine().getLoadWorker().stateProperty().addListener((ov, oldState, newState) -> {
