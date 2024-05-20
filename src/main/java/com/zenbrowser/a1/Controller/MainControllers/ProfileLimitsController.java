@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 
 
 public class ProfileLimitsController{
+
     @FXML
     public ComboBox<String> minutesBox;
 
@@ -43,6 +44,7 @@ public class ProfileLimitsController{
     private final ObservableList<UrlLimit> profileLimitsData = FXCollections.observableArrayList();
 
     public void initialize(){
+
         url.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Url()));
         hours.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Hours()));
         minutes.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Minutes()));
