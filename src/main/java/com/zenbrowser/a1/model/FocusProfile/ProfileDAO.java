@@ -5,6 +5,8 @@ import com.zenbrowser.a1.model.Website.Site;
 import com.zenbrowser.a1.model.Website.SiteDAO;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileDAO implements IProfileDAO {
     private final Connection connection;
@@ -21,7 +23,8 @@ public class ProfileDAO implements IProfileDAO {
             String query = "CREATE TABLE IF NOT EXISTS profiles ("
                     + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + "profileName VARCHAR NOT NULL,"
-                    + "websiteID VARCHAR NOT NULL"
+                    + "websiteID VARCHAR NOT NULL,"
+                    + "blockedUntil DATETIME NOT NULL"
                     + ")";
             statement.execute(query);
         } catch (Exception e) {
@@ -30,11 +33,12 @@ public class ProfileDAO implements IProfileDAO {
     }
 
     public Profile insertProfile(Profile profile) {
-        String sql = "INSERT INTO profiles (profileName, websiteId) VALUES (?, ?)";
+        String sql = "INSERT INTO profiles (profileName, websiteId, blockedUntil) VALUES (?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setString(1, profile.getProfileName());
             statement.setInt(2, profile.getWebsite().getId());
+            statement.setDate(3, profile.getBlockedUntil());
             int affectedRows = statement.executeUpdate();
             if (affectedRows > 0){
                 System.out.println("inserted record successfully");
@@ -95,12 +99,37 @@ public class ProfileDAO implements IProfileDAO {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public List<Profile> getAllProfiles() {
+        String sql = "SELECT * FROM profiles";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            try(ResultSet resultSet = statement.executeQuery()) {
+                List<Profile> result = new ArrayList<>();
+                while (resultSet.next()) {
+                    result.add(extractProfileFromResultSet(resultSet));
+                }
+
+                if (!result.isEmpty()) {
+                    return result;
+
+                } else return null;
+            }
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     private Profile extractProfileFromResultSet(ResultSet resultSet) throws SQLException {
         SiteDAO siteDAO = new SiteDAO();
         Site website = siteDAO.getSiteById(resultSet.getInt("websiteId"));
 
-        Profile profile = new Profile(resultSet.getString("profileName"), website);
+        Profile profile = new Profile(resultSet.getString("profileName"), website, resultSet.getDate("blockedUntil"));
         profile.setId(resultSet.getInt("id"));
         return profile;
     }
+
+
 }

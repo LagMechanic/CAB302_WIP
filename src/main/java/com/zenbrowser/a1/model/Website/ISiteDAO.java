@@ -6,5 +6,6 @@ public interface ISiteDAO {
     void deleteSite(int id);
     Site getSiteById(int id);
 
+    Site getSiteByURL(String url);
 }
 

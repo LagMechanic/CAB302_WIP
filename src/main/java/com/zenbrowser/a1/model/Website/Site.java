@@ -7,9 +7,10 @@ public class Site {
     private String category;
     private boolean blockedStatus;
 
-    public Site(String profileName, String siteName, boolean blockedStatus) {
-        this.URL = profileName;
+    public Site(String URL, String siteName, String category, boolean blockedStatus) {
+        this.URL = URL;
         this.siteName = siteName;
+        this.category = category;
         this.blockedStatus = blockedStatus;
     }
     public int getId() {
@@ -23,7 +24,7 @@ public class Site {
     public String getSiteName() { return siteName;}
     public void setSiteName(String siteName) {this.siteName = siteName;}
 
-    public String getProfileName() {
+    public String getURL() {
         return URL;
     }
     public void setProfileName(String profileName) {
