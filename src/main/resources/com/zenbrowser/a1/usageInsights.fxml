@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -8,26 +9,32 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.UsageInsightsController">
-   <children>
-      <VBox layoutX="22.0" layoutY="58.0" prefHeight="200.0" prefWidth="100.0">
-         <children>
-            <BarChart fx:id="topVisitedChart" title="Top Visited Sites">
-              <xAxis>
-                <CategoryAxis label="Site Name" side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis label="Visits" side="LEFT" />
-              </yAxis>
-            </BarChart>
-            <LineChart id="historyChart" fx:id="historyChart" title="Sites Per day">
-              <xAxis>
-                <CategoryAxis label="Date" side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis label="Sites Opened" side="LEFT" />
-              </yAxis>
-            </LineChart>
-         </children>
-      </VBox>
-   </children>
+    <children>
+        <VBox layoutX="22.0" layoutY="11.0" prefHeight="373.0" prefWidth="568.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <BarChart fx:id="topVisitedChart" prefHeight="268.0" prefWidth="568.0" title="Top Visited Sites" VBox.vgrow="ALWAYS">
+                    <xAxis>
+                        <CategoryAxis label="Site Name" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Visits" side="LEFT" />
+                    </yAxis>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </BarChart>
+                <LineChart id="historyChart" fx:id="historyChart" prefHeight="130.0" prefWidth="568.0" title="Sites Per day" VBox.vgrow="ALWAYS">
+                    <xAxis>
+                        <CategoryAxis label="Date" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Sites Opened" side="LEFT" />
+                    </yAxis>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </LineChart>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>

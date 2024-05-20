@@ -30,9 +30,9 @@ public class UsageInsightsController extends ParentController {
         records2.add(new HistoryRecord("1", "https://example.com/page1", "https://example.com/page1", Timestamp.valueOf("2024-05-01 10:30:00")));
         records2.add(new HistoryRecord("2", "https://example.com/page2", "https://example.com/page2", Timestamp.valueOf("2024-05-02 11:15:00")));
         records2.add(new HistoryRecord("3", "https://example.com/page3", "https://example.com/page13",Timestamp.valueOf("2024-05-02 11:15:00")));
-        records2.add(new HistoryRecord("4", "https://example.com/page4", "https://example.com/page4",Timestamp.valueOf("2024-05-05 15:30:00")));
-        records2.add(new HistoryRecord("5", "https://example.com/page5", "https://example.com/page5",Timestamp.valueOf("2024-05-06 09:45:00")));
-        records2.add(new HistoryRecord("6", "https://example.com/page6", "https://example.com/page6",Timestamp.valueOf("2024-05-06 11:15:00")));
+        records2.add(new HistoryRecord("4", "https://example.com/page4", "https://example.com/page13",Timestamp.valueOf("2024-05-05 15:30:00")));
+        records2.add(new HistoryRecord("5", "https://example.com/page5", "https://example.com/page13",Timestamp.valueOf("2024-05-06 09:45:00")));
+        records2.add(new HistoryRecord("6", "https://example.com/page6", "https://example.com/page13",Timestamp.valueOf("2024-05-06 11:15:00")));
         records2.add(new HistoryRecord("7", "https://example.com/page7", "https://example.com/page7",Timestamp.valueOf("2024-05-10 10:30:00")));
         records2.add(new HistoryRecord("8", "https://example.com/page8", "https://example.com/page8",Timestamp.valueOf("2024-05-10 11:15:00")));
         records2.add(new HistoryRecord("9", "https://example.com/page9", "https://example.com/page9",Timestamp.valueOf("2024-05-12 14:30:00")));
@@ -98,6 +98,7 @@ public class UsageInsightsController extends ParentController {
             String url = record.getURL();
             System.out.println(url);
             urlVisitCounts.put(url, urlVisitCounts.getOrDefault(url, 0) + 1);
+            System.out.println(urlVisitCounts);
         }
 
         List<Map.Entry<String, Integer>> sortedEntries = new ArrayList<>(urlVisitCounts.entrySet());
