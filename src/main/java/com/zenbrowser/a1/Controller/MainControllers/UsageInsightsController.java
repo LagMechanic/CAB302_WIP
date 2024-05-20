@@ -22,7 +22,7 @@ public class UsageInsightsController extends ParentController {
     private LineChart<String,Number> historyChart;
     @FXML
     private BarChart<String,Number> topVisitedChart;
-    private List<HistoryRecord> records;
+    private List<HistoryRecord> records = new ArrayList<>();
     private List<HistoryRecord> records2 = new ArrayList<>();
     public void initialize() {
 
