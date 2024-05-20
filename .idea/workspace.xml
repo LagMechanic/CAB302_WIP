@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Reformated go Button method">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/register-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/register-view.fxml" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Refactored browserTab fxml code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/AuthenticationControllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/AuthenticationControllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/login-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,14 +164,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Fixed error where home-page would not display during intialization">
-      <option name="closed" value="true" />
-      <created>1715344999237</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1715344999237</updated>
     </task>
     <task id="LOCAL-00026" summary="Push">
       <option name="closed" value="true" />
@@ -556,7 +549,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716193078026</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Refactored browserTab fxml code">
+      <option name="closed" value="true" />
+      <created>1716193519274</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1716193519275</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -589,7 +590,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Removing non utilized loginController methods and variables." />
     <MESSAGE value="Removing non utilized  methods and variables in History, profileLimits and register controllers." />
     <MESSAGE value="modifying browsertab and home-page fxml to move relocate to other page." />
     <MESSAGE value="Refactor updates." />
@@ -614,7 +614,8 @@
     <MESSAGE value="Reformated code, such as currentTab() to now be declared as a private field." />
     <MESSAGE value="Finished main page browser merger, Removed main page." />
     <MESSAGE value="Reformated go Button method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reformated go Button method" />
+    <MESSAGE value="Refactored browserTab fxml code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored browserTab fxml code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

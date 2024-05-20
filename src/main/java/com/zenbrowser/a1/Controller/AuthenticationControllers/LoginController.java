@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -61,5 +63,12 @@ public class LoginController extends ParentController {
     private void EnableLoginButton() {
         boolean validButton = (usernameTextField.getText().isEmpty() || passwordField.getText().isEmpty());
         LoginButton.setDisable(validButton);
+    }
+
+    @FXML
+    public void CheckLogin(KeyEvent key) throws IOException {
+        if (key.getCode() == KeyCode.ENTER && !LoginButton.isDisabled()){
+            onLoginButtonClick();
+        }
     }
 }
