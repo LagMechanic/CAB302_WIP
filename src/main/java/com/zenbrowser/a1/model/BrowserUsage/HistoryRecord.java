@@ -1,11 +1,7 @@
 package com.zenbrowser.a1.model.BrowserUsage;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 //  this is class was made only so this object can be put into an observable list-
@@ -15,11 +11,11 @@ public class HistoryRecord {
     private final String username;
     private final String url;
     private final String site;
-    private final java.sql.Date historyRecordDateTime;
+    private final Timestamp historyRecordDateTime;
     //private final StringProperty historyRecordEndDateTime;
 
 
-    public HistoryRecord(String username, String site, String url, java.sql.Date historyRecordDateTime) {
+    public HistoryRecord(String username, String site, String url, Timestamp historyRecordDateTime) {
         this.username = username;
         this.site = site;
         this.url = url;
@@ -44,14 +40,10 @@ public class HistoryRecord {
         return site;
     }
 
-    public Date getHistoryRecordDateTime() {
+    public Timestamp getHistoryRecordDateTime() {
         return historyRecordDateTime;
     }
 
-    @Override
-    public String toString() {
-        return ( Objects.equals(getURL(), "") ? getSite() : getURL() ) + " " + getHistoryRecordDateTime().toLocalDate().toString();
-    }
 
     /**
     public String getHistoryRecordEndDateTime() {
