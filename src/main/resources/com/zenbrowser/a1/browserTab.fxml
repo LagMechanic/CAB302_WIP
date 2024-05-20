@@ -132,7 +132,7 @@
                <Insets bottom="50.0" />
             </VBox.margin>
             </Label>
-            <Button fx:id="goUsageReports" text="Usage Reports" />
+            <Button onAction="#goUsageReports" text="Usage Reports" />
             <Button fx:id="goNotificationPage" text="Notification Settings" />
             <Button fx:id="goAccountSettings" text="My Account Settings" />
         </VBox>

@@ -15,6 +15,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -34,7 +35,6 @@ import org.w3c.dom.NodeList;
 import com.zenbrowser.a1.model.browserTab;
 
 public class TabController extends ParentController implements Initializable {
-
     private String defaultEngine = "https://www.google.com";
     @FXML
     private TextField URLBox;
@@ -60,6 +60,7 @@ public class TabController extends ParentController implements Initializable {
     private Label greetingLabel;
 
     private browserTab currentTab;
+
 
 
     @FXML
@@ -135,6 +136,9 @@ public class TabController extends ParentController implements Initializable {
 
     @FXML
     protected void GoToHistoryPage() {navigatePage("/com/zenbrowser/a1/history-view.fxml","History");}
+
+    @FXML
+    private void goUsageReports() {navigatePage("/com/zenbrowser/a1/usageInsights.fxml","Usage Report");}
 
 
     //Load a page into the parent BrowserTab.fxml with parameters of child source fxml file and name of tab.
@@ -257,6 +261,8 @@ public class TabController extends ParentController implements Initializable {
         iv.setImage(img);
         this.borderPane.setCenter(iv);
     }
+
+
 
 
     class MyBrowser extends Region {
