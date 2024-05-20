@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Adding Main bar to browsertab to reduce code abstraction fails">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
-    </list>
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Fixed functionality for currentTab history as listener would listen to page loading success to input history however currentTab could change." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,14 +156,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00020" summary="SQL query so some variables are correctly null and not null. Removed ID as primary key and changed to username.">
-      <option name="closed" value="true" />
-      <created>1715333819118</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1715333819118</updated>
     </task>
     <task id="LOCAL-00021" summary="Successfully got user database working.">
       <option name="closed" value="true" />
@@ -559,7 +541,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716184473236</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Fixed functionality for currentTab history as listener would listen to page loading success to input history however currentTab could change.">
+      <option name="closed" value="true" />
+      <created>1716192134615</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1716192134615</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -592,7 +582,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="History displays entry variables seperately instead of single entry." />
     <MESSAGE value="Removed unneccessary vbox components in Home-Page.fxml" />
     <MESSAGE value="Added fxml functionality to homepage buttons." />
     <MESSAGE value="Changing homepage layout so that buttons on left side and browser on center panel." />
@@ -617,7 +606,8 @@
     <MESSAGE value="Fixed home button error which would not load webview and display page not loaded error. Refactoring" />
     <MESSAGE value="Refactor and created directories to organize controllers. Renamed browserMain to more appropriate TabController" />
     <MESSAGE value="Adding Main bar to browsertab to reduce code abstraction fails" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Main bar to browsertab to reduce code abstraction fails" />
+    <MESSAGE value="Fixed functionality for currentTab history as listener would listen to page loading success to input history however currentTab could change." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed functionality for currentTab history as listener would listen to page loading success to input history however currentTab could change." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

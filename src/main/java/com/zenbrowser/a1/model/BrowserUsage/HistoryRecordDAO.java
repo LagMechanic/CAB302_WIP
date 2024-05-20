@@ -26,7 +26,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
                     + "username VARCHAR NOT NULL,"
                     + "URL VARCHAR NOT NULL,"
                     + "siteName VARCHAR NULL,"
-                    + "historyRecordDate DATETIME NOT NULL"
+                    + "historyRecordDateTime DATETIME NOT NULL"
                     + ")";
             statement.execute(query);
         } catch (Exception e) {
@@ -43,7 +43,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
      */
     @Override
     public void insertHistoryRecord(HistoryRecord record) {
-        String sql = "INSERT INTO history (username, URL, siteName, historyRecordDate ) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO history (username, URL, siteName, historyRecordDateTime ) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, record.getUsername());
@@ -100,7 +100,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
                         resultSet.getString("username"),
                         resultSet.getString("siteName"),
                         resultSet.getString("URL"),
-                        resultSet.getTimestamp("historyRecordDate")
+                        resultSet.getTimestamp("historyRecordDateTime")
                 );
                 historyRecord.setId(resultSet.getInt("id"));
                 historyRecords.add(historyRecord);
