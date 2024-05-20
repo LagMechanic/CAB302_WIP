@@ -11,7 +11,7 @@
    <children>
       <VBox layoutX="22.0" layoutY="58.0" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <LineChart id="historyChart">
+            <LineChart fx:id="historyChart" id="historyChart">
               <xAxis>
                 <CategoryAxis label="Date" side="BOTTOM" />
               </xAxis>
