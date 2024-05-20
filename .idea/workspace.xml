@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="finishing profile limits functionality with the table working but without it connecting to a database yet">
+    <list default="true" id="7fa9ee48-28eb-4162-acd4-dade1f6c8acb" name="Changes" comment="trying to get the background image in">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Styles/Background.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
@@ -305,13 +305,13 @@
       <option name="project" value="LOCAL" />
       <updated>1716200632530</updated>
     </task>
-    <task id="LOCAL-00012" summary="Altered sql queries for database connections and fixed errors.">
+    <task id="LOCAL-00012" summary="trying to get the background image in">
       <option name="closed" value="true" />
-      <created>1714880417971</created>
+      <created>1716202334780</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1714880417971</updated>
+      <updated>1716202334780</updated>
     </task>
     <task id="LOCAL-00013" summary="Functioning login page to register page.">
       <option name="closed" value="true" />
@@ -561,7 +561,7 @@
       <option name="project" value="LOCAL" />
       <updated>1715517942095</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -594,7 +594,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed error where home-page would not display during intialization" />
     <MESSAGE value="Push" />
     <MESSAGE value="currentUser  now statically shared across  controllers. Initialising gives greeting" />
     <MESSAGE value="Refactored all of Ben's Browserapplication code" />
@@ -619,7 +618,8 @@
     <MESSAGE value="Implementation Of main browser including&#10;Nested FXML's&#10;search integration&#10;multiple tabs&#10;Basic customisation options&#10;&#10;Modifications &amp; Additions to FXML files&#10;Home-Page.fxml: removed unnecessary buttons&#10;login-view.fxml:completely reworked how it changes between login-view.fxml and register-view.fxml by including ChangeListener's all screen changes within the Application are handled by BrowserMain.java" />
     <MESSAGE value="Profile Limits Functionality&#10;&#10;Modifications &amp; Additions to FXML files&#10;Home-Page.fxml: removed unnecessary buttons&#10;login-view.fxml:completely reworked how it changes between login-view.fxml and register-view.fxml by including ChangeListener's all screen changes within the Application are handled by BrowserMain.java" />
     <MESSAGE value="finishing profile limits functionality with the table working but without it connecting to a database yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="finishing profile limits functionality with the table working but without it connecting to a database yet" />
+    <MESSAGE value="trying to get the background image in" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to get the background image in" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
