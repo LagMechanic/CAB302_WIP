@@ -38,6 +38,7 @@ public class UsageInsightsController extends ParentController {
         records2.add(new HistoryRecord("9", "https://example.com/page9", "https://example.com/page9",Timestamp.valueOf("2024-05-12 14:30:00")));
         records2.add(new HistoryRecord("10", "https://example.com/page10", "https://example.com/page10",Timestamp.valueOf("2024-05-13 15:45:00")));records = new HistoryRecordDAO().getAllUserHistoryRecords(super.getCurrentUser());
         populateLineChart();
+        populateTopUrlsChart();
     }
     private void populateLineChart() {
         Map<String, Integer> dateCountMap = new HashMap<>();
