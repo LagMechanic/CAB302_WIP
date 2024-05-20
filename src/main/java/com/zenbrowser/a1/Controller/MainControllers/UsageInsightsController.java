@@ -4,6 +4,7 @@ import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAO;
 import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 
@@ -17,6 +18,8 @@ public class UsageInsightsController extends ParentController {
 
     @FXML
     private LineChart<String,Number> historyChart;
+    @FXML
+    private BarChart<String,Number> topVisitedChart;
     private List<HistoryRecord> records;
     private List<HistoryRecord> records2 = new ArrayList<>();
     public void initialize() {
@@ -74,5 +77,31 @@ public class UsageInsightsController extends ParentController {
         }
 
         historyChart.getData().add(series);
+    }
+    private void populateTopUrlsChart() {
+        List<Map.Entry<String, Integer>> topUrls = getTopUrls();
+
+        XYChart.Series<String,Number> series = new XYChart.Series<>();
+        series.setName("Visit Count");
+
+        for (Map.Entry<String,Integer> entry : topUrls) {
+            series.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
+        }
+
+        topVisitedChart.getData().add(series);
+    }
+    private List<Map.Entry<String, Integer>> getTopUrls() {
+        Map<String, Integer> urlVisitCounts = new HashMap<>();
+
+        for (HistoryRecord record : records2) {
+            String url = record.getURL();
+            System.out.println(url);
+            urlVisitCounts.put(url, urlVisitCounts.getOrDefault(url, 0) + 1);
+        }
+
+        List<Map.Entry<String, Integer>> sortedEntries = new ArrayList<>(urlVisitCounts.entrySet());
+        sortedEntries.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+
+        return sortedEntries.subList(0, Math.min(5, sortedEntries.size()));
     }
 }
