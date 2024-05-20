@@ -3,6 +3,7 @@ package com.zenbrowser.a1.Controller.MainControllers;
 import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.EventListener;
 import java.util.ResourceBundle;
@@ -36,13 +37,9 @@ public class TabController extends ParentController implements Initializable {
 
     private String defaultEngine = "https://www.google.com";
     @FXML
-    private Label promptLabel;
-    @FXML
     private TextField URLBox;
     @FXML
     private Button ReloadButton;
-    @FXML
-    private ColorPicker colorPicker;
     @FXML
     MenuItem homePageBackgroundImg;
     @FXML
@@ -59,6 +56,10 @@ public class TabController extends ParentController implements Initializable {
     private BorderPane borderPane;
     @FXML
     private TabPane tabPane;
+    @FXML
+    private Label greetingLabel;
+
+    private browserTab currentTab;
 
 
     @FXML
@@ -121,6 +122,7 @@ public class TabController extends ParentController implements Initializable {
             tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
         }
 
+        switchPage();
         loadPage(defaultEngine);
     }
 
@@ -135,17 +137,14 @@ public class TabController extends ParentController implements Initializable {
     protected void GoToHistoryPage() {navigatePage("/com/zenbrowser/a1/history-view.fxml","History");}
 
 
-    private browserTab currentTab()    {return (browserTab) tabPane.getSelectionModel().getSelectedItem();}
-
-
     //Load a page into the parent BrowserTab.fxml with parameters of child source fxml file and name of tab.
     public void navigatePage(String pathway, String tabName){
         try {
             //load source fxml file and assign to a borderpane variable.
             FXMLLoader loader = new FXMLLoader(getClass().getResource(pathway));
             BorderPane content = loader.load();
-            currentTab().setPage(borderPane, content);
-            currentTab().setText(tabName);
+            currentTab.setPage(borderPane, content);
+            currentTab.setText(tabName);
 
         } catch (IOException e) {e.printStackTrace();}
     }
@@ -153,60 +152,52 @@ public class TabController extends ParentController implements Initializable {
     private void loadPage(String urlStr)
     {
         try{
-            currentTab().getWebEngine().load(urlStr);
-            updateLoading(currentTab().getWebView());
+            browserTab loadingTab = currentTab;
+            loadingTab.getWebEngine().load(urlStr);
+            loadingTab.setPage(borderPane, loadingTab.getWebView());
 
-            ChangeListener<Worker.State> listener = new ChangeListener<>() {
-                @Override
-                public void changed(ObservableValue<? extends Worker.State> obs, Worker.State oldState, Worker.State newState) {
-                    if (newState == Worker.State.SUCCEEDED) {
-                        WebHistory.Entry entry = currentTab().getRecentHistory();
-                        HistoryDAO.insertHistoryRecord(new HistoryRecord(
-                                getCurrentUser(),
-                                entry.getTitle(),
-                                entry.getUrl(),
-                                new Timestamp(entry.getLastVisitedDate().getTime())));
-                    } else if (newState == Worker.State.FAILED) {
-                        System.out.println("Page loading failed!");
-                        currentTab().getWebEngine().getLoadWorker().stateProperty().removeListener(this);
-                    }
+
+            loadingTab.getWebEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
+                if (newState == Worker.State.SUCCEEDED) {
+                    WebHistory.Entry entry = loadingTab.getRecentHistory();
+                    HistoryDAO.insertHistoryRecord(new HistoryRecord(
+                            getCurrentUser(),
+                            entry.getTitle(),
+                            entry.getUrl(),
+                            new java.sql.Timestamp(entry.getLastVisitedDate().getTime())));
+                } else if (newState == Worker.State.FAILED || newState == Worker.State.CANCELLED) {
+                    System.out.println("Page failed to load.");
                 }
-            };
+            });
 
-            currentTab().getWebEngine().getLoadWorker().stateProperty().addListener(listener);
-
-
-        }catch (Exception e){
-            System.out.println("Page loading failed!");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
     private void switchPage(){
-        borderPane.setCenter(currentTab().getPage());
-    }
-
-    private void updateLoading(WebView browserView){
-        borderPane.setCenter(browserView);
+        currentTab = (browserTab) tabPane.getSelectionModel().getSelectedItem();
+        borderPane.setCenter(currentTab.getPage());
     }
 
 
     @FXML
     private void GoToPreviousPage() {
-        ObservableList<WebHistory.Entry> entryList = currentTab().getHistory().getEntries();
-        int currentIndex = currentTab().getHistory().getCurrentIndex();
-        Platform.runLater(() -> currentTab().getHistory().go(entryList.size() > 1 && currentIndex > 0 ? -1 : 0));
+        ObservableList<WebHistory.Entry> entryList = currentTab.getHistory().getEntries();
+        int currentIndex = currentTab.getHistory().getCurrentIndex();
+        Platform.runLater(() -> currentTab.getHistory().go(entryList.size() > 1 && currentIndex > 0 ? -1 : 0));
     }
 
     @FXML
     private void GotoNextPage() {
-        ObservableList<WebHistory.Entry> entryList = currentTab().getHistory().getEntries();
-        int currentIndex = currentTab().getHistory().getCurrentIndex();
-        Platform.runLater(() -> currentTab().getHistory().go(entryList.size() > 1 && currentIndex < entryList.size() - 1 ? 1 : 0));
+        ObservableList<WebHistory.Entry> entryList = currentTab.getHistory().getEntries();
+        int currentIndex = currentTab.getHistory().getCurrentIndex();
+        Platform.runLater(() -> currentTab.getHistory().go(entryList.size() > 1 && currentIndex < entryList.size() - 1 ? 1 : 0));
     }
 
     @FXML
     private void GoReloadPage() {
-        currentTab().getWebEngine().reload();
+        currentTab.getWebEngine().reload();
     }
 
     @FXML
@@ -243,9 +234,6 @@ public class TabController extends ParentController implements Initializable {
 
     @FXML
     private void goButtonPressed() {
-        navigatePage("/com/zenbrowser/a1/Home-Page.fxml", "Home");
-
-            promptLabel.setText("");
             String PromptedSearch = URLBox.getText();
             if (PromptedSearch != "") {
                 if (PromptedSearch.startsWith("https")){
@@ -257,19 +245,10 @@ public class TabController extends ParentController implements Initializable {
                     loadPage(formatUrl(defaultEngine, PromptedSearch));
                 }
             }
-            else {promptLabel.setText("You didn't enter anything : (");}
     }
 
-    @FXML
-    private BorderPane homePane;
-    @FXML
-    private Button goUsageReports;
-    @FXML
-    private Button goNotificationPage;
-    @FXML
-    private Button goAccountSettings;
-    @FXML
-    private Label greetingLabel;
+
+
 
 
 
@@ -284,29 +263,27 @@ public class TabController extends ParentController implements Initializable {
 
     class MyBrowser extends Region {
         public MyBrowser(final String url) {
-            currentTab().getWebEngine().getLoadWorker().stateProperty().addListener((ov, oldState, newState) -> {
+            currentTab.getWebEngine().getLoadWorker().stateProperty().addListener((ov, oldState, newState) -> {
                 ProgressIndicator progInd = new ProgressIndicator(-1.0);
                 progInd.setPrefHeight(17.0);
                 progInd.setPrefWidth(25.0);
-                currentTab().setGraphic(progInd);
+                currentTab.setGraphic(progInd);
                 ReloadButton.setText("X");
                 ReloadButton.setOnAction((e) -> {
-                    currentTab().setText("Aborted!");
-                    promptLabel.setText("You have aborted loading the page.");
-                    currentTab().setGraphic((Node)null);
+                    currentTab.setText("Aborted!");
+                    currentTab.setGraphic((Node)null);
                 });
                 if (newState == Worker.State.SUCCEEDED) {
-                    promptLabel.setText("");
-                    currentTab().setText(currentTab().getWebEngine().getTitle());
-                    URLBox.setText(currentTab().getWebEngine().getLocation());
-                    currentTab().setGraphic(loadFavicon(url));
+                    currentTab.setText(currentTab.getWebEngine().getTitle());
+                    URLBox.setText(currentTab.getWebEngine().getLocation());
+                    currentTab.setGraphic(loadFavicon(url));
                     ReloadButton.setText("↺");
                     EventListener var10000 = new EventListener() {
                         public void handleEvent(Event ev) {
                             System.out.println("You pressed on a link");
                         }
                     };
-                    Document doc = currentTab().getWebEngine().getDocument();
+                    Document doc = currentTab.getWebEngine().getDocument();
                     NodeList el = doc.getElementsByTagName("a");
 
                     for(int i = 0; i < el.getLength(); ++i) {
@@ -314,21 +291,21 @@ public class TabController extends ParentController implements Initializable {
                 }
             });
 
-            currentTab().getWebEngine().setCreatePopupHandler((config) -> {
-                currentTab().getWebView().setFontScale(0.8);
-                if (!this.getChildren().contains(currentTab().getWebView())) {
-                    this.getChildren().add(currentTab().getWebView());
+            currentTab.getWebEngine().setCreatePopupHandler((config) -> {
+                currentTab.getWebView().setFontScale(0.8);
+                if (!this.getChildren().contains(currentTab.getWebView())) {
+                    this.getChildren().add(currentTab.getWebView());
                 }
 
-                return currentTab().getWebView().getEngine();
+                return currentTab.getWebView().getEngine();
             });
-            currentTab().getWebEngine().load(url);
+            currentTab.getWebEngine().load(url);
         }
 
         public ImageView loadFavicon(String location) {
             try {
                 String faviconUrl;
-                if (currentTab().getWebEngine().getTitle().equalsIgnoreCase("Google")) {
+                if (currentTab.getWebEngine().getTitle().equalsIgnoreCase("Google")) {
                     faviconUrl = "https://www.google.com/s2/favicons?domain_url=www.gmail.com";
                 } else {
                     faviconUrl = String.format("http://www.google.com/s2/favicons?domain_url=%s", URLEncoder.encode(location, "UTF-8"));

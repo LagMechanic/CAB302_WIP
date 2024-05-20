@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="borderPane" fx:id="borderPane" prefHeight="448.0" prefWidth="939.0" style="-fx-background-color: D1FFBD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.TabController">
+<BorderPane id="borderPane" fx:id="borderPane" prefHeight="448.0" prefWidth="939.0" style="-fx-background-color: D1FFBD;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.TabController">
     <top>
         <VBox>
          <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="1000.0">
@@ -95,40 +95,39 @@
                         <Insets />
                      </HBox.margin>
                       </MenuBar>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
                             <Button fx:id="GoToHomePageButton" mnemonicParsing="false" onAction="#GoToHomePage" onMouseEntered="#homeBtnHover" onMouseExited="#homeBtnHoverExit">
                            <graphic>
                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                   <Image url="@../../../Icons/home.png"/>
+                                   <Image url="@../../../Icons/home.png" />
                                </ImageView>
                            </graphic>
                         </Button>
                             <Label fx:id="homeLabel" style="-fx-background-color: White;" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
                             <Button fx:id="ProfileButton" mnemonicParsing="false" onAction="#GoToLoginPage" onMouseEntered="#profileBtnHover" onMouseExited="#profileBtnHoverExit">
                            <graphic>
                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                   <Image url="@../../../Icons/UserIcon.png"/>
+                                   <Image url="@../../../Icons/UserIcon.png" />
                                </ImageView>
                            </graphic>
                         </Button>
                             <Label fx:id="ProfileLabel" style="-fx-background-color: White;" />
                      </children>
                   </VBox>
-                   <VBox prefHeight="200.0" prefWidth="100.0">
-                       <Button fx:id="GoToHistoryPageButton" mnemonicParsing="false" onAction="#GoToHistoryPage"
-                               onMouseEntered="#historyBtnHover" onMouseExited="#historyBtnHoverExit">
+                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                       <Button fx:id="GoToHistoryPageButton" mnemonicParsing="false" onAction="#GoToHistoryPage" onMouseEntered="#historyBtnHover" onMouseExited="#historyBtnHoverExit">
                       <graphic>
                           <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                              <Image url="@../../../Icons/History.png"/>
+                              <Image url="@../../../Icons/History.png" />
                           </ImageView>
                       </graphic>
                        </Button>
-                       <Label fx:id="historyLabel" style="-fx-background-color: White;"/>
+                       <Label fx:id="historyLabel" style="-fx-background-color: White;" />
                    </VBox>
                </children>
                <HBox.margin>

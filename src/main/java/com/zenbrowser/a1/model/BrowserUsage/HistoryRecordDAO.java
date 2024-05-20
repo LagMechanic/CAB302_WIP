@@ -1,7 +1,6 @@
 package com.zenbrowser.a1.model.BrowserUsage;
 
 import com.zenbrowser.a1.model.SqliteConnection;
-import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
                     + "username VARCHAR NOT NULL,"
                     + "URL VARCHAR NOT NULL,"
                     + "siteName VARCHAR NULL,"
-                    + "historyRecordDateTime DATETIME NOT NULL"
+                    + "historyRecordDate DATETIME NOT NULL"
                     + ")";
             statement.execute(query);
         } catch (Exception e) {
@@ -44,15 +43,13 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
      */
     @Override
     public void insertHistoryRecord(HistoryRecord record) {
-        String sql = "INSERT INTO history (username, URL, siteName, historyRecordDateTime ) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO history (username, URL, siteName, historyRecordDate ) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-
             preparedStatement.setString(1, record.getUsername());
             preparedStatement.setString(2, record.getURL());
             preparedStatement.setString(3, record.getSite());
-            preparedStatement.setTimestamp(4, record.getHistoryRecordDateTime());
+            preparedStatement.setTimestamp(4, record.getHistoryRecordDate());
 
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
@@ -103,7 +100,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
                         resultSet.getString("username"),
                         resultSet.getString("siteName"),
                         resultSet.getString("URL"),
-                        resultSet.getTimestamp("historyRecordDateTime")
+                        resultSet.getTimestamp("historyRecordDate")
                 );
                 historyRecord.setId(resultSet.getInt("id"));
                 historyRecords.add(historyRecord);

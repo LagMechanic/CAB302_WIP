@@ -31,7 +31,7 @@ public class HistoryController extends ParentController {
 
             Label siteLabel = new Label(record.getSite());
             Label URLLabel = new Label(record.getURL());
-            Label timeLabel = new Label(record.getHistoryRecordDateTime().toString());
+            Label timeLabel = new Label(record.getHistoryRecordDate().toString());
 
             historyGrid.add(siteLabel, 0, row);
             historyGrid.add(URLLabel, 1, row);

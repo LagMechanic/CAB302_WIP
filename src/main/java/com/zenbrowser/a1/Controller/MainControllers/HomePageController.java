@@ -35,11 +35,7 @@ public class HomePageController extends ParentController {
 
 
     @FXML
-    protected void onGoToProfileLimits() throws IOException {
+    protected void onGoToProfileLimits(){
         BrowserApplication.tabController.navigatePage("/com/zenbrowser/a1/ProfileLimits.fxml", "Profile Limits");
-    }
-
-    public void updateLoading(WebView browserView){
-        homePane.setCenter(browserView);
     }
 }

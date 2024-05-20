@@ -1,7 +1,12 @@
 package com.zenbrowser.a1.model;
 
 import com.zenbrowser.a1.Controller.ParentController;
+import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
+import com.zenbrowser.a1.model.BrowserUsage.IHistoryRecordDAO;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Worker;
 import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.BorderPane;

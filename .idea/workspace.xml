@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Refactor and created directories to organize controllers. Renamed browserMain to more appropriate TabController">
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Adding Main bar to browsertab to reduce code abstraction fails">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HistoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HomePageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/BrowserUsage/HistoryRecordDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/browserTab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
@@ -163,14 +166,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Changed Abstract controller to become ParentController so that parent controller class can be instantiated. fixes to authentication. Refactoring.">
-      <option name="closed" value="true" />
-      <created>1715333690402</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1715333690402</updated>
     </task>
     <task id="LOCAL-00020" summary="SQL query so some variables are correctly null and not null. Removed ID as primary key and changed to username.">
       <option name="closed" value="true" />
@@ -556,7 +551,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715732034739</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Adding Main bar to browsertab to reduce code abstraction fails">
+      <option name="closed" value="true" />
+      <created>1716184473235</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1716184473236</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -589,7 +592,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="history error checks before website loading. Listener added to fix bug." />
     <MESSAGE value="History displays entry variables seperately instead of single entry." />
     <MESSAGE value="Removed unneccessary vbox components in Home-Page.fxml" />
     <MESSAGE value="Added fxml functionality to homepage buttons." />
@@ -614,7 +616,8 @@
     <MESSAGE value="Removed untilized history methods and variables." />
     <MESSAGE value="Fixed home button error which would not load webview and display page not loaded error. Refactoring" />
     <MESSAGE value="Refactor and created directories to organize controllers. Renamed browserMain to more appropriate TabController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor and created directories to organize controllers. Renamed browserMain to more appropriate TabController" />
+    <MESSAGE value="Adding Main bar to browsertab to reduce code abstraction fails" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Main bar to browsertab to reduce code abstraction fails" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

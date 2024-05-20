@@ -2,7 +2,6 @@ package com.zenbrowser.a1.model.BrowserUsage;
 
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.Objects;
 
 //  this is class was made only so this object can be put into an observable list-
 //  -for the javafx tableview, which will access the properties for its columns.
@@ -11,21 +10,18 @@ public class HistoryRecord {
     private final String username;
     private final String url;
     private final String site;
-    private final Timestamp historyRecordDateTime;
+    private final Timestamp historyRecordDate;
     //private final StringProperty historyRecordEndDateTime;
 
 
-    public HistoryRecord(String username, String site, String url, Timestamp historyRecordDateTime) {
+    public HistoryRecord(String username, String site, String url, Timestamp historyRecordDate) {
         this.username = username;
         this.site = site;
         this.url = url;
-        this.historyRecordDateTime = historyRecordDateTime;
+        this.historyRecordDate = historyRecordDate;
     }
 
-    // Getters
-    public int getActivityID() {
-        return activityID;
-    }
+
     public void setId(int id) {
         activityID = id;
     }
@@ -40,8 +36,8 @@ public class HistoryRecord {
         return site;
     }
 
-    public Timestamp getHistoryRecordDateTime() {
-        return historyRecordDateTime;
+    public Timestamp getHistoryRecordDate() {
+        return historyRecordDate;
     }
 
 
