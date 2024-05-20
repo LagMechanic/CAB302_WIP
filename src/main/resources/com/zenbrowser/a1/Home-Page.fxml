@@ -3,12 +3,11 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="homePane" style="-fx-background-color: #D1FFBD;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.HomePageController">
+<BorderPane fx:id="homePane" style="-fx-background-color: #D1FFBD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.HomePageController">
    <top>
       <Label fx:id="greetingLabel" text="Welcome to zenbrowser!" BorderPane.alignment="BOTTOM_LEFT">
          <BorderPane.margin>
@@ -22,9 +21,10 @@
 
    <left>
         <VBox alignment="CENTER" prefHeight="343.0" prefWidth="150.0" spacing="20.0" BorderPane.alignment="CENTER">
-            <Button fx:id="goUsageReports" text="Usage Reports" />
-            <Button fx:id="goNotificationPage" text="Notification Settings" />
-            <Button fx:id="goAccountSettings" text="My Account Settings" />
+            <Button fx:id="GoToProfileLimits" onAction="#onGoToProfileLimits" maxWidth="140.0" text="Profile Limits" />
+            <Button fx:id="goUsageReports" maxWidth="140.0" text="Usage Reports" />
+            <Button fx:id="goNotificationPage" maxWidth="140.0" text="Notification Settings" />
+            <Button fx:id="goAccountSettings" maxWidth="140.0" text="My Account Settings" />
         </VBox>
    </left>
 </BorderPane>
