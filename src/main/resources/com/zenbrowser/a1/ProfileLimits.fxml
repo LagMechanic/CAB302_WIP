@@ -91,14 +91,4 @@
                 </VBox>
             </ScrollPane>
     </center>
-
-    <left>
-        <VBox alignment="CENTER" spacing="10">
-            <Label style="-fx-font-size: 18px;" text="          Dashboard          " />
-            <Button text="Profile Limit Settings" />
-            <Button text="Usage Reports" />
-            <Button text="Notification Settings" />
-            <Button text="My Account Settings" />
-        </VBox>
-    </left>
 </BorderPane>
