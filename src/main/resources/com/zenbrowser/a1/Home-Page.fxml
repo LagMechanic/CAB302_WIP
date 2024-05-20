@@ -22,6 +22,7 @@
 
    <left>
         <VBox alignment="CENTER" prefHeight="343.0" prefWidth="150.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <Button fx:id="GoToProfileButton" onAction="#onGoToProfileLimits" text="Profile Limit Settings" />
             <Button fx:id="goUsageReports" text="Usage Reports" />
             <Button fx:id="goNotificationPage" text="Notification Settings" />
             <Button fx:id="goAccountSettings" text="My Account Settings" />
