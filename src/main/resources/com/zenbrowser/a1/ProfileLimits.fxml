@@ -30,9 +30,9 @@
                     <ComboBox fx:id="profileBox" maxWidth="200.0" prefWidth="150.0" promptText="Select Profile">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
-                                <String fx:value="Profile 1" />
-                                <String fx:value="Profile 2" />
-                                <String fx:value="Profile 3" />
+                                <String fx:value="Study" />
+                                <String fx:value="Work" />
+                                <String fx:value="Relaxing" />
                             </FXCollections>
                         </items>
                     </ComboBox>
