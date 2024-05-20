@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Finished main page browser merger, Removed main page.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Reformated go Button method">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/register-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/register-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,14 +163,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Login and register buttons now greyed out until user inputs data into textfields">
-      <option name="closed" value="true" />
-      <created>1715343362637</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1715343362637</updated>
     </task>
     <task id="LOCAL-00025" summary="Fixed error where home-page would not display during intialization">
       <option name="closed" value="true" />
@@ -556,7 +548,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716192702812</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Reformated go Button method">
+      <option name="closed" value="true" />
+      <created>1716193078026</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1716193078026</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -589,7 +589,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Changing homepage layout so that buttons on left side and browser on center panel." />
     <MESSAGE value="Removing non utilized loginController methods and variables." />
     <MESSAGE value="Removing non utilized  methods and variables in History, profileLimits and register controllers." />
     <MESSAGE value="modifying browsertab and home-page fxml to move relocate to other page." />
@@ -614,7 +613,8 @@
     <MESSAGE value="Fixed functionality for currentTab history as listener would listen to page loading success to input history however currentTab could change." />
     <MESSAGE value="Reformated code, such as currentTab() to now be declared as a private field." />
     <MESSAGE value="Finished main page browser merger, Removed main page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished main page browser merger, Removed main page." />
+    <MESSAGE value="Reformated go Button method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reformated go Button method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
