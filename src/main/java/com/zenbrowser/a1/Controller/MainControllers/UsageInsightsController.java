@@ -27,25 +27,12 @@ import javafx.scene.chart.XYChart;
         private BarChart<String,Number> timeOfDayChart;
 
         private List<HistoryRecord> records = new ArrayList<>();
-        private List<HistoryRecord> records2 = new ArrayList<>();
+
         public void initialize() {
 
 
-
-            // Add some mock history records
-//            records2.add(new HistoryRecord("1", "https://example.com/page1", "https://example.com/page1", Timestamp.valueOf("2024-05-01 10:30:00")));
-//            records2.add(new HistoryRecord("2", "https://netflix.com/page2", "https://netflix.com/page2", Timestamp.valueOf("2024-05-02 11:15:00")));
-//            records2.add(new HistoryRecord("3", "https://netflix.com/page3", "https://netflix.com/page13",Timestamp.valueOf("2024-05-02 11:15:00")));
-//            records2.add(new HistoryRecord("4", "https://example.com/page4", "https://animixplay.com/page13",Timestamp.valueOf("2024-05-05 15:30:00")));
-//            records2.add(new HistoryRecord("5", "https://example.com/page5", "https://example.com/page13",Timestamp.valueOf("2024-05-06 09:45:00")));
-//            records2.add(new HistoryRecord("6", "https://example.com/page6", "https://example.com/page13",Timestamp.valueOf("2024-05-06 11:15:00")));
-//            records2.add(new HistoryRecord("7", "https://example.com/page7", "https://youtube.com/page7",Timestamp.valueOf("2024-05-10 10:30:00")));
-//            records2.add(new HistoryRecord("8", "https://.com/page8", "https://example.com/page8",Timestamp.valueOf("2024-05-10 11:15:00")));
-//            records2.add(new HistoryRecord("9", "https://example.com/page9", "https://example.com/page9",Timestamp.valueOf("2024-05-12 14:30:00")));
-//            records2.add(new HistoryRecord("10", "https://example.com/page10", "https://example.com/page10",Timestamp.valueOf("2024-05-13 15:45:00")));
-
             records = new HistoryRecordDAO().getAllUserHistoryRecords(super.getCurrentUser());
-            //records = new HistoryRecordDAO().getAllUserHistoryRecords("Josh");
+
             populateLineChart();
             populateTopUrlsChart();
             populateDayOfWeekChart();
@@ -108,9 +95,7 @@ import javafx.scene.chart.XYChart;
             for (HistoryRecord record : records) {
                 String url = record.getURL();
                 String baseDomain = getBaseDomain(url);
-                System.out.println(url);
                 urlVisitCounts.put(baseDomain, urlVisitCounts.getOrDefault(baseDomain, 0) + 1);
-                System.out.println(urlVisitCounts);
             }
 
             List<Map.Entry<String, Integer>> sortedEntries = new ArrayList<>(urlVisitCounts.entrySet());
