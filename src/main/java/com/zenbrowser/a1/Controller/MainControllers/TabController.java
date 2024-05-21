@@ -21,6 +21,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.web.WebHistory;
 import javafx.stage.FileChooser;
@@ -48,6 +49,8 @@ public class TabController extends ParentController implements Initializable {
     @FXML
     private Label ProfileLabel;
     @FXML
+    private Label settingsLabel;
+    @FXML
     private BorderPane borderPane;
     @FXML
     private TabPane tabPane;
@@ -56,25 +59,6 @@ public class TabController extends ParentController implements Initializable {
 
     private browserTab currentTab;
 
-
-
-    @FXML
-    private void homeBtnHover() {homeLabel.setText("Home");}
-
-    @FXML
-    private void homeBtnHoverExit() {homeLabel.setText("");}
-
-    @FXML
-    private void historyBtnHover() {historyLabel.setText("History");}
-
-    @FXML
-    private void historyBtnHoverExit() {historyLabel.setText("");}
-
-    @FXML
-    private void profileBtnHover() {ProfileLabel.setText("Profile");}
-
-    @FXML
-    private void profileBtnHoverExit() {ProfileLabel.setText("");}
 
     private void setupTabCloseHandler(Tab tab) {
         tab.setOnCloseRequest(event -> {
@@ -264,7 +248,27 @@ public class TabController extends ParentController implements Initializable {
         iv.setImage(img);
         this.borderPane.setCenter(iv);
     }
+    @FXML
+    private void settingsBtnHover() {settingsLabel.setText("Settings");}
+    @FXML
+    private void settingsBtnHoverExit() {settingsLabel.setText("");}
+    @FXML
+    private void homeBtnHover() {homeLabel.setText("Home");}
 
+    @FXML
+    private void homeBtnHoverExit() {homeLabel.setText("");}
+
+    @FXML
+    private void historyBtnHover() {historyLabel.setText("History");}
+
+    @FXML
+    private void historyBtnHoverExit() {historyLabel.setText("");}
+
+    @FXML
+    private void logoutBtnHover() {ProfileLabel.setText("Logout User");}
+
+    @FXML
+    private void logoutBtnHoverExit() {ProfileLabel.setText("");}
 
 
     class MyBrowser extends Region {

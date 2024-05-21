@@ -15,11 +15,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.effect.DropShadow?>
-<BorderPane id="borderPane" fx:id="borderPane" style="-fx-background-color: #D1FFBD;" prefHeight="448.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.TabController">
+<BorderPane id="borderPane" fx:id="borderPane" prefHeight="448.0" prefWidth="939.0" style="-fx-background-color: #D1FFBD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.TabController">
     <top>
         <VBox>
             <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="1000.0">
@@ -40,7 +40,7 @@
                     <Button fx:id="PreviousPageButton" mnemonicParsing="false" onAction="#GoToPreviousPage" text="◁" />
                     <Button fx:id="NextPageButton" mnemonicParsing="false" onAction="#GotoNextPage" text="▷" />
                 </ToolBar>
-                <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="692.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="641.0" spacing="5.0" HBox.hgrow="ALWAYS">
                     <padding>
                         <Insets right="10.0" />
                     </padding>
@@ -52,34 +52,9 @@
                     <Button fx:id="GoButton" mnemonicParsing="false" onAction="#goButtonPressed" prefHeight="25.0" prefWidth="38.0" text="Go" />
                     <Button fx:id="ReloadButton" mnemonicParsing="false" onAction="#GoReloadPage" prefHeight="25.0" prefWidth="38.0" text="↺" />
                 </HBox>
-            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="222.0" spacing="5.0" >
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="257.0">
                <children>
-                      <MenuBar minWidth="-Infinity" prefHeight="27.0" prefWidth="82.0">
-                          <menus>
-                              <Menu mnemonicParsing="false" text="Settings">
-                                  <Menu mnemonicParsing="false" text="Search Engine">
-                                      <RadioMenuItem fx:id="googleMenuItm" mnemonicParsing="false" onAction="#setEngine" text="Google" />
-                                      <RadioMenuItem fx:id="bingMenuItm" mnemonicParsing="false" onAction="#setEngine" text="Bing" />
-                                  </Menu>
-                                  <Menu mnemonicParsing="false" text="Start Page">
-                                      <Menu mnemonicParsing="false" text="Set by theme">
-                                          <MenuItem mnemonicParsing="false">
-                                              <graphic>
-                                                  <ColorPicker fx:id="colorPicker" />
-                                              </graphic>
-                                          </MenuItem>
-                                      </Menu>
-                                      <MenuItem fx:id="homePageBackgroundImg" mnemonicParsing="false" onAction="#backgroundImgFunction" text="Set by image" />
-                                      <MenuItem mnemonicParsing="false" text="Set by website" />
-                                      <MenuItem mnemonicParsing="false" text="Keep blank" />
-                                  </Menu>
-                              </Menu>
-                          </menus>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                      </MenuBar>
-                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                   <VBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0">
                        <Button fx:id="GoToHomePageButton" mnemonicParsing="false" onAction="#GoToHomePage" onMouseEntered="#homeBtnHover" onMouseExited="#homeBtnHoverExit">
                       <graphic>
                           <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -89,18 +64,46 @@
                        </Button>
                        <Label fx:id="homeLabel" style="-fx-background-color: White;" />
                    </VBox>
-                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                       <Button mnemonicParsing="false" onAction="#LogoutUser" onMouseEntered="#profileBtnHover" onMouseExited="#profileBtnHoverExit">
-                      <graphic>
-                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                              <Image url="@../../../Icons/UserIcon.png" />
-                          </ImageView>
-                      </graphic>
-                       </Button>
-                       <Label fx:id="ProfileLabel" style="-fx-background-color: White;" />
-                   </VBox>
-                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                       <Button fx:id="GoToHistoryPageButton" mnemonicParsing="false" onAction="#GoToHistoryPage" onMouseEntered="#historyBtnHover" onMouseExited="#historyBtnHoverExit">
+                  <VBox alignment="CENTER" prefHeight="45.0" prefWidth="34.0">
+                     <children>
+                        <StackPane prefHeight="45.0" prefWidth="40.0">
+                           <children>
+                              <Button mnemonicParsing="false">
+                                 <graphic>
+                                     <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                         <Image url="@../../../Icons/gear.png" />
+                                     </ImageView>
+                                 </graphic>
+                              </Button>
+                              <MenuBar minWidth="-Infinity" onMouseEntered="#settingsBtnHover" onMouseExited="#settingsBtnHoverExit" opacity="0.0" prefHeight="32.0" prefWidth="35.0">
+                                  <menus>
+                                      <Menu mnemonicParsing="false">
+                                          <Menu mnemonicParsing="false" text="Search Engine">
+                                              <RadioMenuItem fx:id="googleMenuItm" mnemonicParsing="false" onAction="#setEngine" text="Google" />
+                                              <RadioMenuItem fx:id="bingMenuItm" mnemonicParsing="false" onAction="#setEngine" text="Bing" />
+                                          </Menu>
+                                          <Menu mnemonicParsing="false" text="Start Page">
+                                              <Menu mnemonicParsing="false" text="Set by theme">
+                                                  <MenuItem mnemonicParsing="false">
+                                                      <graphic>
+                                                          <ColorPicker fx:id="colorPicker" />
+                                                      </graphic>
+                                                  </MenuItem>
+                                              </Menu>
+                                              <MenuItem fx:id="homePageBackgroundImg" mnemonicParsing="false" onAction="#backgroundImgFunction" text="Set by image" />
+                                              <MenuItem mnemonicParsing="false" text="Set by website" />
+                                              <MenuItem mnemonicParsing="false" text="Keep blank" />
+                                          </Menu>
+                                      </Menu>
+                                  </menus>
+                              </MenuBar>
+                           </children>
+                        </StackPane>
+                        <Label fx:id="settingsLabel" />
+                     </children>
+                  </VBox>
+                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="50.0">
+                       <Button mnemonicParsing="false" onAction="#GoToHistoryPage" onMouseEntered="#historyBtnHover" onMouseExited="#historyBtnHoverExit">
                       <graphic>
                           <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                               <Image url="@../../../Icons/History.png" />
@@ -108,6 +111,16 @@
                       </graphic>
                        </Button>
                        <Label fx:id="historyLabel" style="-fx-background-color: White;" />
+                   </VBox>
+                   <VBox alignment="CENTER" prefHeight="45.0" prefWidth="79.0">
+                       <Button mnemonicParsing="false" onAction="#LogoutUser" onMouseEntered="#logoutBtnHover" onMouseExited="#logoutBtnHoverExit" text="Logout">
+                      <graphic>
+                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                              <Image url="@../../../Icons/UserIcon.png" />
+                          </ImageView>
+                      </graphic>
+                       </Button>
+                       <Label fx:id="ProfileLabel" style="-fx-background-color: White;" />
                    </VBox>
                </children>
                <HBox.margin>
@@ -122,7 +135,7 @@
     </top>
     <left>
 
-        <VBox alignment="CENTER" prefHeight="343.0" prefWidth="150.0" spacing="20.0" BorderPane.alignment="CENTER" >
+        <VBox alignment="CENTER" prefHeight="343.0" prefWidth="150.0" spacing="20.0" BorderPane.alignment="CENTER">
             <Label style="-fx-font-size: 18px;" text="  Dashboard " />
             <Label fx:id="greetingLabel" prefHeight="67.0" prefWidth="132.0" text="Welcome to zenbrowser!" wrapText="true" BorderPane.alignment="BOTTOM_LEFT">
                 <BorderPane.margin>

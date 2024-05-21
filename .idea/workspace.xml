@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Merged with UsageInsights branch and fixed errors.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Refactored code to reduce for opening new applications.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/gear.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
@@ -175,22 +175,6 @@
       <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
       <updated>1715503363627</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Current Stage closes when all tabs have been closed.">
-      <option name="closed" value="true" />
-      <created>1715500847814</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1715500847814</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Removed unutilised ProfileLimitsApplication.java and UrlLimit.java">
-      <option name="closed" value="true" />
-      <created>1715501045217</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1715501045217</updated>
     </task>
     <task id="LOCAL-00037" summary="made parentcontroller currentUser a private class instead of protected so controllers have to indirectly access. Add private record UrlLimit to ProfileLimitsController">
       <option name="closed" value="true" />
@@ -560,7 +544,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716204726002</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="LogoutUser now opens new logout application, for next user">
+      <option name="closed" value="true" />
+      <created>1716279281236</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1716279281236</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Refactored code to reduce for opening new applications.">
+      <option name="closed" value="true" />
+      <created>1716279511580</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1716279511580</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -593,8 +593,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Bug where login is opened after login completed instead of home page" />
-    <MESSAGE value="Check for currentUser on newTab no longer required. Removed" />
     <MESSAGE value="homepage greeting label text error fix" />
     <MESSAGE value="Changed how page opens in consideration to start of load. Created method to check Controller type." />
     <MESSAGE value="Error when saving content into tab content as well as browser content as two instances. New method which sets container. Modifications to browsermain" />
@@ -618,7 +616,9 @@
     <MESSAGE value="Added image as background instead of colour for aesthetics." />
     <MESSAGE value="Profile Limits Functionality&#10;&#10;Modifications &amp; Additions to FXML files&#10;Home-Page.fxml: removed unnecessary buttons&#10;login-view.fxml:completely reworked how it changes between login-view.fxml and register-view.fxml by including ChangeListener's all screen changes within the Application are handled by BrowserMain.java" />
     <MESSAGE value="Merged with UsageInsights branch and fixed errors." />
-    <option name="LAST_COMMIT_MESSAGE" value="Merged with UsageInsights branch and fixed errors." />
+    <MESSAGE value="LogoutUser now opens new logout application, for next user" />
+    <MESSAGE value="Refactored code to reduce for opening new applications." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored code to reduce for opening new applications." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
