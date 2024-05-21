@@ -2,40 +2,28 @@ package com.zenbrowser.a1.Controller.MainControllers;
 
 import java.io.*;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.util.EventListener;
 import java.util.ResourceBundle;
 
 import com.zenbrowser.a1.AuthenticationApplication;
-import com.zenbrowser.a1.BrowserApplication;
 import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import javafx.concurrent.Worker;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.web.WebHistory;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 import com.zenbrowser.a1.model.browserTab;
 
 public class TabController extends ParentController implements Initializable {
     private String defaultEngine = "https://www.google.com";
     @FXML
     private TextField URLBox;
-    @FXML
-    private Button ReloadButton;
     @FXML
     MenuItem homePageBackgroundImg;
     @FXML
@@ -242,12 +230,7 @@ public class TabController extends ParentController implements Initializable {
 
 
 
-    public void setTabBackground(String imageFileLocation) {
-        ImageView iv = new ImageView();
-        Image img = new Image(imageFileLocation);
-        iv.setImage(img);
-        this.borderPane.setCenter(iv);
-    }
+
     @FXML
     private void settingsBtnHover() {settingsLabel.setText("Settings");}
     @FXML
@@ -269,6 +252,14 @@ public class TabController extends ParentController implements Initializable {
 
     @FXML
     private void logoutBtnHoverExit() {ProfileLabel.setText("");}
+
+    /**
+     public void setTabBackground(String imageFileLocation) {
+     ImageView iv = new ImageView();
+     Image img = new Image(imageFileLocation);
+     iv.setImage(img);
+     this.borderPane.setCenter(iv);
+     }
 
 
     class MyBrowser extends Region {
@@ -334,6 +325,6 @@ public class TabController extends ParentController implements Initializable {
                 throw new RuntimeException(var5);
             }
         }
-    }
+    }**/
 }
 
