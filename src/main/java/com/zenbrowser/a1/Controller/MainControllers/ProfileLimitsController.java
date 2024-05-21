@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 
@@ -66,10 +67,9 @@ public class ProfileLimitsController extends ParentController {
             String url = p.getWebsite().getURL();
             String profile = p.getProfileName();
 
-            long blockedUntil = p.getBlockedUntil().getTime();
-            long blockedDuration = blockedUntil - System.currentTimeMillis();
+            String[] blockedDuration = p.getBlockedDuration();
             // Limit has expired
-            if (blockedDuration < 0) {
+            if (blockedDuration == null) {
                 try {
                     ProfileDAO.deleteProfile(p.getId());
                 } catch (SQLException e) {
@@ -77,9 +77,7 @@ public class ProfileLimitsController extends ParentController {
                 }
                 continue;
             }
-            long mins = TimeUnit.MILLISECONDS.toMinutes(blockedDuration) % 60;
-            long hrs = TimeUnit.MILLISECONDS.toHours(blockedDuration);
-            UrlLimit newUrlLimit = new UrlLimit(url, Long.toString(hrs), Long.toString(mins), profile);
+            UrlLimit newUrlLimit = new UrlLimit(url, blockedDuration[0], blockedDuration[1], profile);
 
             profileLimitsData.add(newUrlLimit);
         }
