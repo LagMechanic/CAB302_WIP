@@ -6,12 +6,13 @@ import java.net.URLEncoder;
 import java.util.EventListener;
 import java.util.ResourceBundle;
 
+import com.zenbrowser.a1.AuthenticationApplication;
+import com.zenbrowser.a1.BrowserApplication;
 import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import javafx.concurrent.Worker;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -126,7 +127,13 @@ public class TabController extends ParentController implements Initializable {
     private void GoToHomePage() { loadPage(defaultEngine);}
 
     @FXML
-    private void GoToLoginPage() {navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");}
+    private void LogoutUser() throws IOException {
+        new AuthenticationApplication().start(new Stage());
+        Stage stage = (Stage) borderPane.getScene().getWindow();
+        stage.close();
+    }
+
+
 
     @FXML
     private void GoToHistoryPage() {navigatePage("/com/zenbrowser/a1/history-view.fxml","History");}
