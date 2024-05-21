@@ -58,4 +58,10 @@ public class Profile {
         long hrs =  TimeUnit.MILLISECONDS.toHours(blockedDuration);
         return new String[] {Long.toString(hrs), Long.toString(mins)};
     }
+
+    public boolean isBlocked() {
+        long blockedUntil = getBlockedUntil().getTime();
+        long blockedDuration = blockedUntil - System.currentTimeMillis();
+        return blockedDuration > 0;
+    }
 }
