@@ -129,8 +129,7 @@ public class TabController extends ParentController implements Initializable {
     @FXML
     private void LogoutUser() throws IOException {
         new AuthenticationApplication().start(new Stage());
-        Stage stage = (Stage) borderPane.getScene().getWindow();
-        stage.close();
+        ((Stage) borderPane.getScene().getWindow()).close();
     }
 
 

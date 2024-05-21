@@ -48,11 +48,9 @@ public class RegisterController extends ParentController {
             );
 
             setCurrentUser(usernameTXT.getText());
-            BrowserApplication browserApplication = new BrowserApplication();
-            browserApplication.start(new Stage());
+            new BrowserApplication().start(new Stage());
+            ((Stage) registerButton.getScene().getWindow()).close();
 
-            Stage stage = (Stage) registerButton.getScene().getWindow();
-            stage.close();
         } catch (UserAlreadyExists e) {
             errorPromptLabel.setText("Username already exists. Select a new username to continue.");
         } catch (IOException e) {
