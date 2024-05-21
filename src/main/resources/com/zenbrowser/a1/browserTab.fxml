@@ -136,13 +136,13 @@
     <left>
 
         <VBox alignment="CENTER" prefHeight="343.0" prefWidth="150.0" spacing="20.0" BorderPane.alignment="CENTER">
-            <Label style="-fx-font-size: 18px;" text="  Dashboard " />
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="  Dashboard " />
             <Label fx:id="greetingLabel" prefHeight="67.0" prefWidth="132.0" text="Welcome to zenbrowser!" wrapText="true" BorderPane.alignment="BOTTOM_LEFT">
                 <BorderPane.margin>
                     <Insets left="10.0" top="10.0" />
                 </BorderPane.margin>
                 <font>
-                    <Font name="System Bold Italic" size="12.0" />
+                    <Font name="System Bold Italic" size="14.0" />
                 </font>
             <VBox.margin>
                <Insets bottom="50.0" />

@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Added Logout user button, rearranged tab bar format with image icons and layout">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HomePageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/Home-Page.fxml" beforeDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Commented out unused code. Deleted home page and controller.">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,14 +164,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Adjusting of tabs visual when closing a tab">
-      <option name="closed" value="true" />
-      <created>1715503363627</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1715503363627</updated>
     </task>
     <task id="LOCAL-00038" summary="Made significant changes to HistoryRecord and History RecordDAO as well as HistoryController.">
       <option name="closed" value="true" />
@@ -558,7 +549,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716282395273</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Commented out unused code. Deleted home page and controller.">
+      <option name="closed" value="true" />
+      <created>1716282720176</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1716282720176</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -591,7 +590,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Changed how page opens in consideration to start of load. Created method to check Controller type." />
     <MESSAGE value="Error when saving content into tab content as well as browser content as two instances. New method which sets container. Modifications to browsermain" />
     <MESSAGE value="Added getPage method to go with new setPage method. Modified to fix errors" />
     <MESSAGE value="Removed untilized history methods and variables." />
@@ -616,7 +614,8 @@
     <MESSAGE value="LogoutUser now opens new logout application, for next user" />
     <MESSAGE value="Refactored code to reduce for opening new applications." />
     <MESSAGE value="Added Logout user button, rearranged tab bar format with image icons and layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Logout user button, rearranged tab bar format with image icons and layout" />
+    <MESSAGE value="Commented out unused code. Deleted home page and controller." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commented out unused code. Deleted home page and controller." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
