@@ -10,10 +10,8 @@
 
     import java.net.MalformedURLException;
     import java.net.URL;
-    import java.sql.Timestamp;
     import java.time.DayOfWeek;
     import java.time.LocalDate;
-    import java.time.LocalDateTime;
     import java.time.format.DateTimeFormatter;
     import java.util.*;
 
@@ -35,18 +33,19 @@
 
 
             // Add some mock history records
-            records2.add(new HistoryRecord("1", "https://example.com/page1", "https://example.com/page1", Timestamp.valueOf("2024-05-01 10:30:00")));
-            records2.add(new HistoryRecord("2", "https://netflix.com/page2", "https://netflix.com/page2", Timestamp.valueOf("2024-05-02 11:15:00")));
-            records2.add(new HistoryRecord("3", "https://netflix.com/page3", "https://netflix.com/page13",Timestamp.valueOf("2024-05-02 11:15:00")));
-            records2.add(new HistoryRecord("4", "https://example.com/page4", "https://animixplay.com/page13",Timestamp.valueOf("2024-05-05 15:30:00")));
-            records2.add(new HistoryRecord("5", "https://example.com/page5", "https://example.com/page13",Timestamp.valueOf("2024-05-06 09:45:00")));
-            records2.add(new HistoryRecord("6", "https://example.com/page6", "https://example.com/page13",Timestamp.valueOf("2024-05-06 11:15:00")));
-            records2.add(new HistoryRecord("7", "https://example.com/page7", "https://youtube.com/page7",Timestamp.valueOf("2024-05-10 10:30:00")));
-            records2.add(new HistoryRecord("8", "https://.com/page8", "https://example.com/page8",Timestamp.valueOf("2024-05-10 11:15:00")));
-            records2.add(new HistoryRecord("9", "https://example.com/page9", "https://example.com/page9",Timestamp.valueOf("2024-05-12 14:30:00")));
-            records2.add(new HistoryRecord("10", "https://example.com/page10", "https://example.com/page10",Timestamp.valueOf("2024-05-13 15:45:00")));
+//            records2.add(new HistoryRecord("1", "https://example.com/page1", "https://example.com/page1", Timestamp.valueOf("2024-05-01 10:30:00")));
+//            records2.add(new HistoryRecord("2", "https://netflix.com/page2", "https://netflix.com/page2", Timestamp.valueOf("2024-05-02 11:15:00")));
+//            records2.add(new HistoryRecord("3", "https://netflix.com/page3", "https://netflix.com/page13",Timestamp.valueOf("2024-05-02 11:15:00")));
+//            records2.add(new HistoryRecord("4", "https://example.com/page4", "https://animixplay.com/page13",Timestamp.valueOf("2024-05-05 15:30:00")));
+//            records2.add(new HistoryRecord("5", "https://example.com/page5", "https://example.com/page13",Timestamp.valueOf("2024-05-06 09:45:00")));
+//            records2.add(new HistoryRecord("6", "https://example.com/page6", "https://example.com/page13",Timestamp.valueOf("2024-05-06 11:15:00")));
+//            records2.add(new HistoryRecord("7", "https://example.com/page7", "https://youtube.com/page7",Timestamp.valueOf("2024-05-10 10:30:00")));
+//            records2.add(new HistoryRecord("8", "https://.com/page8", "https://example.com/page8",Timestamp.valueOf("2024-05-10 11:15:00")));
+//            records2.add(new HistoryRecord("9", "https://example.com/page9", "https://example.com/page9",Timestamp.valueOf("2024-05-12 14:30:00")));
+//            records2.add(new HistoryRecord("10", "https://example.com/page10", "https://example.com/page10",Timestamp.valueOf("2024-05-13 15:45:00")));
 
             records = new HistoryRecordDAO().getAllUserHistoryRecords(super.getCurrentUser());
+            //records = new HistoryRecordDAO().getAllUserHistoryRecords("Josh");
             populateLineChart();
             populateTopUrlsChart();
             populateDayOfWeekChart();
@@ -56,7 +55,7 @@
             Map<String, Integer> dateCountMap = new HashMap<>();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-            for (HistoryRecord record : records2) {
+            for (HistoryRecord record : records) {
                 System.out.println(record.getHistoryRecordDateTime());
                 String date = record.getHistoryRecordDateTime().toLocalDateTime().toLocalDate().format(formatter);
                 dateCountMap.put(date, dateCountMap.getOrDefault(date,0)+1);
@@ -106,7 +105,7 @@
         private List<Map.Entry<String, Integer>> getTopUrls() {
             Map<String, Integer> urlVisitCounts = new HashMap<>();
 
-            for (HistoryRecord record : records2) {
+            for (HistoryRecord record : records) {
                 String url = record.getURL();
                 String baseDomain = getBaseDomain(url);
                 System.out.println(url);
@@ -136,7 +135,7 @@
         private void populateDayOfWeekChart() {
             Map<DayOfWeek, Integer> dayOfWeekCountMap = new HashMap<>();
 
-            for (HistoryRecord record : records2) {
+            for (HistoryRecord record : records) {
                 DayOfWeek dayOfWeek = record.getHistoryRecordDateTime().toLocalDateTime().getDayOfWeek();
                 dayOfWeekCountMap.put(dayOfWeek, dayOfWeekCountMap.getOrDefault(dayOfWeek, 0 ) + 1);
             }
@@ -152,7 +151,7 @@
         private void populateTimeOfDayChart() {
             Map<Integer, Integer> hourCountMap = new HashMap<>();
 
-            for (HistoryRecord record : records2) {
+            for (HistoryRecord record : records) {
                 int hour = record.getHistoryRecordDateTime().toLocalDateTime().getHour();
                 hourCountMap.put(hour,hourCountMap.getOrDefault(hour, 0 ) + 1);
             }
