@@ -1,25 +1,18 @@
 package com.zenbrowser.a1.model;
 
 
-import com.zenbrowser.a1.Controller.ParentController;
-import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
-import com.zenbrowser.a1.model.BrowserUsage.IHistoryRecordDAO;
-import com.zenbrowser.a1.model.FocusProfile.IProfileDAO;
-import com.zenbrowser.a1.model.FocusProfile.Profile;
-import com.zenbrowser.a1.model.Website.ISiteDAO;
-import com.zenbrowser.a1.model.Website.Site;
-import com.zenbrowser.a1.model.Website.SiteDAO;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebEvent;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
+
+import java.util.List;
 
 
 public class browserTab extends Tab {
@@ -27,6 +20,7 @@ public class browserTab extends Tab {
     private WebEngine webEngine;
     private WebHistory webHistory;
     private Node page;
+    private static List<String> blockedSites;
 
     public browserTab(String tabname) {
         super(tabname);
@@ -34,6 +28,8 @@ public class browserTab extends Tab {
         webEngine = webView.getEngine();
         webHistory = webEngine.getHistory();
         page = new Pane();
+
+        blockListener();
     }
 
     public final void setPage(BorderPane container, Node content) {
@@ -66,7 +62,27 @@ public class browserTab extends Tab {
         }
     }
 
+    public void setBlocked(List<String> blockedSites) { this.blockedSites = blockedSites;}
 
+    private void blockListener(){
+        webEngine.setOnStatusChanged((WebEvent<String> event) -> {
+            String url = event.getData();
+            if (isBlocked(url)) {
+                Platform.runLater(() -> {
+                    // TODO: Add redirection page
+                    webEngine.load("http://example.com");
+                });
+                // Cancel the load
+                event.consume();
+            }
+        });
+    }
+
+    private boolean isBlocked(String url) {
+        return blockedSites.stream().anyMatch(url::contains);
+    }
+
+    /**
     public void setBlocklist(ISiteDAO SiteDAO, IProfileDAO ProfileDAO) {
         webEngine.locationProperty().addListener((observable, oldValue, newValue) -> {
             System.out.println("setBlockList: " + newValue);
@@ -86,5 +102,5 @@ public class browserTab extends Tab {
             }
         });
 
-    }
+    }**/
 }
