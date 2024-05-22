@@ -124,7 +124,8 @@ public class ProfileDAO implements IProfileDAO {
 
     @Override
     public Profile getProfileByNameAndSite(String profileName, Site site) {
-        String sql = "SELECT * FROM profiles WHERE profileName=?, websiteID=?";
+        System.out.println("getProfileByNameAndSite: profileName:" + profileName + ", url: " + site.getURL() +", siteID: " + site.getId());
+        String sql = "SELECT * FROM profiles WHERE profileName=? AND websiteID=?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, profileName);
             statement.setInt(2, site.getId());

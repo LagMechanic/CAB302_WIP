@@ -69,8 +69,9 @@ public class browserTab extends Tab {
 
     public void setBlocklist(ISiteDAO SiteDAO, IProfileDAO ProfileDAO) {
         webEngine.locationProperty().addListener((observable, oldValue, newValue) -> {
-            //System.out.println("setBlockList: " + newValue);
+            System.out.println("setBlockList: " + newValue);
             Site site = SiteDAO.getSiteByURL(newValue);
+            // if site is null, there is no limit set for it
             if (site == null) return;
 
             // TODO: change "Work" to the current profile

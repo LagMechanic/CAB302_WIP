@@ -97,6 +97,7 @@ public class ProfileLimitsController extends ParentController {
             // Check if site isn't already in the database
             Site site = SiteDAO.getSiteByURL(url);
             if (site == null) {
+                // TODO: Add siteName and category
                 site = new Site(url, "", "", true);
                 site = SiteDAO.insertSite(site);
             }
