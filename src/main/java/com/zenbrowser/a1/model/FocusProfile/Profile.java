@@ -34,6 +34,7 @@ public class Profile {
     public void setProfileName(String profileName) {
         this.profileName = profileName;
     }
+
     public String getProfileUser() { return user;}
 
     public String getSiteURL(){return siteURL;}
