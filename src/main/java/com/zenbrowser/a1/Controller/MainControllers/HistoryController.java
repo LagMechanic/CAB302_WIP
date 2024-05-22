@@ -1,8 +1,6 @@
 package com.zenbrowser.a1.Controller.MainControllers;
 import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
-import com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAO;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
