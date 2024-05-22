@@ -114,7 +114,7 @@ public class ProfileDAO implements IProfileDAO {
                 if (!result.isEmpty()) {
                     return result;
 
-                } else return null;
+                } else return new ArrayList<>();
             }
         }
         catch (SQLException e){
