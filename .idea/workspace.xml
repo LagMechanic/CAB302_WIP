@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Fixed bug to clear table, instead of constantly adding to view.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Add deleteColumn button to clear entries in tableColumn. Work in progress">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +69,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.BrowserApplication.executor": "Run",
-    "Application.Login.executor": "Debug",
+    "Application.Login.executor": "Run",
     "Application.TestApplication.executor": "Run",
     "git-widget-placeholder": "ProfileLimits-Josh",
     "kotlin-language-version-configured": "true",
@@ -171,14 +166,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Removed unneccessary vbox components in Home-Page.fxml">
-      <option name="closed" value="true" />
-      <created>1715578615975</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1715578615975</updated>
     </task>
     <task id="LOCAL-00046" summary="Added fxml functionality to homepage buttons.">
       <option name="closed" value="true" />
@@ -564,7 +551,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716382750746</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="Add deleteColumn button to clear entries in tableColumn. Work in progress">
+      <option name="closed" value="true" />
+      <created>1716385014218</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1716385014218</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -597,7 +592,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Reformated code, such as currentTab() to now be declared as a private field." />
     <MESSAGE value="Finished main page browser merger, Removed main page." />
     <MESSAGE value="Reformated go Button method" />
     <MESSAGE value="Refactored browserTab fxml code" />
@@ -622,7 +616,8 @@
     <MESSAGE value="Changed modifiers so controller variables and methods are not public." />
     <MESSAGE value="Added changeProfile method and getSingleProfile method, so when profile is switched, only that profile result is displayed." />
     <MESSAGE value="Fixed bug to clear table, instead of constantly adding to view." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug to clear table, instead of constantly adding to view." />
+    <MESSAGE value="Add deleteColumn button to clear entries in tableColumn. Work in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add deleteColumn button to clear entries in tableColumn. Work in progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

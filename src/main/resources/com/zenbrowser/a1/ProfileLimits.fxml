@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="655.0" prefWidth="470.0" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
+<BorderPane prefHeight="655.0" prefWidth="470.0" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
 
     <center>
             <ScrollPane fitToWidth="true" prefWidth="400">

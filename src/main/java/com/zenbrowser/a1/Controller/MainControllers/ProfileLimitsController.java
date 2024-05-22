@@ -70,13 +70,21 @@ public class ProfileLimitsController extends ParentController {
         });
 
 
-
-
         tbData.setItems(profileData);
-        loadProfilesTable(ProfileDAO.getUserProfiles(super.getCurrentUser()));
+        loadProfilesTable();
     }
 
-    private void loadProfilesTable(List<Profile> profilesEntries)  {
+    private void loadProfilesTable()  {
+
+        String selectedprofile = profileBox.getSelectionModel().getSelectedItem();
+        List<Profile> profilesEntries;
+
+        if (selectedprofile == null){
+            profilesEntries = ProfileDAO.getUserProfiles(getCurrentUser());
+        }else{
+            profilesEntries = ProfileDAO.getSingleProfile(getCurrentUser(), selectedprofile);
+        }
+
         profileData.clear();
         for (Profile profile : profilesEntries) {
             profileData.add(profile);
@@ -97,7 +105,7 @@ public class ProfileLimitsController extends ParentController {
         blockTime.setMinutes(minutesBox.getSelectionModel().getSelectedItem());
         String profile = profileBox.getSelectionModel().getSelectedItem();
 
-        if (!url.isEmpty() && blockTime.getTime()!=0 && profile != null && !profile.isEmpty()) {
+        if (!url.isEmpty() && blockTime.getTime()!=0 && profile != null) {
             ProfileDAO.insertProfile(new Profile(
                     getCurrentUser(),
                     profile,
@@ -118,9 +126,5 @@ public class ProfileLimitsController extends ParentController {
     }
 
     @FXML
-    private void changeProfile() {
-        String selectedprofile = profileBox.getSelectionModel().getSelectedItem();
-
-        loadProfilesTable(ProfileDAO.getSingleProfile( getCurrentUser(), selectedprofile));
-    }
+    private void changeProfile() {  loadProfilesTable();}
 }
