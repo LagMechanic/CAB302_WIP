@@ -48,19 +48,6 @@ public class TabController extends ParentController implements Initializable {
     private browserTab currentTab;
 
 
-    private void setupTabCloseHandler(Tab tab) {
-        tab.setOnCloseRequest(event -> {
-            tabPane.setMinWidth(tabPane.getWidth() - tabPane.getTabMaxWidth() - 13);
-        });
-    }
-
-    private void AdjustTab(){
-        //Create a buffer so tabs can be dynamically extended on browser.
-        if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
-            tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
-        }
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         newTabFunction();
@@ -92,47 +79,16 @@ public class TabController extends ParentController implements Initializable {
         setupTabCloseHandler(tab);
         tabPane.getTabs().add(tab);
         tabPane.getSelectionModel().select(tab);
-        AdjustTab();
 
 
-        tab.getWebEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
-            if (newState == Worker.State.SUCCEEDED) {
-                WebHistory.Entry entry = tab.getRecentHistory();
-                HistoryDAO.insertHistoryRecord(new HistoryRecord(
-                        getCurrentUser(),
-                        entry.getTitle(),
-                        entry.getUrl(),
-                        new java.sql.Timestamp(entry.getLastVisitedDate().getTime())));
-            } else if (newState == Worker.State.FAILED || newState == Worker.State.CANCELLED) {
-                System.out.println("Page failed to load.");
-            }
-        });
-
+        AdjustTabpane();
+        //Listener for when tab successfully loads.
+        loadingListener(tab);
 
         switchPage();
         loadPage(defaultEngine);
     }
 
-
-    @FXML
-    private void GoToHomePage() { loadPage(defaultEngine);}
-
-    @FXML
-    private void LogoutUser() throws IOException {
-        new AuthenticationApplication().start(new Stage());
-        ((Stage) borderPane.getScene().getWindow()).close();
-    }
-
-
-
-    @FXML
-    private void GoToHistoryPage() {navigatePage("/com/zenbrowser/a1/history-view.fxml","History");}
-
-    @FXML
-    private void goUsageReports() {navigatePage("/com/zenbrowser/a1/usageInsights.fxml","Usage Report");}
-
-    @FXML
-    private void goProfileLimits() {navigatePage("/com/zenbrowser/a1/ProfileLimits.fxml","Zen Profiles");}
 
 
     //Load a page into the parent BrowserTab.fxml with parameters of child source fxml file and name of tab.
@@ -164,6 +120,63 @@ public class TabController extends ParentController implements Initializable {
         currentTab = (browserTab) tabPane.getSelectionModel().getSelectedItem();
         borderPane.setCenter(currentTab.getPage());
     }
+
+    private void loadingListener(browserTab tab){
+        tab.getWebEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
+            if (newState == Worker.State.SUCCEEDED) {
+                WebHistory.Entry entry = tab.getRecentHistory();
+                HistoryDAO.insertHistoryRecord(new HistoryRecord(
+                        getCurrentUser(),
+                        entry.getTitle(),
+                        entry.getUrl(),
+                        new java.sql.Timestamp(entry.getLastVisitedDate().getTime())));
+            } else if (newState == Worker.State.FAILED || newState == Worker.State.CANCELLED) {
+                System.out.println("Page failed to load.");
+            }
+        });
+    }
+
+    private void setupTabCloseHandler(Tab tab) {
+        tab.setOnCloseRequest(event -> {
+            tabPane.setMinWidth(tabPane.getWidth() - tabPane.getTabMaxWidth() - 13);
+        });
+    }
+
+    private void AdjustTabpane(){
+        //Create a buffer so tabs can be dynamically extended on browser.
+        if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
+            tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
+        }
+    }
+
+    private String formatUrl(String engineName, String query) {
+        if (query.startsWith(engineName))
+            return query;
+        else {
+            return engineName + "/search?q=" + query;
+        }
+    }
+
+
+
+    @FXML
+    private void GoToHomePage() { loadPage(defaultEngine);}
+
+    @FXML
+    private void LogoutUser() throws IOException {
+        new AuthenticationApplication().start(new Stage());
+        ((Stage) borderPane.getScene().getWindow()).close();
+    }
+
+
+    @FXML
+    private void GoToHistoryPage() {navigatePage("/com/zenbrowser/a1/history-view.fxml","History");}
+
+    @FXML
+    private void goUsageReports() {navigatePage("/com/zenbrowser/a1/usageInsights.fxml","Usage Report");}
+
+    @FXML
+    private void goProfileLimits() {navigatePage("/com/zenbrowser/a1/ProfileLimits.fxml","Zen Profiles");}
 
 
     @FXML
@@ -206,15 +219,6 @@ public class TabController extends ParentController implements Initializable {
         }
         return null;
     }
-  
-    private String formatUrl(String engineName, String query) {
-            if (query.startsWith(engineName))
-                return query;
-            else {
-                return engineName + "/search?q=" + query;
-            }
-    }
-
 
 
     @FXML
