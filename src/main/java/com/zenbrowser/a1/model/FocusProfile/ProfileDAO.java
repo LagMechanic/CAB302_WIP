@@ -5,6 +5,8 @@ import com.zenbrowser.a1.model.SqliteConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ProfileDAO implements IProfileDAO {
     private final Connection connection;
@@ -139,6 +141,24 @@ public class ProfileDAO implements IProfileDAO {
             throw new RuntimeException(e);
         }
         return result;
+    }
+
+
+    /**
+     * Parses a url to its domain, e.g. https://www.site.com/anything/anything -> site.com
+     * @param url url to parse
+     * @return domain name; if already valid, returns url
+     */
+    private static String parseURL(String url) {
+        System.out.println("parse: " + url + "->");
+
+        Pattern p = Pattern.compile("(https?://)?(www\\.)?([^/]+)(/.*)?");
+        Matcher m = p.matcher(url);
+        if (((Matcher) m).find()) {
+            url = m.group(3);
+            System.out.println("match: " + url);
+        }
+        return url;
     }
 
 

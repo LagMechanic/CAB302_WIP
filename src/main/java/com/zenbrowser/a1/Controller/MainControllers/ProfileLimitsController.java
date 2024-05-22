@@ -9,8 +9,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
-
-
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.List;
