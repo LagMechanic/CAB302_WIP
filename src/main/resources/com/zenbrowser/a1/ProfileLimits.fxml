@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="655.0" prefWidth="645.0" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
+<BorderPane prefHeight="699.0" prefWidth="688.0" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
 
     <center>
             <ScrollPane fitToWidth="true" prefWidth="400">
@@ -43,47 +43,21 @@
                     </ComboBox>
                     <Label text="Add Limit: " />
                     <HBox alignment="CENTER" prefHeight="37.0" prefWidth="384.0" spacing="10.0">
-                        <ComboBox fx:id="hoursBox" maxWidth="100.0" prefWidth="100.0" promptText="Hours">
-                            <items>
-                                <FXCollections fx:factory="observableArrayList">
-                                    <Integer fx:value="0" />
-                                    <Integer fx:value="1" />
-                                    <Integer fx:value="2" />
-                                    <Integer fx:value="3" />
-                                    <Integer fx:value="4" />
-                                    <Integer fx:value="5" />
-                                    <Integer fx:value="6" />
-                                    <Integer fx:value="7" />
-                                    <Integer fx:value="8" />
-                                    <Integer fx:value="9" />
-                                    <Integer fx:value="10" />
-                                    <Integer fx:value="11" />
-                                    <Integer fx:value="12" />
-                                </FXCollections>
-                            </items>
-                        </ComboBox>
-                        <ComboBox fx:id="minutesBox" prefWidth="100.0" promptText="Minutes">
-                            <items>
-                                <FXCollections fx:factory="observableArrayList">
-                                    <Integer fx:value="0" />
-                                    <Integer fx:value="15" />
-                                    <Integer fx:value="30" />
-                                    <Integer fx:value="45" />
-                                </FXCollections>
-                            </items>
-                        </ComboBox>
+                        <ComboBox fx:id="hoursBox" maxWidth="100.0" prefWidth="100.0" promptText="Hours"/>
+
+                        <ComboBox fx:id="minutesBox" prefWidth="100.0" promptText="Minutes"/>
                     </HBox>
                     <Label text="Add URL:" />
                     <TextField fx:id="urlField" maxWidth="200.0" prefWidth="50" promptText="Add URL:" />
                     <Button fx:id="UrlLimitData" onAction="#addUrlAndLimit" prefWidth="200.0" text="Add to URL and Limit to Profile" />
                     <Region VBox.vgrow="ALWAYS" />
                     <HBox alignment="BOTTOM_CENTER">
-                        <TableView fx:id="tbData">
+                        <TableView fx:id="tbData" prefHeight="400.0" prefWidth="543.0">
                             <columns>
-                                <TableColumn fx:id="profileColumn" maxWidth="150.0" prefWidth="150.0" text="Profile" />
-                                <TableColumn fx:id="urlColumn" maxWidth="150.0" prefWidth="150.0" text="URL" />
-                                <TableColumn fx:id="limitColumn" maxWidth="150.0" prefWidth="150.0" text="Hours" />
-                                <TableColumn fx:id="deleteColumn" maxWidth="100.0" prefWidth="50.0" />
+                                <TableColumn fx:id="profileColumn" maxWidth="150.0" prefWidth="120.57141435146332" text="Profile" />
+                                <TableColumn fx:id="urlColumn" maxWidth="211.99999237060547" prefWidth="211.99999237060547" text="URL" />
+                                <TableColumn fx:id="limitColumn" maxWidth="165.14288330078125" prefWidth="122.28570556640625" text="Hours" />
+                                <TableColumn fx:id="deleteColumn" maxWidth="100.0" prefWidth="88.57150268554688" />
                             </columns>
                         </TableView>
                     </HBox>

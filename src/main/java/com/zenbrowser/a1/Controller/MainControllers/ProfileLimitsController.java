@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 
 import java.sql.SQLException;
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.List;
 
 
@@ -44,6 +45,10 @@ public class ProfileLimitsController extends ParentController {
     private final ObservableList<Profile> profileData = FXCollections.observableArrayList();
 
     public void initialize() {
+
+        hoursBox.setItems(FXCollections.observableArrayList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13,14,15,16,17,18,19,20,21,22,23,24));
+        minutesBox.setItems(FXCollections.observableArrayList(0,5,10,15,20,25,30,35,40,45,50,55));
+
         profileColumn.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getProfileName()));
         urlColumn.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getSiteURL()));
         limitColumn.setCellValueFactory(cell -> new SimpleObjectProperty<>(cell.getValue().getBlockedUntil()));
@@ -103,7 +108,8 @@ public class ProfileLimitsController extends ParentController {
     private void addUrlAndLimit() {
         String url = urlField.getText();
         Time blockTime = new Time(0);
-        blockTime.setHours(hoursBox.getSelectionModel().getSelectedItem());
+        int timeOffset = 10;
+        blockTime.setHours(hoursBox.getSelectionModel().getSelectedItem() + timeOffset);
         blockTime.setMinutes(minutesBox.getSelectionModel().getSelectedItem());
         String profile = profileBox.getSelectionModel().getSelectedItem();
 
@@ -114,6 +120,7 @@ public class ProfileLimitsController extends ParentController {
                     url,
                     blockTime));
 
+            loadProfilesTable();
             // Reset form
             urlField.clear();
             hoursBox.getSelectionModel().clearSelection();

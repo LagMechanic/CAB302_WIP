@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Duplicate table view columns">
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Update table when profileDao deleted.">
+      <change afterPath="$PROJECT_DIR$/Documents/~$wMedium_Fidelity_Designs_WIP.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/Profile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
@@ -170,22 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Removing non utilized loginController methods and variables.">
-      <option name="closed" value="true" />
-      <created>1715579269646</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1715579269646</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Removing non utilized  methods and variables in History, profileLimits and register controllers.">
-      <option name="closed" value="true" />
-      <created>1715579399520</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1715579399520</updated>
     </task>
     <task id="LOCAL-00050" summary="modifying browsertab and home-page fxml to move relocate to other page.">
       <option name="closed" value="true" />
@@ -563,7 +547,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716385733372</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="Add button to every table column which can clear the profile entry.">
+      <option name="closed" value="true" />
+      <created>1716389096487</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1716389096487</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Update table when profileDao deleted.">
+      <option name="closed" value="true" />
+      <created>1716389223137</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1716389223137</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -596,8 +596,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactored browserTab fxml code" />
-    <MESSAGE value="Added a check for login enter to go to next page only if login page enabled." />
     <MESSAGE value="Finished merging Luis version to main and fixing issues." />
     <MESSAGE value="Added button to be able to navigate to usageInsights.fxml.&#10;Fixed bug of UsageInsights as anchorpane not being insertable." />
     <MESSAGE value="Refactoring, deletion of unutilized code, changing method access classes." />
@@ -621,7 +619,9 @@
     <MESSAGE value="Add deleteColumn button to clear entries in tableColumn. Work in progress" />
     <MESSAGE value="Added changeProfile controller to change view for each profile. Refactored loadProfilesTable to update view with no parameters, placing logic inside." />
     <MESSAGE value="Duplicate table view columns" />
-    <option name="LAST_COMMIT_MESSAGE" value="Duplicate table view columns" />
+    <MESSAGE value="Add button to every table column which can clear the profile entry." />
+    <MESSAGE value="Update table when profileDao deleted." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update table when profileDao deleted." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
