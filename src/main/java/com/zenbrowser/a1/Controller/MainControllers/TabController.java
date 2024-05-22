@@ -55,7 +55,7 @@ public class TabController extends ParentController implements Initializable {
         // Add a listener to tab selection event.
         tabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
             if (newTab != null) {
-                switchPage();
+                UpdatePage();
             } else {
                 Stage stageInstanance = (Stage) borderPane.getScene().getWindow();
                 stageInstanance.close();
@@ -85,7 +85,7 @@ public class TabController extends ParentController implements Initializable {
         //Listener for when tab successfully loads.
         loadingListener(tab);
 
-        switchPage();
+        UpdatePage();
         loadPage(defaultEngine);
     }
 
@@ -106,17 +106,15 @@ public class TabController extends ParentController implements Initializable {
     private void loadPage(String urlStr)
     {
         try{
-            browserTab loadingTab = currentTab;
-            loadingTab.getWebEngine().load(urlStr);
-            loadingTab.setPage(borderPane, loadingTab.getWebView());
-
+            currentTab.getWebEngine().load(urlStr);
+            currentTab.setPage(borderPane, currentTab.getWebView());
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    private void switchPage(){
+    private void UpdatePage(){
         currentTab = (browserTab) tabPane.getSelectionModel().getSelectedItem();
         borderPane.setCenter(currentTab.getPage());
     }
