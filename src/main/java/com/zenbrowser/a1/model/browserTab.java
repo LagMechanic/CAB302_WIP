@@ -2,7 +2,9 @@ package com.zenbrowser.a1.model;
 
 import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
-import javafx.beans.property.ObjectProperty;
+import com.zenbrowser.a1.model.BrowserUsage.IHistoryRecordDAO;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Worker;
 import javafx.scene.Node;
@@ -18,7 +20,6 @@ public class browserTab extends Tab {
     private WebView webView;
     private WebEngine webEngine;
     private WebHistory webHistory;
-    public ParentController contentController;
     private Node page;
 
     public browserTab(String tabname) {

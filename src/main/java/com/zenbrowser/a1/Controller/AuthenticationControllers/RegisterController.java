@@ -13,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -46,11 +48,9 @@ public class RegisterController extends ParentController {
             );
 
             setCurrentUser(usernameTXT.getText());
-            BrowserApplication browserApplication = new BrowserApplication();
-            browserApplication.start(new Stage());
+            new BrowserApplication().start(new Stage());
+            ((Stage) registerButton.getScene().getWindow()).close();
 
-            Stage stage = (Stage) registerButton.getScene().getWindow();
-            stage.close();
         } catch (UserAlreadyExists e) {
             errorPromptLabel.setText("Username already exists. Select a new username to continue.");
         } catch (IOException e) {
@@ -71,5 +71,12 @@ public class RegisterController extends ParentController {
     private void EnableRegisterButton() {
         boolean validButton = (usernameTXT.getText().isEmpty() || passwordField.getText().isEmpty());
         registerButton.setDisable(validButton);
+    }
+
+    @FXML
+    public void CheckRegister(KeyEvent key) {
+        if (key.getCode() == KeyCode.ENTER && !registerButton.isDisabled()){
+            onRegisterButtonClick();
+        }
     }
 }

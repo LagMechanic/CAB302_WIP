@@ -1,7 +1,6 @@
 package com.zenbrowser.a1.model.BrowserUsage;
 
 import com.zenbrowser.a1.model.SqliteConnection;
-import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -47,8 +46,6 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
         String sql = "INSERT INTO history (username, URL, siteName, historyRecordDateTime ) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-
             preparedStatement.setString(1, record.getUsername());
             preparedStatement.setString(2, record.getURL());
             preparedStatement.setString(3, record.getSite());

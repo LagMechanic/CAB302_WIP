@@ -16,18 +16,25 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane style="-fx-background-color: #D1FFBD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<?import javafx.scene.effect.DropShadow?>
+<BorderPane xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;">
 
     <center>
             <ScrollPane fitToWidth="true" prefWidth="400">
-                <VBox alignment="CENTER" spacing="5" style="-fx-background-color: #D1FFBD">
+                <VBox alignment="CENTER" spacing="5">
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Limits Settings">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-                    <Label text="Profile:" />
-                    <ComboBox fx:id="profileBox" maxWidth="200.0" prefWidth="150.0" promptText="Select Profile">
+                    <Label text="Profile:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+                    <ComboBox fx:id="profileBox" maxWidth="210.0" promptText="Select Profile">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
                                 <String fx:value="Study" />
@@ -85,14 +92,7 @@
                 </VBox>
             </ScrollPane>
     </center>
-
-    <left>
-        <VBox alignment="CENTER" spacing="10">
-            <Label style="-fx-font-size: 18px;" text="          Dashboard          " />
-            <Button text="Profile Limit Settings" />
-            <Button text="Usage Reports" />
-            <Button text="Notification Settings" />
-            <Button text="My Account Settings" />
-        </VBox>
-    </left>
+    <effect>
+        <DropShadow offsetX="10" offsetY="3" color="black"/>
+    </effect>
 </BorderPane>

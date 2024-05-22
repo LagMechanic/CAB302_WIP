@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,6 +32,7 @@ public class LoginController extends ParentController {
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
+
         try {
             Authentication.getInstance().login(new User(usernameTextField.getText(), passwordField.getText()));
         } catch (InvalidCredentials e) {
@@ -40,11 +43,10 @@ public class LoginController extends ParentController {
             return;
         }
 
+
         setCurrentUser(usernameTextField.getText());
-        BrowserApplication browserApplication = new BrowserApplication();
-        browserApplication.start(new Stage());
-        Stage stage = (Stage) LoginButton.getScene().getWindow();
-        stage.close();
+        new BrowserApplication().start(new Stage());
+        ((Stage) LoginButton.getScene().getWindow()).close();
     }
 
     @FXML
@@ -61,5 +63,12 @@ public class LoginController extends ParentController {
     private void EnableLoginButton() {
         boolean validButton = (usernameTextField.getText().isEmpty() || passwordField.getText().isEmpty());
         LoginButton.setDisable(validButton);
+    }
+
+    @FXML
+    public void CheckLogin(KeyEvent key) throws IOException {
+        if (key.getCode() == KeyCode.ENTER && !LoginButton.isDisabled()){
+            onLoginButtonClick();
+        }
     }
 }

@@ -53,7 +53,7 @@ public class Authentication implements IAuthentication {
     public void signup(User user) throws UserAlreadyExists {
         if (userDAO.checkUsername(user.getUsername())) throw new UserAlreadyExists();
 
-        userDAO.addContact(user);
+        userDAO.addUser(user);
 
         currUser = user;
     }
