@@ -6,5 +6,5 @@ public interface IHistoryRecordDAO {
     void insertHistoryRecord(HistoryRecord record);
     void updateActivityEndDateTime(String HistoryRecordEndDateTime);
 
-    List<HistoryRecord> getAllUserHistoryRecords(String username);
+    List<HistoryRecord> getUserHistoryRecords(String username);
 }

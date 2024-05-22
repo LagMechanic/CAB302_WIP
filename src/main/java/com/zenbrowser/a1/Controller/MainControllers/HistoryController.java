@@ -15,7 +15,7 @@ public class HistoryController extends ParentController {
 
 
     public void initialize() {
-        records = HistoryDAO.getAllUserHistoryRecords(super.getCurrentUser());
+        records = HistoryDAO.getUserHistoryRecords(super.getCurrentUser());
 
         PopulateRecords();
     }

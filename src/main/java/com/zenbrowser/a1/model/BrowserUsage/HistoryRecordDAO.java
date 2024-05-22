@@ -86,7 +86,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
     }
 
     @Override
-    public List<HistoryRecord> getAllUserHistoryRecords(String username) {
+    public List<HistoryRecord> getUserHistoryRecords(String username) {
         List<HistoryRecord> historyRecords = new ArrayList<>();
         String sql = "SELECT * FROM history WHERE username = ?";
 
