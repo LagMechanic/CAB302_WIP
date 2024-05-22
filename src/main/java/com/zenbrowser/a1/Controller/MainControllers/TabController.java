@@ -69,6 +69,8 @@ public class TabController extends ParentController implements Initializable {
         else {  greetingLabel.setText("Welcome to zenbrowser!");}
 
         //this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + TabController.this.colorPicker.getValue()));
+
+        currentTab.setBlocklist(SiteDAO, ProfileDAO);
     }
 
     //Create new tab function.

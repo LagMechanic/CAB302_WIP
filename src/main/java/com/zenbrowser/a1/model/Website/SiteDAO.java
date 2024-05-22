@@ -2,7 +2,11 @@
 
 import com.zenbrowser.a1.model.SqliteConnection;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.*;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class SiteDAO implements ISiteDAO {
 
@@ -104,7 +108,10 @@ public class SiteDAO implements ISiteDAO {
 
     @Override
     public Site getSiteByURL(String url) {
-        String sql = "SELECT * FROM sites WHERE url=?";
+        url = parseURL(url);
+        System.out.println("get site for url: " + url);
+
+        String sql = "SELECT * FROM sites WHERE url LIKE ?";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setString(1,url);
             try (ResultSet resultSet = statement.executeQuery()){
@@ -119,6 +126,23 @@ public class SiteDAO implements ISiteDAO {
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * Parses a url to its domain, e.g. https://www.site.com/anything/anything -> site.com
+     * @param url url to parse
+     * @return domain name; if already valid, returns url
+     */
+    public static String parseURL(String url) {
+        System.out.println("parse: " + url + "->");
+
+        Pattern p = Pattern.compile("(https?://)?(www\\.)?([^/]+)(/.*)?");
+        Matcher m = p.matcher(url);
+        if (m.find()) {
+            url = m.group(3);
+            System.out.println("match: " + url);
+        }
+        return url;
     }
 
     private Site extractSiteFromResultSet(ResultSet resultSet) throws SQLException {
