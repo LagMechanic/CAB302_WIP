@@ -90,7 +90,10 @@ public class TabController extends ParentController implements Initializable {
         //Listener for when tab successfully loads.
         loadingListener(tab);
 
+
         UpdatePage();
+        testProfileSelector();
+
         loadPage(defaultEngine);
     }
 
