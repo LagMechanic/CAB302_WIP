@@ -74,6 +74,7 @@ public class ProfileDAO implements IProfileDAO {
             throw new RuntimeException(e);
         }
     }
+
     @Override
     public void deleteProfile(int id) throws SQLException {
         String sql = "DELETE FROM profiles WHERE id=?";

@@ -110,4 +110,13 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
         }
         return historyRecords;
     }
+
+    @Override
+    public void deleteUserHistory(String username) throws SQLException {
+        String sql = "DELETE FROM history WHERE username=?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, username);
+            statement.executeUpdate();
+        }
+    }
 }

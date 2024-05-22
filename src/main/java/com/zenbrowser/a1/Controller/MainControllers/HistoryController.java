@@ -1,10 +1,13 @@
 package com.zenbrowser.a1.Controller.MainControllers;
 import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
+import com.zenbrowser.a1.model.BrowserUsage.HistoryRecordDAO;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -18,7 +21,6 @@ public class HistoryController extends ParentController {
 
     public void initialize() {
         records = HistoryDAO.getUserHistoryRecords(super.getCurrentUser());
-        System.out.println(records.size());
         PopulateRecords();
     }
 
@@ -43,5 +45,10 @@ public class HistoryController extends ParentController {
     private String formatDateTime(Timestamp dateTime) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss        dd/MM/yyyy ");
         return dateTime.toLocalDateTime().format(formatter);
+    }
+
+    @FXML
+    public void deleteHistory() throws SQLException {
+        HistoryDAO.deleteUserHistory(getCurrentUser());
     }
 }
