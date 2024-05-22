@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Commented out unused code. Deleted home page and controller.">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Renamed incorrectly named history methods.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/IProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/IProfileDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/ProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/ProfileDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="ProfileLimits-Dom" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,7 +76,7 @@
     "Application.BrowserApplication.executor": "Run",
     "Application.Login.executor": "Run",
     "Application.TestApplication.executor": "Run",
-    "git-widget-placeholder": "Logout-branch",
+    "git-widget-placeholder": "ProfileLimits-Josh",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
@@ -164,14 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Made significant changes to HistoryRecord and History RecordDAO as well as HistoryController.">
-      <option name="closed" value="true" />
-      <created>1715510199711</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1715510199711</updated>
     </task>
     <task id="LOCAL-00039" summary="insert single record statement when loading page.">
       <option name="closed" value="true" />
@@ -557,7 +553,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716282720176</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Renamed incorrectly named history methods.">
+      <option name="closed" value="true" />
+      <created>1716354212148</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1716354212148</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -590,7 +594,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Error when saving content into tab content as well as browser content as two instances. New method which sets container. Modifications to browsermain" />
     <MESSAGE value="Added getPage method to go with new setPage method. Modified to fix errors" />
     <MESSAGE value="Removed untilized history methods and variables." />
     <MESSAGE value="Fixed home button error which would not load webview and display page not loaded error. Refactoring" />
@@ -615,7 +618,8 @@
     <MESSAGE value="Refactored code to reduce for opening new applications." />
     <MESSAGE value="Added Logout user button, rearranged tab bar format with image icons and layout" />
     <MESSAGE value="Commented out unused code. Deleted home page and controller." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commented out unused code. Deleted home page and controller." />
+    <MESSAGE value="Renamed incorrectly named history methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed incorrectly named history methods." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

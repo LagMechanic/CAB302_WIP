@@ -1,6 +1,7 @@
 package com.zenbrowser.a1.Controller.MainControllers;
 
 import com.zenbrowser.a1.Controller.ParentController;
+import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import com.zenbrowser.a1.model.FocusProfile.Profile;
 import com.zenbrowser.a1.model.ProfileLimits.UrlLimit;
 import com.zenbrowser.a1.model.Website.Site;
@@ -13,7 +14,7 @@ import javafx.scene.control.Button;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
@@ -48,6 +49,7 @@ public class ProfileLimitsController extends ParentController {
     @FXML
     public TableColumn<UrlLimit, String> minutes;
 
+
     private final ObservableList<UrlLimit> profileLimitsData = FXCollections.observableArrayList();
 
     public void initialize(){
@@ -63,21 +65,21 @@ public class ProfileLimitsController extends ParentController {
     }
 
     private void loadProfilesTable() {
-        for ( Profile p : ProfileDAO.getAllProfiles()) {
-            String url = p.getWebsite().getURL();
-            String profile = p.getProfileName();
+        for ( Profile profile : ProfileDAO.getUserProfiles(super.getCurrentUser())) {
+            String url = profile.getWebsite().getURL();
+            String pName = profile.getProfileName();
 
-            String[] blockedDuration = p.getBlockedDuration();
+            String[] blockedDuration = profile.getBlockedDuration();
             // Limit has expired
             if (blockedDuration == null) {
                 try {
-                    ProfileDAO.deleteProfile(p.getId());
+                    ProfileDAO.deleteProfile(profile.getId());
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                continue;
             }
-            UrlLimit newUrlLimit = new UrlLimit(url, blockedDuration[0], blockedDuration[1], profile);
+
+            UrlLimit newUrlLimit = new UrlLimit(url, blockedDuration[0], blockedDuration[1], pName);
 
             profileLimitsData.add(newUrlLimit);
         }
@@ -104,7 +106,10 @@ public class ProfileLimitsController extends ParentController {
             long limitmilliseconds = TimeUnit.HOURS.toMillis(Integer.parseInt(hours))
                     + TimeUnit.MINUTES.toMillis(Integer.parseInt(minutes));
 
-            ProfileDAO.insertProfile(new Profile(profile, site,
+            ProfileDAO.insertProfile(new Profile(
+                    getCurrentUser(),
+                    profile,
+                    site,
                     new Date(System.currentTimeMillis() + limitmilliseconds)));
 
 

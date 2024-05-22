@@ -10,15 +10,17 @@ import java.util.concurrent.TimeUnit;
 
 public class Profile {
     private int id;
+    private String user;
     private String profileName;
     private Site website;
     private Date blockedUntil;
 
 
-    public Profile(String profileName, Site website, Date blockedUntil) {
+    public Profile(String user, String profileName, Site website, Date blockedUntil) {
         this.profileName = profileName;
         this.website = website;
         this.blockedUntil = blockedUntil;
+        this.user = user;
     }
 
     public int getId() {
@@ -36,6 +38,7 @@ public class Profile {
     public void setProfileName(String profileName) {
         this.profileName = profileName;
     }
+    public String getProfileUser() { return user;}
 
     public Site getWebsite() { return website; }
     public void setWebsite(Site website) {
@@ -64,4 +67,6 @@ public class Profile {
         long blockedDuration = blockedUntil - System.currentTimeMillis();
         return blockedDuration > 0;
     }
+
+
 }

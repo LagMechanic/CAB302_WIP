@@ -11,7 +11,7 @@ public interface IProfileDAO {
     void updateProfile(Profile profile);
     void deleteProfile(int id) throws SQLException;
     Profile getProfile(int id);
-    List<Profile> getAllProfiles();
+    List<Profile> getUserProfiles(String username);
 
     Profile getProfileByNameAndSite(String profileName, Site site);
 }
