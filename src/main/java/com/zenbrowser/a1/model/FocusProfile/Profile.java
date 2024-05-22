@@ -1,8 +1,5 @@
 package com.zenbrowser.a1.model.FocusProfile;
 
-import com.zenbrowser.a1.model.Website.Site;
-import javafx.beans.value.ObservableValue;
-
 import java.sql.Date;
 import java.sql.Time;
 import java.util.concurrent.TimeUnit;
@@ -11,17 +8,19 @@ public class Profile {
     private int id;
     private String user;
     private String profileName;
-    private Site website;
+    private String siteURL;
+    private String siteName;
+    private String category;
     private Time blockTime;
-    private Date blockedUntil;
+    private Time blockedUntil;
 
 
-    public Profile(String user, String profileName, Site website, Time blockTime) {
+    public Profile(String user, String profileName, String website, Time blockTime) {
         this.profileName = profileName;
-        this.website = website;
+        this.siteURL = website;
         this.user = user;
         this.blockTime = blockTime;
-        blockedUntil = new Date(System.currentTimeMillis() +blockTime.getTime());
+        blockedUntil = new Time(System.currentTimeMillis() + blockTime.getTime());
     }
 
     public int getId() {return id;}
@@ -37,11 +36,11 @@ public class Profile {
     }
     public String getProfileUser() { return user;}
 
-    public Site getWebsite(){return website;}
+    public String getSiteURL(){return siteURL;}
 
-    public Date getBlockedUntil() { return blockedUntil; }
+    public Time getBlockedUntil() { return blockedUntil; }
 
-    public Time getBlockTime() {return blockTime;}
+    public Time getBlockTime() { return blockTime;}
 
     /**
      * Returns a string array of the remaining time formatted [hrs, mins]
@@ -62,7 +61,4 @@ public class Profile {
         long blockedDuration = blockedUntil.getTime() - System.currentTimeMillis();
         return blockedDuration > 0;
     }
-
-
-
 }

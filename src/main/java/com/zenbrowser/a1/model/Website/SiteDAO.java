@@ -1,4 +1,4 @@
-package com.zenbrowser.a1.model.Website;
+/**package com.zenbrowser.a1.model.Website;
 
 import com.zenbrowser.a1.model.SqliteConnection;
 
@@ -127,4 +127,4 @@ public class SiteDAO implements ISiteDAO {
         site.setCategory(resultSet.getString("category"));
         return site;
     }
-}
+}**/

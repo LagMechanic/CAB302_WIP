@@ -1,6 +1,5 @@
 package com.zenbrowser.a1.model.FocusProfile;
 
-import com.zenbrowser.a1.model.Website.Site;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -13,5 +12,5 @@ public interface IProfileDAO {
     Profile getProfile(int id);
     List<Profile> getUserProfiles(String username);
 
-    Profile getProfileByNameAndSite(String profileName, Site site);
+    //Profile getProfileByNameAndSite(String profileName, Site site);
 }

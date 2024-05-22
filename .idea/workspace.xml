@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Added user variable within profile to filter only currentUsers. Foreign key attached to user to check user exists.">
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Major Refactoring. Added blockTime as constructor for profile, instead of hour,min variables. Return blockedUntil as a calculation from profile object. Large modifications to profilelimit controllers. Still fixing bugs.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ParentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/ParentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/IProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/IProfileDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/Profile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/ProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/ProfileDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/ProfileLimits/ProfileLimitsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/ProfileLimits/ProfileLimitsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/ProfileLimits/UrlLimit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/ProfileLimits/UrlLimit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/Website/ISiteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/Website/ISiteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/Website/Site.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/Website/Site.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/Website/SiteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/Website/SiteDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,14 +174,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00040" summary="HistoryController now access history from database instead of class.">
-      <option name="closed" value="true" />
-      <created>1715513416124</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1715513416124</updated>
     </task>
     <task id="LOCAL-00041" summary="When user opens if user is not logged in open login page, if logged in then open browser">
       <option name="closed" value="true" />
@@ -561,7 +559,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716358525094</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Major Refactoring. Added blockTime as constructor for profile, instead of hour,min variables. Return blockedUntil as a calculation from profile object. Large modifications to profilelimit controllers. Still fixing bugs.">
+      <option name="closed" value="true" />
+      <created>1716370160046</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1716370160046</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -594,7 +600,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Removed untilized history methods and variables." />
     <MESSAGE value="Fixed home button error which would not load webview and display page not loaded error. Refactoring" />
     <MESSAGE value="Refactor and created directories to organize controllers. Renamed browserMain to more appropriate TabController" />
     <MESSAGE value="Adding Main bar to browsertab to reduce code abstraction fails" />
@@ -619,7 +624,8 @@
     <MESSAGE value="Commented out unused code. Deleted home page and controller." />
     <MESSAGE value="Renamed incorrectly named history methods." />
     <MESSAGE value="Added user variable within profile to filter only currentUsers. Foreign key attached to user to check user exists." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added user variable within profile to filter only currentUsers. Foreign key attached to user to check user exists." />
+    <MESSAGE value="Major Refactoring. Added blockTime as constructor for profile, instead of hour,min variables. Return blockedUntil as a calculation from profile object. Large modifications to profilelimit controllers. Still fixing bugs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Major Refactoring. Added blockTime as constructor for profile, instead of hour,min variables. Return blockedUntil as a calculation from profile object. Large modifications to profilelimit controllers. Still fixing bugs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,4 +1,4 @@
-package com.zenbrowser.a1.model.Website;
+/**package com.zenbrowser.a1.model.Website;
 
 public class Site {
     private int id;
@@ -34,4 +34,4 @@ public class Site {
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
     public boolean getIsBlockedStatus() { return blockedStatus; }
-}
+}**/
