@@ -1,4 +1,4 @@
-package com.zenbrowser.a1.model.Website;
+/**package com.zenbrowser.a1.model.Website;
 
 public interface ISiteDAO {
     Site insertSite(Site site);
@@ -9,3 +9,4 @@ public interface ISiteDAO {
     Site getSiteByURL(String url);
 }
 
+**/

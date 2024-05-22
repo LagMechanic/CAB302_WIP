@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Commented out unused code. Deleted home page and controller.">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
-    </list>
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Bug as currentTab was being called before initalized." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="ProfileLimits-Dom" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,15 +64,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BrowserApplication.executor": "Run",
-    "Application.Login.executor": "Run",
-    "Application.TestApplication.executor": "Run",
-    "git-widget-placeholder": "Logout-branch",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BrowserApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Login.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ProfileLimits-Josh&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4770115&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Benjc\Desktop\Uni\2024\Semester 1\CAB302\CAB302_WIP\src\main\java\com\zenbrowser\a1" />
@@ -164,206 +164,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Made significant changes to HistoryRecord and History RecordDAO as well as HistoryController.">
-      <option name="closed" value="true" />
-      <created>1715510199711</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1715510199711</updated>
-    </task>
-    <task id="LOCAL-00039" summary="insert single record statement when loading page.">
-      <option name="closed" value="true" />
-      <created>1715512470645</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1715512470645</updated>
-    </task>
-    <task id="LOCAL-00040" summary="HistoryController now access history from database instead of class.">
-      <option name="closed" value="true" />
-      <created>1715513416124</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1715513416124</updated>
-    </task>
-    <task id="LOCAL-00041" summary="When user opens if user is not logged in open login page, if logged in then open browser">
-      <option name="closed" value="true" />
-      <created>1715513980878</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1715513980878</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Added currentTab browsing boolean. If true then switches to browser mode or if false switch tab content to profile mode.">
-      <option name="closed" value="true" />
-      <created>1715514576038</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1715514576038</updated>
-    </task>
-    <task id="LOCAL-00043" summary="history error checks before website loading. Listener added to fix bug.">
-      <option name="closed" value="true" />
-      <created>1715517942095</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1715517942095</updated>
-    </task>
-    <task id="LOCAL-00044" summary="History displays entry variables seperately instead of single entry.">
-      <option name="closed" value="true" />
-      <created>1715578338123</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1715578338123</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Removed unneccessary vbox components in Home-Page.fxml">
-      <option name="closed" value="true" />
-      <created>1715578615975</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1715578615975</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Added fxml functionality to homepage buttons.">
-      <option name="closed" value="true" />
-      <created>1715578782333</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1715578782333</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Changing homepage layout so that buttons on left side and browser on center panel.">
-      <option name="closed" value="true" />
-      <created>1715579064291</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1715579064291</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Removing non utilized loginController methods and variables.">
-      <option name="closed" value="true" />
-      <created>1715579269646</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1715579269646</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Removing non utilized  methods and variables in History, profileLimits and register controllers.">
-      <option name="closed" value="true" />
-      <created>1715579399520</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1715579399520</updated>
-    </task>
-    <task id="LOCAL-00050" summary="modifying browsertab and home-page fxml to move relocate to other page.">
-      <option name="closed" value="true" />
-      <created>1715580167923</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1715580167923</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Refactor updates.">
-      <option name="closed" value="true" />
-      <created>1715582920904</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1715582920904</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Changed all date variables for history to become timestamps.">
-      <option name="closed" value="true" />
-      <created>1715583220118</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1715583220118</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Create a historygrid instead of adding labels within hbox">
-      <option name="closed" value="true" />
-      <created>1715583826907</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1715583826907</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Refactor history records into method.">
-      <option name="closed" value="true" />
-      <created>1715584714135</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1715584714135</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Completed method which populates records in grid.">
-      <option name="closed" value="true" />
-      <created>1715584888016</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1715584888016</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Fixed bug history willl add in same column">
-      <option name="closed" value="true" />
-      <created>1715585010745</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1715585010745</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Login and registration will now open new application before opening main application so bar utility can't be accessed. Browsermain and home page is being collated.">
-      <option name="closed" value="true" />
-      <created>1715603230677</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1715603230677</updated>
-    </task>
-    <task id="LOCAL-00058" summary="RegistrationController buttons now open login window and main application">
-      <option name="closed" value="true" />
-      <created>1715603614737</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1715603614737</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Bug where login is opened after login completed instead of home page">
-      <option name="closed" value="true" />
-      <created>1715603704330</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1715603704330</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Check for currentUser on newTab no longer required. Removed">
-      <option name="closed" value="true" />
-      <created>1715603908091</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1715603908091</updated>
-    </task>
-    <task id="LOCAL-00061" summary="homepage greeting label text error fix">
-      <option name="closed" value="true" />
-      <created>1715603944455</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1715603944455</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Changed how page opens in consideration to start of load. Created method to check Controller type.">
-      <option name="closed" value="true" />
-      <created>1715604833354</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1715604833354</updated>
     </task>
     <task id="LOCAL-00063" summary="Error when saving content into tab content as well as browser content as two instances. New method which sets container. Modifications to browsermain">
       <option name="closed" value="true" />
@@ -557,7 +357,207 @@
       <option name="project" value="LOCAL" />
       <updated>1716282720176</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Renamed incorrectly named history methods.">
+      <option name="closed" value="true" />
+      <created>1716354212148</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1716354212148</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Added user variable within profile to filter only currentUsers. Foreign key attached to user to check user exists.">
+      <option name="closed" value="true" />
+      <created>1716358525093</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1716358525094</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Major Refactoring. Added blockTime as constructor for profile, instead of hour,min variables. Return blockedUntil as a calculation from profile object. Large modifications to profilelimit controllers. Still fixing bugs.">
+      <option name="closed" value="true" />
+      <created>1716370160046</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1716370160046</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Changed all blocktime variables to time. Combined site functionality into profiles. Modified profile SQL tables. Changed profile methods.&#10;&#10;&#10;Commented out ISiteDAO.java, SiteDAO.java, Site.java, URLimit.java, ProfileLimitsApplication.java">
+      <option name="closed" value="true" />
+      <created>1716380570795</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1716380570795</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Changed modifiers so controller variables and methods are not public.">
+      <option name="closed" value="true" />
+      <created>1716380940853</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1716380940853</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Added changeProfile method and getSingleProfile method, so when profile is switched, only that profile result is displayed.">
+      <option name="closed" value="true" />
+      <created>1716382658583</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1716382658583</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Fixed bug to clear table, instead of constantly adding to view.">
+      <option name="closed" value="true" />
+      <created>1716382750746</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1716382750746</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Add deleteColumn button to clear entries in tableColumn. Work in progress">
+      <option name="closed" value="true" />
+      <created>1716385014218</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1716385014218</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Added changeProfile controller to change view for each profile. Refactored loadProfilesTable to update view with no parameters, placing logic inside.">
+      <option name="closed" value="true" />
+      <created>1716385650829</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1716385650829</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Duplicate table view columns">
+      <option name="closed" value="true" />
+      <created>1716385733372</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1716385733372</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Add button to every table column which can clear the profile entry.">
+      <option name="closed" value="true" />
+      <created>1716389096487</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1716389096487</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Update table when profileDao deleted.">
+      <option name="closed" value="true" />
+      <created>1716389223137</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1716389223137</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Added localtimeOffset for profileTime. fxml inputs combobox instead to reduced code.">
+      <option name="closed" value="true" />
+      <created>1716391042479</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1716391042479</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Refactored code, and abstracted to methods to improve readability.">
+      <option name="closed" value="true" />
+      <created>1716391347059</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1716391347059</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Added Date format for history for improved UI.">
+      <option name="closed" value="true" />
+      <created>1716393000857</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1716393000857</updated>
+    </task>
+    <task id="LOCAL-00102" summary="History table added spacing and margings.">
+      <option name="closed" value="true" />
+      <created>1716393126427</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1716393126427</updated>
+    </task>
+    <task id="LOCAL-00103" summary="history-view.fxml changed vBox to scrollPane so user can scroll to see more history.">
+      <option name="closed" value="true" />
+      <created>1716393361641</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1716393361641</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Increase history font size.">
+      <option name="closed" value="true" />
+      <created>1716394625546</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1716394625546</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Added a button to delete all user history.">
+      <option name="closed" value="true" />
+      <created>1716395599304</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1716395599304</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Abstracted Tab adjustment to a method.">
+      <option name="closed" value="true" />
+      <created>1716397212085</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1716397212085</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Finished merging.">
+      <option name="closed" value="true" />
+      <created>1716400944855</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1716400944856</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Recoded the blockedListener() method. Created a setBlocked method and a static string List which stores current blockedSites.">
+      <option name="closed" value="true" />
+      <created>1716401010157</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1716401010157</updated>
+    </task>
+    <task id="LOCAL-00109" summary="Added placeholder method which gets all profiles and puts in browserclass.">
+      <option name="closed" value="true" />
+      <created>1716401080777</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1716401080777</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Added placeholder method which gets all profiles and puts in browserclass.">
+      <option name="closed" value="true" />
+      <created>1716401086262</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1716401086262</updated>
+    </task>
+    <task id="LOCAL-00111" summary="Bug as currentTab was being called before initalized.">
+      <option name="closed" value="true" />
+      <created>1716401464071</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1716401464071</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -590,32 +590,32 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Error when saving content into tab content as well as browser content as two instances. New method which sets container. Modifications to browsermain" />
-    <MESSAGE value="Added getPage method to go with new setPage method. Modified to fix errors" />
-    <MESSAGE value="Removed untilized history methods and variables." />
-    <MESSAGE value="Fixed home button error which would not load webview and display page not loaded error. Refactoring" />
-    <MESSAGE value="Refactor and created directories to organize controllers. Renamed browserMain to more appropriate TabController" />
-    <MESSAGE value="Adding Main bar to browsertab to reduce code abstraction fails" />
-    <MESSAGE value="Fixed functionality for currentTab history as listener would listen to page loading success to input history however currentTab could change." />
-    <MESSAGE value="Reformated code, such as currentTab() to now be declared as a private field." />
-    <MESSAGE value="Finished main page browser merger, Removed main page." />
-    <MESSAGE value="Reformated go Button method" />
-    <MESSAGE value="Refactored browserTab fxml code" />
-    <MESSAGE value="Added a check for login enter to go to next page only if login page enabled." />
-    <MESSAGE value="Finished merging Luis version to main and fixing issues." />
-    <MESSAGE value="Added button to be able to navigate to usageInsights.fxml.&#10;Fixed bug of UsageInsights as anchorpane not being insertable." />
-    <MESSAGE value="Refactoring, deletion of unutilized code, changing method access classes." />
-    <MESSAGE value="finishing profile limits functionality with the table working but without it connecting to a database yet" />
-    <MESSAGE value="Added functionality to go to profileLimits. Other bug fixes and refactoring changes." />
-    <MESSAGE value="Removed ProfileLimits dashboard, as in place for browserTab" />
-    <MESSAGE value="Added image as background instead of colour for aesthetics." />
-    <MESSAGE value="Profile Limits Functionality&#10;&#10;Modifications &amp; Additions to FXML files&#10;Home-Page.fxml: removed unnecessary buttons&#10;login-view.fxml:completely reworked how it changes between login-view.fxml and register-view.fxml by including ChangeListener's all screen changes within the Application are handled by BrowserMain.java" />
-    <MESSAGE value="Merged with UsageInsights branch and fixed errors." />
-    <MESSAGE value="LogoutUser now opens new logout application, for next user" />
-    <MESSAGE value="Refactored code to reduce for opening new applications." />
-    <MESSAGE value="Added Logout user button, rearranged tab bar format with image icons and layout" />
     <MESSAGE value="Commented out unused code. Deleted home page and controller." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commented out unused code. Deleted home page and controller." />
+    <MESSAGE value="Renamed incorrectly named history methods." />
+    <MESSAGE value="Added user variable within profile to filter only currentUsers. Foreign key attached to user to check user exists." />
+    <MESSAGE value="Major Refactoring. Added blockTime as constructor for profile, instead of hour,min variables. Return blockedUntil as a calculation from profile object. Large modifications to profilelimit controllers. Still fixing bugs." />
+    <MESSAGE value="Changed all blocktime variables to time. Combined site functionality into profiles. Modified profile SQL tables. Changed profile methods.&#10;&#10;&#10;Commented out ISiteDAO.java, SiteDAO.java, Site.java, URLimit.java, ProfileLimitsApplication.java" />
+    <MESSAGE value="Changed modifiers so controller variables and methods are not public." />
+    <MESSAGE value="Added changeProfile method and getSingleProfile method, so when profile is switched, only that profile result is displayed." />
+    <MESSAGE value="Fixed bug to clear table, instead of constantly adding to view." />
+    <MESSAGE value="Add deleteColumn button to clear entries in tableColumn. Work in progress" />
+    <MESSAGE value="Added changeProfile controller to change view for each profile. Refactored loadProfilesTable to update view with no parameters, placing logic inside." />
+    <MESSAGE value="Duplicate table view columns" />
+    <MESSAGE value="Add button to every table column which can clear the profile entry." />
+    <MESSAGE value="Update table when profileDao deleted." />
+    <MESSAGE value="Added localtimeOffset for profileTime. fxml inputs combobox instead to reduced code." />
+    <MESSAGE value="Refactored code, and abstracted to methods to improve readability." />
+    <MESSAGE value="Added Date format for history for improved UI." />
+    <MESSAGE value="History table added spacing and margings." />
+    <MESSAGE value="history-view.fxml changed vBox to scrollPane so user can scroll to see more history." />
+    <MESSAGE value="Increase history font size." />
+    <MESSAGE value="Added a button to delete all user history." />
+    <MESSAGE value="Abstracted Tab adjustment to a method." />
+    <MESSAGE value="Finished merging." />
+    <MESSAGE value="Recoded the blockedListener() method. Created a setBlocked method and a static string List which stores current blockedSites." />
+    <MESSAGE value="Added placeholder method which gets all profiles and puts in browserclass." />
+    <MESSAGE value="Bug as currentTab was being called before initalized." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug as currentTab was being called before initalized." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

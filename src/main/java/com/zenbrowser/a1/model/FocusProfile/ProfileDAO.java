@@ -1,12 +1,12 @@
 package com.zenbrowser.a1.model.FocusProfile;
 
 import com.zenbrowser.a1.model.SqliteConnection;
-import com.zenbrowser.a1.model.Website.Site;
-import com.zenbrowser.a1.model.Website.SiteDAO;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ProfileDAO implements IProfileDAO {
     private final Connection connection;
@@ -22,9 +22,14 @@ public class ProfileDAO implements IProfileDAO {
             Statement statement = connection.createStatement();
             String query = "CREATE TABLE IF NOT EXISTS profiles ("
                     + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + "username VARCHAR,"
                     + "profileName VARCHAR NOT NULL,"
-                    + "websiteID VARCHAR NOT NULL,"
-                    + "blockedUntil DATETIME NOT NULL"
+                    + "siteURL VARCHAR NOT NULL,"
+                    + "siteName VARCHAR NULL,"
+                    + "category VARCHAR NULL,"
+                    + "blockedUntil DATETIME NOT NULL,"
+                    + "blockTime TIME NOT NULL,"
+                    + "FOREIGN KEY (username) REFERENCES users(username)"
                     + ")";
             statement.execute(query);
         } catch (Exception e) {
@@ -33,27 +38,25 @@ public class ProfileDAO implements IProfileDAO {
     }
 
     public Profile insertProfile(Profile profile) {
-        String sql = "INSERT INTO profiles (profileName, websiteId, blockedUntil) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO profiles (username, profileName, siteURL, blockedUntil, blockTime) VALUES (?, ?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)){
-            statement.setString(1, profile.getProfileName());
-            statement.setInt(2, profile.getWebsite().getId());
-            statement.setDate(3, profile.getBlockedUntil());
+            statement.setString(1,profile.getProfileUser());
+            statement.setString(2, profile.getProfileName());
+            statement.setString(3, profile.getSiteURL());
+            statement.setTime(4, profile.getBlockedUntil());
+            statement.setTime(5, profile.getBlockTime());
             int affectedRows = statement.executeUpdate();
             if (affectedRows > 0){
-                System.out.println("inserted record successfully");
                 try(var generatedKeys = statement.getGeneratedKeys()){
                     if (generatedKeys.next()){
                         int profileId = generatedKeys.getInt(1);
-                        System.out.println("generated key siteId: " + profileId);
                         profile.setId(profileId);
                         return profile;
                     }
                 }
             }
-
         }
-
 
         catch (SQLException e){
             throw new RuntimeException(e);
@@ -62,17 +65,18 @@ public class ProfileDAO implements IProfileDAO {
     }
 
     public void updateProfile(Profile profile) {
-        String sql = "UPDATE profiles SET profileName=?, websiteId=? WHERE id=?";
+        String sql = "UPDATE profiles SET profileName=?, siteURL=? WHERE id=?";
 
         try(PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setString(1, profile.getProfileName());
-            statement.setInt(2, profile.getWebsite().getId());
+            statement.setString(2, profile.getSiteURL());
             statement.setInt(3, profile.getId());
         }
         catch (SQLException e){
             throw new RuntimeException(e);
         }
     }
+
     @Override
     public void deleteProfile(int id) throws SQLException {
         String sql = "DELETE FROM profiles WHERE id=?";
@@ -101,51 +105,73 @@ public class ProfileDAO implements IProfileDAO {
     }
 
     @Override
-    public List<Profile> getAllProfiles() {
-        String sql = "SELECT * FROM profiles";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+    public List<Profile> getUserProfiles(String username) {
+        List<Profile> result = new ArrayList<>();
+        String sql = "SELECT * FROM profiles WHERE username=?";
 
-            try(ResultSet resultSet = statement.executeQuery()) {
-                List<Profile> result = new ArrayList<>();
-                while (resultSet.next()) {
-                    result.add(extractProfileFromResultSet(resultSet));
-                }
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
 
-                if (!result.isEmpty()) {
-                    return result;
-
-                } else return new ArrayList<>();
+            statement.setString(1,username);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                result.add(extractProfileFromResultSet(resultSet));
             }
         }
         catch (SQLException e){
             throw new RuntimeException(e);
         }
+        return result;
     }
 
-    @Override
-    public Profile getProfileByNameAndSite(String profileName, Site site) {
-        System.out.println("getProfileByNameAndSite: profileName:" + profileName + ", url: " + site.getURL() +", siteID: " + site.getId());
-        String sql = "SELECT * FROM profiles WHERE profileName=? AND websiteID=?";
+
+    public List<Profile> getSingleProfile(String username, String profileName) {
+        List<Profile> result = new ArrayList<>();
+        String sql = "SELECT * FROM profiles WHERE username=? AND profileName=?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, profileName);
-            statement.setInt(2, site.getId());
-            try(ResultSet resultSet = statement.executeQuery()) {
-                if(resultSet.next()) {
-                    return extractProfileFromResultSet(resultSet);
-                }
-                else return null;
+            statement.setString(1, username);
+            statement.setString(2, profileName);
+
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()) {
+                result.add(extractProfileFromResultSet(resultSet));
             }
         }
         catch (SQLException e){
             throw new RuntimeException(e);
         }
+        return result;
     }
+
+
+    /**
+     * Parses a url to its domain, e.g. https://www.site.com/anything/anything -> site.com
+     * @param url url to parse
+     * @return domain name; if already valid, returns url
+     */
+    private static String parseURL(String url) {
+        System.out.println("parse: " + url + "->");
+
+        Pattern p = Pattern.compile("(https?://)?(www\\.)?([^/]+)(/.*)?");
+        Matcher m = p.matcher(url);
+        if (((Matcher) m).find()) {
+            url = m.group(3);
+            System.out.println("match: " + url);
+        }
+        return url;
+    }
+
+
 
     private Profile extractProfileFromResultSet(ResultSet resultSet) throws SQLException {
-        SiteDAO siteDAO = new SiteDAO();
-        Site website = siteDAO.getSiteById(resultSet.getInt("websiteId"));
+        Profile profile = new Profile(
+                resultSet.getString("username"),
+                resultSet.getString("profileName"),
+                resultSet.getString("siteURL"),
+                resultSet.getTime("blockTime")
+        );
 
-        Profile profile = new Profile(resultSet.getString("profileName"), website, resultSet.getDate("blockedUntil"));
+
         profile.setId(resultSet.getInt("id"));
         return profile;
     }

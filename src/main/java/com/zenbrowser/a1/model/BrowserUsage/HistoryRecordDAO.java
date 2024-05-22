@@ -86,7 +86,7 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
     }
 
     @Override
-    public List<HistoryRecord> getAllUserHistoryRecords(String username) {
+    public List<HistoryRecord> getUserHistoryRecords(String username) {
         List<HistoryRecord> historyRecords = new ArrayList<>();
         String sql = "SELECT * FROM history WHERE username = ?";
 
@@ -109,5 +109,14 @@ public class HistoryRecordDAO implements IHistoryRecordDAO {
             throw new RuntimeException(e);
         }
         return historyRecords;
+    }
+
+    @Override
+    public void deleteUserHistory(String username) throws SQLException {
+        String sql = "DELETE FROM history WHERE username=?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, username);
+            statement.executeUpdate();
+        }
     }
 }

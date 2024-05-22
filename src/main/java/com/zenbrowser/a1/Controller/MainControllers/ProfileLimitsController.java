@@ -2,126 +2,151 @@ package com.zenbrowser.a1.Controller.MainControllers;
 
 import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.FocusProfile.Profile;
-import com.zenbrowser.a1.model.ProfileLimits.UrlLimit;
-import com.zenbrowser.a1.model.Website.Site;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
-
-import java.sql.Date;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
+import java.sql.Time;
+import java.util.List;
 
 
 public class ProfileLimitsController extends ParentController {
     @FXML
-    public ComboBox<String> minutesBox;
-
+    private ComboBox<Integer> minutesBox;
     @FXML
-    public ComboBox<String> hoursBox;
-
+    private ComboBox<Integer> hoursBox;
     @FXML
-    public TextField urlField;
-
+    private TextField urlField;
     @FXML
-    public Button UrlLimitData;
-
+    private ComboBox<String> profileBox;
     @FXML
-    public ComboBox<String> profileBox;
-
+    private TableView<Profile> tbData;
     @FXML
-    private TableView<UrlLimit> tbData;
-
+    private TableColumn<Profile, String> profileColumn;
     @FXML
-    public TableColumn<UrlLimit, String> profile;
-
+    private TableColumn<Profile, String> urlColumn;
     @FXML
-    public TableColumn<UrlLimit, String> url;
-
+    private TableColumn<Profile, Time> limitColumn;
     @FXML
-    public TableColumn<UrlLimit, String> hours;
+    private TableColumn <Profile,Void> deleteColumn;
 
-    @FXML
-    public TableColumn<UrlLimit, String> minutes;
+    private final ObservableList<Profile> profileData = FXCollections.observableArrayList();
 
-    private final ObservableList<UrlLimit> profileLimitsData = FXCollections.observableArrayList();
 
-    public void initialize(){
-        url.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Url()));
-        hours.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Hours()));
-        minutes.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Minutes()));
-        profile.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Profile()));
 
-        tbData.setItems(profileLimitsData);
+    //Methods
 
+
+    public void initialize() {
+
+        PopulateComboBox();
+
+        LinkTable();
 
         loadProfilesTable();
     }
 
-    private void loadProfilesTable() {
-        for ( Profile p : ProfileDAO.getAllProfiles()) {
-            String url = p.getWebsite().getURL();
-            String profile = p.getProfileName();
 
-            String[] blockedDuration = p.getBlockedDuration();
-            // Limit has expired
-            if (blockedDuration == null) {
-                try {
-                    ProfileDAO.deleteProfile(p.getId());
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                continue;
-            }
-            UrlLimit newUrlLimit = new UrlLimit(url, blockedDuration[0], blockedDuration[1], profile);
 
-            profileLimitsData.add(newUrlLimit);
-        }
-    }
+    @FXML
+    private void addUrlAndLimit() {
 
-    public void addUrlAndLimit() {
         String url = urlField.getText();
-        String hours = hoursBox.getSelectionModel().getSelectedItem();
-        String minutes = minutesBox.getSelectionModel().getSelectedItem();
+
+        Time blockTime = new Time(0);
+        int timeOffset = 10;
+        blockTime.setHours(hoursBox.getSelectionModel().getSelectedItem() + timeOffset);
+        blockTime.setMinutes(minutesBox.getSelectionModel().getSelectedItem());
+
         String profile = profileBox.getSelectionModel().getSelectedItem();
-        if (!url.isEmpty() && hours != null && !hours.isEmpty() && minutes != null && !minutes.isEmpty() && profile != null && !profile.isEmpty()) {
-            UrlLimit newUrlLimit = new UrlLimit(url, hours, minutes, profile);
-            // Add to table
-            profileLimitsData.add(newUrlLimit);
 
-            // Add to database
-            // Check if site isn't already in the database
-            Site site = SiteDAO.getSiteByURL(url);
-            if (site == null) {
-                // TODO: Add siteName and category
-                site = new Site(url, "", "", true);
-                site = SiteDAO.insertSite(site);
-            }
-            // hours and minutes will always be a valid integer
-            long limitmilliseconds = TimeUnit.HOURS.toMillis(Integer.parseInt(hours))
-                    + TimeUnit.MINUTES.toMillis(Integer.parseInt(minutes));
+        if (!url.isEmpty() && blockTime.getTime()!=0 && profile != null) {
+            ProfileDAO.insertProfile(new Profile(
+                    getCurrentUser(),
+                    profile,
+                    url,
+                    blockTime));
 
-            ProfileDAO.insertProfile(new Profile(profile, site,
-                    new Date(System.currentTimeMillis() + limitmilliseconds)));
-
+            loadProfilesTable();
 
             // Reset form
             urlField.clear();
             hoursBox.getSelectionModel().clearSelection();
             minutesBox.getSelectionModel().clearSelection();
-            profileBox.getSelectionModel().clearSelection();
+
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
             alert.setHeaderText(null);
             alert.setContentText("Profile, Hours, Minutes, or URL cannot be empty");
-        alert.showAndWait();
+            alert.showAndWait();
         }
-
     }
 
+    @FXML
+    private void changeProfile() {  loadProfilesTable();}
+
+
+    private void loadProfilesTable()  {
+        String selectedprofile = profileBox.getSelectionModel().getSelectedItem();
+        List<Profile> profilesEntries;
+
+        if (selectedprofile == null){
+            profilesEntries = ProfileDAO.getUserProfiles(getCurrentUser());
+        }else{
+            profilesEntries = ProfileDAO.getSingleProfile(getCurrentUser(), selectedprofile);
+        }
+
+        profileData.clear();
+        for (Profile profile : profilesEntries) {
+            profileData.add(profile);
+
+            String[] blockedDuration = profile.getBlockedDuration();
+            // Limit has expired
+            if (blockedDuration == null) {
+
+            }
+        }
+    }
+
+    private void LinkTable() {
+        profileColumn.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getProfileName()));
+        urlColumn.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getSiteURL()));
+        limitColumn.setCellValueFactory(cell -> new SimpleObjectProperty<>(cell.getValue().getBlockedUntil()));
+
+        deleteColumn.setCellFactory(cell -> new TableCell<>() {
+            private final Button deleteButton;
+            {
+                deleteButton = new Button("Delete");
+                deleteButton.setOnAction(evt -> {
+                    Profile entry = getTableRow().getItem();
+
+                    try {
+                        ProfileDAO.deleteProfile(entry.getId());
+                        loadProfilesTable();
+
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                setGraphic(empty ? null : deleteButton);
+            }
+        });
+
+        tbData.setItems(profileData);
+    }
+
+    private void PopulateComboBox(){
+        hoursBox.setItems(FXCollections.observableArrayList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13,14,15,16,17,18,19,20,21,22,23,24));
+        minutesBox.setItems(FXCollections.observableArrayList(0,5,10,15,20,25,30,35,40,45,50,55));
+    }
 }

@@ -1,4 +1,7 @@
-package com.zenbrowser.a1.model.Website;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern; /**package com.zenbrowser.a1.model.Website;
 
 import com.zenbrowser.a1.model.SqliteConnection;
 
@@ -128,27 +131,12 @@ public class SiteDAO implements ISiteDAO {
         }
     }
 
-    /**
-     * Parses a url to its domain, e.g. https://www.site.com/anything/anything -> site.com
-     * @param url url to parse
-     * @return domain name; if already valid, returns url
-     */
-    public static String parseURL(String url) {
-        System.out.println("parse: " + url + "->");
 
-        Pattern p = Pattern.compile("(https?://)?(www\\.)?([^/]+)(/.*)?");
-        Matcher m = p.matcher(url);
-        if (m.find()) {
-            url = m.group(3);
-            System.out.println("match: " + url);
-        }
-        return url;
-    }
-
-    private Site extractSiteFromResultSet(ResultSet resultSet) throws SQLException {
+/**
+    private <Site> Site extractSiteFromResultSet(ResultSet resultSet) throws SQLException {
         Site site = new Site(resultSet.getString("URL"), resultSet.getString("siteName"), resultSet.getString("category"), true);
         site.setId(resultSet.getInt("id"));
         site.setCategory(resultSet.getString("category"));
         return site;
     }
-}
+}**/

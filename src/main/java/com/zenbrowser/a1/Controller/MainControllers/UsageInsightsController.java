@@ -31,7 +31,7 @@ import javafx.scene.chart.XYChart;
         public void initialize() {
 
 
-            records = new HistoryRecordDAO().getAllUserHistoryRecords(super.getCurrentUser());
+            records = new HistoryRecordDAO().getUserHistoryRecords(super.getCurrentUser());
 
             populateLineChart();
             populateTopUrlsChart();
