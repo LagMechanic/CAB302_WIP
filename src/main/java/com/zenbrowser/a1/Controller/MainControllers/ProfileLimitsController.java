@@ -55,7 +55,7 @@ public class ProfileLimitsController extends ParentController {
     }
 
     private void loadProfilesTable(List<Profile> profilesEntries)  {
-
+        profileData.clear();
         for (Profile profile : profilesEntries) {
             profileData.add(profile);
 
