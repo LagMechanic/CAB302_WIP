@@ -95,6 +95,20 @@ public class TabController extends ParentController implements Initializable {
         AdjustTab();
 
 
+        tab.getWebEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
+            if (newState == Worker.State.SUCCEEDED) {
+                WebHistory.Entry entry = tab.getRecentHistory();
+                HistoryDAO.insertHistoryRecord(new HistoryRecord(
+                        getCurrentUser(),
+                        entry.getTitle(),
+                        entry.getUrl(),
+                        new java.sql.Timestamp(entry.getLastVisitedDate().getTime())));
+            } else if (newState == Worker.State.FAILED || newState == Worker.State.CANCELLED) {
+                System.out.println("Page failed to load.");
+            }
+        });
+
+
         switchPage();
         loadPage(defaultEngine);
     }
@@ -140,19 +154,6 @@ public class TabController extends ParentController implements Initializable {
             loadingTab.getWebEngine().load(urlStr);
             loadingTab.setPage(borderPane, loadingTab.getWebView());
 
-
-            loadingTab.getWebEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
-                if (newState == Worker.State.SUCCEEDED) {
-                    WebHistory.Entry entry = loadingTab.getRecentHistory();
-                    HistoryDAO.insertHistoryRecord(new HistoryRecord(
-                            getCurrentUser(),
-                            entry.getTitle(),
-                            entry.getUrl(),
-                            new java.sql.Timestamp(entry.getLastVisitedDate().getTime())));
-                } else if (newState == Worker.State.FAILED || newState == Worker.State.CANCELLED) {
-                    System.out.println("Page failed to load.");
-                }
-            });
 
         } catch (Exception e) {
             throw new RuntimeException(e);

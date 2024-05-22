@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Added a button to delete all user history.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HistoryController.java" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Abstracted Tab adjustment to a method.">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,14 +166,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Login and registration will now open new application before opening main application so bar utility can't be accessed. Browsermain and home page is being collated.">
-      <option name="closed" value="true" />
-      <created>1715603230677</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1715603230677</updated>
     </task>
     <task id="LOCAL-00058" summary="RegistrationController buttons now open login window and main application">
       <option name="closed" value="true" />
@@ -562,7 +551,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716395599304</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="Abstracted Tab adjustment to a method.">
+      <option name="closed" value="true" />
+      <created>1716397212085</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1716397212085</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -595,7 +592,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Profile Limits Functionality&#10;&#10;Modifications &amp; Additions to FXML files&#10;Home-Page.fxml: removed unnecessary buttons&#10;login-view.fxml:completely reworked how it changes between login-view.fxml and register-view.fxml by including ChangeListener's all screen changes within the Application are handled by BrowserMain.java" />
     <MESSAGE value="Merged with UsageInsights branch and fixed errors." />
     <MESSAGE value="LogoutUser now opens new logout application, for next user" />
     <MESSAGE value="Refactored code to reduce for opening new applications." />
@@ -620,7 +616,8 @@
     <MESSAGE value="history-view.fxml changed vBox to scrollPane so user can scroll to see more history." />
     <MESSAGE value="Increase history font size." />
     <MESSAGE value="Added a button to delete all user history." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a button to delete all user history." />
+    <MESSAGE value="Abstracted Tab adjustment to a method." />
+    <option name="LAST_COMMIT_MESSAGE" value="Abstracted Tab adjustment to a method." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
