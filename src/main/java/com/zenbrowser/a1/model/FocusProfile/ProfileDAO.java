@@ -122,6 +122,24 @@ public class ProfileDAO implements IProfileDAO {
         }
     }
 
+    @Override
+    public Profile getProfileByNameAndSite(String profileName, Site site) {
+        String sql = "SELECT * FROM profiles WHERE profileName=?, websiteID=?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, profileName);
+            statement.setInt(2, site.getId());
+            try(ResultSet resultSet = statement.executeQuery()) {
+                if(resultSet.next()) {
+                    return extractProfileFromResultSet(resultSet);
+                }
+                else return null;
+            }
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     private Profile extractProfileFromResultSet(ResultSet resultSet) throws SQLException {
         SiteDAO siteDAO = new SiteDAO();
         Site website = siteDAO.getSiteById(resultSet.getInt("websiteId"));
