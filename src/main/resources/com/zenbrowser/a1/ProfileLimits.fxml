@@ -18,11 +18,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="655.0" prefWidth="470.0" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
+<BorderPane prefHeight="655.0" prefWidth="645.0" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
 
     <center>
             <ScrollPane fitToWidth="true" prefWidth="400">
-                <VBox alignment="CENTER" prefHeight="653.0" prefWidth="458.0" spacing="5">
+                <VBox alignment="CENTER" prefHeight="653.0" prefWidth="586.0" spacing="5">
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Limits Settings">
                <font>
                   <Font size="24.0" />
@@ -83,9 +83,7 @@
                                 <TableColumn fx:id="profileColumn" maxWidth="150.0" prefWidth="150.0" text="Profile" />
                                 <TableColumn fx:id="urlColumn" maxWidth="150.0" prefWidth="150.0" text="URL" />
                                 <TableColumn fx:id="limitColumn" maxWidth="150.0" prefWidth="150.0" text="Hours" />
-                                <TableColumn fx:id="deleteColumn" maxWidth="50.0" prefWidth="50.0"/>
-                     <TableColumn fx:id="d" prefWidth="75.0" text="Column X" />
-                     <TableColumn prefWidth="75.0" text="Column X" />
+                                <TableColumn fx:id="deleteColumn" maxWidth="50.0" prefWidth="50.0" />
                             </columns>
                         </TableView>
                     </HBox>
