@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="History table added spacing and margings.">
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="history-view.fxml changed vBox to scrollPane so user can scroll to see more history.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,14 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Refactor history records into method.">
-      <option name="closed" value="true" />
-      <created>1715584714135</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1715584714135</updated>
     </task>
     <task id="LOCAL-00055" summary="Completed method which populates records in grid.">
       <option name="closed" value="true" />
@@ -559,7 +553,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716393126427</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="history-view.fxml changed vBox to scrollPane so user can scroll to see more history.">
+      <option name="closed" value="true" />
+      <created>1716393361641</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1716393361641</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -592,7 +594,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added functionality to go to profileLimits. Other bug fixes and refactoring changes." />
     <MESSAGE value="Removed ProfileLimits dashboard, as in place for browserTab" />
     <MESSAGE value="Added image as background instead of colour for aesthetics." />
     <MESSAGE value="Profile Limits Functionality&#10;&#10;Modifications &amp; Additions to FXML files&#10;Home-Page.fxml: removed unnecessary buttons&#10;login-view.fxml:completely reworked how it changes between login-view.fxml and register-view.fxml by including ChangeListener's all screen changes within the Application are handled by BrowserMain.java" />
@@ -617,7 +618,8 @@
     <MESSAGE value="Refactored code, and abstracted to methods to improve readability." />
     <MESSAGE value="Added Date format for history for improved UI." />
     <MESSAGE value="History table added spacing and margings." />
-    <option name="LAST_COMMIT_MESSAGE" value="History table added spacing and margings." />
+    <MESSAGE value="history-view.fxml changed vBox to scrollPane so user can scroll to see more history." />
+    <option name="LAST_COMMIT_MESSAGE" value="history-view.fxml changed vBox to scrollPane so user can scroll to see more history." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
