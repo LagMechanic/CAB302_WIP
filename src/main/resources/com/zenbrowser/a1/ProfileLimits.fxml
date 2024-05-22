@@ -42,7 +42,6 @@
                     <Label text="Add Limit: " />
                     <HBox alignment="CENTER" prefHeight="37.0" prefWidth="384.0" spacing="10.0">
                         <ComboBox fx:id="hoursBox" maxWidth="100.0" prefWidth="100.0" promptText="Hours"/>
-
                         <ComboBox fx:id="minutesBox" prefWidth="100.0" promptText="Minutes"/>
                     </HBox>
                     <Label text="Add URL:" />
@@ -54,7 +53,7 @@
                             <columns>
                                 <TableColumn fx:id="profileColumn" maxWidth="150.0" prefWidth="120.57141435146332" text="Profile" />
                                 <TableColumn fx:id="urlColumn" maxWidth="211.99999237060547" prefWidth="211.99999237060547" text="URL" />
-                                <TableColumn fx:id="limitColumn" maxWidth="165.14288330078125" prefWidth="122.28570556640625" text="Hours" />
+                                <TableColumn fx:id="limitColumn" maxWidth="165.14288330078125" prefWidth="122.28570556640625" text="Limit Goal" />
                                 <TableColumn fx:id="deleteColumn" maxWidth="100.0" prefWidth="88.57150268554688" />
                             </columns>
                         </TableView>

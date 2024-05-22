@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Added placeholder method which gets all profiles and puts in browserclass.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" afterDir="false" />
-    </list>
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Bug as currentTab was being called before initalized." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,14 +164,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Changed how page opens in consideration to start of load. Created method to check Controller type.">
-      <option name="closed" value="true" />
-      <created>1715604833354</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1715604833354</updated>
     </task>
     <task id="LOCAL-00063" summary="Error when saving content into tab content as well as browser content as two instances. New method which sets container. Modifications to browsermain">
       <option name="closed" value="true" />
@@ -559,7 +549,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716401086262</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Bug as currentTab was being called before initalized.">
+      <option name="closed" value="true" />
+      <created>1716401464071</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1716401464071</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -592,7 +590,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added Logout user button, rearranged tab bar format with image icons and layout" />
     <MESSAGE value="Commented out unused code. Deleted home page and controller." />
     <MESSAGE value="Renamed incorrectly named history methods." />
     <MESSAGE value="Added user variable within profile to filter only currentUsers. Foreign key attached to user to check user exists." />
@@ -617,7 +614,8 @@
     <MESSAGE value="Finished merging." />
     <MESSAGE value="Recoded the blockedListener() method. Created a setBlocked method and a static string List which stores current blockedSites." />
     <MESSAGE value="Added placeholder method which gets all profiles and puts in browserclass." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added placeholder method which gets all profiles and puts in browserclass." />
+    <MESSAGE value="Bug as currentTab was being called before initalized." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug as currentTab was being called before initalized." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
