@@ -83,7 +83,7 @@
                                 <TableColumn fx:id="profileColumn" maxWidth="150.0" prefWidth="150.0" text="Profile" />
                                 <TableColumn fx:id="urlColumn" maxWidth="150.0" prefWidth="150.0" text="URL" />
                                 <TableColumn fx:id="limitColumn" maxWidth="150.0" prefWidth="150.0" text="Hours" />
-                                <TableColumn fx:id="deleteColumn" maxWidth="50.0" prefWidth="50.0" />
+                                <TableColumn fx:id="deleteColumn" maxWidth="100.0" prefWidth="50.0" />
                             </columns>
                         </TableView>
                     </HBox>

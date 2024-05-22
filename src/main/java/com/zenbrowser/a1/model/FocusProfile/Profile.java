@@ -23,7 +23,7 @@ public class Profile {
         blockedUntil = new Time(System.currentTimeMillis() + blockTime.getTime());
     }
 
-    public int getId() {return id;}
+    public Integer getId() {return id;}
 
     public void setId(int id) {this.id = id;}
 

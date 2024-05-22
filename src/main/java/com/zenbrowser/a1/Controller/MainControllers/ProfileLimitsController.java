@@ -17,14 +17,12 @@ import java.util.List;
 
 
 public class ProfileLimitsController extends ParentController {
-
     @FXML
     private ComboBox<Integer> minutesBox;
     @FXML
     private ComboBox<Integer> hoursBox;
     @FXML
     private TextField urlField;
-
     @FXML
     private Button UrlLimitData;
 
@@ -40,35 +38,38 @@ public class ProfileLimitsController extends ParentController {
     @FXML
     private TableColumn<Profile, Time> limitColumn;
     @FXML
-    private TableColumn deleteColumn;
+    private TableColumn <Profile,Void> deleteColumn;
 
 
-    private ObservableList<Profile> profileData = FXCollections.observableArrayList();
+    private final ObservableList<Profile> profileData = FXCollections.observableArrayList();
 
     public void initialize() {
         profileColumn.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getProfileName()));
         urlColumn.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getSiteURL()));
         limitColumn.setCellValueFactory(cell -> new SimpleObjectProperty<>(cell.getValue().getBlockedUntil()));
-        deleteColumn.setCellFactory(cell -> new TableCell<Profile, Integer>() {
-            private final Button deleteButton = new Button("Delete");
+
+        deleteColumn.setCellFactory(cell -> new TableCell<>() {
+            private final Button deleteButton;
+            {
+                deleteButton = new Button("Delete");
+                deleteButton.setOnAction(evt -> {
+                    Profile entry = getTableRow().getItem();
+
+                    try {
+                        ProfileDAO.deleteProfile(entry.getId());
+
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+            }
+
             @Override
-            protected void updateItem(Integer id, boolean empty) {
-                super.updateItem(id, empty);
-                if (empty || id == null) {
-                    setGraphic(null);
-                } else {
-                    deleteButton.setOnAction(event -> {
-                        try {
-                            ProfileDAO.deleteProfile(id);
-                        } catch (SQLException e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
-                    setGraphic(deleteButton);
-                }
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                setGraphic(empty ? null : deleteButton);
             }
         });
-
 
         tbData.setItems(profileData);
         loadProfilesTable();

@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Add deleteColumn button to clear entries in tableColumn. Work in progress">
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Duplicate table view columns">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,22 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Added fxml functionality to homepage buttons.">
-      <option name="closed" value="true" />
-      <created>1715578782333</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1715578782333</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Changing homepage layout so that buttons on left side and browser on center panel.">
-      <option name="closed" value="true" />
-      <created>1715579064291</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1715579064291</updated>
     </task>
     <task id="LOCAL-00048" summary="Removing non utilized loginController methods and variables.">
       <option name="closed" value="true" />
@@ -559,7 +547,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716385014218</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="Added changeProfile controller to change view for each profile. Refactored loadProfilesTable to update view with no parameters, placing logic inside.">
+      <option name="closed" value="true" />
+      <created>1716385650829</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1716385650829</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Duplicate table view columns">
+      <option name="closed" value="true" />
+      <created>1716385733372</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1716385733372</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -592,8 +596,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Finished main page browser merger, Removed main page." />
-    <MESSAGE value="Reformated go Button method" />
     <MESSAGE value="Refactored browserTab fxml code" />
     <MESSAGE value="Added a check for login enter to go to next page only if login page enabled." />
     <MESSAGE value="Finished merging Luis version to main and fixing issues." />
@@ -617,7 +619,9 @@
     <MESSAGE value="Added changeProfile method and getSingleProfile method, so when profile is switched, only that profile result is displayed." />
     <MESSAGE value="Fixed bug to clear table, instead of constantly adding to view." />
     <MESSAGE value="Add deleteColumn button to clear entries in tableColumn. Work in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add deleteColumn button to clear entries in tableColumn. Work in progress" />
+    <MESSAGE value="Added changeProfile controller to change view for each profile. Refactored loadProfilesTable to update view with no parameters, placing logic inside." />
+    <MESSAGE value="Duplicate table view columns" />
+    <option name="LAST_COMMIT_MESSAGE" value="Duplicate table view columns" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
