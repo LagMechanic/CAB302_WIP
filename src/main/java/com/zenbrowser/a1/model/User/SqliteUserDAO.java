@@ -32,7 +32,7 @@ public class SqliteUserDAO implements IUserDAO {
         }
     }
     @Override
-    public void addContact(User user) {
+    public void addUser(User user) {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO users (username, password, firstName, lastName, email) VALUES (?, ?, ?, ?, ?)");
             statement.setString(1, user.getUsername());
@@ -65,16 +65,7 @@ public class SqliteUserDAO implements IUserDAO {
     }
 
 
-    @Override
-    public void deleteContact(User user) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("DELETE FROM users WHERE username = ?");
-            statement.setString(1, user.getUsername());
-            statement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
 
     @Override
     public User getContact(String Username) {

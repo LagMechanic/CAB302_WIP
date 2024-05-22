@@ -1,6 +1,5 @@
 package com.zenbrowser.a1.model.BrowserUsage;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 //  this is class was made only so this object can be put into an observable list-
@@ -36,7 +35,7 @@ public class HistoryRecord {
         return site;
     }
 
-    public Timestamp getHistoryRecordDate() {
+    public Timestamp getHistoryRecordDateTime() {
         return historyRecordDate;
     }
 

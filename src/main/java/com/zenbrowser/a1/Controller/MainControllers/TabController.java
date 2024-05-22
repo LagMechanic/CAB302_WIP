@@ -2,44 +2,31 @@ package com.zenbrowser.a1.Controller.MainControllers;
 
 import java.io.*;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.EventListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import com.zenbrowser.a1.AuthenticationApplication;
 import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import com.zenbrowser.a1.model.FocusProfile.Profile;
 import javafx.concurrent.Worker;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.web.WebHistory;
-import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 import com.zenbrowser.a1.model.browserTab;
 
 public class TabController extends ParentController implements Initializable {
-
     private String defaultEngine = "https://www.google.com";
     @FXML
     private TextField URLBox;
-    @FXML
-    private Button ReloadButton;
     @FXML
     MenuItem homePageBackgroundImg;
     @FXML
@@ -53,6 +40,8 @@ public class TabController extends ParentController implements Initializable {
     @FXML
     private Label ProfileLabel;
     @FXML
+    private Label settingsLabel;
+    @FXML
     private BorderPane borderPane;
     @FXML
     private TabPane tabPane;
@@ -62,30 +51,6 @@ public class TabController extends ParentController implements Initializable {
     private browserTab currentTab;
 
 
-    @FXML
-    private void homeBtnHover() {homeLabel.setText("Home");}
-
-    @FXML
-    private void homeBtnHoverExit() {homeLabel.setText("");}
-
-    @FXML
-    private void historyBtnHover() {historyLabel.setText("History");}
-
-    @FXML
-    private void historyBtnHoverExit() {historyLabel.setText("");}
-
-    @FXML
-    private void profileBtnHover() {ProfileLabel.setText("Profile");}
-
-    @FXML
-    private void profileBtnHoverExit() {ProfileLabel.setText("");}
-
-    private void setupTabCloseHandler(Tab tab) {
-        tab.setOnCloseRequest(event -> {
-            tabPane.setMinWidth(tabPane.getWidth() - tabPane.getTabMaxWidth() - 13);
-        });
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         newTabFunction();
@@ -93,7 +58,7 @@ public class TabController extends ParentController implements Initializable {
         // Add a listener to tab selection event.
         tabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
             if (newTab != null) {
-                switchPage();
+                UpdatePage();
             } else {
                 Stage stageInstanance = (Stage) borderPane.getScene().getWindow();
                 stageInstanance.close();
@@ -107,6 +72,8 @@ public class TabController extends ParentController implements Initializable {
         else {  greetingLabel.setText("Welcome to zenbrowser!");}
 
         //this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + TabController.this.colorPicker.getValue()));
+
+        //currentTab.setBlocklist(ProfileDAO);
     }
 
     //Create new tab function.
@@ -117,25 +84,27 @@ public class TabController extends ParentController implements Initializable {
         setupTabCloseHandler(tab);
         tabPane.getTabs().add(tab);
         tabPane.getSelectionModel().select(tab);
-        //Create a buffer so tabs can be dynamically extended on browser.
-        if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
-            tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
-        }
 
-        switchPage();
+
+        AdjustTabpane();
+        //Listener for when tab successfully loads.
+        loadingListener(tab);
+
+
+        UpdatePage();
+        testProfileSelector();
+
         loadPage(defaultEngine);
     }
 
-
-    @FXML
-    protected void GoToHomePage() { loadPage(defaultEngine);}
-
-    @FXML
-    protected void GoToLoginPage() {navigatePage("/com/zenbrowser/a1/login-view.fxml", "Login");}
-
-    @FXML
-    protected void GoToHistoryPage() {navigatePage("/com/zenbrowser/a1/history-view.fxml","History");}
-
+    //TODO: Replace this placeholder method and add selection for profiles on tab controller and from profile page. Counting down clock would be good.
+    private void testProfileSelector(){
+        List<String> blockedURLs = new ArrayList<>();
+        for (Profile profile : ProfileDAO.getUserProfiles(getCurrentUser())){
+            blockedURLs.add(profile.getSiteURL());
+        }
+        currentTab.setBlocked(blockedURLs);
+    }
 
     //Load a page into the parent BrowserTab.fxml with parameters of child source fxml file and name of tab.
     public void navigatePage(String pathway, String tabName){
@@ -152,33 +121,75 @@ public class TabController extends ParentController implements Initializable {
     private void loadPage(String urlStr)
     {
         try{
-            browserTab loadingTab = currentTab;
-            loadingTab.getWebEngine().load(urlStr);
-            loadingTab.setPage(borderPane, loadingTab.getWebView());
-
-
-            loadingTab.getWebEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
-                if (newState == Worker.State.SUCCEEDED) {
-                    WebHistory.Entry entry = loadingTab.getRecentHistory();
-                    HistoryDAO.insertHistoryRecord(new HistoryRecord(
-                            getCurrentUser(),
-                            entry.getTitle(),
-                            entry.getUrl(),
-                            new java.sql.Timestamp(entry.getLastVisitedDate().getTime())));
-                } else if (newState == Worker.State.FAILED || newState == Worker.State.CANCELLED) {
-                    System.out.println("Page failed to load.");
-                }
-            });
+            currentTab.getWebEngine().load(urlStr);
+            currentTab.setPage(borderPane, currentTab.getWebView());
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    private void switchPage(){
+    private void UpdatePage(){
         currentTab = (browserTab) tabPane.getSelectionModel().getSelectedItem();
         borderPane.setCenter(currentTab.getPage());
     }
+
+    private void loadingListener(browserTab tab){
+        tab.getWebEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
+            if (newState == Worker.State.SUCCEEDED) {
+                WebHistory.Entry entry = tab.getRecentHistory();
+                HistoryDAO.insertHistoryRecord(new HistoryRecord(
+                        getCurrentUser(),
+                        entry.getTitle(),
+                        entry.getUrl(),
+                        new java.sql.Timestamp(entry.getLastVisitedDate().getTime())));
+            } else if (newState == Worker.State.FAILED || newState == Worker.State.CANCELLED) {
+                System.out.println("Page failed to load.");
+            }
+        });
+    }
+
+    private void setupTabCloseHandler(Tab tab) {
+        tab.setOnCloseRequest(event -> {
+            tabPane.setMinWidth(tabPane.getWidth() - tabPane.getTabMaxWidth() - 13);
+        });
+    }
+
+    private void AdjustTabpane(){
+        //Create a buffer so tabs can be dynamically extended on browser.
+        if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
+            tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
+        }
+    }
+
+    private String formatUrl(String engineName, String query) {
+        if (query.startsWith(engineName))
+            return query;
+        else {
+            return engineName + "/search?q=" + query;
+        }
+    }
+
+
+
+    @FXML
+    private void GoToHomePage() { loadPage(defaultEngine);}
+
+    @FXML
+    private void LogoutUser() throws IOException {
+        new AuthenticationApplication().start(new Stage());
+        ((Stage) borderPane.getScene().getWindow()).close();
+    }
+
+
+    @FXML
+    private void GoToHistoryPage() {navigatePage("/com/zenbrowser/a1/history-view.fxml","History");}
+
+    @FXML
+    private void goUsageReports() {navigatePage("/com/zenbrowser/a1/usageInsights.fxml","Usage Report");}
+
+    @FXML
+    private void goProfileLimits() {navigatePage("/com/zenbrowser/a1/ProfileLimits.fxml","Zen Profiles");}
 
 
     @FXML
@@ -221,15 +232,6 @@ public class TabController extends ParentController implements Initializable {
         }
         return null;
     }
-  
-    private String formatUrl(String engineName, String query) {
-            if (query.startsWith(engineName))
-                return query;
-            else {
-                return engineName + "/search?q=" + query;
-            }
-    }
-
 
 
     @FXML
@@ -252,15 +254,35 @@ public class TabController extends ParentController implements Initializable {
 
 
 
+    @FXML
+    private void settingsBtnHover() {settingsLabel.setText("Settings");}
+    @FXML
+    private void settingsBtnHoverExit() {settingsLabel.setText("");}
+    @FXML
+    private void homeBtnHover() {homeLabel.setText("Home");}
 
+    @FXML
+    private void homeBtnHoverExit() {homeLabel.setText("");}
 
+    @FXML
+    private void historyBtnHover() {historyLabel.setText("History");}
 
-    public void setTabBackground(String imageFileLocation) {
-        ImageView iv = new ImageView();
-        Image img = new Image(imageFileLocation);
-        iv.setImage(img);
-        this.borderPane.setCenter(iv);
-    }
+    @FXML
+    private void historyBtnHoverExit() {historyLabel.setText("");}
+
+    @FXML
+    private void logoutBtnHover() {ProfileLabel.setText("Logout User");}
+
+    @FXML
+    private void logoutBtnHoverExit() {ProfileLabel.setText("");}
+
+    /**
+     public void setTabBackground(String imageFileLocation) {
+     ImageView iv = new ImageView();
+     Image img = new Image(imageFileLocation);
+     iv.setImage(img);
+     this.borderPane.setCenter(iv);
+     }
 
 
     class MyBrowser extends Region {
@@ -326,6 +348,6 @@ public class TabController extends ParentController implements Initializable {
                 throw new RuntimeException(var5);
             }
         }
-    }
+    }**/
 }
 

@@ -32,6 +32,7 @@ public class LoginController extends ParentController {
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
+
         try {
             Authentication.getInstance().login(new User(usernameTextField.getText(), passwordField.getText()));
         } catch (InvalidCredentials e) {
@@ -42,11 +43,10 @@ public class LoginController extends ParentController {
             return;
         }
 
+
         setCurrentUser(usernameTextField.getText());
-        BrowserApplication browserApplication = new BrowserApplication();
-        browserApplication.start(new Stage());
-        Stage stage = (Stage) LoginButton.getScene().getWindow();
-        stage.close();
+        new BrowserApplication().start(new Stage());
+        ((Stage) LoginButton.getScene().getWindow()).close();
     }
 
     @FXML

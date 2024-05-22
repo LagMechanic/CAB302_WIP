@@ -21,7 +21,7 @@ public class MockUsersDAO implements IUserDAO {
      *
      */
     @Override
-    public void addContact(User user) {
+    public void addUser(User user) {
         if (Users.containsKey(user.getUsername())) return;
         Users.put(user.getUsername(), user.getPassword());
     }
@@ -31,10 +31,6 @@ public class MockUsersDAO implements IUserDAO {
         Users.put(user.getUsername(), user.getPassword());
     }
 
-    @Override
-    public void deleteContact(User user) {
-        Users.remove(user.getUsername(), user.getPassword());
-    }
 
     @Override
     public User getContact(String username) {

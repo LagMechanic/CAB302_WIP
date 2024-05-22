@@ -44,7 +44,7 @@ class ProfileDAOTest {
         Profile profile = new Profile(profileName,site);
 
         profileDAO.insertProfile(profile);
-        Assertions.assertEquals(profileName,profileDAO.getProfileById(profile.getId()).getProfileName());
+        Assertions.assertEquals(profileName,profileDAO.getProfileById(profile.getId()).getURL());
     }
 
     @Test
@@ -114,7 +114,7 @@ class ProfileDAOTest {
         // call insertProfile so profile we have here has generated id.
         profile = profileDAO.insertProfile(profile);
 
-        Assertions.assertEquals(profileName,profileDAO.getProfileById(profile.getId()).getProfileName());
+        Assertions.assertEquals(profileName,profileDAO.getProfileById(profile.getId()).getURL());
     }
 }
  **/

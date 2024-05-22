@@ -1,19 +1,18 @@
 package com.zenbrowser.a1.model;
 
-import com.zenbrowser.a1.Controller.ParentController;
-import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
-import com.zenbrowser.a1.model.BrowserUsage.IHistoryRecordDAO;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Worker;
 import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebEvent;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
+
+import java.util.List;
 
 
 public class browserTab extends Tab {
@@ -21,6 +20,7 @@ public class browserTab extends Tab {
     private WebEngine webEngine;
     private WebHistory webHistory;
     private Node page;
+    private static List<String> blockedSites;
 
     public browserTab(String tabname) {
         super(tabname);
@@ -28,6 +28,8 @@ public class browserTab extends Tab {
         webEngine = webView.getEngine();
         webHistory = webEngine.getHistory();
         page = new Pane();
+
+        blockListener();
     }
 
     public final void setPage(BorderPane container, Node content) {
@@ -59,4 +61,46 @@ public class browserTab extends Tab {
             return null;
         }
     }
+
+    public void setBlocked(List<String> blockedSites) { this.blockedSites = blockedSites;}
+
+    private void blockListener(){
+        webEngine.setOnStatusChanged((WebEvent<String> event) -> {
+            String url = event.getData();
+            if (isBlocked(url)) {
+                Platform.runLater(() -> {
+                    // TODO: Add redirection page
+                    webEngine.load("http://example.com");
+                });
+                // Cancel the load
+                event.consume();
+            }
+        });
+    }
+
+    private boolean isBlocked(String url) {
+        return blockedSites.stream().anyMatch(url::contains);
+    }
+
+    /**
+    public void setBlocklist(ISiteDAO SiteDAO, IProfileDAO ProfileDAO) {
+        webEngine.locationProperty().addListener((observable, oldValue, newValue) -> {
+            System.out.println("setBlockList: " + newValue);
+            Site site = SiteDAO.getSiteByURL(newValue);
+            // if site is null, there is no limit set for it
+            if (site == null) return;
+
+            // TODO: change "Work" to the current profile
+            Profile profile = ProfileDAO.getProfileByNameAndSite("Work", site);
+            if (profile == null) return;
+
+            if (profile.isBlocked()) {
+                Platform.runLater(() -> {
+                    // TODO: Add redirection page
+                    webEngine.load("http://example.com");
+                });
+            }
+        });
+
+    }**/
 }

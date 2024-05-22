@@ -1,4 +1,4 @@
-package com.zenbrowser.a1.model.ProfileLimits;
+/**package com.zenbrowser.a1.model.ProfileLimits;
 
 import javafx.beans.property.SimpleStringProperty;
 
@@ -42,4 +42,4 @@ public class ProfileLimitsApplication {
     }
 
 
-}
+}**/

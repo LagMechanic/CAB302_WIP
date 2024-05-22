@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -16,18 +17,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane style="-fx-background-color: #D1FFBD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
-
+<BorderPane prefHeight="699.0" prefWidth="688.0" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
     <center>
             <ScrollPane fitToWidth="true" prefWidth="400">
-                <VBox alignment="CENTER" spacing="5" style="-fx-background-color: #D1FFBD">
+                <VBox alignment="CENTER" prefHeight="653.0" prefWidth="586.0" spacing="5">
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Limits Settings">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-                    <Label text="Profile:" />
-                    <ComboBox fx:id="profileBox" maxWidth="200.0" prefWidth="150.0" promptText="Select Profile">
+                    <Label text="Profile:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+                    <ComboBox fx:id="profileBox" maxWidth="210.0" onAction="#changeProfile" promptText="Select Profile">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
                                 <String fx:value="Study" />
@@ -38,61 +41,27 @@
                     </ComboBox>
                     <Label text="Add Limit: " />
                     <HBox alignment="CENTER" prefHeight="37.0" prefWidth="384.0" spacing="10.0">
-                        <ComboBox fx:id="hoursBox" maxWidth="100.0" prefWidth="100.0" promptText="Hours">
-                            <items>
-                                <FXCollections fx:factory="observableArrayList">
-                                    <String fx:value="0" />
-                                    <String fx:value="1" />
-                                    <String fx:value="2" />
-                                    <String fx:value="3" />
-                                    <String fx:value="4" />
-                                    <String fx:value="5" />
-                                    <String fx:value="6" />
-                                    <String fx:value="7" />
-                                    <String fx:value="8" />
-                                    <String fx:value="9" />
-                                    <String fx:value="10" />
-                                    <String fx:value="11" />
-                                    <String fx:value="12" />
-                                </FXCollections>
-                            </items>
-                        </ComboBox>
-                        <ComboBox fx:id="minutesBox" prefWidth="100.0" promptText="Minutes">
-                            <items>
-                                <FXCollections fx:factory="observableArrayList">
-                                    <String fx:value="0" />
-                                    <String fx:value="15" />
-                                    <String fx:value="30" />
-                                    <String fx:value="45" />
-                                </FXCollections>
-                            </items>
-                        </ComboBox>
+                        <ComboBox fx:id="hoursBox" maxWidth="100.0" prefWidth="100.0" promptText="Hours"/>
+                        <ComboBox fx:id="minutesBox" prefWidth="100.0" promptText="Minutes"/>
                     </HBox>
                     <Label text="Add URL:" />
                     <TextField fx:id="urlField" maxWidth="200.0" prefWidth="50" promptText="Add URL:" />
-                    <Button fx:id="UrlLimitData" onAction="#addUrlAndLimit" prefWidth="200.0" text="Add to URL and Limit to Profile" />
+                    <Button onAction="#addUrlAndLimit" prefWidth="200.0" text="Add to URL and Limit to Profile" />
                     <Region VBox.vgrow="ALWAYS" />
                     <HBox alignment="BOTTOM_CENTER">
-                        <TableView fx:id="tbData">
+                        <TableView fx:id="tbData" prefHeight="400.0" prefWidth="543.0">
                             <columns>
-                                <TableColumn fx:id="profile" maxWidth="150.0" prefWidth="150.0" text="Profile" />
-                                <TableColumn fx:id="hours" maxWidth="150.0" prefWidth="150.0" text="Hours" />
-                                <TableColumn fx:id="minutes" maxWidth="150.0" prefWidth="150.0" text="Minutes" />
-                                <TableColumn fx:id="url" maxWidth="150.0" prefWidth="150.0" text="URL" />
+                                <TableColumn fx:id="profileColumn" maxWidth="150.0" prefWidth="120.57141435146332" text="Profile" />
+                                <TableColumn fx:id="urlColumn" maxWidth="211.99999237060547" prefWidth="211.99999237060547" text="URL" />
+                                <TableColumn fx:id="limitColumn" maxWidth="165.14288330078125" prefWidth="122.28570556640625" text="Limit Goal" />
+                                <TableColumn fx:id="deleteColumn" maxWidth="100.0" prefWidth="88.57150268554688" />
                             </columns>
                         </TableView>
                     </HBox>
                 </VBox>
             </ScrollPane>
     </center>
-
-    <left>
-        <VBox alignment="CENTER" spacing="10">
-            <Label style="-fx-font-size: 18px;" text="          Dashboard          " />
-            <Button text="Profile Limit Settings" />
-            <Button text="Usage Reports" />
-            <Button text="Notification Settings" />
-            <Button text="My Account Settings" />
-        </VBox>
-    </left>
+    <effect>
+        <DropShadow color="black" offsetX="10" offsetY="3" />
+    </effect>
 </BorderPane>
