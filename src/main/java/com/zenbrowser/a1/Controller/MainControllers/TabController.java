@@ -2,11 +2,14 @@ package com.zenbrowser.a1.Controller.MainControllers;
 
 import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.zenbrowser.a1.AuthenticationApplication;
 import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
+import com.zenbrowser.a1.model.FocusProfile.Profile;
 import javafx.concurrent.Worker;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -70,7 +73,7 @@ public class TabController extends ParentController implements Initializable {
 
         //this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + TabController.this.colorPicker.getValue()));
 
-        currentTab.setBlocklist(SiteDAO, ProfileDAO);
+        //currentTab.setBlocklist(ProfileDAO);
     }
 
     //Create new tab function.
@@ -91,7 +94,14 @@ public class TabController extends ParentController implements Initializable {
         loadPage(defaultEngine);
     }
 
-
+    //TODO: Replace this placeholder method and add selection for profiles on tab controller and from profile page. Counting down clock would be good.
+    private void testProfileSelector(){
+        List<String> blockedURLs = new ArrayList<>();
+        for (Profile profile : ProfileDAO.getUserProfiles(getCurrentUser())){
+            blockedURLs.add(profile.getSiteURL());
+        }
+        currentTab.setBlocked(blockedURLs);
+    }
 
     //Load a page into the parent BrowserTab.fxml with parameters of child source fxml file and name of tab.
     public void navigatePage(String pathway, String tabName){
