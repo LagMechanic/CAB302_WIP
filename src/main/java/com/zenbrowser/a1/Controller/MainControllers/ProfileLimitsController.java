@@ -57,6 +57,7 @@ public class ProfileLimitsController extends ParentController {
 
                     try {
                         ProfileDAO.deleteProfile(entry.getId());
+                        loadProfilesTable();
 
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
