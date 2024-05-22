@@ -3,6 +3,12 @@ package com.zenbrowser.a1.model;
 import com.zenbrowser.a1.Controller.ParentController;
 import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import com.zenbrowser.a1.model.BrowserUsage.IHistoryRecordDAO;
+import com.zenbrowser.a1.model.FocusProfile.IProfileDAO;
+import com.zenbrowser.a1.model.FocusProfile.Profile;
+import com.zenbrowser.a1.model.Website.ISiteDAO;
+import com.zenbrowser.a1.model.Website.Site;
+import com.zenbrowser.a1.model.Website.SiteDAO;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -58,5 +64,26 @@ public class browserTab extends Tab {
             System.err.println("WebHistory is empty. No history entries found.");
             return null;
         }
+    }
+
+
+    public void setBlocklist(ISiteDAO SiteDAO, IProfileDAO ProfileDAO) {
+        webEngine.locationProperty().addListener((observable, oldValue, newValue) -> {
+            //System.out.println("setBlockList: " + newValue);
+            Site site = SiteDAO.getSiteByURL(newValue);
+            if (site == null) return;
+
+            // TODO: change "Work" to the current profile
+            Profile profile = ProfileDAO.getProfileByNameAndSite("Work", site);
+            if (profile == null) return;
+
+            if (profile.isBlocked()) {
+                Platform.runLater(() -> {
+                    // TODO: Add redirection page
+                    webEngine.load("http://example.com");
+                });
+            }
+        });
+
     }
 }
