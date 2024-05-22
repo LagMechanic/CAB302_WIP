@@ -2,12 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.HistoryController">
@@ -21,12 +21,12 @@
             </font>
         </Label>
     </top>
+    <effect>
+        <DropShadow color="black" offsetX="10" offsetY="3" />
+    </effect>
    <center>
-      <VBox fx:id="historyContainer" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #edfee2;" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </BorderPane.margin>
-         <children>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
             <GridPane fx:id="historyGrid" alignment="CENTER_LEFT" prefHeight="118.0" prefWidth="842.0" vgap="10.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -54,14 +54,11 @@
                      </font>
                   </Label>
                </children>
-               <VBox.margin>
-                  <Insets left="20.0" top="10.0" />
-               </VBox.margin>
+               <padding>
+                  <Insets left="20.0" top="20.0" />
+               </padding>
             </GridPane>
-         </children>
-      </VBox>
+         </content>
+      </ScrollPane>
    </center>
-    <effect>
-        <DropShadow color="black" offsetX="10" offsetY="3" />
-    </effect>
 </BorderPane>

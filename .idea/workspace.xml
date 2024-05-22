@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Refactored code, and abstracted to methods to improve readability.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="History table added spacing and margings.">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,22 +166,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Changed all date variables for history to become timestamps.">
-      <option name="closed" value="true" />
-      <created>1715583220118</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1715583220118</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Create a historygrid instead of adding labels within hbox">
-      <option name="closed" value="true" />
-      <created>1715583826907</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1715583826907</updated>
     </task>
     <task id="LOCAL-00054" summary="Refactor history records into method.">
       <option name="closed" value="true" />
@@ -563,7 +543,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716391347059</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="Added Date format for history for improved UI.">
+      <option name="closed" value="true" />
+      <created>1716393000857</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1716393000857</updated>
+    </task>
+    <task id="LOCAL-00102" summary="History table added spacing and margings.">
+      <option name="closed" value="true" />
+      <created>1716393126427</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1716393126427</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -596,8 +592,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactoring, deletion of unutilized code, changing method access classes." />
-    <MESSAGE value="finishing profile limits functionality with the table working but without it connecting to a database yet" />
     <MESSAGE value="Added functionality to go to profileLimits. Other bug fixes and refactoring changes." />
     <MESSAGE value="Removed ProfileLimits dashboard, as in place for browserTab" />
     <MESSAGE value="Added image as background instead of colour for aesthetics." />
@@ -621,7 +615,9 @@
     <MESSAGE value="Update table when profileDao deleted." />
     <MESSAGE value="Added localtimeOffset for profileTime. fxml inputs combobox instead to reduced code." />
     <MESSAGE value="Refactored code, and abstracted to methods to improve readability." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored code, and abstracted to methods to improve readability." />
+    <MESSAGE value="Added Date format for history for improved UI." />
+    <MESSAGE value="History table added spacing and margings." />
+    <option name="LAST_COMMIT_MESSAGE" value="History table added spacing and margings." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
