@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.Integer?>
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
@@ -18,8 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="699.0" prefWidth="688.0" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
-
+<BorderPane prefHeight="699.0" prefWidth="688.0" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
     <center>
             <ScrollPane fitToWidth="true" prefWidth="400">
                 <VBox alignment="CENTER" prefHeight="653.0" prefWidth="586.0" spacing="5">
@@ -49,7 +47,7 @@
                     </HBox>
                     <Label text="Add URL:" />
                     <TextField fx:id="urlField" maxWidth="200.0" prefWidth="50" promptText="Add URL:" />
-                    <Button fx:id="UrlLimitData" onAction="#addUrlAndLimit" prefWidth="200.0" text="Add to URL and Limit to Profile" />
+                    <Button onAction="#addUrlAndLimit" prefWidth="200.0" text="Add to URL and Limit to Profile" />
                     <Region VBox.vgrow="ALWAYS" />
                     <HBox alignment="BOTTOM_CENTER">
                         <TableView fx:id="tbData" prefHeight="400.0" prefWidth="543.0">

@@ -13,7 +13,6 @@ import javafx.scene.control.Button;
 
 import java.sql.SQLException;
 import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.List;
 
 
@@ -25,10 +24,7 @@ public class ProfileLimitsController extends ParentController {
     @FXML
     private TextField urlField;
     @FXML
-    private Button UrlLimitData;
-    @FXML
     private ComboBox<String> profileBox;
-
     @FXML
     private TableView<Profile> tbData;
     @FXML
@@ -60,11 +56,14 @@ public class ProfileLimitsController extends ParentController {
 
     @FXML
     private void addUrlAndLimit() {
+
         String url = urlField.getText();
+
         Time blockTime = new Time(0);
         int timeOffset = 10;
         blockTime.setHours(hoursBox.getSelectionModel().getSelectedItem() + timeOffset);
         blockTime.setMinutes(minutesBox.getSelectionModel().getSelectedItem());
+
         String profile = profileBox.getSelectionModel().getSelectedItem();
 
         if (!url.isEmpty() && blockTime.getTime()!=0 && profile != null) {
@@ -75,10 +74,12 @@ public class ProfileLimitsController extends ParentController {
                     blockTime));
 
             loadProfilesTable();
+
             // Reset form
             urlField.clear();
             hoursBox.getSelectionModel().clearSelection();
             minutesBox.getSelectionModel().clearSelection();
+
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
@@ -93,7 +94,6 @@ public class ProfileLimitsController extends ParentController {
 
 
     private void loadProfilesTable()  {
-
         String selectedprofile = profileBox.getSelectionModel().getSelectedItem();
         List<Profile> profilesEntries;
 
@@ -151,5 +151,4 @@ public class ProfileLimitsController extends ParentController {
         hoursBox.setItems(FXCollections.observableArrayList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13,14,15,16,17,18,19,20,21,22,23,24));
         minutesBox.setItems(FXCollections.observableArrayList(0,5,10,15,20,25,30,35,40,45,50,55));
     }
-
 }

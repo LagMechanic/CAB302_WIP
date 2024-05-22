@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Added localtimeOffset for profileTime. fxml inputs combobox instead to reduced code.">
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Refactored code, and abstracted to methods to improve readability.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/HistoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,14 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Refactor updates.">
-      <option name="closed" value="true" />
-      <created>1715582920904</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1715582920904</updated>
     </task>
     <task id="LOCAL-00052" summary="Changed all date variables for history to become timestamps.">
       <option name="closed" value="true" />
@@ -559,7 +555,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716391042479</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Refactored code, and abstracted to methods to improve readability.">
+      <option name="closed" value="true" />
+      <created>1716391347059</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1716391347059</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -592,7 +596,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added button to be able to navigate to usageInsights.fxml.&#10;Fixed bug of UsageInsights as anchorpane not being insertable." />
     <MESSAGE value="Refactoring, deletion of unutilized code, changing method access classes." />
     <MESSAGE value="finishing profile limits functionality with the table working but without it connecting to a database yet" />
     <MESSAGE value="Added functionality to go to profileLimits. Other bug fixes and refactoring changes." />
@@ -617,7 +620,8 @@
     <MESSAGE value="Add button to every table column which can clear the profile entry." />
     <MESSAGE value="Update table when profileDao deleted." />
     <MESSAGE value="Added localtimeOffset for profileTime. fxml inputs combobox instead to reduced code." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added localtimeOffset for profileTime. fxml inputs combobox instead to reduced code." />
+    <MESSAGE value="Refactored code, and abstracted to methods to improve readability." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored code, and abstracted to methods to improve readability." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
