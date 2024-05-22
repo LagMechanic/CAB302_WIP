@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 
 
+import java.sql.SQLException;
 import java.sql.Time;
 import java.util.List;
 
@@ -32,15 +33,14 @@ public class ProfileLimitsController extends ParentController {
 
     @FXML
     private TableView<Profile> tbData;
-
     @FXML
     private TableColumn<Profile, String> profileColumn;
-
     @FXML
     private TableColumn<Profile, String> urlColumn;
-
     @FXML
     private TableColumn<Profile, Time> limitColumn;
+    @FXML
+    private TableColumn deleteColumn;
 
 
     private ObservableList<Profile> profileData = FXCollections.observableArrayList();
@@ -49,6 +49,28 @@ public class ProfileLimitsController extends ParentController {
         profileColumn.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getProfileName()));
         urlColumn.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getSiteURL()));
         limitColumn.setCellValueFactory(cell -> new SimpleObjectProperty<>(cell.getValue().getBlockedUntil()));
+        deleteColumn.setCellFactory(cell -> new TableCell<Profile, Integer>() {
+            private final Button deleteButton = new Button("Delete");
+            @Override
+            protected void updateItem(Integer id, boolean empty) {
+                super.updateItem(id, empty);
+                if (empty || id == null) {
+                    setGraphic(null);
+                } else {
+                    deleteButton.setOnAction(event -> {
+                        try {
+                            ProfileDAO.deleteProfile(id);
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+                    setGraphic(deleteButton);
+                }
+            }
+        });
+
+
+
 
         tbData.setItems(profileData);
         loadProfilesTable(ProfileDAO.getUserProfiles(super.getCurrentUser()));
@@ -81,13 +103,11 @@ public class ProfileLimitsController extends ParentController {
                     profile,
                     url,
                     blockTime));
-            tbData.setItems(profileData);
 
             // Reset form
             urlField.clear();
             hoursBox.getSelectionModel().clearSelection();
             minutesBox.getSelectionModel().clearSelection();
-            profileBox.getSelectionModel().clearSelection();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");

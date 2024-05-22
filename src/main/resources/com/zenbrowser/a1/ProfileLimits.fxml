@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.Integer?>
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
@@ -9,6 +10,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -16,16 +18,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-
-<?import javafx.scene.effect.DropShadow?>
-<?import java.lang.Integer?>
-<BorderPane xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;">
+<BorderPane prefHeight="655.0" prefWidth="470.0" style="-fx-background-image: url('images/WallPaper.jpg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zenbrowser.a1.Controller.MainControllers.ProfileLimitsController">
 
     <center>
             <ScrollPane fitToWidth="true" prefWidth="400">
-                <VBox alignment="CENTER" spacing="5">
+                <VBox alignment="CENTER" prefHeight="653.0" prefWidth="458.0" spacing="5">
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Limits Settings">
                <font>
                   <Font size="24.0" />
@@ -35,7 +32,7 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-                    <ComboBox fx:id="profileBox" onAction="#changeProfile" maxWidth="210.0" promptText="Select Profile">
+                    <ComboBox fx:id="profileBox" maxWidth="210.0" onAction="#changeProfile" promptText="Select Profile">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
                                 <String fx:value="Study" />
@@ -84,8 +81,11 @@
                         <TableView fx:id="tbData">
                             <columns>
                                 <TableColumn fx:id="profileColumn" maxWidth="150.0" prefWidth="150.0" text="Profile" />
-                                <TableColumn fx:id="limitColumn" maxWidth="150.0" prefWidth="150.0" text="Hours" />
                                 <TableColumn fx:id="urlColumn" maxWidth="150.0" prefWidth="150.0" text="URL" />
+                                <TableColumn fx:id="limitColumn" maxWidth="150.0" prefWidth="150.0" text="Hours" />
+                                <TableColumn fx:id="deleteColumn" maxWidth="50.0" prefWidth="50.0"/>
+                     <TableColumn fx:id="d" prefWidth="75.0" text="Column X" />
+                     <TableColumn prefWidth="75.0" text="Column X" />
                             </columns>
                         </TableView>
                     </HBox>
@@ -93,6 +93,6 @@
             </ScrollPane>
     </center>
     <effect>
-        <DropShadow offsetX="10" offsetY="3" color="black"/>
+        <DropShadow color="black" offsetX="10" offsetY="3" />
     </effect>
 </BorderPane>

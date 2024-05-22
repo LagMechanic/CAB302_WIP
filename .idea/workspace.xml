@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Changed modifiers so controller variables and methods are not public.">
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Fixed bug to clear table, instead of constantly adding to view.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/ProfileLimitsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/IProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/IProfileDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/ProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/model/FocusProfile/ProfileDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/ProfileLimits.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/history-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,10 +74,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.BrowserApplication.executor": "Run",
-    "Application.Login.executor": "Run",
+    "Application.Login.executor": "Debug",
     "Application.TestApplication.executor": "Run",
     "git-widget-placeholder": "ProfileLimits-Josh",
-    "kotlin-language-version-configured": "true"
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Facets",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.4770115"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -167,22 +171,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00043" summary="history error checks before website loading. Listener added to fix bug.">
-      <option name="closed" value="true" />
-      <created>1715517942095</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1715517942095</updated>
-    </task>
-    <task id="LOCAL-00044" summary="History displays entry variables seperately instead of single entry.">
-      <option name="closed" value="true" />
-      <created>1715578338123</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1715578338123</updated>
     </task>
     <task id="LOCAL-00045" summary="Removed unneccessary vbox components in Home-Page.fxml">
       <option name="closed" value="true" />
@@ -560,7 +548,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716380940853</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Added changeProfile method and getSingleProfile method, so when profile is switched, only that profile result is displayed.">
+      <option name="closed" value="true" />
+      <created>1716382658583</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1716382658583</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Fixed bug to clear table, instead of constantly adding to view.">
+      <option name="closed" value="true" />
+      <created>1716382750746</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1716382750746</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -593,8 +597,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Adding Main bar to browsertab to reduce code abstraction fails" />
-    <MESSAGE value="Fixed functionality for currentTab history as listener would listen to page loading success to input history however currentTab could change." />
     <MESSAGE value="Reformated code, such as currentTab() to now be declared as a private field." />
     <MESSAGE value="Finished main page browser merger, Removed main page." />
     <MESSAGE value="Reformated go Button method" />
@@ -618,7 +620,9 @@
     <MESSAGE value="Major Refactoring. Added blockTime as constructor for profile, instead of hour,min variables. Return blockedUntil as a calculation from profile object. Large modifications to profilelimit controllers. Still fixing bugs." />
     <MESSAGE value="Changed all blocktime variables to time. Combined site functionality into profiles. Modified profile SQL tables. Changed profile methods.&#10;&#10;&#10;Commented out ISiteDAO.java, SiteDAO.java, Site.java, URLimit.java, ProfileLimitsApplication.java" />
     <MESSAGE value="Changed modifiers so controller variables and methods are not public." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed modifiers so controller variables and methods are not public." />
+    <MESSAGE value="Added changeProfile method and getSingleProfile method, so when profile is switched, only that profile result is displayed." />
+    <MESSAGE value="Fixed bug to clear table, instead of constantly adding to view." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug to clear table, instead of constantly adding to view." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
