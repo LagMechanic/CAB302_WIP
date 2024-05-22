@@ -113,14 +113,6 @@ public class ProfileDAO implements IProfileDAO {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 result.add(extractProfileFromResultSet(resultSet));
-//                Profile profile = new Profile(
-//                        resultSet.getString("username"),
-//                        resultSet.getString("profileName"),
-//                        resultSet.getString("siteURL"),
-//                        resultSet.getTime("blockTime")
-//                );
-//                profile.setId(resultSet.getInt("id"));
-//                result.add(profile);
             }
         }
         catch (SQLException e){
@@ -129,13 +121,13 @@ public class ProfileDAO implements IProfileDAO {
         return result;
     }
 
-    /**
+
     @Override
-    public Profile getProfileByNameAndSite(String profileName) {
+    public Profile getProfileByNameAndSite(String username, String profileName) {
         String sql = "SELECT * FROM profiles WHERE profileName=?, siteURL=?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, profileName);
-            statement.setInt(2, );
+            statement.setString(1, username);
+            statement.setString(2, profileName);
             try(ResultSet resultSet = statement.executeQuery()) {
                 if(resultSet.next()) {
                     return extractProfileFromResultSet(resultSet);
@@ -146,7 +138,7 @@ public class ProfileDAO implements IProfileDAO {
         catch (SQLException e){
             throw new RuntimeException(e);
         }
-    }**/
+    }
 
 
 

@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
@@ -19,30 +20,29 @@ import java.sql.Time;
 public class ProfileLimitsController extends ParentController {
 
     @FXML
-    public ComboBox<Integer> minutesBox;
+    private ComboBox<Integer> minutesBox;
     @FXML
-    public ComboBox<Integer> hoursBox;
+    private ComboBox<Integer> hoursBox;
+    @FXML
+    private TextField urlField;
 
     @FXML
-    public TextField urlField;
+    private Button UrlLimitData;
 
     @FXML
-    public Button UrlLimitData;
-
-    @FXML
-    public ComboBox<String> profileBox;
+    private ComboBox<String> profileBox;
 
     @FXML
     private TableView<Profile> tbData;
 
     @FXML
-    public TableColumn<Profile, String> profileColumn;
+    private TableColumn<Profile, String> profileColumn;
 
     @FXML
-    public TableColumn<Profile, String> urlColumn;
+    private TableColumn<Profile, String> urlColumn;
 
     @FXML
-    public TableColumn<Profile, Time> limitColumn;
+    private TableColumn<Profile, Time> limitColumn;
 
 
     private ObservableList<Profile> profileData = FXCollections.observableArrayList();
@@ -72,7 +72,7 @@ public class ProfileLimitsController extends ParentController {
     }
 
     @FXML
-    public void addUrlAndLimit() {
+    private void addUrlAndLimit() {
         String url = urlField.getText();
         Time blockTime = new Time(0);
         blockTime.setHours(hoursBox.getSelectionModel().getSelectedItem());
@@ -100,5 +100,8 @@ public class ProfileLimitsController extends ParentController {
             alert.setContentText("Profile, Hours, Minutes, or URL cannot be empty");
             alert.showAndWait();
         }
+    }
+    @FXML
+    private void changeProfile() {
     }
 }

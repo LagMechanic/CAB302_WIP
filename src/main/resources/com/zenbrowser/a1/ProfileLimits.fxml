@@ -35,7 +35,7 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-                    <ComboBox fx:id="profileBox" maxWidth="210.0" promptText="Select Profile">
+                    <ComboBox fx:id="profileBox" onAction="#changeProfile" maxWidth="210.0" promptText="Select Profile">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
                                 <String fx:value="Study" />
