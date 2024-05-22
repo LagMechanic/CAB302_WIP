@@ -54,6 +54,13 @@ public class TabController extends ParentController implements Initializable {
         });
     }
 
+    private void AdjustTab(){
+        //Create a buffer so tabs can be dynamically extended on browser.
+        if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
+            tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         newTabFunction();
@@ -85,10 +92,8 @@ public class TabController extends ParentController implements Initializable {
         setupTabCloseHandler(tab);
         tabPane.getTabs().add(tab);
         tabPane.getSelectionModel().select(tab);
-        //Create a buffer so tabs can be dynamically extended on browser.
-        if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
-            tabPane.setMinWidth(tabPane.getWidth() + tabPane.getTabMaxWidth() + 13);
-        }
+        AdjustTab();
+
 
         switchPage();
         loadPage(defaultEngine);

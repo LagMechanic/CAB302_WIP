@@ -50,5 +50,6 @@ public class HistoryController extends ParentController {
     @FXML
     public void deleteHistory() throws SQLException {
         HistoryDAO.deleteUserHistory(getCurrentUser());
+        PopulateRecords();
     }
 }
