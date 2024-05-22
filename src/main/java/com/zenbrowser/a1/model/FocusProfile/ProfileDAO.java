@@ -119,30 +119,6 @@ public class ProfileDAO implements IProfileDAO {
         return result;
     }
 
-    public List<HistoryRecord> getUserHistoryRecords(String username) {
-        List<HistoryRecord> historyRecords = new ArrayList<>();
-        String sql = "SELECT * FROM history WHERE username = ?";
-
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-            preparedStatement.setString(1, username);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                HistoryRecord historyRecord = new HistoryRecord(
-                        resultSet.getString("username"),
-                        resultSet.getString("siteName"),
-                        resultSet.getString("URL"),
-                        resultSet.getTimestamp("historyRecordDateTime")
-                );
-                historyRecord.setId(resultSet.getInt("id"));
-                historyRecords.add(historyRecord);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return historyRecords;
-    }
 
     @Override
     public Profile getProfileByNameAndSite(String profileName, Site site) {
@@ -167,11 +143,12 @@ public class ProfileDAO implements IProfileDAO {
     private Profile extractProfileFromResultSet(ResultSet resultSet) throws SQLException {
 
         Site website = new SiteDAO().getSiteById(resultSet.getInt("websiteId"));
+
         Profile profile = new Profile(
                 resultSet.getString("username"),
                 resultSet.getString("profileName"),
                 website,
-                resultSet.getDate("blockedUntil"));
+                resultSet.getTime("blockTime"));
 
         profile.setId(resultSet.getInt("id"));
 

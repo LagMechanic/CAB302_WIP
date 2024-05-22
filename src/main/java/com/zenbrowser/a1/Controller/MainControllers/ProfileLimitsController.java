@@ -1,29 +1,29 @@
 package com.zenbrowser.a1.Controller.MainControllers;
 
 import com.zenbrowser.a1.Controller.ParentController;
-import com.zenbrowser.a1.model.BrowserUsage.HistoryRecord;
 import com.zenbrowser.a1.model.FocusProfile.Profile;
-import com.zenbrowser.a1.model.ProfileLimits.UrlLimit;
 import com.zenbrowser.a1.model.Website.Site;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.sql.Time;
 
 
 public class ProfileLimitsController extends ParentController {
-    @FXML
-    public ComboBox<String> minutesBox;
 
     @FXML
-    public ComboBox<String> hoursBox;
+    public ComboBox<Integer> minutesBox;
+    @FXML
+    public ComboBox<Integer> hoursBox;
 
     @FXML
     public TextField urlField;
@@ -35,40 +35,36 @@ public class ProfileLimitsController extends ParentController {
     public ComboBox<String> profileBox;
 
     @FXML
-    private TableView<UrlLimit> tbData;
+    private TableView<Profile> tbData;
 
     @FXML
-    public TableColumn<UrlLimit, String> profile;
+    public TableColumn<Profile, String> profileColumn;
 
     @FXML
-    public TableColumn<UrlLimit, String> url;
+    public TableColumn<Profile, String> urlColumn;
 
     @FXML
-    public TableColumn<UrlLimit, String> hours;
-
-    @FXML
-    public TableColumn<UrlLimit, String> minutes;
+    public TableColumn<Profile, Date> limitColumn;
 
 
-    private final ObservableList<UrlLimit> profileLimitsData = FXCollections.observableArrayList();
+    private ObservableList<Profile> profileData = FXCollections.observableArrayList();
 
-    public void initialize(){
-        url.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Url()));
-        hours.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Hours()));
-        minutes.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Minutes()));
-        profile.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().Profile()));
+    public void initialize() {
+        profileColumn.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getProfileName()));
+        urlColumn.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getWebsite().getURL()));
+        limitColumn.setCellValueFactory(cell -> new SimpleObjectProperty<>(cell.getValue().getBlockedUntil()));
 
-        tbData.setItems(profileLimitsData);
-
-
+        tbData.setItems(profileData);
         loadProfilesTable();
     }
 
     private void loadProfilesTable() {
-        for ( Profile profile : ProfileDAO.getUserProfiles(super.getCurrentUser())) {
-            String url = profile.getWebsite().getURL();
-            String pName = profile.getProfileName();
+        System.out.println("bye");
+        for (Profile profile : ProfileDAO.getUserProfiles(super.getCurrentUser())) {
 
+            profileData.add(profile);
+            System.out.println(tbData.getColumns());
+            System.out.println("hi");
             String[] blockedDuration = profile.getBlockedDuration();
             // Limit has expired
             if (blockedDuration == null) {
@@ -79,21 +75,19 @@ public class ProfileLimitsController extends ParentController {
                 }
             }
 
-            UrlLimit newUrlLimit = new UrlLimit(url, blockedDuration[0], blockedDuration[1], pName);
-
-            profileLimitsData.add(newUrlLimit);
+            profileData.add(profile);
         }
     }
 
+    @FXML
     public void addUrlAndLimit() {
         String url = urlField.getText();
-        String hours = hoursBox.getSelectionModel().getSelectedItem();
-        String minutes = minutesBox.getSelectionModel().getSelectedItem();
+        Time blockTime = new Time(0);
+        blockTime.setHours(hoursBox.getSelectionModel().getSelectedItem());
+        blockTime.setMinutes(minutesBox.getSelectionModel().getSelectedItem());
+
         String profile = profileBox.getSelectionModel().getSelectedItem();
-        if (!url.isEmpty() && hours != null && !hours.isEmpty() && minutes != null && !minutes.isEmpty() && profile != null && !profile.isEmpty()) {
-            UrlLimit newUrlLimit = new UrlLimit(url, hours, minutes, profile);
-            // Add to table
-            profileLimitsData.add(newUrlLimit);
+        if (!url.isEmpty() && blockTime.getTime()!=0 && profile != null && !profile.isEmpty()) {
 
             // Add to database
             // Check if site isn't already in the database
@@ -102,16 +96,14 @@ public class ProfileLimitsController extends ParentController {
                 site = new Site(url, "", "", true);
                 site = SiteDAO.insertSite(site);
             }
-            // hours and minutes will always be a valid integer
-            long limitmilliseconds = TimeUnit.HOURS.toMillis(Integer.parseInt(hours))
-                    + TimeUnit.MINUTES.toMillis(Integer.parseInt(minutes));
+
 
             ProfileDAO.insertProfile(new Profile(
                     getCurrentUser(),
                     profile,
                     site,
-                    new Date(System.currentTimeMillis() + limitmilliseconds)));
-
+                    blockTime));
+            tbData.setItems(profileData);
 
             // Reset form
             urlField.clear();
@@ -123,9 +115,7 @@ public class ProfileLimitsController extends ParentController {
             alert.setTitle("ERROR");
             alert.setHeaderText(null);
             alert.setContentText("Profile, Hours, Minutes, or URL cannot be empty");
-        alert.showAndWait();
+            alert.showAndWait();
         }
-
     }
-
 }
