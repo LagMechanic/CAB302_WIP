@@ -122,22 +122,22 @@ public class ProfileDAO implements IProfileDAO {
     }
 
 
-    @Override
-    public Profile getProfileByNameAndSite(String username, String profileName) {
-        String sql = "SELECT * FROM profiles WHERE profileName=?, siteURL=?";
+    public List<Profile> getSingleProfile(String username, String profileName) {
+        List<Profile> result = new ArrayList<>();
+        String sql = "SELECT * FROM profiles WHERE username=? AND profileName=?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, username);
             statement.setString(2, profileName);
-            try(ResultSet resultSet = statement.executeQuery()) {
-                if(resultSet.next()) {
-                    return extractProfileFromResultSet(resultSet);
-                }
-                else return null;
+
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()) {
+                result.add(extractProfileFromResultSet(resultSet));
             }
         }
         catch (SQLException e){
             throw new RuntimeException(e);
         }
+        return result;
     }
 
 

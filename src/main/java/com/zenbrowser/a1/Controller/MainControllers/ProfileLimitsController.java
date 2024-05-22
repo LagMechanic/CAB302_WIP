@@ -6,15 +6,13 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 
 
-import java.sql.Date;
-import java.sql.SQLException;
 import java.sql.Time;
+import java.util.List;
 
 
 public class ProfileLimitsController extends ParentController {
@@ -53,12 +51,12 @@ public class ProfileLimitsController extends ParentController {
         limitColumn.setCellValueFactory(cell -> new SimpleObjectProperty<>(cell.getValue().getBlockedUntil()));
 
         tbData.setItems(profileData);
-        loadProfilesTable();
+        loadProfilesTable(ProfileDAO.getUserProfiles(super.getCurrentUser()));
     }
 
-    private void loadProfilesTable() {
-        for (Profile profile : ProfileDAO.getUserProfiles(super.getCurrentUser())) {
+    private void loadProfilesTable(List<Profile> profilesEntries)  {
 
+        for (Profile profile : profilesEntries) {
             profileData.add(profile);
 
             String[] blockedDuration = profile.getBlockedDuration();
@@ -66,8 +64,6 @@ public class ProfileLimitsController extends ParentController {
             if (blockedDuration == null) {
 
             }
-
-            profileData.add(profile);
         }
     }
 
@@ -80,7 +76,6 @@ public class ProfileLimitsController extends ParentController {
         String profile = profileBox.getSelectionModel().getSelectedItem();
 
         if (!url.isEmpty() && blockTime.getTime()!=0 && profile != null && !profile.isEmpty()) {
-
             ProfileDAO.insertProfile(new Profile(
                     getCurrentUser(),
                     profile,
@@ -101,7 +96,11 @@ public class ProfileLimitsController extends ParentController {
             alert.showAndWait();
         }
     }
+
     @FXML
     private void changeProfile() {
+        String selectedprofile = profileBox.getSelectionModel().getSelectedItem();
+
+        loadProfilesTable(ProfileDAO.getSingleProfile( getCurrentUser(), selectedprofile));
     }
 }

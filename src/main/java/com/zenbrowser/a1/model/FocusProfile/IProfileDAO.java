@@ -12,5 +12,5 @@ public interface IProfileDAO {
     Profile getProfile(int id);
     List<Profile> getUserProfiles(String username);
 
-    Profile getProfileByNameAndSite(String username, String profileName);
+    List<Profile> getSingleProfile(String username, String profileName);
 }
