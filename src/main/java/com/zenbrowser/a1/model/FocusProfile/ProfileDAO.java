@@ -149,7 +149,7 @@ public class ProfileDAO implements IProfileDAO {
      * @param url url to parse
      * @return domain name; if already valid, returns url
      */
-    private static String parseURL(String url) {
+    public static String parseURL(String url) {
         System.out.println("parse: " + url + "->");
 
         Pattern p = Pattern.compile("(https?://)?(www\\.)?([^/]+)(/.*)?");

@@ -1,5 +1,6 @@
 package com.zenbrowser.a1.model.Website;
 
+import com.zenbrowser.a1.model.FocusProfile.ProfileDAO;
 import com.zenbrowser.a1.model.util.TestDatabaseConnection;
 import com.zenbrowser.a1.model.util.TestDatabaseUtil;
 import org.junit.jupiter.api.AfterAll;
@@ -25,7 +26,7 @@ class SiteDAOTest {
 
 
         for (var test : tests.entrySet()) {
-            Assertions.assertEquals(test.getValue(), SiteDAO.parseURL(test.getKey()));
+            Assertions.assertEquals(test.getValue(), ProfileDAO.parseURL(test.getKey()));
         }
 
     }
