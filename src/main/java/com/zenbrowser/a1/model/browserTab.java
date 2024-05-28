@@ -28,6 +28,12 @@ public class browserTab extends Tab {
     private Node page;
     private static List<String> blockedSites;
 
+    // TODO: Do this another way
+    private Runnable GoToPageBlocked;
+    public void setGoToPageBlocked(Runnable c) {
+        GoToPageBlocked = c;
+    }
+
     public browserTab(String tabname) {
         super(tabname);
         webView = new WebView();
@@ -75,8 +81,9 @@ public class browserTab extends Tab {
             String url = event.getData();
             if (isBlocked(url)) {
                 Platform.runLater(() -> {
-                    // TODO: Redirect to PageBlocked.fxml
-                    webEngine.loadContent("Page Blocked");
+                    // TODO: Do this another way
+//                    webEngine.loadContent("Page Blocked");
+                    GoToPageBlocked.run();
                 });
                 // Cancel the load
                 event.consume();

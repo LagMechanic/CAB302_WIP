@@ -94,6 +94,8 @@ public class TabController extends ParentController implements Initializable {
         UpdatePage();
         testProfileSelector();
 
+        //TODO: Do this another way
+        currentTab.setGoToPageBlocked(() -> navigatePage("/com/zenbrowser/a1/PageBlocked.fxml","Page Blocked"));
         loadPage(defaultEngine);
     }
 
@@ -237,6 +239,7 @@ public class TabController extends ParentController implements Initializable {
     @FXML
     private void goButtonPressed() {
         String PromptedSearch = URLBox.getText();
+        System.out.println("PS: " + PromptedSearch);
         if (PromptedSearch != "") {
 
             if (PromptedSearch.startsWith("https")){    }
