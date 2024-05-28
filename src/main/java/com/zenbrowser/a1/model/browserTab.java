@@ -1,8 +1,10 @@
 package com.zenbrowser.a1.model;
 
 
+import com.zenbrowser.a1.Controller.MainControllers.TabController;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.BorderPane;
@@ -12,7 +14,11 @@ import javafx.scene.web.WebEvent;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class browserTab extends Tab {
@@ -69,8 +75,8 @@ public class browserTab extends Tab {
             String url = event.getData();
             if (isBlocked(url)) {
                 Platform.runLater(() -> {
-                    // TODO: Add redirection page
-                    webEngine.load("http://example.com");
+                    // TODO: Redirect to PageBlocked.fxml
+                    webEngine.loadContent("Page Blocked");
                 });
                 // Cancel the load
                 event.consume();
