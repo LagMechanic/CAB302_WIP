@@ -168,7 +168,8 @@ public class ProfileDAO implements IProfileDAO {
                 resultSet.getString("username"),
                 resultSet.getString("profileName"),
                 resultSet.getString("siteURL"),
-                resultSet.getTime("blockTime")
+                resultSet.getTime("blockTime"),
+                resultSet.getTime("blockedUntil")
         );
 
 

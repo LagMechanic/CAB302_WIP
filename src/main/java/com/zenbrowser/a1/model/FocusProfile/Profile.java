@@ -14,13 +14,29 @@ public class Profile {
     private Time blockTime;
     private Time blockedUntil;
 
-
-    public Profile(String user, String profileName, String website, Time blockTime) {
+    /**
+     * Create a Profile with a specified blockedUntil
+     * Use this constructor when retrieving from the database
+     */
+    public Profile(String user, String profileName, String website, Time blockTime, Time blockedUntil) {
+        this.user = user;
         this.profileName = profileName;
         this.siteURL = website;
-        this.user = user;
         this.blockTime = blockTime;
-        blockedUntil = new Time(System.currentTimeMillis() + blockTime.getTime());
+        this.blockedUntil = blockedUntil;
+    }
+    /**
+     * Create a Profile with blockedUntil calculated from now
+     * Use this constructor when creating a new Profile
+     */
+    public Profile(String user, String profileName, String website, Time blockTime) {
+        this(
+                user,
+                profileName,
+                website,
+                blockTime,
+                new Time(System.currentTimeMillis() + blockTime.getTime())
+        );
     }
 
     public Integer getId() {return id;}
