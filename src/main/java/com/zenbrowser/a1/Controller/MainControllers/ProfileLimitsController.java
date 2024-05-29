@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -103,13 +104,19 @@ public class ProfileLimitsController extends ParentController {
 
         profileData.clear();
         for (Profile profile : profilesEntries) {
-            profileData.add(profile);
 
             String[] blockedDuration = profile.getBlockedDuration();
             // Limit has expired
             if (blockedDuration == null) {
-
+                try {
+                    ProfileDAO.deleteProfile(profile.getId());
+                    continue;
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
+
+            profileData.add(profile);
         }
     }
 
