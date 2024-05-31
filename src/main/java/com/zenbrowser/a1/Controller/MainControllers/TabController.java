@@ -97,6 +97,7 @@ public class TabController extends ParentController implements Initializable {
         //TODO: Do this another way
         currentTab.setGoToPageBlocked(() -> navigatePage("/com/zenbrowser/a1/PageBlocked.fxml","Page Blocked"));
         loadPage(defaultEngine);
+
     }
 
     //TODO: Replace this placeholder method and add selection for profiles on tab controller and from profile page. Counting down clock would be good.
@@ -122,7 +123,17 @@ public class TabController extends ParentController implements Initializable {
 
     private void loadPage(String urlStr)
     {
-        try{
+        try {
+            currentTab.getWebEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
+                if (newState == Worker.State.SUCCEEDED) {
+                    currentTab.setText(currentTab.getWebEngine().getTitle());
+                    URLBox.setText(currentTab.getWebEngine().getLocation());
+                } else if (newState == Worker.State.FAILED || newState == Worker.State.CANCELLED) {
+                    System.out.println("Page failed to load.");
+                }
+            });
+            currentTab.getWebEngine().setJavaScriptEnabled(true); // Ensure JavaScript is enabled
+            currentTab.getWebEngine().setUserAgent("ZenBrowser 1.0"); // Set custom user agent
             currentTab.getWebEngine().load(urlStr);
             currentTab.setPage(borderPane, currentTab.getWebView());
 
@@ -139,6 +150,9 @@ public class TabController extends ParentController implements Initializable {
     private void loadingListener(browserTab tab){
         tab.getWebEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
             if (newState == Worker.State.SUCCEEDED) {
+                currentTab.setText("");
+                currentTab.setText(currentTab.getWebEngine().getTitle());
+                URLBox.setText(currentTab.getWebEngine().getLocation());
                 WebHistory.Entry entry = tab.getRecentHistory();
                 HistoryDAO.insertHistoryRecord(new HistoryRecord(
                         getCurrentUser(),
