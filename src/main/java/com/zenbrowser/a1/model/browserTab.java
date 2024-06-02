@@ -2,6 +2,7 @@ package com.zenbrowser.a1.model;
 
 
 import com.zenbrowser.a1.Controller.MainControllers.TabController;
+import com.zenbrowser.a1.model.FocusProfile.ProfileDAO;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -92,7 +93,8 @@ public class browserTab extends Tab {
     }
 
     private boolean isBlocked(String url) {
-        return blockedSites.stream().anyMatch(url::contains);
+        return blockedSites.stream().anyMatch(ProfileDAO.parseURL(url)::equals);
+//        return blockedSites.stream().anyMatch(url::contains);
     }
 
     /**

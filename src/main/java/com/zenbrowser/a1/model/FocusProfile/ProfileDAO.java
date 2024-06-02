@@ -150,13 +150,10 @@ public class ProfileDAO implements IProfileDAO {
      * @return domain name; if already valid, returns url
      */
     public static String parseURL(String url) {
-        System.out.println("parse: " + url + "->");
-
         Pattern p = Pattern.compile("(https?://)?(www\\.)?([^/]+)(/.*)?");
         Matcher m = p.matcher(url);
-        if (((Matcher) m).find()) {
+        if (m.find()) {
             url = m.group(3);
-            System.out.println("match: " + url);
         }
         return url;
     }
