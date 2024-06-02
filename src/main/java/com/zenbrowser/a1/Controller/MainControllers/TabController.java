@@ -1,3 +1,9 @@
+/**
+ The TabController class is part of the ZenBrowser application and manages the functionality and user interactions of
+ individual browser tabs. Extending ParentController and implementing Initializable, it initializes the browser tabs,
+ handles navigation, and manages user interactions such as loading web pages, switching tabs,
+ and setting search engine preferences.
+ **/
 package com.zenbrowser.a1.Controller.MainControllers;
 
 import java.io.*;
@@ -24,35 +30,29 @@ import javafx.stage.Stage;
 import com.zenbrowser.a1.model.browserTab;
 
 public class TabController extends ParentController implements Initializable {
+    //Set default search engine url
     private String defaultEngine = "https://www.google.com";
-    @FXML
-    private TextField URLBox;
-    @FXML
-    MenuItem homePageBackgroundImg;
-    @FXML
-    private RadioMenuItem googleMenuItm;
-    @FXML
-    private RadioMenuItem bingMenuItm;
-    @FXML
-    private Label homeLabel;
-    @FXML
-    private Label historyLabel;
-    @FXML
-    private Label ProfileLabel;
-    @FXML
-    private Label settingsLabel;
-    @FXML
-    private BorderPane borderPane;
-    @FXML
-    private TabPane tabPane;
-    @FXML
-    private Label greetingLabel;
 
+    //Inject FXML Fields
+    @FXML private TextField URLBox;
+    @FXML MenuItem homePageBackgroundImg;
+    @FXML private RadioMenuItem googleMenuItm;
+    @FXML private RadioMenuItem bingMenuItm;
+    @FXML private Label homeLabel;
+    @FXML private Label historyLabel;
+    @FXML private Label ProfileLabel;
+    @FXML private Label settingsLabel;
+    @FXML private BorderPane borderPane;
+    @FXML private TabPane tabPane;
+    @FXML private Label greetingLabel;
+
+    //Current Browser Tab
     private browserTab currentTab;
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //Create a new tab upon initialization
         newTabFunction();
 
         // Add a listener to tab selection event.
@@ -60,20 +60,17 @@ public class TabController extends ParentController implements Initializable {
             if (newTab != null) {
                 UpdatePage();
             } else {
+                //Close the Application if no tabs are open
                 Stage stageInstanance = (Stage) borderPane.getScene().getWindow();
                 stageInstanance.close();
             }
         });
-
+        // Display Greeting message to user
         if (super.getCurrentUser() != null){
             String greeting = String.format("Welcome to zenbrowser, %s!", getCurrentUser());
             greetingLabel.setText(greeting);
         }
         else {  greetingLabel.setText("Welcome to zenbrowser!");}
-
-        //this.colorPicker.setOnAction((EventHandler) t -> System.out.println("Color chosen: " + TabController.this.colorPicker.getValue()));
-
-        //currentTab.setBlocklist(ProfileDAO);
     }
 
     //Create new tab function.
@@ -93,14 +90,12 @@ public class TabController extends ParentController implements Initializable {
 
         UpdatePage();
         testProfileSelector();
-
-        //TODO: Do this another way
+        //if current tab is blocked change to Page Blocked
         currentTab.setGoToPageBlocked(() -> navigatePage("/com/zenbrowser/a1/PageBlocked.fxml","Page Blocked"));
         loadPage(defaultEngine);
 
     }
-
-    //TODO: Replace this placeholder method and add selection for profiles on tab controller and from profile page. Counting down clock would be good.
+    //Method for selecting profiles
     private void testProfileSelector(){
         List<String> blockedURLs = new ArrayList<>();
         for (Profile profile : ProfileDAO.getUserProfiles(getCurrentUser())){
@@ -121,9 +116,11 @@ public class TabController extends ParentController implements Initializable {
         } catch (IOException e) {e.printStackTrace();}
     }
 
+    // Load a page with the specified URL
     private void loadPage(String urlStr)
     {
         try {
+            // Add a listener for the load worker state
             currentTab.getWebEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
                 if (newState == Worker.State.SUCCEEDED) {
                     currentTab.setText(currentTab.getWebEngine().getTitle());
@@ -142,11 +139,13 @@ public class TabController extends ParentController implements Initializable {
         }
     }
 
+    // Update the current tab's content
     private void UpdatePage(){
         currentTab = (browserTab) tabPane.getSelectionModel().getSelectedItem();
         borderPane.setCenter(currentTab.getPage());
     }
 
+    // Add a listener for when the tab successfully loads
     private void loadingListener(browserTab tab){
         tab.getWebEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
             if (newState == Worker.State.SUCCEEDED) {
@@ -165,12 +164,14 @@ public class TabController extends ParentController implements Initializable {
         });
     }
 
+    // Handler for closing tabs
     private void setupTabCloseHandler(Tab tab) {
         tab.setOnCloseRequest(event -> {
             tabPane.setMinWidth(tabPane.getWidth() - tabPane.getTabMaxWidth() - 13);
         });
     }
 
+    // Adjust the tab pane width dynamically
     private void AdjustTabpane(){
         //Create a buffer so tabs can be dynamically extended on browser.
         if (tabPane.getWidth() < borderPane.getWidth() * 0.8){
@@ -178,6 +179,7 @@ public class TabController extends ParentController implements Initializable {
         }
     }
 
+    // Format the URL with the search engine name and query
     private String formatUrl(String engineName, String query) {
         if (query.startsWith(engineName))
             return query;
@@ -187,27 +189,30 @@ public class TabController extends ParentController implements Initializable {
     }
 
 
-
+    // Navigate to the home page
     @FXML
     private void GoToHomePage() { loadPage(defaultEngine);}
 
+    // Logout the user and start the authentication application
     @FXML
     private void LogoutUser() throws IOException {
         new AuthenticationApplication().start(new Stage());
         ((Stage) borderPane.getScene().getWindow()).close();
     }
 
-
+    // Navigate to the history page
     @FXML
     private void GoToHistoryPage() {navigatePage("/com/zenbrowser/a1/history-view.fxml","History");}
 
+    // Navigate to the usage reports page
     @FXML
     private void goUsageReports() {navigatePage("/com/zenbrowser/a1/usageInsights.fxml","Usage Report");}
 
+    // Navigate to the profile limits page
     @FXML
     private void goProfileLimits() {navigatePage("/com/zenbrowser/a1/ProfileLimits.fxml","Zen Profiles");}
 
-
+    // Navigate to the previous page in the browser history
     @FXML
     private void GoToPreviousPage() {
         ObservableList<WebHistory.Entry> entryList = currentTab.getHistory().getEntries();
@@ -215,6 +220,7 @@ public class TabController extends ParentController implements Initializable {
         Platform.runLater(() -> currentTab.getHistory().go(entryList.size() > 1 && currentIndex > 0 ? -1 : 0));
     }
 
+    // Navigate to the next page in the browser history
     @FXML
     private void GotoNextPage() {
         ObservableList<WebHistory.Entry> entryList = currentTab.getHistory().getEntries();
@@ -222,11 +228,13 @@ public class TabController extends ParentController implements Initializable {
         Platform.runLater(() -> currentTab.getHistory().go(entryList.size() > 1 && currentIndex < entryList.size() - 1 ? 1 : 0));
     }
 
+    // Reload the current page
     @FXML
     private void GoReloadPage() {
         currentTab.getWebEngine().reload();
     }
 
+    // Function to select a background image
     @FXML
     private void backgroundImgFunction() {
         Stage stage = new Stage();
@@ -236,6 +244,7 @@ public class TabController extends ParentController implements Initializable {
         System.out.println("You chose this file: " + file.getAbsolutePath());
     }
 
+    // Set the default search engine
     @FXML
     private String setEngine() {
         if (googleMenuItm.isSelected()) {
@@ -249,7 +258,7 @@ public class TabController extends ParentController implements Initializable {
         return null;
     }
 
-
+    // Handle the go button press event
     @FXML
     private void goButtonPressed() {
         String PromptedSearch = URLBox.getText();
@@ -270,101 +279,16 @@ public class TabController extends ParentController implements Initializable {
 
 
 
-
-    @FXML
-    private void settingsBtnHover() {settingsLabel.setText("Settings");}
-    @FXML
-    private void settingsBtnHoverExit() {settingsLabel.setText("");}
-    @FXML
-    private void homeBtnHover() {homeLabel.setText("Home");}
-
-    @FXML
-    private void homeBtnHoverExit() {homeLabel.setText("");}
-
-    @FXML
-    private void historyBtnHover() {historyLabel.setText("History");}
-
-    @FXML
-    private void historyBtnHoverExit() {historyLabel.setText("");}
-
-    @FXML
-    private void logoutBtnHover() {ProfileLabel.setText("Logout User");}
-
-    @FXML
-    private void logoutBtnHoverExit() {ProfileLabel.setText("");}
-
-    /**
-     public void setTabBackground(String imageFileLocation) {
-     ImageView iv = new ImageView();
-     Image img = new Image(imageFileLocation);
-     iv.setImage(img);
-     this.borderPane.setCenter(iv);
-     }
+    // Hover event handlers for button tooltips
+    @FXML private void settingsBtnHover() {settingsLabel.setText("Settings");}
+    @FXML private void settingsBtnHoverExit() {settingsLabel.setText("");}
+    @FXML private void homeBtnHover() {homeLabel.setText("Home");}
+    @FXML private void homeBtnHoverExit() {homeLabel.setText("");}
+    @FXML private void historyBtnHover() {historyLabel.setText("History");}
+    @FXML private void historyBtnHoverExit() {historyLabel.setText("");}
+    @FXML private void logoutBtnHover() {ProfileLabel.setText("Logout User");}
+    @FXML private void logoutBtnHoverExit() {ProfileLabel.setText("");}
 
 
-    class MyBrowser extends Region {
-        public MyBrowser(final String url) {
-            currentTab.getWebEngine().getLoadWorker().stateProperty().addListener((ov, oldState, newState) -> {
-                ProgressIndicator progInd = new ProgressIndicator(-1.0);
-                progInd.setPrefHeight(17.0);
-                progInd.setPrefWidth(25.0);
-                currentTab.setGraphic(progInd);
-                ReloadButton.setText("X");
-                ReloadButton.setOnAction((e) -> {
-                    currentTab.setText("Aborted!");
-                    currentTab.setGraphic((Node)null);
-                });
-                if (newState == Worker.State.SUCCEEDED) {
-                    currentTab.setText(currentTab.getWebEngine().getTitle());
-                    URLBox.setText(currentTab.getWebEngine().getLocation());
-                    currentTab.setGraphic(loadFavicon(url));
-                    ReloadButton.setText("↺");
-                    EventListener var10000 = new EventListener() {
-                        public void handleEvent(Event ev) {
-                            System.out.println("You pressed on a link");
-                        }
-                    };
-                    Document doc = currentTab.getWebEngine().getDocument();
-                    NodeList el = doc.getElementsByTagName("a");
-
-                    for(int i = 0; i < el.getLength(); ++i) {
-                    }
-                }
-            });
-
-            currentTab.getWebEngine().setCreatePopupHandler((config) -> {
-                currentTab.getWebView().setFontScale(0.8);
-                if (!this.getChildren().contains(currentTab.getWebView())) {
-                    this.getChildren().add(currentTab.getWebView());
-                }
-
-                return currentTab.getWebView().getEngine();
-            });
-            currentTab.getWebEngine().load(url);
-        }
-
-        public ImageView loadFavicon(String location) {
-            try {
-                String faviconUrl;
-                if (currentTab.getWebEngine().getTitle().equalsIgnoreCase("Google")) {
-                    faviconUrl = "https://www.google.com/s2/favicons?domain_url=www.gmail.com";
-                } else {
-                    faviconUrl = String.format("http://www.google.com/s2/favicons?domain_url=%s", URLEncoder.encode(location, "UTF-8"));
-                }
-
-                Image favicon = new Image(faviconUrl, true);
-                ImageView iv;
-                if (favicon.equals(new Image("http://www.google.com/s2/favicons?domain_url=abc"))) {
-                    iv = new ImageView(new Image("file:Resources/home.png"));
-                    return iv;
-                } else {
-                    iv = new ImageView(favicon);
-                    return iv;
-                }
-            } catch (UnsupportedEncodingException var5) {
-                throw new RuntimeException(var5);
-            }
-        }
-    }**/
 }
 
