@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Bug as currentTab was being called before initalized.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Corrected various issues with web page loading and">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zenbrowser/a1/Controller/MainControllers/TabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/zenbrowser/a1/browserTab.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +102,7 @@
       <recent name="com.zenbrowser.a1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Login">
+  <component name="RunManager" selected="Application.BrowserApplication">
     <configuration name="BrowserApplication" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -178,14 +181,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Error when saving content into tab content as well as browser content as two instances. New method which sets container. Modifications to browsermain">
-      <option name="closed" value="true" />
-      <created>1715727555207</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1715727555207</updated>
     </task>
     <task id="LOCAL-00064" summary="Added getPage method to go with new setPage method. Modified to fix errors">
       <option name="closed" value="true" />
@@ -571,7 +566,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716401464071</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="Corrected various issues with web page loading and">
+      <option name="closed" value="true" />
+      <created>1717161988723</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1717161988724</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -604,7 +607,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Commented out unused code. Deleted home page and controller." />
     <MESSAGE value="Renamed incorrectly named history methods." />
     <MESSAGE value="Added user variable within profile to filter only currentUsers. Foreign key attached to user to check user exists." />
     <MESSAGE value="Major Refactoring. Added blockTime as constructor for profile, instead of hour,min variables. Return blockedUntil as a calculation from profile object. Large modifications to profilelimit controllers. Still fixing bugs." />
@@ -629,7 +631,8 @@
     <MESSAGE value="Recoded the blockedListener() method. Created a setBlocked method and a static string List which stores current blockedSites." />
     <MESSAGE value="Added placeholder method which gets all profiles and puts in browserclass." />
     <MESSAGE value="Bug as currentTab was being called before initalized." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug as currentTab was being called before initalized." />
+    <MESSAGE value="Corrected various issues with web page loading and" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrected various issues with web page loading and" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
