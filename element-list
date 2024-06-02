@@ -1,0 +1,10 @@
+module:com.zenbrowser.a1
+com.zenbrowser.a1
+com.zenbrowser.a1.Controller
+com.zenbrowser.a1.Controller.AuthenticationControllers
+com.zenbrowser.a1.Controller.MainControllers
+com.zenbrowser.a1.model
+com.zenbrowser.a1.model.Authentication
+com.zenbrowser.a1.model.BrowserUsage
+com.zenbrowser.a1.model.FocusProfile
+com.zenbrowser.a1.model.User
