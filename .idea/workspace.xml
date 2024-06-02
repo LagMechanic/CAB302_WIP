@@ -7,7 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="Adding Javadoc generation and publishing">
+    <list default="true" id="7f8572df-ed5b-4078-b3a1-8c48c4ec242c" name="Changes" comment="fixing Javadoc generation and publishing">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zenbrowser.db" beforeDir="false" afterPath="$PROJECT_DIR$/zenbrowser.db" afterDir="false" />
     </list>
@@ -178,14 +179,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713741135601</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Removed untilized history methods and variables.">
-      <option name="closed" value="true" />
-      <created>1715731018997</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1715731018997</updated>
     </task>
     <task id="LOCAL-00066" summary="Fixed home button error which would not load webview and display page not loaded error. Refactoring">
       <option name="closed" value="true" />
@@ -571,7 +564,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717300755072</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="fixing Javadoc generation and publishing">
+      <option name="closed" value="true" />
+      <created>1717301509735</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1717301509735</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -604,7 +605,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added user variable within profile to filter only currentUsers. Foreign key attached to user to check user exists." />
     <MESSAGE value="Major Refactoring. Added blockTime as constructor for profile, instead of hour,min variables. Return blockedUntil as a calculation from profile object. Large modifications to profilelimit controllers. Still fixing bugs." />
     <MESSAGE value="Changed all blocktime variables to time. Combined site functionality into profiles. Modified profile SQL tables. Changed profile methods.&#10;&#10;&#10;Commented out ISiteDAO.java, SiteDAO.java, Site.java, URLimit.java, ProfileLimitsApplication.java" />
     <MESSAGE value="Changed modifiers so controller variables and methods are not public." />
@@ -629,7 +629,8 @@
     <MESSAGE value="Bug as currentTab was being called before initalized." />
     <MESSAGE value="Corrected various issues with web page loading and" />
     <MESSAGE value="Adding Javadoc generation and publishing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Javadoc generation and publishing" />
+    <MESSAGE value="fixing Javadoc generation and publishing" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing Javadoc generation and publishing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
